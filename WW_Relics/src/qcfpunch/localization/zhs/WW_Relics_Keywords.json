@@ -1,0 +1,33 @@
+[
+	{
+	    "PROPER_NAME": "怒气槽",
+	    "NAMES": [
+	      "怒气槽"
+	    ],
+	    "DESCRIPTION": "积攒满一行能当能量使用。"
+	},
+
+	{
+	    "PROPER_NAME": "眩晕",
+	    "NAMES": [
+	      "眩晕"
+	    ],
+	    "DESCRIPTION": "目标行动不能。"
+	},
+	
+	{
+	    "PROPER_NAME": "乱动",
+	    "NAMES": [
+	      "乱动"
+	    ],
+	    "DESCRIPTION": "格挡每回合将会下降。"
+	},
+	
+	{
+	    "PROPER_NAME": "“最强流”",
+	    "NAMES": [
+	      "“最强流”"
+	    ],
+	    "DESCRIPTION": "“最强”且带有 #y消耗 和 #y虚无 的牌。"
+	}
+]

@@ -1,0 +1,46 @@
+{
+	"qcfpunch:BlazingFist": {
+		"NAME": "炙热龙拳",
+		"DESCRIPTION": "初始拥有黑色训练衬衫，红色道服和不灭烈火"
+	},
+	
+	"qcfpunch:BlueJade": {
+		"NAME": "玉兰花",
+		"DESCRIPTION": "初始拥有护手刺，白靴和手铐。"
+	},
+	
+	"qcfpunch:FreshStart": {
+		"NAME": "清新开局",
+		"DESCRIPTION": "开局不带初始遗物。"
+	},
+	
+	"qcfpunch:HalfHealthBar": {
+		"NAME": "半血",
+		"DESCRIPTION": "开局拥有 50% 的生命上限。"
+	},
+
+	"qcfpunch:IndestructibleFortress": {
+		"NAME": "不动要塞",
+		"DESCRIPTION": "初始拥有军靴，铭牌和迷彩服。"
+	},
+
+	"qcfpunch:LoweringTheHandicap": {
+		"NAME": "降低门槛",
+		"DESCRIPTION": "开局拥有 125% 的生命上限。"
+	},
+	
+	"qcfpunch:QuarterHealthBar": {
+		"NAME": "红血",
+		"DESCRIPTION": "开局拥有 25% 的生命上限。"
+	},
+
+	"qcfpunch:WanderingWarrior": {
+		"NAME": "修行格斗家",
+		"DESCRIPTION": "初始拥有旅行袋，格斗手套和红色头带。"
+	},
+
+	"WWWWWWWWWWWWWWWWW": {
+		"NAME": "WWWWWWWWWWWWWWW",
+		"DESCRIPTION": "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW"
+	}
+}
