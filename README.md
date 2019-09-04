@@ -16,7 +16,7 @@ This mod follows the [Creative Commons Attribution 3.0 Unported](https://creativ
 
 # Current State
 
-Milestone 6 will be started after a break. (Nexus Mods' support after that)
+Working to add zhs translation made by [Rita-B](https://github.com/Rita-Bernstein), zhs translator extraordinaire. 
 
 # Link to Releases and Pre-Releases
 
