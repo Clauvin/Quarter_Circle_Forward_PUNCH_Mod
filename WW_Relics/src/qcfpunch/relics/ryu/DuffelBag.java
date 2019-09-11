@@ -168,21 +168,22 @@ public class DuffelBag extends CustomRelic {
 		flash();
 	}
 	
-	
+	private String createMessageFoundStuffInside(String name_of_stuff) {
+		logger.info(name_of_stuff);
+		if (name_of_stuff.compareTo("Bandage Up") == 0)
+			return DESCRIPTIONS[3] + DESCRIPTIONS[5] + DESCRIPTIONS[4];
+		
+		else return DESCRIPTIONS[3] + name_of_stuff + DESCRIPTIONS[4];
+	}	
 	
 	private void AddRelic() {
 		
 		AbstractRelic relic = AbstractDungeon.returnRandomRelic(RelicTier.COMMON);
-		AbstractDungeon.getCurrRoom().addRelicToRewards(relic);
+		RewardItem relic_reward = new RewardItem(relic);
+		relic_reward.text = createMessageFoundStuffInside(relic.name);
+		AbstractDungeon.getCurrRoom().rewards.add(relic_reward);
 		flash();
 
-	}
-	
-	private String createMessageFoundStuffInside(String name_of_stuff) {
-		if (name_of_stuff == "Bandage Up")
-			return DESCRIPTIONS[3] + DESCRIPTIONS[5] + DESCRIPTIONS[4];
-		
-		else return DESCRIPTIONS[3] + name_of_stuff + DESCRIPTIONS[4];
 	}
 	
 	public static void save(final SpireConfig config) {
