@@ -18,25 +18,25 @@ public class Cattail extends CustomRelic {
 	public static int HOW_MANY_ROOMS_TO_GIVE_SMOKE_BOMB = 7;
 	public static float WHICH_MAX_HP_PERCENTAGE_HEALED_WHEN_DEAD = 0.3f;
 	
-	private int rooms_left_to_give_second_smoke_bomb;
-	
 	public Cattail() {
 		super(ID, GraphicResources.LoadRelicImage("Temp Army Boots - steeltoe-boots - Lorc - CC BY 3.0.png"),
 				RelicTier.SHOP, LandingSound.MAGICAL);
 		
-		rooms_left_to_give_second_smoke_bomb = HOW_MANY_ROOMS_TO_GIVE_SMOKE_BOMB;
+		counter = HOW_MANY_ROOMS_TO_GIVE_SMOKE_BOMB;
 	}
 	
 	@Override
 	public void onEquip() {
+		flash();
 		AbstractDungeon.player.obtainPotion(new SmokeBomb());
 	}
 	
 	@Override
 	public void onEnterRoom(AbstractRoom room) {
-		rooms_left_to_give_second_smoke_bomb--;
+		counter--;
 		
-		if (rooms_left_to_give_second_smoke_bomb == 0) {
+		if (counter == 0) {
+			flash();
 			AbstractDungeon.player.obtainPotion(new SmokeBomb());
 		}
 	}
