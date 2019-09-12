@@ -18,12 +18,22 @@
     ]
   },
   
+  "qcfpunch:Broken_Tusk": {
+    "NAME": "Broken Tusk",
+    "FLAVOR": "Some things are very hard to forgive.",
+    "DESCRIPTIONS": [
+      "The first #rCurse or #rStatus drawn each turn give you #b",
+      " extra damage for your Attacks that turn."
+    ]
+  },
+  
+  
   "qcfpunch:Cattail": {
     "NAME": "Cattail",
     "FLAVOR": "It feels like it shouldn't be here, and that meaning becomes solid in your hands.",
     "DESCRIPTIONS": [
-      "Upon pickup and after 7 rooms, gain #b",
-      "Smoke Bomb."
+      "Upon pickup and after #b",
+      " rooms, gain #b1 Smoke Bomb."
     ]
   },
   
