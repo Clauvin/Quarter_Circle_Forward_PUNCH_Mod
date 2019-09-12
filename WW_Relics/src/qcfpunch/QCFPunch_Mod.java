@@ -28,6 +28,7 @@ import qcfpunch.monsters.elites.TiredGremlinNob;
 import qcfpunch.potions.ChallengerCoin;
 
 import qcfpunch.relics.chun_li.*;
+import qcfpunch.relics.dhalsim.Cattail;
 import qcfpunch.relics.guile.*;
 import qcfpunch.relics.ken.*;
 import qcfpunch.relics.ryu.*;
@@ -167,6 +168,7 @@ public class QCFPunch_Mod implements AddCustomModeModsSubscriber, EditStringsSub
 		addGuileRelics();
 		addCammyRelics();
 		addZangiefRelics();
+		addDhalsimRelics();
 		addCharacterCameoRelics();
 		addGameCameoRelics();
 		logger.info("Done adding relics");
@@ -207,6 +209,10 @@ public class QCFPunch_Mod implements AddCustomModeModsSubscriber, EditStringsSub
 		BaseMod.addRelic(new WrestlersCloak(), RelicType.SHARED);
 		BaseMod.addRelic(new WildHerbsOintment(), RelicType.SHARED);
 		BaseMod.addRelic(new RedCycloneTeachings(), RelicType.SHARED);
+	}
+	
+	private void addDhalsimRelics() {
+		BaseMod.addRelic(new Cattail(), RelicType.SHARED);
 	}
 	
 	private void addCharacterCameoRelics() {
