@@ -18,6 +18,15 @@
     ]
   },
   
+  "qcfpunch:Cattail": {
+    "NAME": "Cattail",
+    "FLAVOR": "It feels like it shouldn't be here, and that meaning becomes solid in your hands.",
+    "DESCRIPTIONS": [
+      "Upon pickup and after 7 rooms, gain #b",
+      "Smoke Bomb."
+    ]
+  },
+  
   "qcfpunch:Chain_With_Nametags": {
     "NAME": "Chain With Nametags",
     "FLAVOR": "A surprisingly resilient chain with two faded nametags.",
