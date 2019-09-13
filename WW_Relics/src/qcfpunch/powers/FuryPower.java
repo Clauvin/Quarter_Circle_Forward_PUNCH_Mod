@@ -1,11 +1,21 @@
 package qcfpunch.powers;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.cards.DamageInfo.DamageType;
+import com.megacrit.cardcrawl.cards.AbstractCard.CardType;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
 import qcfpunch.QCFPunch_MiscCode;
@@ -18,6 +28,8 @@ public class FuryPower extends AbstractPower {
 			CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
 	public static final String NAME = powerStrings.NAME;
 	public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
+	
+	public static final Logger logger = LogManager.getLogger(FuryPower.class.getName());
 	
 	public FuryPower(AbstractCreature owner, int amount) {
 		
@@ -34,13 +46,44 @@ public class FuryPower extends AbstractPower {
 	public void updateDescription() {
 		this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];
 	}
-
-	public float atDamageGive(float damage, DamageInfo.DamageType type) {
-		if (type == DamageInfo.DamageType.NORMAL) {
+	
+	@Override
+	public void onPlayCard(AbstractCard c, AbstractMonster m) {
+		
+		if (c.type == CardType.ATTACK) {
+			
 			flash();
-			return damage += this.amount;
+			DamageInfo damage_info = new DamageInfo(AbstractDungeon.player, amount, DamageInfo.DamageType.THORNS);
+			
+			switch (c.target) {
+			
+				case ENEMY:
+					
+					AbstractDungeon.actionManager.addToBottom(
+							new DamageAction(m, damage_info));
+					break;
+					
+				case ALL_ENEMY:
+					
+					int[] multi_damage = c.multiDamage;
+					
+					for (int i = 0; i < multi_damage.length; i++) {
+						
+						multi_damage[i] = amount;
+						
+					}
+					
+					AbstractDungeon.actionManager.addToBottom(
+							new DamageAllEnemiesAction(
+									AbstractDungeon.player,
+									multi_damage, DamageType.THORNS,
+									AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+					break;
+					
+				default:
+					break;
+			}
 		}
-		return damage;
 	}
 
 
