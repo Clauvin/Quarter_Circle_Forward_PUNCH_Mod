@@ -22,8 +22,8 @@
     "NAME": "Broken Tusk",
     "FLAVOR": "Some things are very hard to forgive.",
     "DESCRIPTIONS": [
-      "The first #rCurse or #rStatus drawn each turn give you #b",
-      " extra damage for your Attacks that turn."
+      "The first #rCurse or #rStatus drawn each turn gives one extra #b",
+      " damage hit for your Attacks that turn."
     ]
   },
   
