@@ -67,6 +67,8 @@ public class FuryPower extends AbstractPower {
 					
 					int[] multi_damage = c.multiDamage;
 					
+					if (multi_damage == null) return;
+					
 					for (int i = 0; i < multi_damage.length; i++) {
 						
 						multi_damage[i] = amount;
