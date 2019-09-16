@@ -41,12 +41,12 @@ public class WeakestEnergyBlastParticleEffect extends AbstractGameEffect {
     public WeakestEnergyBlastParticleEffect(final float sX, final float sY,
     		final float tX, final float tY, final Color ballColor, final Color secondaryColor) {
     	
-    	this(sX, sY, tX, tY, ballColor, secondaryColor, 1.0f);
+    	this(sX, sY, tX, tY, ballColor, secondaryColor, 1.0f, 0.8f);
     	
     }
     public WeakestEnergyBlastParticleEffect(final float sX, final float sY,
     		final float tX, final float tY, final Color ballColor,
-    		final Color secondaryColor, float drawScale) {
+    		final Color secondaryColor, float drawScale, float starting_duration) {
     	
         this.activated = false;
         this.img = ImageMaster.GLOW_SPARK_2;
@@ -59,7 +59,7 @@ public class WeakestEnergyBlastParticleEffect extends AbstractGameEffect {
         this.current_x = this.starting_point_X;
         this.current_y = this.starting_point_Y;
         this.scale = 0.01f;
-        this.startingDuration = 0.8f;
+        this.startingDuration = starting_duration;
         this.duration = this.startingDuration;
         this.renderBehind = MathUtils.randomBoolean(0.2f);
         this.color = ballColor;
