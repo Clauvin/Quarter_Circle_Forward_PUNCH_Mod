@@ -57,7 +57,8 @@ public class WeakestEnergyBlast extends CustomCard {
 	    	
 	    	AbstractDungeon.actionManager.addToBottom(
 	    			new VFXAction(new WeakestEnergyBlastParticleEffect(
-	    					player.hb.cX, player.hb.cY,
+	    					player.hb.cX + player.hb.width,
+	    					player.hb.cY + player.hb.height/2,
 	    					monster.hb.cX, monster.hb.cY,
 	    					new Color(0.9f, 0.9f, 0.9f, 1.0f),
 	    					new Color(0.66f, 0.33f, 0.99f, 0.5f), 1.0f, fx_duration),
