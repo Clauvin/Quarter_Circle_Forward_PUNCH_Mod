@@ -1,5 +1,6 @@
 package qcfpunch.cards.dan;
 
+import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -7,6 +8,7 @@ import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -14,6 +16,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import basemod.abstracts.CustomCard;
 import qcfpunch.QCFPunch_MiscCode;
 import qcfpunch.powers.PotentialPower;
+import qcfpunch.vfx.combat.WeakestEnergyBlastParticleEffect;
 
 public class WeakestEnergyBlast extends CustomCard {
 
@@ -25,6 +28,8 @@ public class WeakestEnergyBlast extends CustomCard {
     private static final int ATTACK_DMG = 3;
     private static final int POTENTIAL_NUMERATOR = 1;
     private static final int POTENTIAL_DENOMINATOR = 3;
+    private static final float FX_DURATION = 2.0f;
+    private static final float FAST_FX_DURATION = FX_DURATION/2;
 	
 	public WeakestEnergyBlast() {
 		super(ID, WeakestEnergyBlast.NAME, QCFPunch_MiscCode.returnCardsImageMainFolder() + "temp_attack.png",
@@ -45,9 +50,18 @@ public class WeakestEnergyBlast extends CustomCard {
 	public void use(AbstractPlayer player, AbstractMonster monster) {
 		
 	    if (monster != null) {
+	    	
+	    	float fx_duration;
+	    	if (Settings.FAST_MODE) fx_duration = FAST_FX_DURATION;
+	    	else fx_duration = FX_DURATION;
+	    	
 	    	AbstractDungeon.actionManager.addToBottom(
-	    			new VFXAction(new WeakestEnergyBlastEffect(
-	    					player.hb.cX, player.hb.cY, mon1.hb.cX, mon1.hb.cY, 1), 0.6f));));
+	    			new VFXAction(new WeakestEnergyBlastParticleEffect(
+	    					player.hb.cX, player.hb.cY,
+	    					monster.hb.cX, monster.hb.cY,
+	    					new Color(0.0f, 0.0f, 1.0f, 1.0f),
+	    					new Color(0.0f, 0.0f, 0.5f, 0.5f), 1.0f, fx_duration),
+	    					0.6f));
 	    	
 	        AbstractDungeon.actionManager.addToBottom(
 	        		new DamageAction(monster, new DamageInfo(player,
