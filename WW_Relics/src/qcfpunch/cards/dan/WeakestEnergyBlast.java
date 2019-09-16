@@ -66,7 +66,7 @@ public class WeakestEnergyBlast extends CustomCard {
 	        AbstractDungeon.actionManager.addToBottom(
 	        		new DamageAction(monster, new DamageInfo(player,
 	        				this.damage, this.damageTypeForTurn),
-	        				AbstractGameAction.AttackEffect.BLUNT_HEAVY));
+	        				AbstractGameAction.AttackEffect.BLUNT_LIGHT));
 	    }
 		
         AbstractDungeon.actionManager.addToBottom(
