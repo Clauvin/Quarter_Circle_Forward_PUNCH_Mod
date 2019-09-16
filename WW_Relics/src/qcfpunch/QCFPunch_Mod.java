@@ -276,6 +276,7 @@ public class QCFPunch_Mod implements AddCustomModeModsSubscriber, EditStringsSub
 		}
 	}
 	
+	
     @Override
     public void receivePostDungeonInitialize() {     
         if (isCustomModActive(EasierRunModifiers.LOWERING_THE_HANDICAP_ID)) {

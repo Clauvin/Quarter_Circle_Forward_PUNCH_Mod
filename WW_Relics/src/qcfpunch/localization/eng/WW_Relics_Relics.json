@@ -235,7 +235,7 @@
     "FLAVOR": "Made from herbs commonly found in siberian climate. Good for deep cuts and lacerations.",
     "DESCRIPTIONS": [
     	"If you start a combat with more than #b",
-    	"% #yMax #yHP and end it with less #b",
+    	"% #yMax #yHP and end it with, at most, less #b",
     	"% #yMax #yHP, gain #b",
     	" #yMax #yHP."
     
