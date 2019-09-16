@@ -74,7 +74,7 @@ public class WeakestEnergyBlast extends CustomCard {
         				new PotentialPower(player, POTENTIAL_NUMERATOR,
         						POTENTIAL_DENOMINATOR)));
 	}
-	
+
 	static {
         cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
         NAME = WeakestEnergyBlast.cardStrings.NAME;
