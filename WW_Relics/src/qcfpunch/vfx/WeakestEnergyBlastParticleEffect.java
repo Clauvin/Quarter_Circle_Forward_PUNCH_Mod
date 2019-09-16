@@ -71,15 +71,16 @@ public class WeakestEnergyBlastParticleEffect extends AbstractGameEffect {
     
     @Override
     public void update() {
-        if (this.duration > this.startingDuration / 2.0f) {
-            this.scale = Interpolation.pow3In.apply(2.5f, this.startingDuration / 2.0f, (this.duration - this.startingDuration / 2.0f) / (this.startingDuration / 2.0f)) * Settings.scale;
-            this.current_x = Interpolation.swingIn.apply(this.starting_point_X, this.vX, (this.duration - this.startingDuration / 2.0f) / (this.startingDuration / 2.0f));
-            this.current_y = Interpolation.swingIn.apply(this.starting_point_Y, this.vY, (this.duration - this.startingDuration / 2.0f) / (this.startingDuration / 2.0f));
-        }
-        else {
+        if (this.duration < this.startingDuration / 2.0f) {
             this.scale = Interpolation.pow3Out.apply(2.0f, 2.5f, this.duration / (this.startingDuration / 2.0f)) * Settings.scale;
             this.current_x = Interpolation.swingOut.apply(this.target_X, this.vX, this.duration / (this.startingDuration / 2.0f));
             this.current_y = Interpolation.swingOut.apply(this.target_Y, this.vY, this.duration / (this.startingDuration / 2.0f));
+        }
+        else
+        {
+        	this.scale = Interpolation.pow3In.apply(2.5f, this.startingDuration / 2.0f, (this.duration - this.startingDuration / 2.0f) / (this.startingDuration / 2.0f)) * Settings.scale;
+            this.current_x = Interpolation.swingIn.apply(this.starting_point_X, this.vX, (this.duration - this.startingDuration / 2.0f) / (this.startingDuration / 2.0f));
+            this.current_y = Interpolation.swingIn.apply(this.starting_point_Y, this.vY, (this.duration - this.startingDuration / 2.0f) / (this.startingDuration / 2.0f));
         }
         this.duration -= Gdx.graphics.getDeltaTime();
         if (this.duration < this.startingDuration / 2.0f && !this.activated) {
