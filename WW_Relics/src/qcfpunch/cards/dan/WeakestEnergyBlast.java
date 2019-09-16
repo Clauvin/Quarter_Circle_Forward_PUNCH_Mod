@@ -28,7 +28,7 @@ public class WeakestEnergyBlast extends CustomCard {
     private static final int ATTACK_DMG = 3;
     private static final int POTENTIAL_NUMERATOR = 1;
     private static final int POTENTIAL_DENOMINATOR = 3;
-    private static final float FX_DURATION = 2.0f;
+    private static final float FX_DURATION = 3.0f;
     private static final float FAST_FX_DURATION = FX_DURATION/2;
 	
 	public WeakestEnergyBlast() {
