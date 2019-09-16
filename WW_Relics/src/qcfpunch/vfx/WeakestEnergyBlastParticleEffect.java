@@ -88,8 +88,7 @@ public class WeakestEnergyBlastParticleEffect extends AbstractGameEffect {
             this.starting_point_Y = this.current_y;
         }
         if (this.duration < 0.0f) {
-            AbstractDungeon.effectsQueue.add(new AdditiveSlashImpactEffect(this.target_X, this.target_Y, this.color.cpy()));
-            CardCrawlGame.screenShake.shake(ScreenShake.ShakeIntensity.MED, ScreenShake.ShakeDur.SHORT, MathUtils.randomBoolean());
+            CardCrawlGame.screenShake.shake(ScreenShake.ShakeIntensity.LOW, ScreenShake.ShakeDur.SHORT, MathUtils.randomBoolean());
             this.isDone = true;
         }
     }
