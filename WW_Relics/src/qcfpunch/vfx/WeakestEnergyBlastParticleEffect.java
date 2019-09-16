@@ -15,6 +15,8 @@ import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 import com.megacrit.cardcrawl.vfx.combat.AdditiveSlashImpactEffect;
 
 //base code from Saiyajin's KiBallParticleEffect.java
+// address below:
+// https://github.com/IGHARARI/Saiyajin/blob/8eca01666babb8417a3c1efe2b5fa9b49bd36b31/src/main/java/sts/saiyajin/ui/vfx/KiBallParticleEffect.java
 
 public class WeakestEnergyBlastParticleEffect extends AbstractGameEffect {
 
