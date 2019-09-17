@@ -1,32 +1,32 @@
 {
   	"qcfpunch:Defend_Weakest": {
     	"NAME": "Weakest Block",
-    	"DESCRIPTION": "Exhaust. NL Gain !B! Block. NL Ethereal."
+    	"DESCRIPTION": "Ethereal. NL Gain !B! Block. NL Exhaust."
   	},
 
 	"qcfpunch:Strike_Weakest": {
     	"NAME": "Weakest Strike",
-    	"DESCRIPTION": "Exhaust. NL Deal !D! damage. NL Ethereal."
+    	"DESCRIPTION": "Ethereal. NL Deal !D! damage. NL Exhaust."
   	},
   	
 	"qcfpunch:WeakestEnergyBlast": {
     	"NAME": "Weakest Energy Blast",
-    	"DESCRIPTION": "Exhaust. NL Deal !D! damage. NL Gain 1/3 qcfpunch:Potential.  NL Ethereal."
+    	"DESCRIPTION": "Ethereal. NL Deal !D! damage. NL Gain 1/3 qcfpunch:Potential. NL Exhaust."
 	},
 	
 	"qcfpunch:WeakestFlyingKick": {
     	"NAME": "Weakest Flying Kick",
-    	"DESCRIPTION": "Exhaust. NL Deal !D! damage. NL Ethereal."
+    	"DESCRIPTION": "Ethereal. NL Deal !D! damage. NL Exhaust."
 	},
 
 	"qcfpunch:WeakestProvocation": {
     	"NAME": "Weakest Provocation",
-    	"DESCRIPTION": "Exhaust. NL Apply 1 Vulnerable. NL Gain 1/3 qcfpunch:Potential. NL Ethereal."
+    	"DESCRIPTION": "Ethereal. NL Apply 1 Vulnerable. NL Gain 1/3 qcfpunch:Potential. NL Exhaust."
 	},
 	
 	"qcfpunch:WeakestTaunt": {
     	"NAME": "Weakest Taunt",
-    	"DESCRIPTION": "Exhaust. NL Apply 1 Weak. NL Gain 1/3 qcfpunch:Potential. NL Ethereal."
+    	"DESCRIPTION": "Ethereal. NL Apply 1 Weak. NL Gain 1/3 qcfpunch:Potential. NL Exhaust."
 	},
 
 	"WWWWWWWWWWWW": {
