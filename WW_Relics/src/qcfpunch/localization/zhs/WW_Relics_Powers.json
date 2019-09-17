@@ -37,6 +37,14 @@
     "DESCRIPTIONS": [
       "每回合开始时，将一张 #y“最强流” 牌加入你的手牌。"
     ]
-  }
+  },
   
+    "qcfpunch:Power_Wild_Herbs_Ointment": {
+    "NAME": "野药膏",
+    "DESCRIPTIONS": [
+      "如果你在战斗结束时最多拥有 #b",
+      " #y生命 ，获得 #b",
+      " #y最大生命。"
+  	]
+  }
 }
