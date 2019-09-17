@@ -2,9 +2,11 @@ package qcfpunch.cards.dan;
 
 import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.animations.AnimateFastAttackAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -28,8 +30,9 @@ public class WeakestEnergyBlast extends CustomCard {
     private static final int ATTACK_DMG = 3;
     private static final int POTENTIAL_NUMERATOR = 1;
     private static final int POTENTIAL_DENOMINATOR = 3;
-    private static final float FX_DURATION = 3.0f;
+    private static final float FX_DURATION = 2.0f;
     private static final float FAST_FX_DURATION = FX_DURATION/2;
+    private static final float HUH_DURATION = 0.5f;
 	
 	public WeakestEnergyBlast() {
 		super(ID, WeakestEnergyBlast.NAME, QCFPunch_MiscCode.returnCardsImageMainFolder() + "temp_attack.png",
@@ -57,12 +60,18 @@ public class WeakestEnergyBlast extends CustomCard {
 	    	
 	    	AbstractDungeon.actionManager.addToBottom(
 	    			new VFXAction(new WeakestEnergyBlastParticleEffect(
-	    					player.hb.cX + player.hb.width,
-	    					player.hb.cY + player.hb.height/2,
+	    					player.hb.cX,
+	    					player.hb.cY,
 	    					monster.hb.cX, monster.hb.cY,
 	    					new Color(0.9f, 0.9f, 0.9f, 1.0f),
 	    					new Color(0.66f, 0.33f, 0.99f, 0.5f), 1.0f, fx_duration),
-	    					0.6f));
+	    					fx_duration));
+	    	
+	    	AbstractDungeon.actionManager.addToBottom(
+	    			new WaitAction(HUH_DURATION));
+	    	
+	    	AbstractDungeon.actionManager.addToBottom(
+	    			new AnimateFastAttackAction(player));
 	    	
 	        AbstractDungeon.actionManager.addToBottom(
 	        		new DamageAction(monster, new DamageInfo(player,
