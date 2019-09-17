@@ -27,9 +27,11 @@ public class WeakestEnergyBlastParticleEffect extends AbstractGameEffect {
     private float vY;
     private float vX;
     private TextureAtlas.AtlasRegion img;
-    private boolean activated;
     private Color secondary_color;
     private float draw_scale;
+    
+    private Color true_color;
+    private Color true_secondary_color;
     
     public WeakestEnergyBlastParticleEffect(final float sX, final float sY,
     		final float tX, final float tY, final Color ballColor) {
@@ -48,47 +50,50 @@ public class WeakestEnergyBlastParticleEffect extends AbstractGameEffect {
     		final float tX, final float tY, final Color ballColor,
     		final Color secondaryColor, float drawScale, float starting_duration) {
     	
-        this.activated = false;
         this.img = ImageMaster.GLOW_SPARK_2;
         this.starting_point_X = sX + MathUtils.random(-15.0f, 15.0f) * Settings.scale;
-        this.starting_point_Y = sY + MathUtils.random(-90.0f, 90.0f) * Settings.scale;
-        this.target_X = tX + MathUtils.random(-25.0f, 25.0f) * Settings.scale;
-        this.target_Y = tY + MathUtils.random(-50.0f, 50.0f) * Settings.scale;
-        this.vX = this.starting_point_X + MathUtils.random(-100.0f, 100.0f) * Settings.scale;
-        this.vY = this.starting_point_Y + MathUtils.random(-200.0f, 200.0f) * Settings.scale;
+        this.starting_point_Y = sY + MathUtils.random(-10.0f, 10.0f) * Settings.scale;;
+        
+        if (tX < this.starting_point_X) this.target_X = tX + 200.0f * Settings.scale;
+        else this.target_X = tX - 200.0f * Settings.scale;
+        
+        this.target_Y = tY + MathUtils.random(-30.0f, 30.0f) * Settings.scale;
+        this.vX = this.starting_point_X;
+        this.vY = this.starting_point_Y;
         this.current_x = this.starting_point_X;
         this.current_y = this.starting_point_Y;
-        this.scale = 0.01f;
+        this.scale = 1.0f;
         this.startingDuration = starting_duration;
         this.duration = this.startingDuration;
         this.renderBehind = MathUtils.randomBoolean(0.2f);
         this.color = ballColor;
         this.secondary_color = secondaryColor;
         this.draw_scale = drawScale;
+        
+        this.true_color = this.color;
+        this.true_secondary_color = this.secondary_color;
     }
     
     @Override
     public void update() {
-        this.scale = Interpolation.pow3Out.apply(2.0f, 2.5f, this.duration) * Settings.scale;
-        this.current_x = Interpolation.swingOut.apply(this.target_X, this.vX, this.duration);
-        this.current_y = Interpolation.swingOut.apply(this.target_Y, this.vY, this.duration);
+    	if ((duration >= 0.0f) && (!this.isDone)) {
+    		this.current_x = Interpolation.linear.apply(this.target_X, this.vX, this.duration);
+            this.current_y = Interpolation.linear.apply(this.target_Y, this.vY, this.duration);	
+    	}
         
         this.duration -= Gdx.graphics.getDeltaTime();
-        if (this.duration < this.startingDuration / 2.0f && !this.activated) {
-            this.activated = true;
-            this.starting_point_X = this.current_x;
-            this.starting_point_Y = this.current_y;
-        }
+
         if (this.duration < 0.0f) {
-            CardCrawlGame.screenShake.shake(ScreenShake.ShakeIntensity.LOW, ScreenShake.ShakeDur.SHORT, MathUtils.randomBoolean());
             this.isDone = true;
         }
     }
     
     @Override
     public void render(final SpriteBatch sb) {
-        sb.setColor(secondary_color);
+    	true_secondary_color.a = secondary_color.a * (this.duration / this.startingDuration);
+        sb.setColor(true_secondary_color);
         sb.draw(this.img, this.current_x, this.current_y, this.img.packedWidth / 2.0f, this.img.packedHeight / 2.0f, this.img.packedWidth, this.img.packedHeight, this.scale * (this.draw_scale+1f), this.scale * (this.draw_scale+1f), this.rotation);
+        true_color.a = color.a * (this.duration / this.startingDuration);
         sb.setColor(this.color);
         sb.draw(this.img, this.current_x, this.current_y, this.img.packedWidth / 2.0f, this.img.packedHeight / 2.0f, this.img.packedWidth, this.img.packedHeight, this.scale*this.draw_scale, this.scale*this.draw_scale, this.rotation);
     }
