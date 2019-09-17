@@ -69,7 +69,7 @@ public class QCFPunch_Mod implements AddCustomModeModsSubscriber, EditStringsSub
 		
 		logger.info("begin editing keywords");
 		
-        String language = Settings.language.name().toLowerCase();
+        String language = Settings.language.toString().toLowerCase();
         if (!language.equals(INITIAL_LANGUAGE)) {
             try {
                 logger.info("inserting " + language + " keywords.");
@@ -116,8 +116,8 @@ public class QCFPunch_Mod implements AddCustomModeModsSubscriber, EditStringsSub
 	public void receiveEditStrings()
 	{
 	    logger.info("begin editing strings");
-	    
-	    String language = Settings.language.name().toLowerCase();
+
+	    String language = Settings.language.toString().toLowerCase();
 	    
 	    if (!language.equals(INITIAL_LANGUAGE)) {
             try {
