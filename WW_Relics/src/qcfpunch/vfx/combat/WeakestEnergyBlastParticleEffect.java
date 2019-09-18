@@ -49,7 +49,7 @@ public class WeakestEnergyBlastParticleEffect extends AbstractGameEffect {
     		final Color secondaryColor, float drawScale, float starting_duration) {
     	
         this.img = ImageMaster.GLOW_SPARK_2;
-        this.starting_point_X = sX + MathUtils.random(-15.0f, 15.0f) * Settings.scale;
+        this.starting_point_X = sX;
         this.starting_point_Y = sY + MathUtils.random(-10.0f, 10.0f) * Settings.scale;;
         
         if (tX < this.starting_point_X) this.target_X = tX + 200.0f * Settings.scale;

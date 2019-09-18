@@ -30,9 +30,10 @@ public class WeakestEnergyBlast extends CustomCard {
     private static final int ATTACK_DMG = 3;
     private static final int POTENTIAL_NUMERATOR = 1;
     private static final int POTENTIAL_DENOMINATOR = 3;
-    private static final float FX_DURATION = 2.0f;
-    private static final float FAST_FX_DURATION = FX_DURATION/2;
-    private static final float HUH_DURATION = 0.5f;
+    private static final float FX_DURATION = 1.15f;
+    private static final float FAST_FX_DURATION = 1.0f;
+    private static final float HUH_DURATION = 0.0f;
+    private static final float FAST_HUH_DURATION = 0.5f;
 	
 	public WeakestEnergyBlast() {
 		super(ID, WeakestEnergyBlast.NAME, QCFPunch_MiscCode.returnCardsImageMainFolder() + "temp_attack.png",
@@ -55,12 +56,18 @@ public class WeakestEnergyBlast extends CustomCard {
 	    if (monster != null) {
 	    	
 	    	float fx_duration;
-	    	if (Settings.FAST_MODE) fx_duration = FAST_FX_DURATION;
-	    	else fx_duration = FX_DURATION;
+	    	float huh_duration;
+	    	if (Settings.FAST_MODE) {
+	    		fx_duration = FAST_FX_DURATION;
+	    		huh_duration = FAST_HUH_DURATION;
+	    	} else {
+	    		fx_duration = FX_DURATION;
+	    		huh_duration = HUH_DURATION;
+	    	}
 	    	
 	    	AbstractDungeon.actionManager.addToBottom(
 	    			new VFXAction(new WeakestEnergyBlastParticleEffect(
-	    					player.hb.cX,
+	    					player.hb.cX + player.hb_w*1.1f,
 	    					player.hb.cY,
 	    					monster.hb.cX, monster.hb.cY,
 	    					new Color(0.9f, 0.9f, 0.9f, 1.0f),
@@ -68,7 +75,7 @@ public class WeakestEnergyBlast extends CustomCard {
 	    					fx_duration));
 	    	
 	    	AbstractDungeon.actionManager.addToBottom(
-	    			new WaitAction(HUH_DURATION));
+	    			new WaitAction(huh_duration));
 	    	
 	    	AbstractDungeon.actionManager.addToBottom(
 	    			new AnimateFastAttackAction(player));
