@@ -73,7 +73,7 @@
     ]
   },
   
-    "qcfpunch:Green_Leotard": {
+  "qcfpunch:Green_Leotard": {
     "NAME": "很不寻常，但很好的移动不受阻碍，因为没有什么可以上路。绿色紧身衣",
     "FLAVOR": "很不寻常，但移动并不会受阻，至少没有什么太紧的地方。",
     "DESCRIPTIONS": [
@@ -116,7 +116,7 @@
     ]
   },
   
-    "qcfpunch:Red_Cyclone_Teachings": {
+  "qcfpunch:Red_Cyclone_Teachings": {
     "NAME": "红旋风指南",
     "FLAVOR": "“‘因为在祖国俄罗斯，你打倒了熊！’……什么什么，什么熊，什么母亲？” - 兰伟德。",
     "DESCRIPTIONS": [
@@ -209,6 +209,7 @@
 	  " 每抽到的 #b第三张攻击牌 变为造成 #y2X+",
 	  " 点伤害。"
     ]
+
    }, 
   "qcfpunch:Wild_Herbs_Ointment": {
     "NAME": "野药膏",

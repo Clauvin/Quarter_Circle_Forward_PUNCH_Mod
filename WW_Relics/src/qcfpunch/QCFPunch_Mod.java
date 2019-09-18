@@ -123,7 +123,7 @@ public class QCFPunch_Mod implements AddCustomModeModsSubscriber, EditStringsSub
 	    logger.info("begin editing strings");
 
 	    String language = Settings.language.toString().toLowerCase();
-	    
+
 	    if (!language.equals(INITIAL_LANGUAGE)) {
             try {
             	LoadMostJSONs(language);
@@ -278,7 +278,6 @@ public class QCFPunch_Mod implements AddCustomModeModsSubscriber, EditStringsSub
 		BaseMod.addRelic(new BrokenTusk(), RelicType.SHARED);
 		BaseMod.addRelic(new Cattail(), RelicType.SHARED);
 	}
-	
 	private void addCharacterCameoRelics() {
 		addDanRelics();
 		addSakuraRelics();
