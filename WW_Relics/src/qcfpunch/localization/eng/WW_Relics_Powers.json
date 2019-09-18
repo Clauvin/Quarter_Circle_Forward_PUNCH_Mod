@@ -6,6 +6,14 @@
       ", then lose this buff."
     ]
   },
+  
+  "qcfpunch:Power_Fury": {
+    "NAME": "Fury",
+    "DESCRIPTIONS": [
+      "Your attacks this turn do extra #b",
+      " damage."
+    ]
+  },
 
   "qcfpunch:Power_Potential": {
     "NAME": "Potential",

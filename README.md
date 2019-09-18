@@ -9,14 +9,16 @@ This mod follows the [Creative Commons Attribution 3.0 Unported](https://creativ
 
 # Content
 
-* Twenty-two relics done of 34+ planned, with temporary images and placeholder sounds.
+* Twenty-four relics done of 34+ planned, with temporary images and placeholder sounds.
 * Eight game modifiers, ranging from adding more relics at start to making the game harder.
 * Six cards, acessible through one specific relic.
 * One event, which is the gateway for two relics and one potion.
 
+* Most content above in English and simplified Chinese.
+
 # Current State
 
-Milestone 6 being done. (Nexus Mods' support after that)
+Working in Milestone 6's Dhalsim inspired relics.
 
 # Link to Releases and Pre-Releases
 
@@ -106,6 +108,8 @@ Kiooeht (https://github.com/kiooeht) for ModTheSpire (https://github.com/kiooeht
 AGAIN Kiooeht for StSLib (https://github.com/kiooeht/StSLib), because it helps a lot for modding :)
 
 The-Evil-Pickle, for the [Replay The Spire](https://github.com/The-Evil-Pickle/Replay-the-Spire) save/load code, it was the basis of the one used at this mod.
+
+[Rita Bernstein](https://github.com/Rita-Bernstein), for the simplified Chinese translation. 
 
 Thiago, for helping with finding some bugs in the 0.6.* versions.
 

@@ -30,6 +30,8 @@ import qcfpunch.monsters.elites.TiredGremlinNob;
 import qcfpunch.potions.ChallengerCoin;
 
 import qcfpunch.relics.chun_li.*;
+import qcfpunch.relics.dhalsim.BrokenTusk;
+import qcfpunch.relics.dhalsim.Cattail;
 import qcfpunch.relics.guile.*;
 import qcfpunch.relics.ken.*;
 import qcfpunch.relics.ryu.*;
@@ -72,7 +74,7 @@ public class QCFPunch_Mod implements AddCustomModeModsSubscriber, EditStringsSub
 		
 		logger.info("begin editing keywords");
 		
-        String language = Settings.language.name().toLowerCase();
+        String language = Settings.language.toString().toLowerCase();
         if (!language.equals(INITIAL_LANGUAGE)) {
             try {
                 logger.info("inserting " + language + " keywords.");
@@ -119,9 +121,9 @@ public class QCFPunch_Mod implements AddCustomModeModsSubscriber, EditStringsSub
 	public void receiveEditStrings()
 	{
 	    logger.info("begin editing strings");
-	    
-	    String language = Settings.language.name().toLowerCase();
-	    
+
+	    String language = Settings.language.toString().toLowerCase();
+
 	    if (!language.equals(INITIAL_LANGUAGE)) {
             try {
             	LoadMostJSONs(language);
@@ -229,6 +231,7 @@ public class QCFPunch_Mod implements AddCustomModeModsSubscriber, EditStringsSub
 		addGuileRelics();
 		addCammyRelics();
 		addZangiefRelics();
+		addDhalsimRelics();
 		addCharacterCameoRelics();
 		addGameCameoRelics();
 		logger.info("Done adding relics");
@@ -271,6 +274,10 @@ public class QCFPunch_Mod implements AddCustomModeModsSubscriber, EditStringsSub
 		BaseMod.addRelic(new RedCycloneTeachings(), RelicType.SHARED);
 	}
 	
+	private void addDhalsimRelics() {
+		BaseMod.addRelic(new BrokenTusk(), RelicType.SHARED);
+		BaseMod.addRelic(new Cattail(), RelicType.SHARED);
+	}
 	private void addCharacterCameoRelics() {
 		addDanRelics();
 		addSakuraRelics();
@@ -330,6 +337,7 @@ public class QCFPunch_Mod implements AddCustomModeModsSubscriber, EditStringsSub
 		}
 	}
 	
+	
     @Override
     public void receivePostDungeonInitialize() {     
         if (isCustomModActive(EasierRunModifiers.LOWERING_THE_HANDICAP_ID)) {
@@ -359,6 +367,7 @@ public class QCFPunch_Mod implements AddCustomModeModsSubscriber, EditStringsSub
             FightingGloves.load(config);
             UnceasingFlame.load(config);
             SchoolBackpack.load(config);
+            Cattail.load(config);
             if (shouldSanitizeActOne()) {
             	ChallengerCoin.sanitizingActOne(config);
             }
@@ -385,7 +394,9 @@ public class QCFPunch_Mod implements AddCustomModeModsSubscriber, EditStringsSub
             FightingGloves.save(config);
             UnceasingFlame.save(config);
             SchoolBackpack.save(config);
+            Cattail.save(config);
             ChallengerCoin.save(config);
+            
         }
         catch (IOException e) {
         	e.printStackTrace();
@@ -403,6 +414,7 @@ public class QCFPunch_Mod implements AddCustomModeModsSubscriber, EditStringsSub
             FightingGloves.clear(config);
             UnceasingFlame.clear(config);
             SchoolBackpack.clear(config);
+            Cattail.clear(config);
             ChallengerCoin.clear(config);
         	config.save();
 

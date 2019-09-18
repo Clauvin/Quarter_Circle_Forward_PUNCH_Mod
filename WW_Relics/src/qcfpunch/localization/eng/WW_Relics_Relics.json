@@ -18,6 +18,25 @@
     ]
   },
   
+  "qcfpunch:Broken_Tusk": {
+    "NAME": "Broken Tusk",
+    "FLAVOR": "Some things are very hard to forgive.",
+    "DESCRIPTIONS": [
+      "The first #rCurse or #rStatus drawn each turn gives one extra #b",
+      " damage hit for your Attacks that turn."
+    ]
+  },
+  
+  
+  "qcfpunch:Cattail": {
+    "NAME": "Cattail",
+    "FLAVOR": "It feels like it shouldn't be here, and that meaning becomes solid in your hands.",
+    "DESCRIPTIONS": [
+      "Upon pickup and after #b",
+      " rooms, gain #b1 Smoke Bomb."
+    ]
+  },
+  
   "qcfpunch:Chain_With_Nametags": {
     "NAME": "Chain With Nametags",
     "FLAVOR": "A surprisingly resilient chain with two faded nametags.",
@@ -43,7 +62,10 @@
     "DESCRIPTIONS": [
 	  "At the next [#2aecd7]4 non event non boss fights won, gain respectively [#2aecd7]1 Bandage Up, [#2aecd7]1 Panacea and at the last [#00ff00]",
       ", [#ffff00]1 random common relic.",
-      "Empty. Nothing else in the bag."
+      "Empty. Nothing else in the bag.",
+      "Hey, ",
+      " inside!",
+      "a bandage"
     ]
   },
   
@@ -110,7 +132,7 @@
   
   "qcfpunch:Not_Strongest_Fighting_Style_Guidebook": {
     "NAME": "\"Strongest\" Style Manual",
-    "FLAVOR": "\"My god, I must unlearn what I've read. WHY ANYONE WOULD FIGHT LIKE THIS?!\"",
+    "FLAVOR": "\"My god, I must unlearn what I've read. WHY WOULD ANYONE FIGHT LIKE THIS?!\"",
     "DESCRIPTIONS": [
       "At the start of your turn, add a random #yqcfpunch:Weakest card to your hand.  NL Your max hand size is increased by #b1."
     ]
@@ -216,10 +238,9 @@
     "FLAVOR": "Made from herbs commonly found in siberian climate. Good for deep cuts and lacerations.",
     "DESCRIPTIONS": [
     	"If you start a combat with more than #b",
-    	"% #yMax #yHP and end it with less #b",
+    	"% #yMax #yHP and end it with, at most, less #b",
     	"% #yMax #yHP, gain #b",
     	" #yMax #yHP."
-    
     ]
   },
   
