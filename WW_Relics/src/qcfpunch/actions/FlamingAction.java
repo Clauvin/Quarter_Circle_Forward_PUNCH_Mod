@@ -23,7 +23,7 @@ public class FlamingAction extends AbstractGameAction {
 		this.monster_hp_before = hp_before;
 		this.minimum_damage = minimum_damage;
 		
-		actionType = ActionType.SPECIAL;
+		actionType = ActionType.DAMAGE;
 	}
 	
 	@Override

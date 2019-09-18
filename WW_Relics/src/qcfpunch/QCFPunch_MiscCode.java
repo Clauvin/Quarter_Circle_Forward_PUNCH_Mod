@@ -29,7 +29,7 @@ public class QCFPunch_MiscCode {
 	}
 	
 	public static String returnDescription() {
-		return "v0.11.43" +
+		return "v0.14.0-STEAM" +
 				"\r\n"
 				  + "\r\n Adds sixteen relics based mostly in SF2's main characters (also other fighting games), eight game modifiers, one event and one potion."
 				  + "\r\n"

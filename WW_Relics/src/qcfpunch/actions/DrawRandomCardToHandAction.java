@@ -12,6 +12,7 @@ public class DrawRandomCardToHandAction extends AbstractGameAction {
 	public DrawRandomCardToHandAction() {
 		
 		player = AbstractDungeon.player;
+		this.actionType = ActionType.DRAW;
 		
 	}
 

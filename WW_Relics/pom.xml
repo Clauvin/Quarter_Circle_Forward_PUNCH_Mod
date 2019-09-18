@@ -6,7 +6,7 @@
     <!-- Change These to match your mod -->
     <groupId>qcfpunch</groupId>
     <artifactId>QuarterCircleForwardPUNCH</artifactId>
-    <version>0.12.0</version>
+    <version>0.14.0-STEAM</version>
     <packaging>jar</packaging>
     <name>QuarterCircleForwardPUNCH!</name>
     <description>Adds sixteen relics based mostly in SF2's main characters (also other fighting games),

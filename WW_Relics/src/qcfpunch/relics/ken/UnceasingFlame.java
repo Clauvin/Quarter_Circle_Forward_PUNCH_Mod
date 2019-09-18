@@ -57,7 +57,7 @@ public class UnceasingFlame extends CustomRelic implements ClickableRelic {
 	public void atBattleStartPreDraw() {
 		charges = charges_at_battle_start;
 		fixCounter();
-		if (charges == MAX_NUMBER_OF_CHARGES) {
+		if (counter == MAX_NUMBER_OF_CHARGES) {
 			playFireSoundThenFlash();
 		}
 	}
@@ -70,10 +70,14 @@ public class UnceasingFlame extends CustomRelic implements ClickableRelic {
 	public void fixCounter() {
 		counter = charges;
 	}
-	
+
 	@Override
 	public void atTurnStart() {
 		is_player_turn = true;
+		fixCounter();
+		if (counter == MAX_NUMBER_OF_CHARGES) {
+			flash();
+		}
 	}
 	
 	@Override
