@@ -9,14 +9,16 @@ This mod follows the [Creative Commons Attribution 3.0 Unported](https://creativ
 
 # Content
 
-* Nineteen relics done of 34+ planned, with temporary images and placeholder sounds.
+* Twenty-four relics done of 34+ planned, with temporary images and placeholder sounds.
 * Eight game modifiers, ranging from adding more relics at start to making the game harder.
 * Six cards, acessible through one specific relic.
 * One event, which is the gateway for two relics and one potion.
 
+* Most content above in English and simplified Chinese.
+
 # Current State
 
-Milestone 6 being done. (Nexus Mods' support after that)
+Working in Milestone 6's Dhalsim inspired relics.
 
 # Link to Releases and Pre-Releases
 
@@ -81,6 +83,8 @@ Slay The Spire 1.1, Mod The Spire 3.11.0+, BaseMod 5.15.1+ and StSLib 1.17.1+ (w
 
 * Vex's [The Artificer](https://steamcommunity.com/sharedfiles/filedetails/?id=1842757025) character mod does NOT use cards, and break cards that somehow reach your hand. This should mess with the "Strongest" Style Guidebook relic.
 
+* The [RumiaBox mod](https://steamcommunity.com/sharedfiles/filedetails/?id=1633577327) has an effect through the Challenger Book relic which gives you as a reward, a double of a relic which you already has. There's one case already of this mod's Duffel Bag relic crashing a game when it applied its effect when a double from an old WW_Relics mod version was present. This will be tested and if possible, fixed in the future. So far, just don't get a second Duffel Bag if the possibility is available.
+
 ## List of Incompatible Mods:
 
 There are more than one hundred mods at Steam Workshop and who knows how many more outside of it, so I can't say that it won't crash your game in any possible mod combination. In case of it happening, open one issue, I will check it out.
@@ -104,6 +108,8 @@ Kiooeht (https://github.com/kiooeht) for ModTheSpire (https://github.com/kiooeht
 AGAIN Kiooeht for StSLib (https://github.com/kiooeht/StSLib), because it helps a lot for modding :)
 
 The-Evil-Pickle, for the [Replay The Spire](https://github.com/The-Evil-Pickle/Replay-the-Spire) save/load code, it was the basis of the one used at this mod.
+
+[Rita Bernstein](https://github.com/Rita-Bernstein), for the simplified Chinese translation. 
 
 Thiago, for helping with finding some bugs in the 0.6.* versions.
 

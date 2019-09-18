@@ -42,7 +42,7 @@
     "FLAVOR": "A surprisingly resilient chain with two faded nametags.",
     "DESCRIPTIONS": [
       "Whenever you gain #yBlock, gain #b",
-      "% as #yTemporary_HP instead."
+      "% of it as #yTemporary_HP instead."
     ]
   },
   
@@ -51,7 +51,7 @@
     "FLAVOR": "\"War clothes. Pumps you to defend and then attack, but not for peace. Remember to take them off eventually, will ya?\" - Ranwid",
     "DESCRIPTIONS": [
       "At the start of your turn, if you #rgained ",
-      "#yBlock and #rdidn't #yplay any Attacks during last turn, gain #b",
+      "#yBlock and #rdidn't #yplay Attacks last turn, gain #b",
       " #yTemporary #yStrength and your next Attack deals #ydouble #ydamage."
     ]
   },
@@ -60,9 +60,12 @@
     "NAME": "Duffel Bag",
     "FLAVOR": "Very practical when wandering.",
     "DESCRIPTIONS": [
-	  "For the next [#2aecd7]4 non-event, non-boss fights you win, gain in the first [#2aecd7]1 Bandage Up, the second [#2aecd7]1 Panacea and in each one of the last [#00ff00]",
-      " fights [#ffff00]1 random common relic.",
-      "Empty. Nothing else in the bag."
+	  "At the next [#2aecd7]4 non event non boss fights won, gain respectively [#2aecd7]1 Bandage Up, [#2aecd7]1 Panacea and at the last [#00ff00]",
+      ", [#ffff00]1 random common relic.",
+      "Empty. Nothing else in the bag.",
+      "Hey, ",
+      " inside!",
+      "a bandage"
     ]
   },
   
@@ -80,10 +83,10 @@
     "NAME": "Fighting Gloves",
     "FLAVOR": "\"Inspiring! Who wants to train with me?\" - Ranwid.",
     "DESCRIPTIONS": [
-    "[#2aecd7]Starts [#2aecd7]with [#2aecd7]",
-    " [#2aecd7]charge",
+    "#rStarts #rwith #r",
+    " #rcharge",
     ".",
-    " At Rest Rooms, #rright #rclick before picking an option to spend all charges and #yUpgrade #b1 chosen card per charge spent. Each #b",
+    " At Rest Sites, [#2aecd7]right [#2aecd7]click before picking an option: uses all charges to #yUpgrade #b1 chosen card per charge. Each #b",
     " rooms, gain #b1 charge.",
     "Choose ", 
     " card",
@@ -129,7 +132,7 @@
   
   "qcfpunch:Not_Strongest_Fighting_Style_Guidebook": {
     "NAME": "\"Strongest\" Style Manual",
-    "FLAVOR": "\"My god, I must unlearn what I've read. WHY ANYONE WOULD FIGHT LIKE THIS?!\"",
+    "FLAVOR": "\"My god, I must unlearn what I've read. WHY WOULD ANYONE FIGHT LIKE THIS?!\"",
     "DESCRIPTIONS": [
       "At the start of your turn, add a random #yqcfpunch:Weakest card to your hand.  NL Your max hand size is increased by #b1."
     ]
@@ -158,7 +161,7 @@
     "NAME": "Red Headband",
     "FLAVOR": "Placing it in your head gives some focus against distractions.",
     "DESCRIPTIONS": [
-      "Each turn, the first #rStatus or #rCurse card drawn is discarded, then draw a random card from the draw pile, if there is any card there."
+      "Once per turn, the first #rStatus or #rCurse drawn is discarded, then randomly draw one card that is in the draw pile."
     ]
   },
   
@@ -168,7 +171,7 @@
     "FLAVOR": "Made of good fabric that doesn't hinder movements and inspires to be offensive.",
     "DESCRIPTIONS": [
       "If you play #y",
-      " attacks in a row this turn, draw #y",
+      " Attacks in a row this turn, draw #y",
       " card. If it's an Attack, it costs #y",
       " less this turn."
     ]
@@ -200,8 +203,8 @@
     "FLAVOR": "Good for balancing your body weight, but the pointy spikes make you use them sparingly.",
     "DESCRIPTIONS": [
 	  "Each combat, the first #b",
-      " #ySkills you play that cost #b2 or more cost #b",
-      " less until the end of the combat.",
+      " #ySkills played that cost #b2 or more cost #b",
+      " less at that combat.",
       " Cards chosen in this battle are: ",
       "no card yet",	
       " and ",	
@@ -213,7 +216,7 @@
     "NAME": "Unceasing Flame",
     "FLAVOR": "\"Glorious! A divine fire of a daring dragon, if the ancient texts are right.\" - Ranwid.",
     "DESCRIPTIONS": [
-      "#rRight #rclick: the single target of your next Attack lose HP equal to the damage caused (min of #b",
+      "[#2aecd7]Right [#2aecd7]click [#2aecd7]during [#2aecd7]combat: your next Attack's single target loses HP as the damage caused (min of #b",
       " HP). Recharges every #b",
       " Attacks."
     ]
@@ -223,9 +226,9 @@
     "NAME": "White Boots",
     "FLAVOR": "Very, very worn shoes... as much from hitting as from walking.",
     "DESCRIPTIONS": [
-	  "When you draw an #rattack, do #yX+",
-	  " damage to the last enemy attacked, where X is how many upgrades the attack has.",
-	  " Every #bthird #rattack draw does #y2X+",
+	  "#rAttack draws do #yX+",
+	  " damage to the last enemy attacked, X is how many upgrades the Attack has.",
+	  " #bThird #rAttack draws do #y2X+",
 	  " damage instead."
     ]
   },

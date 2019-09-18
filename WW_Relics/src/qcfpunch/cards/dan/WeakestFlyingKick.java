@@ -1,6 +1,7 @@
 package qcfpunch.cards.dan;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.animations.AnimateHopAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -38,6 +39,7 @@ public class WeakestFlyingKick extends CustomCard {
 
 	@Override
 	public void use(AbstractPlayer player, AbstractMonster monster) {
+		AbstractDungeon.actionManager.addToBottom(new AnimateHopAction(player));
         AbstractDungeon.actionManager.addToBottom(
         		new DamageAction(monster, new DamageInfo(player, this.damage, this.damageTypeForTurn),
         				AbstractGameAction.AttackEffect.BLUNT_LIGHT));
