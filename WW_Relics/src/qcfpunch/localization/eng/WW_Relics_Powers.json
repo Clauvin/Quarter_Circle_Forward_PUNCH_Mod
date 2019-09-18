@@ -6,6 +6,14 @@
       ", then lose this buff."
     ]
   },
+  
+  "qcfpunch:Power_Fury": {
+    "NAME": "Fury",
+    "DESCRIPTIONS": [
+      "Your attacks this turn do extra #b",
+      " damage."
+    ]
+  },
 
   "qcfpunch:Power_Potential": {
     "NAME": "Potential",
@@ -37,6 +45,14 @@
     "DESCRIPTIONS": [
       "At the start of your turn, add a random #yWeakest card to your hand."
     ]
-  }
+  },
   
+  "qcfpunch:Power_Wild_Herbs_Ointment": {
+    "NAME": "Wild Herbs Ointment",
+    "DESCRIPTIONS": [
+      "If you finish the combat with at most #b",
+      " #yHP, gain #b",
+      " #yMax #yHP."
+  	]
+  }
 }

@@ -27,7 +27,8 @@ public class Handcuffs extends CustomRelic {
 	public boolean handcuff_is_lost = false;
 	
 	public Handcuffs() {
-		super(ID, GraphicResources.LoadRelicImage("Handcuffs - handcuffs - Lorc - CC BY 3.0.png"),
+		super(ID, GraphicResources.LoadRelicImage(
+				"Handcuffs - handcuffs - Lorc - CC BY 3.0.png"),
 				RelicTier.RARE, LandingSound.CLINK);
 	}
 	

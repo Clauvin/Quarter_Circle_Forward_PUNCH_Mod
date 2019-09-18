@@ -41,7 +41,7 @@ public class RedHeadband extends CustomRelic {
 				
 		        AbstractPlayer p = AbstractDungeon.player;
 
-		        if (abscenceOfNoDraw()) {
+		        if (QCFPunch_MiscCode.abscenceOfNoDrawPower()) {
 			        for (int i = 0; i < DRAW_PER_STATUS_OR_CURSE; i++) {
 				        if (!p.drawPile.group.isEmpty()) {
 				        	AbstractDungeon.actionManager.addToBottom(new WaitAction(0.4f));
@@ -56,10 +56,6 @@ public class RedHeadband extends CustomRelic {
 			}
 		}
 		
-	}
-	
-	public Boolean abscenceOfNoDraw() {
-		return !AbstractDungeon.player.hasPower("No Draw");
 	}
 	
 	public void atTurnStart() {

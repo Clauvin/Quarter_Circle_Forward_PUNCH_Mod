@@ -18,6 +18,25 @@
     ]
   },
   
+  "qcfpunch:Broken_Tusk": {
+    "NAME": "Broken Tusk",
+    "FLAVOR": "Some things are very hard to forgive.",
+    "DESCRIPTIONS": [
+      "The first #rCurse or #rStatus drawn each turn gives one extra #b",
+      " damage hit for your Attacks that turn."
+    ]
+  },
+  
+  
+  "qcfpunch:Cattail": {
+    "NAME": "Cattail",
+    "FLAVOR": "It feels like it shouldn't be here, and that meaning becomes solid in your hands.",
+    "DESCRIPTIONS": [
+      "Upon pickup and after #b",
+      " rooms, gain #b1 Smoke Bomb."
+    ]
+  },
+  
   "qcfpunch:Chain_With_Nametags": {
     "NAME": "Chain With Nametags",
     "FLAVOR": "A surprisingly resilient chain with two faded nametags.",
@@ -76,6 +95,15 @@
     ]
   },
   
+  "qcfpunch:Green_Leotard": {
+    "NAME": "Green Leotard",
+    "FLAVOR": "Very unusual, but excellent to move around unhindered, since nothing can get on the way.",
+    "DESCRIPTIONS": [
+      "For each #ycard drawn from effects, gain #b",
+      " #yBlock."
+    ]
+  },
+  
   "qcfpunch:Handcuffs": {
     "NAME": "Handcuffs",
     "FLAVOR": "An old tool used for those who once fought for law and order.",
@@ -110,6 +138,25 @@
     ]
   },
   
+  "qcfpunch:Red_Cyclone_Teachings": {
+    "NAME": "Red Cyclone Teachings",
+    "FLAVOR": "\"'Because in Mother Russia, YOU nail the bears down!' ...what's Russia, what are bears and what's a mother?\" - Ranwid.",
+    "DESCRIPTIONS": [
+      "Each combat, the first #b",
+      " Attacks used that cost #b",
+      "-or-more #yStun their target(s), then #yExhaust."
+    ]
+  },
+  
+  "qcfpunch:Red_Beret": {
+    "NAME": "Red Beret",
+    "FLAVOR": "Used for guiding the enemy attention, then repositioning yourself.",
+    "DESCRIPTIONS": [
+      "Each combat, the first time you gain #yBlock, draw #b",
+      " #ycards."
+    ]
+  },
+    
   "qcfpunch:Red_Headband": {
     "NAME": "Red Headband",
     "FLAVOR": "Placing it in your head gives some focus against distractions.",
@@ -140,7 +187,16 @@
       "You got as much inspirations from the mementos as possible."
       
     ]
-  },  
+  },
+  
+  "qcfpunch:Special_Ops_Insignia": {
+    "NAME": "Special Ops Insignia",
+    "FLAVOR": "A solid set-up, a knack for improvisation and a decisive resolution are all part of the job.",
+    "DESCRIPTIONS": [
+      "Once each turn, if you draw #b",
+      " #ycards by effects in a turn, add both #bSetup and #bForethought to your hand, with #yEthereal and #yExhaust."
+    ]
+  },
   
   "qcfpunch:Spiky_Bracers": {
     "NAME": "Spiky Bracers",
@@ -174,6 +230,27 @@
 	  " damage to the last enemy attacked, X is how many upgrades the Attack has.",
 	  " #bThird #rAttack draws do #y2X+",
 	  " damage instead."
+    ]
+  },
+  
+  "qcfpunch:Wild_Herbs_Ointment": {
+    "NAME": "Wild Herbs Ointment",
+    "FLAVOR": "Made from herbs commonly found in siberian climate. Good for deep cuts and lacerations.",
+    "DESCRIPTIONS": [
+    	"If you start a combat with more than #b",
+    	"% #yMax #yHP and end it with, at most, less #b",
+    	"% #yMax #yHP, gain #b",
+    	" #yMax #yHP."
+    ]
+  },
+  
+   "qcfpunch:Wrestler's_Cloak": {
+    "NAME": "Wrestler's Cloak",
+    "FLAVOR": "Never underestimate the power of a good presentation before a fight.",
+    "DESCRIPTIONS": [
+	  "At Elite/Boss rooms, gain #b",
+	  " #yTemporary_HP. [#2aecd7]Right [#2aecd7]click [#2aecd7]during [#2aecd7]your [#2aecd7]turn [#2aecd7]to gain #b",
+	  " #yTemporary_HP and lose this relic."
     ]
   }
 }
