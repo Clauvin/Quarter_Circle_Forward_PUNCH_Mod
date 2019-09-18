@@ -9,10 +9,12 @@ import org.apache.logging.log4j.*;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.screens.custom.CustomMod;
@@ -48,6 +50,8 @@ public class QCFPunch_Mod implements AddCustomModeModsSubscriber, EditStringsSub
 	public static final String AUTHOR = "Levender"; // your name
 	public static final String DESCRIPTION = QCFPunch_MiscCode.returnDescription();
 	
+	public static final String INITIAL_LANGUAGE = "eng";
+	
 	public QCFPunch_Mod() {
 		BaseMod.subscribe(this);
 	}
@@ -65,9 +69,36 @@ public class QCFPunch_Mod implements AddCustomModeModsSubscriber, EditStringsSub
 		
 		logger.info("begin editing keywords");
 		
+        String language = Settings.language.toString().toLowerCase();
+        if (!language.equals(INITIAL_LANGUAGE)) {
+            try {
+                logger.info("inserting " + language + " keywords.");
+                insertKeywords(language);
+                logger.info("finished inserting " + language + " keywords.");
+            } catch (GdxRuntimeException e) {
+                logger.info(language + " keywords not found.");
+                
+                logger.info("inserting eng keywords.");
+                insertKeywords(INITIAL_LANGUAGE);
+        		logger.info("finished inserting " + language + " keywords.");
+            }
+        }
+        else {
+        	logger.info("inserting eng keywords.");
+            insertKeywords(INITIAL_LANGUAGE);
+    		logger.info("finished inserting " + language + " keywords.");
+        }
+		
+		logger.info("done editing keywords");
+		
+	}
+	
+	private void insertKeywords(String language) {
+						
 		Gson gson = new Gson();
 		String keywordStringsAddress = 
-				QCFPunch_MiscCode.returnSpecificLocalizationFile("eng/WW_Relics_Keywords.json");
+				QCFPunch_MiscCode.returnSpecificLocalizationFile(
+						language + "/WW_Relics_Keywords.json");
 		String json = getJsonText(keywordStringsAddress); 
 		KeywordWithProper[] keywords = gson.fromJson(json, KeywordWithProper[].class);
 	    
@@ -79,77 +110,108 @@ public class QCFPunch_Mod implements AddCustomModeModsSubscriber, EditStringsSub
             }
         }
 		
-		logger.info("done editing keywords");
-		
 	}
 	
 	@Override
 	public void receiveEditStrings()
 	{
 	    logger.info("begin editing strings");
+
+	    String language = Settings.language.toString().toLowerCase();
 	    
-	    LoadRelicsJSON();
-	    LoadPowersJSON();
-	    LoadModifiersJSON();
-	    LoadCardsJSON();
-	    LoadPotionsJSON();
-	    LoadEventsJSON();
-	    LoadMonstersJSON();
+	    if (!language.equals(INITIAL_LANGUAGE)) {
+            try {
+            	LoadMostJSONs(language);
+            	
+            } catch (GdxRuntimeException e) {
+                logger.info(language + " strings not found.");
+                language = INITIAL_LANGUAGE;
+                
+                LoadMostJSONs(language);
+            }
+	    } else {
+	    	language = INITIAL_LANGUAGE;
+            
+            LoadMostJSONs(language);
+	    }
 	    
 	    logger.info("done editing strings");
 	}
 	
-	private void LoadRelicsJSON() {
+	private void LoadMostJSONs(String language) {
+		
+		logger.info("begin editing " + language + " strings");
+    	
+    	LoadRelicsJSON(language);
+	    LoadPowersJSON(language);
+	    LoadModifiersJSON(language);
+	    LoadCardsJSON(language);
+	    LoadPotionsJSON(language);
+	    LoadEventsJSON(language);
+	    LoadMonstersJSON(language);
+	    
+	    logger.info("finished editing " + language + " strings");
+		
+	}
+	
+	private void LoadRelicsJSON(String language) {
 		String relicStringsAddress =
-				QCFPunch_MiscCode.returnSpecificLocalizationFile("eng/WW_Relics_Relics.json");
+				QCFPunch_MiscCode.returnSpecificLocalizationFile(
+						language + "/WW_Relics_Relics.json");
 	    String relicStrings = getJsonText(relicStringsAddress);
 	    
 	    BaseMod.loadCustomStrings(RelicStrings.class, relicStrings);
 	}
 	
-	private void LoadPowersJSON() {
+	private void LoadPowersJSON(String language) {
 		String powerStringsAddress =
-				QCFPunch_MiscCode.returnSpecificLocalizationFile("eng/WW_Relics_Powers.json");
+				QCFPunch_MiscCode.returnSpecificLocalizationFile(
+						language + "/WW_Relics_Powers.json");
 	    String powerStrings = getJsonText(powerStringsAddress);
 	    
 	    BaseMod.loadCustomStrings(PowerStrings.class, powerStrings);
 	}
 	
-	private void LoadModifiersJSON() {
+	private void LoadModifiersJSON(String language) {
 		String modifiersStringsAddress =
-				QCFPunch_MiscCode.returnSpecificLocalizationFile("eng/WW_Relics_Modifiers.json");
+				QCFPunch_MiscCode.returnSpecificLocalizationFile(
+						language + "/WW_Relics_Modifiers.json");
 	    String modifiersStrings = getJsonText(modifiersStringsAddress);
 	    
 	    BaseMod.loadCustomStrings(RunModStrings.class, modifiersStrings);
 	}
 	
-	private void LoadCardsJSON() {
+	private void LoadCardsJSON(String language) {
 		String cardsStringsAddress =
-				QCFPunch_MiscCode.returnSpecificLocalizationFile("eng/WW_Relics_Cards.json");
+				QCFPunch_MiscCode.returnSpecificLocalizationFile(
+						language + "/WW_Relics_Cards.json");
 	    String cardsStrings = getJsonText(cardsStringsAddress);
 	    
 	    BaseMod.loadCustomStrings(CardStrings.class, cardsStrings);
 	}
 	
-	private void LoadPotionsJSON() {
+	private void LoadPotionsJSON(String language) {
 		String potionsStringsAddress =
-				QCFPunch_MiscCode.returnSpecificLocalizationFile("eng/WW_Relics_Potions.json");
+				QCFPunch_MiscCode.returnSpecificLocalizationFile(
+						language + "/WW_Relics_Potions.json");
 		String potionsStrings = getJsonText(potionsStringsAddress);
 		
 		BaseMod.loadCustomStrings(PotionStrings.class, potionsStrings);
 	}
 	
-	private void LoadEventsJSON() {
+	private void LoadEventsJSON(String language) {
 		String eventsStringsAddress =
-				QCFPunch_MiscCode.returnSpecificLocalizationFile("eng/WW_Relics_Events.json");
+				QCFPunch_MiscCode.returnSpecificLocalizationFile(
+						language + "/WW_Relics_Events.json");
 		String eventsStrings = getJsonText(eventsStringsAddress);
 		
 		BaseMod.loadCustomStrings(EventStrings.class, eventsStrings);
 	}
 	
-	private void LoadMonstersJSON() {
+	private void LoadMonstersJSON(String language) {
 		String monstersStringsAddress =
-				QCFPunch_MiscCode.returnSpecificLocalizationFile("eng/WW_Relics_Monsters.json");
+				QCFPunch_MiscCode.returnSpecificLocalizationFile(
+						language + "/WW_Relics_Monsters.json");
 		String monstersStrings = getJsonText(monstersStringsAddress);
 		
 		BaseMod.loadCustomStrings(MonsterStrings.class, monstersStrings);
