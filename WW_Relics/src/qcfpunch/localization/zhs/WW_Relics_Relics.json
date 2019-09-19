@@ -18,6 +18,25 @@
     ]
   },
   
+  "qcfpunch:Broken_Tusk": {
+    "NAME": "Broken Tusk",
+    "FLAVOR": "Some things are very hard to forgive.",
+    "DESCRIPTIONS": [
+      "The first #rCurse or #rStatus drawn each turn gives one extra #b",
+      " damage hit for your Attacks that turn."
+    ]
+  },
+  
+  
+  "qcfpunch:Cattail": {
+    "NAME": "Cattail",
+    "FLAVOR": "It feels like it shouldn't be here, and that meaning becomes solid in your hands.",
+    "DESCRIPTIONS": [
+      "Upon pickup and after #b",
+      " rooms, gain #b1 Smoke Bomb."
+    ]
+  },
+  
   "qcfpunch:Chain_With_Nametags": {
     "NAME": "铭牌",
     "FLAVOR": "一条有着两个褪色的名字标签的弹力十足的链子。",
