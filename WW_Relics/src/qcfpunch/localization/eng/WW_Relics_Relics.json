@@ -122,7 +122,7 @@
     "NAME": "Necklace of Skulls",
     "FLAVOR": "\"Hatred begets weakness. Cultivate your heart.\" Who said that?",
  	"DESCRIPTIONS": [
- 	  "Start with 1 charge. Max of 3 charges. At combat start, choose one Power, from the amount of charges this relic has as random options, and add it to your hand. Each time you remove a Curse of your deck, add one charge."
+ 	  "Start with 1 choice of a max of 3. At combat start, add one Power from this relic's random choices to your hand. Each time you remove a Curse of your deck, add one choice."
     ]
   },
     
