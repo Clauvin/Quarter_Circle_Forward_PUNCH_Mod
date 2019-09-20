@@ -25,6 +25,10 @@ public class NecklaceOfSkulls extends CustomRelic {
 		this.counter = STARTING_AMOUNT_OF_CHARGES;
 	}
 	
+	public String getUpdatedDescription() {
+		return DESCRIPTIONS[0];
+	}
+	
 	@Override
 	public void atBattleStart() {
 		if (this.counter == 1) addOneRandomPowerToHand();
