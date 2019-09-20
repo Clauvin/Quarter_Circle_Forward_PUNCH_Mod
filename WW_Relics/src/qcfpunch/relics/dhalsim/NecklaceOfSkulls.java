@@ -27,18 +27,25 @@ public class NecklaceOfSkulls extends CustomRelic {
 	
 	@Override
 	public void atBattleStart() {
-		if (this.counter == 1) {
+		if (this.counter == 1) addOneRandomPowerToHand();
+		else if (this.counter > 1) {
 			
-			AbstractCard new_power =
-					AbstractDungeon.returnTrulyRandomCardInCombat
-						(CardType.POWER);
 			
-			flash();
 			
-			AbstractDungeon.actionManager.addToBottom(
-					new MakeTempCardInHandAction(new_power));
 			
 		}
+	}
+	
+	private void addOneRandomPowerToHand() {
+		
+		AbstractCard new_power =
+				AbstractDungeon.returnTrulyRandomCardInCombat
+					(CardType.POWER);
+		
+		flash();
+		
+		AbstractDungeon.actionManager.addToBottom(
+				new MakeTempCardInHandAction(new_power));
 	}
 	
 	
