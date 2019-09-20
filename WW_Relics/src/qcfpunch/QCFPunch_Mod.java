@@ -31,7 +31,6 @@ import qcfpunch.potions.ChallengerCoin;
 
 import qcfpunch.relics.chun_li.*;
 import qcfpunch.relics.dhalsim.BrokenTusk;
-import qcfpunch.relics.dhalsim.Cattail;
 import qcfpunch.relics.dhalsim.NecklaceOfSkulls;
 import qcfpunch.relics.guile.*;
 import qcfpunch.relics.ken.*;
@@ -41,6 +40,7 @@ import qcfpunch.relics.cammy.*;
 import qcfpunch.relics.character_cameos.dan.NotStrongestFightingStyleGuidebook;
 import qcfpunch.relics.character_cameos.sakura.SchoolBackpack;
 import qcfpunch.relics.mortal_kombat.*;
+import qcfpunch.relics.no_relation.Cattail;
 
 @SpireInitializer
 public class QCFPunch_Mod implements AddCustomModeModsSubscriber, EditStringsSubscriber, EditRelicsSubscriber,
@@ -278,7 +278,6 @@ public class QCFPunch_Mod implements AddCustomModeModsSubscriber, EditStringsSub
 	
 	private void addDhalsimRelics() {
 		BaseMod.addRelic(new BrokenTusk(), RelicType.SHARED);
-		BaseMod.addRelic(new Cattail(), RelicType.SHARED);
 		BaseMod.addRelic(new NecklaceOfSkulls(),  RelicType.SHARED);
 	}
 	private void addCharacterCameoRelics() {
@@ -304,7 +303,7 @@ public class QCFPunch_Mod implements AddCustomModeModsSubscriber, EditStringsSub
 	}
 	
 	private void addNoRelationRelics() {
-		
+		BaseMod.addRelic(new Cattail(), RelicType.SHARED);
 	}
 	
 	@Override
