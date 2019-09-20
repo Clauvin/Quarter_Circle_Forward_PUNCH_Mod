@@ -32,6 +32,7 @@ import qcfpunch.potions.ChallengerCoin;
 import qcfpunch.relics.chun_li.*;
 import qcfpunch.relics.dhalsim.BrokenTusk;
 import qcfpunch.relics.dhalsim.Cattail;
+import qcfpunch.relics.dhalsim.NecklaceOfSkulls;
 import qcfpunch.relics.guile.*;
 import qcfpunch.relics.ken.*;
 import qcfpunch.relics.ryu.*;
@@ -234,6 +235,7 @@ public class QCFPunch_Mod implements AddCustomModeModsSubscriber, EditStringsSub
 		addDhalsimRelics();
 		addCharacterCameoRelics();
 		addGameCameoRelics();
+		addNoRelationRelics();
 		logger.info("Done adding relics");
 	}
 
@@ -277,6 +279,7 @@ public class QCFPunch_Mod implements AddCustomModeModsSubscriber, EditStringsSub
 	private void addDhalsimRelics() {
 		BaseMod.addRelic(new BrokenTusk(), RelicType.SHARED);
 		BaseMod.addRelic(new Cattail(), RelicType.SHARED);
+		BaseMod.addRelic(new NecklaceOfSkulls(),  RelicType.SHARED);
 	}
 	private void addCharacterCameoRelics() {
 		addDanRelics();
@@ -298,6 +301,10 @@ public class QCFPunch_Mod implements AddCustomModeModsSubscriber, EditStringsSub
 	private void addMortalKombatRelics() {
 		BaseMod.addRelic(new NeverendingBlood(), RelicType.SHARED);
 		BaseMod.addRelic(new ExtraSkeleton(), RelicType.SHARED);
+	}
+	
+	private void addNoRelationRelics() {
+		
 	}
 	
 	@Override
