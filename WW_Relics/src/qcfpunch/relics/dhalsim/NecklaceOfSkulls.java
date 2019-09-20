@@ -13,7 +13,7 @@ import qcfpunch.resources.relic_graphics.GraphicResources;
 public class NecklaceOfSkulls extends CustomRelic {
 
 	public static final String ID = QCFPunch_MiscCode.returnPrefix() +
-			"Necklace_Of_Skulls";
+			"Necklace_of_Skulls";
 	
 	private static int STARTING_AMOUNT_OF_CHARGES = 1;
 	private static int MAX_AMOUNT_OF_CHARGES = 3;
