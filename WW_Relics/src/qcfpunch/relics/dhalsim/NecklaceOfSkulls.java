@@ -4,11 +4,14 @@ import com.evacipated.cardcrawl.mod.stslib.relics.OnRemoveCardFromMasterDeckReli
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardType;
+import com.megacrit.cardcrawl.cards.CardGroup;
+import com.megacrit.cardcrawl.cards.CardGroup.CardGroupType;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 import basemod.abstracts.CustomRelic;
 import qcfpunch.QCFPunch_MiscCode;
+import qcfpunch.actions.PickACardToUseAction;
 import qcfpunch.resources.relic_graphics.GraphicResources;
 
 public class NecklaceOfSkulls extends CustomRelic
@@ -21,7 +24,7 @@ public class NecklaceOfSkulls extends CustomRelic
 	private static int MAX_AMOUNT_OF_CHARGES = 3;
 	
 	public NecklaceOfSkulls() {
-		super(ID, GraphicResources.LoadRelicImage("Temp Army Boots - steeltoe-boots - Lorc - CC BY 3.0.png"),
+		super(ID, GraphicResources.LoadRelicImage("White_Boots - steeltoe-boots - Lorc - CC BY 3.0.png"),
 				RelicTier.UNCOMMON, LandingSound.CLINK);
 		
 		this.counter = STARTING_AMOUNT_OF_CHARGES;
@@ -46,8 +49,16 @@ public class NecklaceOfSkulls extends CustomRelic
 		if (this.counter == 1) addOneRandomPowerToHand();
 		else if (this.counter > 1) {
 			
+			CardGroup powers = new CardGroup(CardGroupType.UNSPECIFIED);
 			
+			for (int i = 0; i < counter; i++) {
+				powers.addToBottom(
+						AbstractDungeon.returnTrulyRandomCardInCombat(
+								AbstractCard.CardType.POWER).makeCopy());
+			}
 			
+			AbstractDungeon.actionManager.addToBottom(
+					new PickACardToUseAction(powers, "Testing"));
 			
 		}
 	}
