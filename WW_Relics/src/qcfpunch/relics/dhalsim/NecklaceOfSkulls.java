@@ -1,5 +1,6 @@
 package qcfpunch.relics.dhalsim;
 
+import com.evacipated.cardcrawl.mod.stslib.relics.OnRemoveCardFromMasterDeckRelic;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardType;
@@ -10,7 +11,8 @@ import basemod.abstracts.CustomRelic;
 import qcfpunch.QCFPunch_MiscCode;
 import qcfpunch.resources.relic_graphics.GraphicResources;
 
-public class NecklaceOfSkulls extends CustomRelic {
+public class NecklaceOfSkulls extends CustomRelic
+							  implements OnRemoveCardFromMasterDeckRelic {
 
 	public static final String ID = QCFPunch_MiscCode.returnPrefix() +
 			"Necklace_of_Skulls";
@@ -27,6 +29,16 @@ public class NecklaceOfSkulls extends CustomRelic {
 	
 	public String getUpdatedDescription() {
 		return DESCRIPTIONS[0];
+	}
+	
+	@Override
+	public void onRemoveCardFromMasterDeck(AbstractCard card) {
+		if (card.type == CardType.CURSE) {
+			if (counter < MAX_AMOUNT_OF_CHARGES) {
+				++counter;
+				flash();
+			}
+		}
 	}
 	
 	@Override
@@ -61,5 +73,5 @@ public class NecklaceOfSkulls extends CustomRelic {
 	public AbstractRelic makeCopy() {
 		return new NecklaceOfSkulls();
 	}
-	
+
 }
