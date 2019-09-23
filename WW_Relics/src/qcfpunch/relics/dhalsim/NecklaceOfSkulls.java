@@ -31,7 +31,9 @@ public class NecklaceOfSkulls extends CustomRelic
 	}
 	
 	public String getUpdatedDescription() {
-		return DESCRIPTIONS[0];
+		return DESCRIPTIONS[0] + STARTING_AMOUNT_OF_CHARGES +
+				DESCRIPTIONS[1] + MAX_AMOUNT_OF_CHARGES +
+				DESCRIPTIONS[2];
 	}
 	
 	@Override
