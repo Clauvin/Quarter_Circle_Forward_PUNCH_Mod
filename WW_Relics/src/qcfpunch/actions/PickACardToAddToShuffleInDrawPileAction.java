@@ -1,6 +1,7 @@
 package qcfpunch.actions;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
@@ -8,13 +9,14 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
 //Base code from Thorton's OctopusAction
-public class PickACardToUseAction extends AbstractGameAction {
+public class PickACardToAddToShuffleInDrawPileAction extends AbstractGameAction {
 	
 	private boolean action_started = false;
 	private CardGroup cards_to_choose_from;
 	private String grid_description;
 	
-	public PickACardToUseAction(CardGroup cards, String grid_description) {
+	public PickACardToAddToShuffleInDrawPileAction(CardGroup cards,
+			String grid_description) {
 		
 		actionType = ActionType.WAIT;
 		duration = Settings.ACTION_DUR_XLONG;
@@ -46,7 +48,8 @@ public class PickACardToUseAction extends AbstractGameAction {
 	            AbstractDungeon.gridSelectScreen.selectedCards.clear();
 	            
 	            AbstractDungeon.actionManager.addToBottom(
-	            		new MakeTempCardInHandAction(card_chosen));
+	            		new MakeTempCardInDrawPileAction(card_chosen, 1,
+	            				true, true));
 	            
 	            this.isDone = true;
 			}

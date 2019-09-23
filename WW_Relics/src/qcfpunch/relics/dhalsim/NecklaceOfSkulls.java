@@ -11,7 +11,7 @@ import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 import basemod.abstracts.CustomRelic;
 import qcfpunch.QCFPunch_MiscCode;
-import qcfpunch.actions.PickACardToUseAction;
+import qcfpunch.actions.PickACardToAddToShuffleInDrawPileAction;
 import qcfpunch.resources.relic_graphics.GraphicResources;
 
 public class NecklaceOfSkulls extends CustomRelic
@@ -58,7 +58,7 @@ public class NecklaceOfSkulls extends CustomRelic
 			}
 			
 			AbstractDungeon.actionManager.addToBottom(
-					new PickACardToUseAction(powers, "Testing"));
+					new PickACardToAddToShuffleInDrawPileAction(powers, "Testing"));
 			
 		}
 	}
