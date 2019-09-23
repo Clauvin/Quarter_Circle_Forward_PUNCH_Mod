@@ -1,7 +1,7 @@
 package qcfpunch.relics.dhalsim;
 
 import com.evacipated.cardcrawl.mod.stslib.relics.OnRemoveCardFromMasterDeckRelic;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardType;
 import com.megacrit.cardcrawl.cards.CardGroup;
@@ -48,24 +48,11 @@ public class NecklaceOfSkulls extends CustomRelic
 	
 	@Override
 	public void atBattleStart() {
-		if (this.counter == 1) addOneRandomPowerToHand();
-		else if (this.counter > 1) {
-			
-			CardGroup powers = new CardGroup(CardGroupType.UNSPECIFIED);
-			
-			for (int i = 0; i < counter; i++) {
-				powers.addToBottom(
-						AbstractDungeon.returnTrulyRandomCardInCombat(
-								AbstractCard.CardType.POWER).makeCopy());
-			}
-			
-			AbstractDungeon.actionManager.addToBottom(
-					new PickACardToAddToShuffleInDrawPileAction(powers, "Testing"));
-			
-		}
+		if (this.counter == 1) shuffleOneRandomPowerToDrawPile();
+		else if (this.counter > 1) shuffleOneChosenRandomPowerToDrawPile();
 	}
 	
-	private void addOneRandomPowerToHand() {
+	private void shuffleOneRandomPowerToDrawPile() {
 		
 		AbstractCard new_power =
 				AbstractDungeon.returnTrulyRandomCardInCombat
@@ -74,7 +61,24 @@ public class NecklaceOfSkulls extends CustomRelic
 		flash();
 		
 		AbstractDungeon.actionManager.addToBottom(
-				new MakeTempCardInHandAction(new_power));
+        		new MakeTempCardInDrawPileAction(new_power, 1,
+        				true, true));
+
+	}
+	
+	private void shuffleOneChosenRandomPowerToDrawPile() {
+		
+		CardGroup powers = new CardGroup(CardGroupType.UNSPECIFIED);
+		
+		for (int i = 0; i < counter; i++) {
+			powers.addToBottom(
+					AbstractDungeon.returnTrulyRandomCardInCombat(
+							AbstractCard.CardType.POWER).makeCopy());
+		}
+		
+		AbstractDungeon.actionManager.addToBottom(
+				new PickACardToAddToShuffleInDrawPileAction(powers, "Testing"));
+		
 	}
 	
 	
