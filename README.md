@@ -107,6 +107,8 @@ Kiooeht (https://github.com/kiooeht) for ModTheSpire (https://github.com/kiooeht
 
 AGAIN Kiooeht for StSLib (https://github.com/kiooeht/StSLib), because it helps a lot for modding :)
 
+GK (https://github.com/erasels) as pointing many times that relic descriptions with 5 lines were no good.
+
 The-Evil-Pickle, for the [Replay The Spire](https://github.com/The-Evil-Pickle/Replay-the-Spire) save/load code, it was the basis of the one used at this mod.
 
 [Rita Bernstein](https://github.com/Rita-Bernstein), for the simplified Chinese translation. 
@@ -119,7 +121,7 @@ Discord's bulbamaster#5216 for testing the 0.9 version.
 
 Discord's AvangionQ#9279 for testing older versions.
 
-Lots of people from the Slay The Spire Discord's modding channel for pointing stuff from this mod to improve/polish/buff/nerf, check the "suggestion from discord" tag in the Issues to see specifics.
+Lots of people from the Slay The Spire Discord's modding channel for pointing stuff from this mod to improve/polish/buff/nerf, check the "suggestion from discord" tag in the Issues to see most of the specifics.
 
 STREET FIGHTER is a registered trademark of CAPCOM U.S.A., INC.
 
