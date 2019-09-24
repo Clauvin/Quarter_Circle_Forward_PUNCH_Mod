@@ -14,6 +14,7 @@ import qcfpunch.QCFPunch_MiscCode;
 import qcfpunch.actions.PickACardToAddToShuffleInDrawPileAction;
 import qcfpunch.resources.relic_graphics.GraphicResources;
 
+//old code, stored in this commit for use later with a better relic
 public class NecklaceOfSkulls extends CustomRelic
 							  implements OnRemoveCardFromMasterDeckRelic {
 
