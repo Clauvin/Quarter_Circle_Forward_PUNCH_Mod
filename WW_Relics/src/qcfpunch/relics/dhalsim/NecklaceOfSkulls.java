@@ -1,7 +1,5 @@
 package qcfpunch.relics.dhalsim;
 
-import java.util.ArrayList;
-
 import com.evacipated.cardcrawl.mod.stslib.relics.OnRemoveCardFromMasterDeckRelic;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
@@ -81,13 +79,14 @@ public class NecklaceOfSkulls extends CustomRelic
 		    {
 	            flash();
 				
-				AbstractCard card_chosen = getCardsToUpgrade().get(0);
+				AbstractCard card_chosen = getCardToUpgrade();
 				
 				AbstractDungeon.effectsQueue.add(
 						new UpgradeShineEffect(
 								Settings.WIDTH / 2.0F,
 								Settings.HEIGHT / 2.0F));
 				AbstractDungeon.player.bottledCardUpgradeCheck(card_chosen);
+				card_chosen.upgrade();
 				AbstractDungeon.effectsQueue.add(
 						new ShowCardBrieflyEffect(
 								card_chosen.makeStatEquivalentCopy()));
@@ -110,8 +109,11 @@ public class NecklaceOfSkulls extends CustomRelic
 		
 	}
 	
-	private static ArrayList<AbstractCard> getCardsToUpgrade() {
-		return AbstractDungeon.gridSelectScreen.selectedCards;
+	private static AbstractCard getCardToUpgrade() {	
+		AbstractCard chosen_card = AbstractDungeon.gridSelectScreen.
+				selectedCards.get(0);
+		
+		return chosen_card;
 	}
 	
 	private String getCardGridDescription() {
