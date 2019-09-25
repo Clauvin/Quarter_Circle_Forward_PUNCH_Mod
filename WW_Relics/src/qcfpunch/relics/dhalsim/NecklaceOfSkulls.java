@@ -23,6 +23,7 @@ public class NecklaceOfSkulls extends CustomRelic
 			"Necklace_of_Skulls";
 	
 	public static boolean is_player_choosing_a_card = false;
+	public static boolean try_to_upgrade_cards = false;
 	
 	public NecklaceOfSkulls() {
 		super(ID, GraphicResources.LoadRelicImage("White_Boots - steeltoe-boots - Lorc - CC BY 3.0.png"),
@@ -42,7 +43,7 @@ public class NecklaceOfSkulls extends CustomRelic
 		
 		if (upgradeable_cards.size() > 0) {
 			
-			upgradingCards(upgradeable_cards);
+			try_to_upgrade_cards = true;
 			
 		}
 		
@@ -59,14 +60,23 @@ public class NecklaceOfSkulls extends CustomRelic
 				getCardGridDescription(), false, false, true, false);
 		
 		is_player_choosing_a_card = true;
+		try_to_upgrade_cards = false;
 		
 	}
 	
 	public void update()
 	{
 		super.update();
-
-		if (is_player_choosing_a_card) {
+		
+		if (try_to_upgrade_cards) {
+			if (!AbstractDungeon.gridSelectScreen.confirmScreenUp) {
+				CardGroup upgradeable_cards = AbstractDungeon.player.
+						masterDeck.getUpgradableCards();
+				
+				upgradingCards(upgradeable_cards);
+			}
+		}
+		else if (is_player_choosing_a_card) {
 			if (isTimeToUpgradeTheChosenCard())
 		    {
 	            flash();
