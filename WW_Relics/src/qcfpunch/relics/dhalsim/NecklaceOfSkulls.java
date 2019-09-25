@@ -55,7 +55,7 @@ public class NecklaceOfSkulls extends CustomRelic
 		
 		AbstractDungeon.gridSelectScreen.open(upgradeable_cards,
 				1,
-				getCardGridDescription(), false, false, true, false);
+				getCardGridDescription(), false, false, false, false);
 		
 		is_player_choosing_a_card = true;
 		try_to_upgrade_cards = false;
