@@ -1,5 +1,10 @@
 package qcfpunch.relics.dhalsim;
 
+import java.util.ArrayList;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import com.evacipated.cardcrawl.mod.stslib.relics.OnRemoveCardFromMasterDeckRelic;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
@@ -20,8 +25,13 @@ public class NecklaceOfSkulls extends CustomRelic
 	public static final String ID = QCFPunch_MiscCode.returnPrefix() +
 			"Necklace_of_Skulls";
 	
+	private static int amount_of_upgrades = 0;
+	private static int current_amount_of_upgrading = 0;
+	
 	public static boolean is_player_choosing_a_card = false;
 	public static boolean try_to_upgrade_cards = false;
+	
+	public static final Logger logger = LogManager.getLogger(NecklaceOfSkulls.class.getName()); // lets us log output
 	
 	public NecklaceOfSkulls() {
 		super(ID, GraphicResources.LoadRelicImage("White_Boots - steeltoe-boots - Lorc - CC BY 3.0.png"),
@@ -36,14 +46,25 @@ public class NecklaceOfSkulls extends CustomRelic
 	@Override
 	public void onRemoveCardFromMasterDeck(AbstractCard card) {
 		
-		CardGroup upgradeable_cards = AbstractDungeon.player.
-				masterDeck.getUpgradableCards();
+		logger.info(card.name + " got removed.");
 		
-		if (upgradeable_cards.size() > 0) {
+		if (amount_of_upgrades == 0) {
 			
-			try_to_upgrade_cards = true;
+			CardGroup upgradeable_cards = AbstractDungeon.player.
+					masterDeck.getUpgradableCards();
 			
+			if (upgradeable_cards.size() > 0) {
+				
+				++amount_of_upgrades;
+				try_to_upgrade_cards = true;
+				
+			}
+			
+		} else {
+			++amount_of_upgrades;
 		}
+		
+		
 		
 	}
 	
@@ -53,8 +74,10 @@ public class NecklaceOfSkulls extends CustomRelic
 		AbstractDungeon.overlayMenu.cancelButton.hide();
 		AbstractDungeon.previousScreen = AbstractDungeon.screen;
 		
+		current_amount_of_upgrading = amount_of_upgrades;
+		
 		AbstractDungeon.gridSelectScreen.open(upgradeable_cards,
-				1,
+				current_amount_of_upgrading,
 				getCardGridDescription(), false, false, false, false);
 		
 		is_player_choosing_a_card = true;
@@ -75,45 +98,71 @@ public class NecklaceOfSkulls extends CustomRelic
 			}
 		}
 		else if (is_player_choosing_a_card) {
-			if (isTimeToUpgradeTheChosenCard())
+			if (isTimeToUpgradeTheChosenCards())
 		    {
 	            flash();
 				
-				AbstractCard card_chosen = getCardToUpgrade();
+	            for (int i = 0; i < current_amount_of_upgrading; i++) {
+	            	AbstractCard card_chosen = getCardToUpgrade(i);
+					
+					AbstractDungeon.effectsQueue.add(
+							new UpgradeShineEffect(
+									(i+1) * Settings.WIDTH / 4.0F,
+									Settings.HEIGHT / 2.0F));
+					AbstractDungeon.player.bottledCardUpgradeCheck(card_chosen);
+					card_chosen.upgrade();
+					AbstractDungeon.effectsQueue.add(
+							new ShowCardBrieflyEffect(
+									card_chosen.makeStatEquivalentCopy(),
+									(i+1) * Settings.WIDTH / 4.0F,
+									Settings.HEIGHT / 2.0F));
+	            }
+	            
 				
-				AbstractDungeon.effectsQueue.add(
-						new UpgradeShineEffect(
-								Settings.WIDTH / 2.0F,
-								Settings.HEIGHT / 2.0F));
-				AbstractDungeon.player.bottledCardUpgradeCheck(card_chosen);
-				card_chosen.upgrade();
-				AbstractDungeon.effectsQueue.add(
-						new ShowCardBrieflyEffect(
-								card_chosen.makeStatEquivalentCopy()));
 				
 				AbstractDungeon.gridSelectScreen.selectedCards.clear();
-				
+								
 				AbstractDungeon.overlayMenu.hideBlackScreen();
 				AbstractDungeon.dynamicBanner.appear();
 				AbstractDungeon.isScreenUp = false;
 				is_player_choosing_a_card = false;
 				
+				amount_of_upgrades -= current_amount_of_upgrading;
+				current_amount_of_upgrading = 0;
+				
+				if (amount_of_upgrades > 0) {
+					
+					CardGroup upgradeable_cards = 
+							AbstractDungeon.player.masterDeck.getUpgradableCards();
+					
+					if (upgradeable_cards.size() > 0)
+						upgradingCards(upgradeable_cards);
+					
+				}
 		    }
 		}		
 		
 	}
 	
-	private boolean isTimeToUpgradeTheChosenCard() {
+	private boolean isTimeToUpgradeTheChosenCards() {
 		
-		return AbstractDungeon.gridSelectScreen.selectedCards.size() >= 1;
+		return AbstractDungeon.gridSelectScreen.selectedCards.size()
+				>= current_amount_of_upgrading;
 		
 	}
 	
-	private static AbstractCard getCardToUpgrade() {	
-		AbstractCard chosen_card = AbstractDungeon.gridSelectScreen.
-				selectedCards.get(0);
+	/*private static ArrayList<AbstractCard> getCardsToUpgrade() {	
+		ArrayList<AbstractCard> chosen_cards = AbstractDungeon.gridSelectScreen.
+				selectedCards;
 		
-		return chosen_card;
+		return chosen_cards;
+	}*/
+	
+	private static AbstractCard getCardToUpgrade(int which_one) {	
+		ArrayList<AbstractCard> chosen_cards = AbstractDungeon.gridSelectScreen.
+				selectedCards;
+		
+		return chosen_cards.get(which_one);
 	}
 	
 	private String getCardGridDescription() {
