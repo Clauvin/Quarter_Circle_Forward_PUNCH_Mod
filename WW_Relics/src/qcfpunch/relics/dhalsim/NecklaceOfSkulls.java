@@ -106,7 +106,7 @@ public class NecklaceOfSkulls extends CustomRelic
 	
 	private boolean isTimeToUpgradeTheChosenCard() {
 		
-		return AbstractDungeon.gridSelectScreen.selectedCards.size() >= 0;
+		return AbstractDungeon.gridSelectScreen.selectedCards.size() >= 1;
 		
 	}
 	
