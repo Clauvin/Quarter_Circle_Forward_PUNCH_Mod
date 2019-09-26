@@ -122,9 +122,8 @@
     "NAME": "Necklace of Skulls",
     "FLAVOR": "\"Hatred begets weakness. Cultivate your heart.\" Who said that?",
  	"DESCRIPTIONS": [
- 	  "Start with #b",
- 	  " option of a max of #b",
- 	  ". At combat start, shuffle #b1 Power from the randomized options to your draw pile. When you remove a #rCurse of your deck, add #b1 option."
+ 	  "When you remove a card, #yUpgrade a card in your deck. (Won't work with the Vampires event by now)",
+ 	  "Choose a card to upgrade."
     ]
   },
     
