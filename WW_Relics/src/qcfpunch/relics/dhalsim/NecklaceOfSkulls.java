@@ -92,7 +92,13 @@ public class NecklaceOfSkulls extends CustomRelic
 					AbstractDungeon.player.bottledCardUpgradeCheck(card_chosen);
 					card_chosen.upgrade();
 					
-					showVFX(card_chosen, i);
+					if (current_amount_of_upgrading == 1) {
+						showVFX(card_chosen, i, true);
+					} else {
+						showVFX(card_chosen, i, false);
+					}
+					
+					
 	            }
 	            
 				AbstractDungeon.gridSelectScreen.selectedCards.clear();
@@ -131,15 +137,25 @@ public class NecklaceOfSkulls extends CustomRelic
 				>= current_amount_of_upgrading;
 	}
 	
-	private void showVFX(AbstractCard card_chosen, int positioning) {
+	private void showVFX(AbstractCard card_chosen, int positioning,
+			boolean only_card) {
+		
+		int true_positioning;
+		
+		if (only_card) {
+			true_positioning = 2;
+		} else {
+			true_positioning = positioning+1;
+		}
+		
 		AbstractDungeon.effectsQueue.add(
 				new UpgradeShineEffect(
-						(positioning+1) * Settings.WIDTH / 4.0F,
+						true_positioning * Settings.WIDTH / 4.0F,
 						Settings.HEIGHT / 2.0F));
 		AbstractDungeon.effectsQueue.add(
 				new ShowCardBrieflyEffect(
 						card_chosen.makeStatEquivalentCopy(),
-						(positioning+1) * Settings.WIDTH / 4.0F,
+						true_positioning * Settings.WIDTH / 4.0F,
 						Settings.HEIGHT / 2.0F));
 	}
 	
@@ -170,7 +186,7 @@ public class NecklaceOfSkulls extends CustomRelic
 	}
 	
 	private String getCardGridDescription() {
-		return DESCRIPTIONS[0];
+		return DESCRIPTIONS[1];
 	}
 
 	public boolean canSpawn() {
