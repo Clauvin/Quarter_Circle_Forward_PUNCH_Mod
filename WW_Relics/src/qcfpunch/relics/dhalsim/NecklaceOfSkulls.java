@@ -18,7 +18,9 @@ import basemod.abstracts.CustomRelic;
 import qcfpunch.QCFPunch_MiscCode;
 import qcfpunch.resources.relic_graphics.GraphicResources;
 
-//old code, stored in this commit for use later with a better relic
+//Currently won't work with Vampires event
+//since Vampires event doesn't use the function we have a hook
+//to activate the effect 
 public class NecklaceOfSkulls extends CustomRelic
 							  implements OnRemoveCardFromMasterDeckRelic {
 
@@ -113,7 +115,7 @@ public class NecklaceOfSkulls extends CustomRelic
 		AbstractDungeon.overlayMenu.cancelButton.hide();
 		AbstractDungeon.previousScreen = AbstractDungeon.screen;
 		
-		current_amount_of_upgrading = amount_of_upgrades;
+		current_amount_of_upgrading = 1;
 		
 		AbstractDungeon.gridSelectScreen.open(upgradeable_cards,
 				current_amount_of_upgrading,
