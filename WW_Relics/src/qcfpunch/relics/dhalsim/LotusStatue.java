@@ -43,16 +43,18 @@ public class LotusStatue extends CustomRelic
 		this.counter = INITIAL_AMOUNT_OF_CHARGES;
 	}
 	
-	public String getCardGridDescription() {
+	public String getUpdatedDescription() {
 		return DESCRIPTIONS[0] + MAX_AMOUNT_OF_CARDS_REMOVABLE_PER_CHARGE +
 				DESCRIPTIONS[1] + CHARGES_GAINED_BY_REMOVAL +
 				DESCRIPTIONS[2];
 	}
 	
-	public String getUpdatedDescription() {
+	public String getCardGridDescription() {
 		return DESCRIPTIONS[3] + MAX_AMOUNT_OF_CARDS_REMOVABLE_PER_CHARGE +
 				DESCRIPTIONS[4];
 	}
+	
+	
 	
 	@Override
 	public void onRemoveCardFromMasterDeck(AbstractCard card) {
