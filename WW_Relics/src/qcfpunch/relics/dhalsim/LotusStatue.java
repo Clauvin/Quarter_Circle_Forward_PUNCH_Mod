@@ -57,7 +57,10 @@ public class LotusStatue extends CustomRelic
 	@Override
 	public void onRemoveCardFromMasterDeck(AbstractCard card) {
 		
-		if (!using_this_relic_power_to_remove) this.counter += 1;
+		if (!using_this_relic_power_to_remove) {
+			this.counter += 1;
+			flash();
+		}
 		
 	}
 	
