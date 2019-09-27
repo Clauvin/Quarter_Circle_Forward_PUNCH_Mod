@@ -50,7 +50,7 @@ public class LotusStatue extends CustomRelic
 	
 	public void onEnterRoom(AbstractRoom room) {
 		if ((room instanceof RestRoom) && (counter > 0)) flash();
-		right_click_in_relic_here_havent_happened = false;
+		right_click_in_relic_here_havent_happened = true;
 	}
 
 	@Override
@@ -92,11 +92,7 @@ public class LotusStatue extends CustomRelic
 		CardGroup removable_cards = AbstractDungeon.player.masterDeck.
 				getPurgeableCards();
 		
-		if (removable_cards.size() > this.counter) {
-			max_amount_of_cards_to_remove = this.counter;
-		} else {
-			max_amount_of_cards_to_remove = removable_cards.size();
-		}
+		max_amount_of_cards_to_remove = 1;
 		
 		AbstractDungeon.gridSelectScreen.open(removable_cards,
 				max_amount_of_cards_to_remove,
@@ -128,6 +124,15 @@ public class LotusStatue extends CustomRelic
 				AbstractDungeon.overlayMenu.hideBlackScreen();
 				AbstractDungeon.dynamicBanner.appear();
 				AbstractDungeon.isScreenUp = false;
+				
+				currently_choosing_removable_cards = false;
+				
+				if ((this.counter > 0) && (haveCardsToRemove())) {
+					if (restOptionsHaventBeenPickedUpYet()) {
+						right_click_in_relic_here_havent_happened = false;
+						removingCards();
+					}
+				}
 				
 		    }
 		}
