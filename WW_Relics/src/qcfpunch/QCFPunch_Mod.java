@@ -282,6 +282,7 @@ public class QCFPunch_Mod implements AddCustomModeModsSubscriber, EditStringsSub
 		BaseMod.addRelic(new NecklaceOfSkulls(),  RelicType.SHARED);
 		BaseMod.addRelic(new LotusStatue(), RelicType.SHARED);
 	}
+	
 	private void addCharacterCameoRelics() {
 		addDanRelics();
 		addSakuraRelics();
