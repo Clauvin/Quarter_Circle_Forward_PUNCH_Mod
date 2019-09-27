@@ -118,6 +118,14 @@
     ]
   },
   
+  "qcfpunch:Lotus_Statue": {
+    "NAME": "Lotus Statue",
+    "FLAVOR": "\"Meditate now... Then the answers you seek will be revealed.\"",
+ 	"DESCRIPTIONS": [
+ 	  "Right click at a Rest Site before picking an option to remove at most one card per charge spent. Gain 1 charge when you remove a card without using this relic's effect."
+    ]
+  },
+  
   "qcfpunch:Necklace_of_Skulls": {
     "NAME": "Necklace of Skulls",
     "FLAVOR": "\"Hatred begets weakness. Cultivate your heart.\" Who said that?",
