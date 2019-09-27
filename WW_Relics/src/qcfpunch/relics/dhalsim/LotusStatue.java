@@ -26,6 +26,8 @@ public class LotusStatue extends CustomRelic
 	
 	private static boolean using_this_relic_power_to_remove = false;
 	private static final int INITIAL_AMOUNT_OF_CHARGES = 0;
+	private static final int MAX_AMOUNT_OF_CARDS_REMOVABLE_PER_CHARGE = 1;
+	private static final int CHARGES_GAINED_BY_REMOVAL = 1;
 
 	private static boolean right_click_in_relic_here_havent_happened = true;
 	private static boolean currently_choosing_removable_cards;
@@ -39,6 +41,17 @@ public class LotusStatue extends CustomRelic
 				RelicTier.RARE, LandingSound.MAGICAL);
 		
 		this.counter = INITIAL_AMOUNT_OF_CHARGES;
+	}
+	
+	public String getCardGridDescription() {
+		return DESCRIPTIONS[0] + MAX_AMOUNT_OF_CARDS_REMOVABLE_PER_CHARGE +
+				DESCRIPTIONS[1] + CHARGES_GAINED_BY_REMOVAL +
+				DESCRIPTIONS[2];
+	}
+	
+	public String getUpdatedDescription() {
+		return DESCRIPTIONS[3] + MAX_AMOUNT_OF_CARDS_REMOVABLE_PER_CHARGE +
+				DESCRIPTIONS[4];
 	}
 	
 	@Override
@@ -166,14 +179,6 @@ public class LotusStatue extends CustomRelic
 	private void spendChargesForRemovedCard() {	
 		this.counter -= 1;
 		if (this.counter < 0) this.counter = 0;
-	}
-
-	public String getCardGridDescription() {
-		return DESCRIPTIONS[0];
-	}
-	
-	public String getUpdatedDescription() {
-		return DESCRIPTIONS[0];
 	}
 	
 	public boolean canSpawn() {
