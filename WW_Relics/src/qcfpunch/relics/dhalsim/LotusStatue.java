@@ -90,6 +90,8 @@ public class LotusStatue extends CustomRelic
 		CardGroup removable_cards = AbstractDungeon.player.masterDeck.
 					getPurgeableCards();
 		
+		removable_cards = CardGroup.getGroupWithoutBottledCards(removable_cards);
+		
 		return removable_cards.size() > 0;
 	}
 	
@@ -112,6 +114,8 @@ public class LotusStatue extends CustomRelic
 		
 		CardGroup removable_cards = AbstractDungeon.player.masterDeck.
 				getPurgeableCards();
+		
+		removable_cards = CardGroup.getGroupWithoutBottledCards(removable_cards);
 		
 		removable_cards.addToBottom(new Finished());
 		
