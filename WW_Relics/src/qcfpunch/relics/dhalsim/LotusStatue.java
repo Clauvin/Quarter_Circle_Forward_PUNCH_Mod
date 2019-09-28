@@ -14,6 +14,7 @@ import com.megacrit.cardcrawl.rooms.AbstractRoom.RoomPhase;
 import com.megacrit.cardcrawl.vfx.cardManip.PurgeCardEffect;
 
 import basemod.abstracts.CustomRelic;
+import qcfpunch.QCFPunch_GoodBehaviorLine;
 import qcfpunch.QCFPunch_MiscCode;
 import qcfpunch.cards.ui.Finished;
 import qcfpunch.resources.relic_graphics.GraphicResources;
@@ -33,8 +34,11 @@ public class LotusStatue extends CustomRelic
 	private static boolean right_click_in_relic_here_havent_happened = true;
 	private static boolean currently_choosing_removable_cards;
 	private static int max_amount_of_cards_to_remove;
+	private static boolean cards_to_remove_yet = false;
 	
 	private static final int CAN_SPAWN_BEFORE_FLOOR = 51;
+	
+	public static QCFPunch_GoodBehaviorLine behavior_line; 
 		
 	public LotusStatue() {
 		super(ID, GraphicResources.LoadRelicImage(
@@ -71,6 +75,7 @@ public class LotusStatue extends CustomRelic
 		using_this_relic_power_to_remove = false;
 		right_click_in_relic_here_havent_happened = true;
 		currently_choosing_removable_cards = false;
+		cards_to_remove_yet = false;
 		max_amount_of_cards_to_remove = 0;
 	}
 
@@ -104,7 +109,10 @@ public class LotusStatue extends CustomRelic
 		
 	}
 	
+	@SuppressWarnings("static-access")
 	private void removingCards() {
+		
+		behavior_line.lotusStatueWorkingHere();
 		
 		AbstractDungeon.dynamicBanner.hide();
 		AbstractDungeon.overlayMenu.cancelButton.hide();
@@ -129,46 +137,57 @@ public class LotusStatue extends CustomRelic
 		
 	}
 	
+	@SuppressWarnings("static-access")
 	public void update()
 	{
 		super.update();
+		behavior_line.lotusStatueTick();
 		
-		if (currently_choosing_removable_cards) {
-			if (isTimeToRemoveTheChosenCard()) {
-		    
-	            flash();
-				
-				AbstractCard card_chosen = getCardToRemove();
-				
-				if (!(card_chosen instanceof Finished)) {
-					using_this_relic_power_to_remove = true;
-					removeAndShowChosenCard(card_chosen);
-					using_this_relic_power_to_remove = false;
-					
-					spendChargesForRemovedCard();
-				}
-				
-				AbstractDungeon.gridSelectScreen.selectedCards.clear();
-				
-				AbstractDungeon.overlayMenu.hideBlackScreen();
-				AbstractDungeon.dynamicBanner.appear();
-				AbstractDungeon.isScreenUp = false;
-
-				currently_choosing_removable_cards = false;
-				
-				if (!(card_chosen instanceof Finished)) {
-					if ((this.counter > 0) && (haveCardsToRemove())) {
-						if (restOptionsHaventBeenPickedUpYet()) {
-							right_click_in_relic_here_havent_happened = false;
-							removingCards();
-						}
+		if (behavior_line.canLotusStatueWork()) {
+			if (cards_to_remove_yet)  {
+				if ((this.counter > 0) && (haveCardsToRemove())) {
+					if (restOptionsHaventBeenPickedUpYet()) {
+						right_click_in_relic_here_havent_happened = false;
+						removingCards();
 					}
 				}
-				
-		    }
+			} else {
+				if (currently_choosing_removable_cards) {
+					if (isTimeToRemoveTheChosenCard()) {
+				    
+			            flash();
+						
+						AbstractCard card_chosen = getCardToRemove();
+						
+						if (!(card_chosen instanceof Finished)) {
+							using_this_relic_power_to_remove = true;
+							removeAndShowChosenCard(card_chosen);
+							using_this_relic_power_to_remove = false;
+							
+							spendChargesForRemovedCard();
+						}
+						
+						AbstractDungeon.gridSelectScreen.selectedCards.clear();
+						
+						AbstractDungeon.overlayMenu.hideBlackScreen();
+						AbstractDungeon.dynamicBanner.appear();
+						AbstractDungeon.isScreenUp = false;
+
+						currently_choosing_removable_cards = false;
+						behavior_line.lotusStatueFinished();
+						
+						if (!(card_chosen instanceof Finished) &&
+							((this.counter > 0) && (haveCardsToRemove()))) {
+								cards_to_remove_yet = true;
+						} else {
+							cards_to_remove_yet = false;
+						}
+				    }
+				}
+			}
 		}
 	}
-	
+		
 	private static boolean isTimeToRemoveTheChosenCard() {
 		
 		boolean i_am_in_a_rest_room = AbstractDungeon.getCurrRoom()
