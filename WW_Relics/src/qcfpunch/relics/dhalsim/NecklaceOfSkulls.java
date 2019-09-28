@@ -15,6 +15,7 @@ import com.megacrit.cardcrawl.vfx.UpgradeShineEffect;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardBrieflyEffect;
 
 import basemod.abstracts.CustomRelic;
+import qcfpunch.QCFPunch_GoodBehaviorLine;
 import qcfpunch.QCFPunch_MiscCode;
 import qcfpunch.resources.relic_graphics.GraphicResources;
 
@@ -32,6 +33,9 @@ public class NecklaceOfSkulls extends CustomRelic
 	
 	public static boolean is_player_choosing_a_card = false;
 	public static boolean try_to_upgrade_cards = false;
+	public static boolean waiting_to_upgrade = false;
+	
+	public static QCFPunch_GoodBehaviorLine behavior_line; 
 	
 	public static final Logger logger = LogManager.getLogger(
 			NecklaceOfSkulls.class.getName());
@@ -46,6 +50,7 @@ public class NecklaceOfSkulls extends CustomRelic
 		return DESCRIPTIONS[0];
 	}
 	
+	@SuppressWarnings("static-access")
 	@Override
 	public void onRemoveCardFromMasterDeck(AbstractCard card) {
 		
@@ -58,6 +63,7 @@ public class NecklaceOfSkulls extends CustomRelic
 				
 				++amount_of_upgrades;
 				try_to_upgrade_cards = true;
+				behavior_line.necklaceOfSkullsWorkingHere();
 				
 			}
 			
@@ -67,52 +73,58 @@ public class NecklaceOfSkulls extends CustomRelic
 		
 	}
 	
+	@SuppressWarnings("static-access")
 	public void update()
 	{
 		super.update();
+		behavior_line.necklaceOfSkullsTick();
 		
-		if (try_to_upgrade_cards) {
-			if (!AbstractDungeon.gridSelectScreen.confirmScreenUp) {
-				CardGroup upgradeable_cards = AbstractDungeon.player.
-						masterDeck.getUpgradableCards();
-				
-				upgradingCards(upgradeable_cards);
-			}
-		}
-		else if (is_player_choosing_a_card) {
-			if (isTimeToUpgradeTheChosenCards())
-		    {
-	            flash();
-				
-	            ArrayList<AbstractCard> cards_chosen = getCardsToUpgrade();
-	            
-	            for (int i = 0; i < current_amount_of_upgrading; i++) {
-	            	AbstractCard card_chosen = cards_chosen.get(i);
-					
-					AbstractDungeon.player.bottledCardUpgradeCheck(card_chosen);
-					card_chosen.upgrade();
-					
-					if (current_amount_of_upgrading == 1) {
-						showVFX(card_chosen, i, true);
-					} else {
-						showVFX(card_chosen, i, false);
-					}
-					
-					
-	            }
-	            
-				AbstractDungeon.gridSelectScreen.selectedCards.clear();
-								
-				AbstractDungeon.overlayMenu.hideBlackScreen();
-				AbstractDungeon.dynamicBanner.appear();
-				AbstractDungeon.isScreenUp = false;
-				
-				is_player_choosing_a_card = false;
-				
+		if (behavior_line.canNecklaceOfSkullsWork()) {
+			if (waiting_to_upgrade) {
+				waiting_to_upgrade = false;
 				ifThereAreUpgradesToDoTryToDoThem();
-		    }
-		}		
-		
+			}
+			else if (try_to_upgrade_cards) {
+				if (!AbstractDungeon.gridSelectScreen.confirmScreenUp) {
+					CardGroup upgradeable_cards = AbstractDungeon.player.
+							masterDeck.getUpgradableCards();
+					
+					upgradingCards(upgradeable_cards);
+				}
+			}
+			else if (is_player_choosing_a_card) {
+				if (isTimeToUpgradeTheChosenCards())
+			    {
+		            flash();
+					
+		            ArrayList<AbstractCard> cards_chosen = getCardsToUpgrade();
+		            
+		            for (int i = 0; i < current_amount_of_upgrading; i++) {
+		            	AbstractCard card_chosen = cards_chosen.get(i);
+						
+						AbstractDungeon.player.bottledCardUpgradeCheck(card_chosen);
+						card_chosen.upgrade();
+						
+						if (current_amount_of_upgrading == 1) {
+							showVFX(card_chosen, i, true);
+						} else {
+							showVFX(card_chosen, i, false);
+						}
+		            }
+		            
+					AbstractDungeon.gridSelectScreen.selectedCards.clear();
+									
+					AbstractDungeon.overlayMenu.hideBlackScreen();
+					AbstractDungeon.dynamicBanner.appear();
+					AbstractDungeon.isScreenUp = false;
+					
+					is_player_choosing_a_card = false;
+					behavior_line.necklaceOfSkullsFinished();
+					
+					ifThereAreUpgradesToDoTryToDoThem();
+			    }
+			}		
+		}
 	}
 	
 	public void upgradingCards(CardGroup upgradeable_cards) {
@@ -159,10 +171,15 @@ public class NecklaceOfSkulls extends CustomRelic
 						Settings.HEIGHT / 2.0F));
 	}
 	
+	@SuppressWarnings("static-access")
 	private void ifThereAreUpgradesToDoTryToDoThem() {
 		
 		amount_of_upgrades -= current_amount_of_upgrading;
 		current_amount_of_upgrading = 0;
+		
+		if (!behavior_line.canNecklaceOfSkullsWork()) {
+			waiting_to_upgrade = true;
+		}
 		
 		if (amount_of_upgrades > 0) {
 			
