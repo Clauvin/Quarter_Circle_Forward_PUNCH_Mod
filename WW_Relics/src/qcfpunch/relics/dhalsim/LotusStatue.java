@@ -15,6 +15,7 @@ import com.megacrit.cardcrawl.vfx.cardManip.PurgeCardEffect;
 
 import basemod.abstracts.CustomRelic;
 import qcfpunch.QCFPunch_MiscCode;
+import qcfpunch.cards.ui.Finished;
 import qcfpunch.resources.relic_graphics.GraphicResources;
 
 public class LotusStatue extends CustomRelic
@@ -53,9 +54,7 @@ public class LotusStatue extends CustomRelic
 		return DESCRIPTIONS[3] + MAX_AMOUNT_OF_CARDS_REMOVABLE_PER_CHARGE +
 				DESCRIPTIONS[4];
 	}
-	
-	
-	
+
 	@Override
 	public void onRemoveCardFromMasterDeck(AbstractCard card) {
 		
@@ -68,7 +67,11 @@ public class LotusStatue extends CustomRelic
 	
 	public void onEnterRoom(AbstractRoom room) {
 		if ((room instanceof RestRoom) && (counter > 0)) flash();
+		
+		using_this_relic_power_to_remove = false;
 		right_click_in_relic_here_havent_happened = true;
+		currently_choosing_removable_cards = false;
+		max_amount_of_cards_to_remove = 0;
 	}
 
 	@Override
@@ -110,11 +113,13 @@ public class LotusStatue extends CustomRelic
 		CardGroup removable_cards = AbstractDungeon.player.masterDeck.
 				getPurgeableCards();
 		
+		removable_cards.addToBottom(new Finished());
+		
 		max_amount_of_cards_to_remove = 1;
 		
 		AbstractDungeon.gridSelectScreen.open(removable_cards,
 				max_amount_of_cards_to_remove,
-				getCardGridDescription(), false, false, true, true);
+				getCardGridDescription(), false, false, false, true);
 		
 		currently_choosing_removable_cards = true;
 		
@@ -123,7 +128,7 @@ public class LotusStatue extends CustomRelic
 	public void update()
 	{
 		super.update();
-
+		
 		if (currently_choosing_removable_cards) {
 			if (isTimeToRemoveTheChosenCard()) {
 		    
@@ -131,24 +136,28 @@ public class LotusStatue extends CustomRelic
 				
 				AbstractCard card_chosen = getCardToRemove();
 				
-				using_this_relic_power_to_remove = true;
-				removeAndShowChosenCard(card_chosen);
-				using_this_relic_power_to_remove = false;
-				
-				spendChargesForRemovedCard();
+				if (!(card_chosen instanceof Finished)) {
+					using_this_relic_power_to_remove = true;
+					removeAndShowChosenCard(card_chosen);
+					using_this_relic_power_to_remove = false;
+					
+					spendChargesForRemovedCard();
+				}
 				
 				AbstractDungeon.gridSelectScreen.selectedCards.clear();
 				
 				AbstractDungeon.overlayMenu.hideBlackScreen();
 				AbstractDungeon.dynamicBanner.appear();
 				AbstractDungeon.isScreenUp = false;
-				
+
 				currently_choosing_removable_cards = false;
 				
-				if ((this.counter > 0) && (haveCardsToRemove())) {
-					if (restOptionsHaventBeenPickedUpYet()) {
-						right_click_in_relic_here_havent_happened = false;
-						removingCards();
+				if (!(card_chosen instanceof Finished)) {
+					if ((this.counter > 0) && (haveCardsToRemove())) {
+						if (restOptionsHaventBeenPickedUpYet()) {
+							right_click_in_relic_here_havent_happened = false;
+							removingCards();
+						}
 					}
 				}
 				
@@ -158,7 +167,8 @@ public class LotusStatue extends CustomRelic
 	
 	private static boolean isTimeToRemoveTheChosenCard() {
 		
-		boolean i_am_in_a_rest_room = AbstractDungeon.getCurrRoom() instanceof RestRoom;
+		boolean i_am_in_a_rest_room = AbstractDungeon.getCurrRoom()
+				instanceof RestRoom;
 		boolean card_to_remove_have_been_chosen = 
 				AbstractDungeon.gridSelectScreen.selectedCards.size() == 1;
 		
@@ -174,8 +184,7 @@ public class LotusStatue extends CustomRelic
     
 		AbstractDungeon.player.masterDeck.removeCard(chosen_card);
 		
-		AbstractDungeon.topLevelEffects.add(
-				new PurgeCardEffect(chosen_card,
+		AbstractDungeon.topLevelEffects.add(new PurgeCardEffect(chosen_card,
 						(Settings.WIDTH / 2),
 						(Settings.HEIGHT / 2)));
 		
