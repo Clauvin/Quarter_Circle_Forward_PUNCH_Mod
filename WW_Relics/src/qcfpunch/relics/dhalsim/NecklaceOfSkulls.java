@@ -77,7 +77,8 @@ public class NecklaceOfSkulls extends CustomRelic
 	public void update()
 	{
 		super.update();
-		behavior_line.necklaceOfSkullsTick();
+		if (!behavior_line.time_of_necklace_of_skulls)
+			behavior_line.necklaceOfSkullsTick();
 		
 		if (behavior_line.canNecklaceOfSkullsWork()) {
 			if (waiting_to_upgrade) {
@@ -121,7 +122,7 @@ public class NecklaceOfSkulls extends CustomRelic
 					is_player_choosing_a_card = false;
 					behavior_line.necklaceOfSkullsFinished();
 					
-					ifThereAreUpgradesToDoTryToDoThem();
+					ifThereAreUpgradesToDoSetToDoThem();
 			    }
 			}		
 		}
@@ -172,14 +173,23 @@ public class NecklaceOfSkulls extends CustomRelic
 	}
 	
 	@SuppressWarnings("static-access")
-	private void ifThereAreUpgradesToDoTryToDoThem() {
+	private void ifThereAreUpgradesToDoSetToDoThem() {
 		
 		amount_of_upgrades -= current_amount_of_upgrading;
 		current_amount_of_upgrading = 0;
 		
-		if (!behavior_line.canNecklaceOfSkullsWork()) {
+		if ((!behavior_line.canNecklaceOfSkullsWork()) &&
+				(amount_of_upgrades > 0)){
 			waiting_to_upgrade = true;
 		}
+		
+	}
+	
+	@SuppressWarnings("static-access")
+	private void ifThereAreUpgradesToDoTryToDoThem() {
+		
+		amount_of_upgrades -= current_amount_of_upgrading;
+		current_amount_of_upgrading = 0;
 		
 		if (amount_of_upgrades > 0) {
 			
