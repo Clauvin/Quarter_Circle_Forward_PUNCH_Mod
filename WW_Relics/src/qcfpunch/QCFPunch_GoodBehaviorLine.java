@@ -29,7 +29,7 @@ public class QCFPunch_GoodBehaviorLine {
 	
 	public static void lotusStatueFinished() {
 		time_of_lotus_statue = false;
-		waiting_time_for_lotus_statue += 10;
+		waiting_time_for_lotus_statue += 60;
 	}
 	
 	public static void lotusStatueTick(){
@@ -49,7 +49,7 @@ public class QCFPunch_GoodBehaviorLine {
 	
 	public static void necklaceOfSkullsFinished() {
 		time_of_necklace_of_skulls = false;
-		waiting_time_for_necklace_of_skulls += 10;
+		waiting_time_for_necklace_of_skulls += 60;
 	}
 	
 	public static void necklaceOfSkullsTick(){
