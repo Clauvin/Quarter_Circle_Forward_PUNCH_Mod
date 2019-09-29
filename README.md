@@ -16,6 +16,10 @@ This mod follows the [Creative Commons Attribution 3.0 Unported](https://creativ
 
 * Most content above in English and simplified Chinese.
 
+# Mod Crossover Content
+
+None by now.
+
 # Current State
 
 Working in Milestone 6's Dhalsim inspired relics.
@@ -48,32 +52,32 @@ Link too in the [wiki's page](https://github.com/Clauvin/World_Warriors_Relics/w
 
 6. Relics inspired by Cammy, Dhalsim, Blanka, Zangief and a secret guest.
 7. Starting support to Nexus Mods.
-8. Translation of the mod's created text so far to PT-BR. (all future milestones will launch with EN localization, PT-BR will come after a round of balancing)
-9. One boss relic for Boxer, Claw and Sagat, respectively. (about the names chosen here, check https://en.wikipedia.org/wiki/Street_Fighter_II:_The_World_Warrior#Regional_differences)
-10. Focus in Dictator's inspired relic. (only in his relic because it will use the Friendly Minions mod)
-11. Focus in T. Hawk relic (only in his relic because it will trigger events, and that's different from all the other relics so far)
-12. Relics inspired by Fei Long and Deejay. (number unknown)
-13. ?????????????????????
-14. Reworking of 1 Custom Modifier revolving around fighter's set relics to make the equivalent of mini-characters, as a test. (use Blademaster Perk system together with relic that triggers them)
-15. Reworking of other Custom Modifiers to have more mini-characters.
-16. Update of beta art and sound assets to release version
+8. One boss relic for Boxer, Claw, Sagat and Dictator, respectively. (about the names chosen here, check https://en.wikipedia.org/wiki/Street_Fighter_II:_The_World_Warrior#Regional_differences)
+9. Focus in Akuma's inspired relic.
+10. Focus in T. Hawk relic (only in his relic because it will trigger events, and that's different from all the other relics so far)
+11. Relics inspired by Fei Long and Deejay. (number unknown)
+12. ?????????????????????
+13. Undefined extra content.
+14. Test of 1 Custom Modifier revolving around fighter's set relics to make the equivalent of mini-characters, as a test. (use Blademaster Perk system together with relic that triggers them)
+15. Reworking of other Custom Modifiers to have more mini-characters, IF I'm fine with the results above
+16. Update of beta art and sound assets to v1.0
 17. Polishing, refactoring and balancing.
 
 (and here we reach v1.0)
 
-18. Synergy and adaptation with Infinite Spire. (Black cards? Black cards. o9)
-19. Boss inspired by Street Fighter 2 stuff.
-20. Synergy with Halation. (Simulated Spire? Yep.)
-21. Add a Challenge to Challenge The Spire. (which one? Hm...)
-22. Synergy and adaptation with other mods.
+18. Translation of the mod to PT-BR. (all future milestones will launch with EN localization, PT-BR will come after a round of balancing)
+19. Adding Cameos from other fighting games.
+20. Synergy and adaptation with Infinite Spire. (Black cards? Black cards. o9)
+21. Boss inspired by Street Fighter 2 stuff.
+22. Synergy with Halation. (Simulated Spire? Yep.)
+23. Synergy and adaptation with other mods. (Googly Eyes included)
 
-And MAYBE (not making promises here)
+And MAYBE in the future, for a v2.0 (not making promises here)
 
-23. Synergy with Googly Eyes
-24. Cards inspired by moves of fighting games (and here I include Smash), that can be get through events or other mod's access to a hidden character.
-25. Special shop with stuff from this mod (cards above mentioned included) and removal with a good discount.
-26. Elite monsters.
-27. Extra events.
+24. Elite monsters.
+25. Extra events.
+26. Cards inspired by moves of fighting games (and here I include Smash), that can be get through events or other mod's access to a hidden character.
+27. Special shop with stuff from this mod (cards above mentioned included) and removal with a good discount.
 
 # Requirements
 
