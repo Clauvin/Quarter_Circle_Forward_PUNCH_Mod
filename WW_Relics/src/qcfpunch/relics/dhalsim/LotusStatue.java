@@ -141,10 +141,10 @@ public class LotusStatue extends CustomRelic
 	public void update()
 	{
 		super.update();
-		behavior_line.lotusStatueTick();
+		if (!behavior_line.time_of_lotus_statue) behavior_line.lotusStatueTick();
 		
 		if (behavior_line.canLotusStatueWork()) {
-			if (cards_to_remove_yet)  {
+			if ((cards_to_remove_yet) && (!currently_choosing_removable_cards))  {
 				if ((this.counter > 0) && (haveCardsToRemove())) {
 					if (restOptionsHaventBeenPickedUpYet()) {
 						right_click_in_relic_here_havent_happened = false;
