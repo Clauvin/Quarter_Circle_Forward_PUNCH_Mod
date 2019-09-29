@@ -83,6 +83,10 @@ And MAYBE in the future, for a v2.0 (not making promises here)
 
 Slay The Spire 1.1, Mod The Spire 3.11.0+, BaseMod 5.15.1+ and StSLib 1.17.1+ (when needed, the requirements will be updated to more recent versions of the game and libraries)
 
+# Optional Requirements
+
+None by now.
+
 # Compatibility
 
 * Vex's [The Artificer](https://steamcommunity.com/sharedfiles/filedetails/?id=1842757025) character mod does NOT use cards, and break cards that somehow reach your hand. This should mess with the "Strongest" Style Guidebook relic.
