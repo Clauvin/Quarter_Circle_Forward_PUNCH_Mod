@@ -66,18 +66,17 @@ Link too in the [wiki's page](https://github.com/Clauvin/World_Warriors_Relics/w
 (and here we reach v1.0)
 
 18. Translation of the mod to PT-BR. (all future milestones will launch with EN localization, PT-BR will come after a round of balancing)
-19. Adding Cameos from other fighting games.
-20. Synergy and adaptation with Infinite Spire. (Black cards? Black cards. o9)
-21. Boss inspired by Street Fighter 2 stuff.
-22. Synergy with Halation. (Simulated Spire? Yep.)
-23. Synergy and adaptation with other mods. (Googly Eyes included)
+19. Synergy and adaptation with Infinite Spire. (Black cards? Black cards. o9)
+20. Boss inspired by Street Fighter 2 stuff.
+21. Synergy with Halation. (Simulated Spire? Yep.)
+22. Synergy and adaptation with other mods. (Googly Eyes included)
 
 And MAYBE in the future, for a v2.0 (not making promises here)
 
-24. Elite monsters.
-25. Extra events.
-26. Cards inspired by moves of fighting games (and here I include Smash), that can be get through events or other mod's access to a hidden character.
-27. Special shop with stuff from this mod (cards above mentioned included) and removal with a good discount.
+23. Elite monsters.
+24. Extra events.
+25. Cards inspired by moves of fighting games (and here I include Smash), that can be get through events or other mod's access to a hidden character.
+26. Special shop with stuff from this mod (cards above mentioned included) and removal with a good discount.
 
 # Requirements
 
