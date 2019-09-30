@@ -67,7 +67,7 @@ public class WrestlersCloak extends CustomRelic implements ClickableRelic {
 	@Override
 	public void onRightClick() {
 		
-		if (itIsAnEliteOrBossRoom() && canThrowCloakAway()){
+		if (canThrowCloakAway()){
 			
 			AbstractDungeon.actionManager.addToBottom(
 					new AddTemporaryHPAction(AbstractDungeon.player,
