@@ -66,6 +66,9 @@ Link too in the [wiki's page](https://github.com/Clauvin/World_Warriors_Relics/w
 (and here we reach v1.0)
 
 18. Translation of the mod to PT-BR. (all future milestones will launch with EN localization, PT-BR will come after a round of balancing)
+
+(mandatory 1 month break at this point for resting and recovering creative energies)
+
 19. Synergy and adaptation with Infinite Spire. (Black cards? Black cards. o9)
 20. Boss inspired by Street Fighter 2 stuff.
 21. Synergy with Halation. (Simulated Spire? Yep.)
