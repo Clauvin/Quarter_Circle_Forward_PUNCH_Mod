@@ -5,6 +5,7 @@ import java.util.UUID;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.GameDictionary;
 
 public class SetEtherealOfCardAtCombatAction extends AbstractGameAction {
 
@@ -47,6 +48,11 @@ public class SetEtherealOfCardAtCombatAction extends AbstractGameAction {
 		for (int i = 0; i < card_group.size(); i++) {
 			if (card_group.getNCardFromTop(i).uuid == this.uuid) {
 				card_group.getNCardFromTop(i).isEthereal = this.ethereal;
+				card_group.getNCardFromTop(i).rawDescription = 
+						GameDictionary.ETHEREAL.NAMES[0] + ". NL " +
+						card_group.getNCardFromTop(i).rawDescription;	
+				card_group.getNCardFromTop(i).initializeDescription();
+				
 				this.isDone = true;
 				break;
 			}

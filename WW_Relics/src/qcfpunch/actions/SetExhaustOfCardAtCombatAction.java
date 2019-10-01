@@ -5,6 +5,7 @@ import java.util.UUID;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.GameDictionary;
 
 public class SetExhaustOfCardAtCombatAction extends AbstractGameAction  {
 
@@ -47,6 +48,9 @@ public class SetExhaustOfCardAtCombatAction extends AbstractGameAction  {
 		for (int i = 0; i < card_group.size(); i++) {
 			if (card_group.getNCardFromTop(i).uuid == this.uuid) {
 				card_group.getNCardFromTop(i).exhaust = this.exhausts;
+				card_group.getNCardFromTop(i).rawDescription += 
+						" NL " + GameDictionary.EXHAUST.NAMES[0] + ".";
+				card_group.getNCardFromTop(i).initializeDescription();
 				this.isDone = true;
 				break;
 			}
