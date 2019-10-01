@@ -120,7 +120,7 @@
  	"DESCRIPTIONS": [
  	  "[#2aecd7]Right [#2aecd7]click at a #bRest #bSite before picking an option to remove at most #y",
  	  " card per charge spent. Gain #y",
- 	  " charge when you remove a card without using this relic's effect.",
+ 	  " charge when you remove a card without using this relic's effect. (Won't work with the Vampires event by now)",
  	  "Choose ",
  	  " card to be removed."
     ]
