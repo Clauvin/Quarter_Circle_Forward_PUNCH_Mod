@@ -5,6 +5,8 @@ import java.util.UUID;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
+import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.core.Settings.GameLanguage;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.GameDictionary;
 
@@ -54,6 +56,9 @@ public class SetExhaustOfCardAtCombatAction extends AbstractGameAction  {
 				String upper_cased_exhaust = GameDictionary.EXHAUST.NAMES[0].
 						substring(0, 1).toUpperCase() + 
 						GameDictionary.EXHAUST.NAMES[0].substring(1);
+
+				if (Settings.language == GameLanguage.ZHS)
+					upper_cased_exhaust = "" + upper_cased_exhaust;
 				
 				the_card.rawDescription += " NL " + upper_cased_exhaust + ".";
 				the_card.initializeDescription();

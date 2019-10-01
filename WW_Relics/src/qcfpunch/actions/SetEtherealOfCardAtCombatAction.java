@@ -5,6 +5,8 @@ import java.util.UUID;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
+import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.core.Settings.GameLanguage;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.GameDictionary;
 
@@ -54,6 +56,9 @@ public class SetEtherealOfCardAtCombatAction extends AbstractGameAction {
 				String upper_cased_ethereal = GameDictionary.ETHEREAL.NAMES[0].
 						substring(0, 1).toUpperCase() + 
 						GameDictionary.ETHEREAL.NAMES[0].substring(1);
+				
+				if (Settings.language == GameLanguage.ZHS)
+					upper_cased_ethereal = "" + upper_cased_ethereal;
 				
 				the_card.rawDescription = upper_cased_ethereal + ". NL " +
 								the_card.rawDescription;
