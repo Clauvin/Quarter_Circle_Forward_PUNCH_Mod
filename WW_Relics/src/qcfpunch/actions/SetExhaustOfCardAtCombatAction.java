@@ -3,6 +3,7 @@ package qcfpunch.actions;
 import java.util.UUID;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.GameDictionary;
@@ -47,10 +48,15 @@ public class SetExhaustOfCardAtCombatAction extends AbstractGameAction  {
 	private void CheckGroupForCardToSet(CardGroup card_group) {
 		for (int i = 0; i < card_group.size(); i++) {
 			if (card_group.getNCardFromTop(i).uuid == this.uuid) {
-				card_group.getNCardFromTop(i).exhaust = this.exhausts;
-				card_group.getNCardFromTop(i).rawDescription += 
-						" NL " + GameDictionary.EXHAUST.NAMES[0] + ".";
-				card_group.getNCardFromTop(i).initializeDescription();
+				AbstractCard the_card = card_group.getNCardFromTop(i);
+				the_card.exhaust = this.exhausts;
+				
+				String upper_cased_exhaust = GameDictionary.EXHAUST.NAMES[0].
+						substring(0, 1).toUpperCase() + 
+						GameDictionary.EXHAUST.NAMES[0].substring(1);
+				
+				the_card.rawDescription += " NL " + upper_cased_exhaust + ".";
+				the_card.initializeDescription();
 				this.isDone = true;
 				break;
 			}
