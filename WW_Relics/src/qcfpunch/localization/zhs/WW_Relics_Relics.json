@@ -19,20 +19,20 @@
   },
 
   "qcfpunch:Broken_Tusk": {
-    "NAME": "Broken Tusk",
-    "FLAVOR": "Some things are very hard to forgive.",
+    "NAME": "断牙",
+    "FLAVOR": "有些事情，毕生难忘。",
     "DESCRIPTIONS": [
-      "The first #rCurse or #rStatus drawn each turn gives one extra #b",
-      " damage hit for your Attacks that turn."
+      "每回合第一次抽到 #r诅咒 或 #r状态牌时，本回合下一张攻击牌额外造成一次 #b",
+      " 点伤害的攻击。"
     ]
   },
   
   "qcfpunch:Cattail": {
-    "NAME": "Cattail",
-    "FLAVOR": "It feels like it shouldn't be here, and that meaning becomes solid in your hands.",
+    "NAME": "蒲尾",
+    "FLAVOR": "感觉它不应该在这里，而这个意义在你手中变得坚实。",
     "DESCRIPTIONS": [
-      "Upon pickup and after #b",
-      " rooms, gain #b1 Smoke Bomb."
+      "拾起后的第 #b",
+      " 个房间，获得 #b1 个烟雾弹。"
     ]
   },
   
