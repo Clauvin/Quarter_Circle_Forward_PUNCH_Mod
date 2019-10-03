@@ -6,6 +6,14 @@
       " ），并使其失去缓冲。"
     ]
   },
+  
+    "qcfpunch:Power_Fury": {
+    "NAME": "愤怒",
+    "DESCRIPTIONS": [
+      "你本回合的攻击额外造成 #b",
+      " 点伤害。"
+    ]
+  },
 
   "qcfpunch:Power_Potential": {
     "NAME": "怒气槽",
