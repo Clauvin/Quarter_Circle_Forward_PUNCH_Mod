@@ -9,7 +9,7 @@ This mod follows the [Creative Commons Attribution 3.0 Unported](https://creativ
 
 # Content
 
-* Twenty-four relics done of 34+ planned, with temporary images and placeholder sounds.
+* Twenty-six relics done of 34+ planned, with temporary images and placeholder sounds.
 * Eight game modifiers, ranging from adding more relics at start to making the game harder.
 * Six cards, acessible through one specific relic.
 * One event, which is the gateway for two relics and one potion.
