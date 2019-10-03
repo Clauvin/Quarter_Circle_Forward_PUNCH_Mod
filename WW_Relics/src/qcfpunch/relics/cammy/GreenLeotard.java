@@ -2,6 +2,7 @@ package qcfpunch.relics.cammy;
 
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.characters.AbstractPlayer.PlayerClass;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
@@ -58,7 +59,30 @@ public class GreenLeotard extends CustomRelic {
 		
 	}
 	
+	public boolean canSpawn() {
+		
+		boolean is_silent = AbstractDungeon.player.chosenClass 
+				== PlayerClass.THE_SILENT;
+
+		boolean hand_is_bigger_than_normal = AbstractDungeon.player.
+				gameHandSize > AbstractDungeon.player.getLoadout().cardDraw;
+		
+		boolean can_draw_at_least_two_cards;
+		int count = 0;
+		for (int i = 0; i < AbstractDungeon.player.masterDeck.size(); i++) {
+			if (AbstractDungeon.player.masterDeck.getNCardFromTop(i).baseDraw > 0)
+				count++;
+		}
+		can_draw_at_least_two_cards = count > 2;
+		
+		return is_silent || hand_is_bigger_than_normal || can_draw_at_least_two_cards;
+				
+	}
+	
 	public AbstractRelic makeCopy() {
+		
+		
+				
 		return new GreenLeotard();
 	}
 }	

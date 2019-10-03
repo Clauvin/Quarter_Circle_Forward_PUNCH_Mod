@@ -2,6 +2,8 @@ package qcfpunch.relics.zangief;
 
 import com.evacipated.cardcrawl.mod.stslib.actions.tempHp.AddTemporaryHPAction;
 import com.evacipated.cardcrawl.mod.stslib.relics.ClickableRelic;
+import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
+import com.megacrit.cardcrawl.actions.utility.TextAboveCreatureAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rooms.MonsterRoomBoss;
@@ -67,7 +69,15 @@ public class WrestlersCloak extends CustomRelic implements ClickableRelic {
 	@Override
 	public void onRightClick() {
 		
-		if (itIsAnEliteOrBossRoom() && canThrowCloakAway()){
+		if (canThrowCloakAway()){
+			
+			AbstractDungeon.actionManager.addToBottom(
+					new TextAboveCreatureAction(
+							AbstractDungeon.player, this.name));
+			
+			AbstractDungeon.actionManager.addToBottom(
+					new RelicAboveCreatureAction(
+							AbstractDungeon.player, this));
 			
 			AbstractDungeon.actionManager.addToBottom(
 					new AddTemporaryHPAction(AbstractDungeon.player,

@@ -3,6 +3,11 @@
     	"NAME": "Weakest Block",
     	"DESCRIPTION": "Ethereal. NL Gain !B! Block. NL Exhaust."
   	},
+  	
+  	"qcfpunch:Finished": {
+    	"NAME": "Finished",
+    	"DESCRIPTION": "Enough choices were made by now."
+  	},
 
 	"qcfpunch:Strike_Weakest": {
     	"NAME": "Weakest Strike",

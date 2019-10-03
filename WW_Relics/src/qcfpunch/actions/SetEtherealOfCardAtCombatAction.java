@@ -3,8 +3,12 @@ package qcfpunch.actions;
 import java.util.UUID;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
+import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.core.Settings.GameLanguage;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.GameDictionary;
 
 public class SetEtherealOfCardAtCombatAction extends AbstractGameAction {
 
@@ -46,7 +50,20 @@ public class SetEtherealOfCardAtCombatAction extends AbstractGameAction {
 	private void CheckGroupForCardToSet(CardGroup card_group) {
 		for (int i = 0; i < card_group.size(); i++) {
 			if (card_group.getNCardFromTop(i).uuid == this.uuid) {
-				card_group.getNCardFromTop(i).isEthereal = this.ethereal;
+				AbstractCard the_card = card_group.getNCardFromTop(i);
+				the_card.isEthereal = this.ethereal;
+				
+				String upper_cased_ethereal = GameDictionary.ETHEREAL.NAMES[0].
+						substring(0, 1).toUpperCase() + 
+						GameDictionary.ETHEREAL.NAMES[0].substring(1);
+				
+				if (Settings.language == GameLanguage.ZHS)
+					upper_cased_ethereal = "" + upper_cased_ethereal;
+				
+				the_card.rawDescription = upper_cased_ethereal + ". NL " +
+								the_card.rawDescription;
+				the_card.initializeDescription();
+				
 				this.isDone = true;
 				break;
 			}

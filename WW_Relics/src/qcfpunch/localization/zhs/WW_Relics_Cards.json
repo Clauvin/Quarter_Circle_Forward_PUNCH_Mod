@@ -3,6 +3,11 @@
     	"NAME": "“最强流”防御",
     	"DESCRIPTION": "虚无 。 NL 获得 !B! 点 格挡 。 NL 消耗。"
   	},
+  	
+  	"qcfpunch:Finished": {
+    	"NAME": "Finished",
+    	"DESCRIPTION": "Enough choices were made by now."
+  	},
 
 	"qcfpunch:Strike_Weakest": {
     	"NAME": "“最强流”打击",

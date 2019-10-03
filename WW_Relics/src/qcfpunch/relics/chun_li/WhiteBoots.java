@@ -86,7 +86,9 @@ public class WhiteBoots extends CustomRelic {
 		if (is_third_card) total_damage *= SIZE_OF_MULTIPLIER;
 		
 		DamageInfo damage_info = new DamageInfo(AbstractDungeon.player, total_damage, DamageInfo.DamageType.HP_LOSS);
-		AbstractDungeon.actionManager.addToBottom(new PummelDamageAction(creature, damage_info));
+		flash();
+		AbstractDungeon.actionManager.addToBottom(
+				new PummelDamageAction(creature, damage_info));
 	}
 	
 	public boolean isThirdCard() {

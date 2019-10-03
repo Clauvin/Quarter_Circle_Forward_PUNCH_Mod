@@ -1,4 +1,4 @@
-package qcfpunch.relics.dhalsim;
+package qcfpunch.relics.no_relation;
 
 import java.io.IOException;
 
