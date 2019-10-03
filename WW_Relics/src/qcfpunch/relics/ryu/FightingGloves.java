@@ -243,6 +243,7 @@ public class FightingGloves extends CustomRelic implements ClickableRelic {
         
 		for (AbstractCard c: chosen_cards) {
     		c.upgrade();
+    		AbstractDungeon.player.bottledCardUpgradeCheck(c);
 			logger.info("Upgraded " + c.name);
     		
 			ShowCardBrieflyEffect card_brief_effect = new ShowCardBrieflyEffect(
