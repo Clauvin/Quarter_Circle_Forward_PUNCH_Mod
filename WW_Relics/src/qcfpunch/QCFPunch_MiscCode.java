@@ -32,11 +32,11 @@ public class QCFPunch_MiscCode {
 	}
 	
 	public static String returnDescription() {
-		return "v0.14.12-UnstableGithub" +
+		return "v0.15-UnstableGithub" +
 				"\r\n"
-				  + "\r\n Adds twenty-four relics based mostly in SF2's main characters (also other fighting games), eight game modifiers, one event and one potion, most of them in English and simplified Chinese."
+				  + "\r\n Adds twenty-six relics based mostly in SF2's main characters (also other fighting games), eight game modifiers, one event and one potion, most of them in English and simplified Chinese."
 				  + "\r\n"
-				  + "\r\n v1.0 will have 32+ relics."
+				  + "\r\n v1.0 will have 34+ relics."
 				  + "\r\n"
 				  + "\r\n Most of the images in the mod are temporary and will be substituted/improved on v1.0.";
 	}
