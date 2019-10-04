@@ -4,8 +4,10 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 import basemod.abstracts.CustomRelic;
@@ -19,12 +21,52 @@ public class RainbowBrush extends CustomRelic{
 	public static final String ID = QCFPunch_MiscCode.returnPrefix() +
 			"Rainbow_Brush";
 	
+	public static int COMMON_CHANCE;
+	public static int UNCOMMON_CHANCE;
+	public static int RARE_CHANCE;
+	public static int BLACK_CHANCE;
+	public static int CURSE_CHANCE;
+	public static int STATUS_CHANCE;
+	
+	public static final int COMMON_INITIAL_CHANCE = 50;
+	public static final int UNCOMMON_INITIAL_CHANCE = 25;
+	public static final int RARE_INITIAL_CHANCE = 12;
+	public static final int BLACK_INITIAL_CHANCE = 1;
+	public static final int CURSE_INITIAL_CHANCE = 6;
+	public static final int STATUS_INITIAL_CHANCE = 6;
+	
+	public static final int NUMBER_OF_CARDS_PLAYED_TO_ACTIVATE = 7;
+	
+	public static final boolean do_black_cards_exist = QCFPunch_MiscCode.
+			silentlyCheckForMod(QCFPunch_MiscCode.infinite_spire_class_code);
+	
 	public static final Logger logger = LogManager.getLogger(
 			RainbowBrush.class.getName());
 	
 	public RainbowBrush() {
 		super(ID, GraphicResources.LoadRelicImage("Temp School Backpack - steeltoe-boots - Lorc - CC BY 3.0.png"),
 				RelicTier.BOSS, LandingSound.MAGICAL);
+		
+		initChance();
+		
+		this.counter = 0;
+	}
+	
+	public void initChance() {
+		
+		COMMON_CHANCE = COMMON_INITIAL_CHANCE;
+		UNCOMMON_CHANCE = UNCOMMON_INITIAL_CHANCE;
+		
+		if (do_black_cards_exist) {
+			RARE_CHANCE = RARE_INITIAL_CHANCE;
+			BLACK_CHANCE = BLACK_INITIAL_CHANCE;
+		} else {
+			RARE_CHANCE = RARE_INITIAL_CHANCE + BLACK_INITIAL_CHANCE;
+			BLACK_CHANCE = 0;
+		}
+		
+		CURSE_CHANCE = CURSE_INITIAL_CHANCE;
+		STATUS_CHANCE = STATUS_INITIAL_CHANCE;
 	}
 
 	public String getUpdatedDescription() {
@@ -40,8 +82,36 @@ public class RainbowBrush extends CustomRelic{
 	}
 	
 	@Override
-	public void atBattleStart() {
+	public void atPreBattle() {
+		super.atPreBattle();
 		
+		//generate card accordingly to probabilities
+		
+	}
+	
+	@Override
+	public void onPlayCard(AbstractCard c, AbstractMonster m) {
+		super.onPlayCard(c, m);
+		
+		this.counter++;
+		
+		if (counter >= NUMBER_OF_CARDS_PLAYED_TO_ACTIVATE) {
+			
+			counter = 0;
+			
+			//add Retain if it's not a curse or Status (maybe add anyway?)
+			//and the card to the player's hand
+			//change probabilities
+			//generate new card
+			
+		}
+	}
+	
+	@Override
+	public void onPlayerEndTurn() {
+		super.onPlayerEndTurn();
+		
+		//change card to generate, accordingly to probabilities and rules
 	}
 	
 	//Don't forget to add something to avoid cases where a card mod
