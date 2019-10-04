@@ -40,6 +40,7 @@ import qcfpunch.relics.zangief.*;
 import qcfpunch.relics.cammy.*;
 import qcfpunch.relics.character_cameos.dan.NotStrongestFightingStyleGuidebook;
 import qcfpunch.relics.character_cameos.sakura.SchoolBackpack;
+import qcfpunch.relics.character_cameos_valerie.RainbowBrush;
 import qcfpunch.relics.mortal_kombat.*;
 import qcfpunch.relics.no_relation.Cattail;
 
@@ -286,6 +287,7 @@ public class QCFPunch_Mod implements AddCustomModeModsSubscriber, EditStringsSub
 	private void addCharacterCameoRelics() {
 		addDanRelics();
 		addSakuraRelics();
+		addValerieRelics();
 	}
 	
 	private void addDanRelics() {
@@ -294,6 +296,10 @@ public class QCFPunch_Mod implements AddCustomModeModsSubscriber, EditStringsSub
 	
 	private void addSakuraRelics() {
 		BaseMod.addRelic(new SchoolBackpack(), RelicType.SHARED);
+	}
+	
+	private void addValerieRelics() {
+		BaseMod.addRelic(new RainbowBrush(), RelicType.SHARED);
 	}
 	
 	private void addGameCameoRelics() {
