@@ -98,6 +98,7 @@ public class RainbowBrush extends CustomRelic{
 		if (counter >= NUMBER_OF_CARDS_PLAYED_TO_ACTIVATE) {
 			
 			counter = 0;
+			flash();
 			
 			//add Retain if it's not a curse or Status (maybe add anyway?)
 			//and the card to the player's hand
