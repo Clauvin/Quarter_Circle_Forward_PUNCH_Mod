@@ -1,5 +1,7 @@
 package qcfpunch.relics.character_cameos_valerie;
 
+import java.io.IOException;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -128,27 +130,35 @@ public class RainbowBrush extends CustomRelic{
     		} 
     		else {
     			
-    			/*String class_name = AbstractDungeon.player.getClass().getName();
+    			String class_name = AbstractDungeon.player.getClass().getName();
+    			String start_of_save_variable = "rainbow_brush_class_" + class_name +
+        				"_save_slot_" + CardCrawlGame.saveSlot;
+    			
+        		config.setInt(start_of_save_variable +
+        				"_COMMON_CHANCE", COMMON_CHANCE);
 
-        		config.setInt("rainbow_brush_class_" + class_name +
-        				"_save_slot_" + CardCrawlGame.saveSlot +
-        				"_number_of_cards_left", number_of_cards_left);
-
-                config.setInt("rainbow_brush_class_" + class_name +
-        				"_save_slot_" + CardCrawlGame.saveSlot +
-        				"_floor_of_last_stored_reward", floor_of_last_stored_reward);
+                config.setInt(start_of_save_variable +
+        				"_UNCOMMON_CHANCE", UNCOMMON_CHANCE);
                 
-                config.setBool("rainbow_brush_class_" + class_name +
-        				"_save_slot_" + CardCrawlGame.saveSlot +
-        				"_empty_relic", empty_relic);
+                config.setInt(start_of_save_variable +
+        				"_RARE_CHANCE", RARE_CHANCE);
                 
-                storeCardRewardCreated(config, card_reward);
+                config.setInt(start_of_save_variable +
+        				"_BLACK_CHANCE", BLACK_CHANCE);
+                
+                config.setInt(start_of_save_variable +
+        				"_CURSE_CHANCE", CURSE_CHANCE);         
+                
+                config.setInt(start_of_save_variable +
+        				"_STATUS_CHANCE", STATUS_CHANCE);  
+                
+                //storeCardRewardCreated(config, card_reward);
     			
                 try {
     				config.save();
     			} catch (IOException e) {
     				e.printStackTrace();
-    			}*/
+    			}
     			
     		}
 
@@ -167,32 +177,40 @@ public class RainbowBrush extends CustomRelic{
         logger.info(QCFPunch_MiscCode.classAndSaveSlotText());
         
         String class_name = AbstractDungeon.player.getClass().getName();
+        String start_of_save_variable = "rainbow_brush_class_" + class_name +
+				"_save_slot_" + CardCrawlGame.saveSlot;
 		
 		if (AbstractDungeon.player.hasRelic(ID) && 
-				config.has("rainbow_brush_class_" + class_name +
-							"_save_slot_" + CardCrawlGame.saveSlot +
-							"_number_of_cards_left")) {
+				config.has(start_of_save_variable +
+						"_COMMON_CHANCE")) {
+			
+    		COMMON_CHANCE = config.getInt(start_of_save_variable +
+    				"_COMMON_CHANCE");
 
-			/*number_of_cards_left = config.getInt("rainbow_brush_class_" + class_name +
-													"_save_slot_" + CardCrawlGame.saveSlot +
-													"_number_of_cards_left");
+    		UNCOMMON_CHANCE = config.getInt(start_of_save_variable +
+    				"_UNCOMMON_CHANCE");
+            
+    		RARE_CHANCE = config.getInt(start_of_save_variable +
+    				"_RARE_CHANCE");
+            
+    		BLACK_CHANCE = config.getInt(start_of_save_variable +
+    				"_BLACK_CHANCE");
+            
+    		CURSE_CHANCE = config.getInt(start_of_save_variable +
+    				"_CURSE_CHANCE");         
+            
+    		STATUS_CHANCE = config.getInt(start_of_save_variable +
+    				"_STATUS_CHANCE"); 
 			
-			loadCardRewardStored(config);
+			//loadCardRewardStored(config);
 			
-			floor_of_last_stored_reward = config.getInt("rainbow_brush_class_" + class_name +
-									    				"_save_slot_" + CardCrawlGame.saveSlot +
-									    				"_floor_of_last_stored_reward");
-			
-			empty_relic = config.getBool("rainbow_brush_class_" + class_name +
-						    				"_save_slot_" + CardCrawlGame.saveSlot +
-						    				"_empty_relic");
-				
             try {
 				config.load();
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			}*/
+			}
+            
             logger.info("Finished loading Rainbow Brush info from");
             logger.info(QCFPunch_MiscCode.classAndSaveSlotText());
         }
@@ -200,8 +218,7 @@ public class RainbowBrush extends CustomRelic{
 		else
 		{
 			logger.info("There's no info, setting variables accordingly.");
-
-			logger.info("Finished setting School Backpack variables.");
+			logger.info("Finished setting Rainbow Brush variables.");
 		}
     }
 	
@@ -209,27 +226,36 @@ public class RainbowBrush extends CustomRelic{
 		logger.info("Clearing Rainbow Brush variables from");
         logger.info(QCFPunch_MiscCode.classAndSaveSlotText());
 		
-        //String class_name = AbstractDungeon.player.getClass().getName();
-		
-		//yeah, I know this part could be improved, but I don't have willpower to do it so now.
-		//So...
+        String class_name = AbstractDungeon.player.getClass().getName();
+        String start_of_save_variable = "rainbow_brush_class_" + class_name +
+				"_save_slot_" + CardCrawlGame.saveSlot;
 
-		
-        /*config.remove("rainbow_brush_class_" + class_name +
-						"_save_slot_" + CardCrawlGame.saveSlot +
-						"_number_of_cards_left");
-        config.remove("rainbow_brush_class_" + class_name +
-						"_save_slot_" + CardCrawlGame.saveSlot +
-						"_floor_of_last_stored_reward");
-        config.remove("rainbow_brush_class_" + class_name +
-						"_save_slot_" + CardCrawlGame.saveSlot +
-						"_empty_relic");
+		UNCOMMON_CHANCE = config.getInt(start_of_save_variable +
+				"_UNCOMMON_CHANCE");
         
-        if (config.has("rainbow_brush_" + class_name + 
-				"_save_slot_" + CardCrawlGame.saveSlot + 
-				"_reward_size")) {
-        	clearCardRewardStored(config);
-        }*/
+		RARE_CHANCE = config.getInt(start_of_save_variable +
+				"_RARE_CHANCE");
+        
+		BLACK_CHANCE = config.getInt(start_of_save_variable +
+				"_BLACK_CHANCE");
+        
+		CURSE_CHANCE = config.getInt(start_of_save_variable +
+				"_CURSE_CHANCE");         
+        
+		STATUS_CHANCE = config.getInt(start_of_save_variable +
+				"_STATUS_CHANCE"); 
+        
+        config.remove(start_of_save_variable + "_COMMON_CHANCE");
+        
+        config.remove(start_of_save_variable + "_UNCOMMON_CHANCE");
+        
+        config.remove(start_of_save_variable + "_RARE_CHANCE");
+        
+        config.remove(start_of_save_variable + "_BLACK_CHANCE");
+        
+        config.remove(start_of_save_variable + "_CURSE_CHANCE");
+        
+        config.remove(start_of_save_variable + "_STATUS_CHANCE");
         
         logger.info("Finished clearing Rainbow Brush variables from");
         logger.info(QCFPunch_MiscCode.classAndSaveSlotText());
