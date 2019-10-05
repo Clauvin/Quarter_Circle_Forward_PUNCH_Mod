@@ -118,7 +118,7 @@ public class RainbowBrush extends CustomRelic{
 			AbstractCard card = AbstractDungeon.getCard(CardRarity.COMMON);
 			
 			AbstractDungeon.actionManager.addToBottom(
-					new MakeTempCardInHandAction(card));
+					new MakeTempCardInHandAction(card, false, true));
 			
 			AbstractDungeon.actionManager.addToBottom(
 					new SetRetainOfCardAtCombatAction(card.uuid, true));
