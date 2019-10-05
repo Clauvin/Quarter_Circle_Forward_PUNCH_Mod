@@ -16,6 +16,7 @@ import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 import basemod.abstracts.CustomRelic;
 import qcfpunch.QCFPunch_MiscCode;
+import qcfpunch.actions.SetRetainOfCardAtCombatAction;
 import qcfpunch.resources.relic_graphics.GraphicResources;
 
 //No, Valerie is not a character from Street Fighter
@@ -118,6 +119,9 @@ public class RainbowBrush extends CustomRelic{
 			
 			AbstractDungeon.actionManager.addToBottom(
 					new MakeTempCardInHandAction(card));
+			
+			AbstractDungeon.actionManager.addToBottom(
+					new SetRetainOfCardAtCombatAction(card.uuid, true));
 			
 		}
 		
