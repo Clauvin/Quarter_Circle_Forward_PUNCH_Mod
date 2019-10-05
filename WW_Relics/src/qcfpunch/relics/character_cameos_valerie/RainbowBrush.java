@@ -23,12 +23,12 @@ public class RainbowBrush extends CustomRelic{
 	public static final String ID = QCFPunch_MiscCode.returnPrefix() +
 			"Rainbow_Brush";
 	
-	public static int COMMON_CHANCE;
-	public static int UNCOMMON_CHANCE;
-	public static int RARE_CHANCE;
-	public static int BLACK_CHANCE;
-	public static int CURSE_CHANCE;
-	public static int STATUS_CHANCE;
+	public static int COMMON_CHANCE = -1;
+	public static int UNCOMMON_CHANCE = -1;
+	public static int RARE_CHANCE = -1;
+	public static int BLACK_CHANCE = -1;
+	public static int CURSE_CHANCE = -1;
+	public static int STATUS_CHANCE = -1;
 	
 	public static final int COMMON_INITIAL_CHANCE = 50;
 	public static final int UNCOMMON_INITIAL_CHANCE = 25;
@@ -49,9 +49,9 @@ public class RainbowBrush extends CustomRelic{
 		super(ID, GraphicResources.LoadRelicImage("Temp School Backpack - steeltoe-boots - Lorc - CC BY 3.0.png"),
 				RelicTier.BOSS, LandingSound.MAGICAL);
 		
-		initChance();
-		
 		this.counter = 0;
+		
+		initChance();
 	}
 	
 	public void initChance() {
@@ -102,12 +102,20 @@ public class RainbowBrush extends CustomRelic{
 			counter = 0;
 			flash();
 			
+			
+			
 			//add Retain if it's not a curse or Status (maybe add anyway?)
 			//and the card to the player's hand
 			//change probabilities
+			
+			COMMON_CHANCE--;
+			UNCOMMON_CHANCE++;
+			
 			//generate new card
 			
 		}
+		
+		logger.info(COMMON_CHANCE + " " + UNCOMMON_CHANCE);
 	}
 	
 	@Override
@@ -115,6 +123,14 @@ public class RainbowBrush extends CustomRelic{
 		super.onPlayerEndTurn();
 		
 		//change card to generate, accordingly to probabilities and rules
+	}
+	
+	@Override
+	public void onEquip() {
+		super.onEquip();
+		
+		if (COMMON_CHANCE == -1) initChance();
+		
 	}
 	
 	//Don't forget to add something to avoid cases where a card mod
