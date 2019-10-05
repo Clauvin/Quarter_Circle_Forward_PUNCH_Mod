@@ -114,7 +114,39 @@ public class RainbowBrush extends CustomRelic{
 			
 			
 			//generate new card
+			CardRarity rarity = CardRarity.SPECIAL;
+			int which_rarity = (int)AbstractDungeon.cardRandomRng.randomLong() + 1;
+			which_rarity %= 100;
+			int comparing_rarity;
 			
+			comparing_rarity = COMMON_CHANCE;
+			if (which_rarity <= comparing_rarity) rarity = CardRarity.COMMON;
+			
+			if (rarity == CardRarity.SPECIAL) {
+				comparing_rarity += UNCOMMON_CHANCE;
+				if (which_rarity <= comparing_rarity) rarity = CardRarity.UNCOMMON;
+			}
+			
+			if (rarity == CardRarity.SPECIAL) {
+				comparing_rarity += RARE_CHANCE;
+				if (which_rarity <= comparing_rarity) rarity = CardRarity.RARE;
+			}
+			
+			if ((rarity == CardRarity.SPECIAL) && (BLACK_CHANCE != 0)) {
+				comparing_rarity += BLACK_CHANCE;
+				//if (which_rarity <= comparing_rarity) rarity = CardRarity.BLACK;
+			}
+			
+			if (rarity == CardRarity.SPECIAL) {
+				comparing_rarity += CURSE_CHANCE;
+				//Spawned card is a CURSE
+				//if (which_rarity <= comparing_rarity)
+			}
+			
+			else {
+				//Spawned card is a Status
+			}
+
 			AbstractCard card = AbstractDungeon.getCard(CardRarity.COMMON);
 			
 			AbstractDungeon.actionManager.addToBottom(
