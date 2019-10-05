@@ -60,7 +60,7 @@ public class SetRetainOfCardAtCombatAction extends AbstractGameAction  {
 				if (Settings.language == GameLanguage.ZHS)
 					upper_cased_retain = "" + upper_cased_retain;
 				
-				the_card.rawDescription += upper_cased_retain + ". NL " +
+				the_card.rawDescription = upper_cased_retain + ". NL " +
 						the_card.rawDescription;
 				the_card.initializeDescription();
 				
