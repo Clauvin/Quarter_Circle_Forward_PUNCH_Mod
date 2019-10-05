@@ -42,6 +42,9 @@ public class RainbowBrush extends CustomRelic{
 	
 	public static final int NUMBER_OF_CARDS_PLAYED_TO_ACTIVATE = 7;
 	
+	//public static boolean should_create_a_curse = false;
+	//public static boolean should_create_a_status = false;
+	
 	public static final boolean do_black_cards_exist = QCFPunch_MiscCode.
 			silentlyCheckForMod(QCFPunch_MiscCode.infinite_spire_class_code);
 	
@@ -146,8 +149,16 @@ public class RainbowBrush extends CustomRelic{
 			else {
 				//Spawned card is a Status
 			}
+			
+			//Temp code
+			if (rarity == CardRarity.SPECIAL) {
+				rarity = CardRarity.RARE;
+			}
 
-			AbstractCard card = AbstractDungeon.getCard(CardRarity.COMMON);
+			QCFPunch_MiscCode.fastLoggerLine(rarity + "");
+			QCFPunch_MiscCode.fastLoggerLine(comparing_rarity + "");
+			
+			AbstractCard card = AbstractDungeon.getCard(rarity);
 			
 			AbstractDungeon.actionManager.addToBottom(
 					new MakeTempCardInHandAction(card, false, true));
