@@ -6,7 +6,9 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.AbstractCard.CardRarity;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -108,10 +110,14 @@ public class RainbowBrush extends CustomRelic{
 			//and the card to the player's hand
 			//change probabilities
 			
-			COMMON_CHANCE--;
-			UNCOMMON_CHANCE++;
+			
 			
 			//generate new card
+			
+			AbstractCard card = AbstractDungeon.getCard(CardRarity.COMMON);
+			
+			AbstractDungeon.actionManager.addToBottom(
+					new MakeTempCardInHandAction(card));
 			
 		}
 		
