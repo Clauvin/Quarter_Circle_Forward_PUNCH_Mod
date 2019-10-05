@@ -245,21 +245,6 @@ public class RainbowBrush extends CustomRelic{
         String class_name = AbstractDungeon.player.getClass().getName();
         String start_of_save_variable = "rainbow_brush_class_" + class_name +
 				"_save_slot_" + CardCrawlGame.saveSlot;
-
-		UNCOMMON_CHANCE = config.getInt(start_of_save_variable +
-				"_UNCOMMON_CHANCE");
-        
-		RARE_CHANCE = config.getInt(start_of_save_variable +
-				"_RARE_CHANCE");
-        
-		BLACK_CHANCE = config.getInt(start_of_save_variable +
-				"_BLACK_CHANCE");
-        
-		CURSE_CHANCE = config.getInt(start_of_save_variable +
-				"_CURSE_CHANCE");         
-        
-		STATUS_CHANCE = config.getInt(start_of_save_variable +
-				"_STATUS_CHANCE"); 
         
         config.remove(start_of_save_variable + "_COMMON_CHANCE");
         
