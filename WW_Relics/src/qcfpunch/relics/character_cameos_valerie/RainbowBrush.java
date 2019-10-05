@@ -9,6 +9,8 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardRarity;
+import com.megacrit.cardcrawl.cards.AbstractCard.CardType;
+import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -42,8 +44,7 @@ public class RainbowBrush extends CustomRelic{
 	
 	public static final int NUMBER_OF_CARDS_PLAYED_TO_ACTIVATE = 7;
 	
-	//public static boolean should_create_a_curse = false;
-	//public static boolean should_create_a_status = false;
+	public static boolean will_spawn_a_status_card = false;
 	
 	public static final boolean do_black_cards_exist = QCFPunch_MiscCode.
 			silentlyCheckForMod(QCFPunch_MiscCode.infinite_spire_class_code);
@@ -142,27 +143,36 @@ public class RainbowBrush extends CustomRelic{
 			
 			if (rarity == CardRarity.SPECIAL) {
 				comparing_rarity += CURSE_CHANCE;
-				//Spawned card is a CURSE
-				//if (which_rarity <= comparing_rarity)
+				if (which_rarity <= comparing_rarity) rarity = CardRarity.CURSE;
 			}
 			
 			else {
-				//Spawned card is a Status
-			}
-			
-			//Temp code
-			if (rarity == CardRarity.SPECIAL) {
-				rarity = CardRarity.RARE;
+				will_spawn_a_status_card = true;
 			}
 
 			QCFPunch_MiscCode.fastLoggerLine(rarity + "");
+			QCFPunch_MiscCode.fastLoggerLine(which_rarity + "");
 			QCFPunch_MiscCode.fastLoggerLine(comparing_rarity + "");
 			
-			AbstractCard card = AbstractDungeon.getCard(rarity);
+			AbstractCard card;
+			
+			if (!will_spawn_a_status_card) card = AbstractDungeon.getCard(rarity);
+			else {
+				CardGroup status_cards = AbstractDungeon.colorlessCardPool.
+						getCardsOfType(CardType.STATUS);
+				
+				int random = AbstractDungeon.cardRng.random(status_cards.size());
+				if (random < 0) random *= -1;
+				
+				card = AbstractDungeon.colorlessCardPool.
+						getCardsOfType(CardType.STATUS).getNCardFromTop(random);
+				will_spawn_a_status_card = false;
+			}
 			
 			AbstractDungeon.actionManager.addToBottom(
 					new MakeTempCardInHandAction(card, false, true));
 			
+			if ((card.type != CardType.CURSE) && (card.type != CardType.STATUS))
 			AbstractDungeon.actionManager.addToBottom(
 					new SetRetainOfCardAtCombatAction(card.uuid, true));
 			
