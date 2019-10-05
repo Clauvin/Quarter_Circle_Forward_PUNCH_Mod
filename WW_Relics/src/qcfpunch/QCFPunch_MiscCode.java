@@ -111,4 +111,8 @@ public class QCFPunch_MiscCode {
         }
     }
 	
+    public static void fastLoggerLine(String message) {
+    	logger.info(message);
+    }
+    
 }
