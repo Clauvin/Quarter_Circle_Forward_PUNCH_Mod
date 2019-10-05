@@ -119,8 +119,8 @@ public class RainbowBrush extends CustomRelic{
 			
 			//generate new card
 			CardRarity rarity = CardRarity.SPECIAL;
-			int which_rarity = (int)AbstractDungeon.cardRandomRng.randomLong() + 1;
-			which_rarity %= 100;
+			int which_rarity = AbstractDungeon.cardRng.random(100);
+			if (which_rarity < 0) which_rarity *= -1;
 			int comparing_rarity;
 			
 			comparing_rarity = COMMON_CHANCE;
