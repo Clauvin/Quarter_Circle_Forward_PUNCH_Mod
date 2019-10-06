@@ -183,9 +183,6 @@ public class RainbowBrush extends CustomRelic{
 			
 			if (!will_spawn_a_status_card) card = AbstractDungeon.getCard(rarity);
 			else {
-				CardGroup status_cards = AbstractDungeon.colorlessCardPool.
-						getCardsOfType(CardType.STATUS);
-				
 				QCFPunch_MiscCode.fastLoggerLine("size = " + status_cards.size());
 				
 				int random = AbstractDungeon.cardRng.random(status_cards.size());
