@@ -1,6 +1,7 @@
 package qcfpunch.relics.character_cameos_valerie;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -11,8 +12,11 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardRarity;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardType;
 import com.megacrit.cardcrawl.cards.CardGroup;
+import com.megacrit.cardcrawl.cards.CardGroup.CardGroupType;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.CardLibrary;
+import com.megacrit.cardcrawl.helpers.CardLibrary.LibraryType;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 
@@ -27,6 +31,8 @@ public class RainbowBrush extends CustomRelic{
 	
 	public static final String ID = QCFPunch_MiscCode.returnPrefix() +
 			"Rainbow_Brush";
+	
+	public static CardGroup status_cards;
 	
 	public static int COMMON_CHANCE = -1;
 	public static int UNCOMMON_CHANCE = -1;
@@ -59,6 +65,10 @@ public class RainbowBrush extends CustomRelic{
 		this.counter = 0;
 		
 		initChance();
+		
+		status_cards = new CardGroup(CardGroupType.UNSPECIFIED);
+		
+		initStatusCards();
 	}
 	
 	public void initChance() {
@@ -76,6 +86,21 @@ public class RainbowBrush extends CustomRelic{
 		
 		CURSE_CHANCE = CURSE_INITIAL_CHANCE;
 		STATUS_CHANCE = STATUS_INITIAL_CHANCE;
+	}
+	
+	public void initStatusCards() {
+		if (status_cards.size() == 0) {
+			
+		}
+		
+		ArrayList<AbstractCard> colorless_cards =
+				CardLibrary.getCardList(LibraryType.COLORLESS);
+		
+		for (int i = 0; i < colorless_cards.size(); i++) {
+			if (colorless_cards.get(i).type == CardType.STATUS) {
+				status_cards.addToTop(colorless_cards.get(i));
+			}
+		}
 	}
 
 	public String getUpdatedDescription() {
