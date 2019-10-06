@@ -171,7 +171,7 @@ public class RainbowBrush extends CustomRelic{
 				if (which_rarity <= comparing_rarity) rarity = CardRarity.CURSE;
 			}
 			
-			else {
+			if (rarity == CardRarity.SPECIAL) {
 				will_spawn_a_status_card = true;
 			}
 
