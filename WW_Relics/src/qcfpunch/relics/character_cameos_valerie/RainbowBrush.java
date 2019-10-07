@@ -190,7 +190,9 @@ public class RainbowBrush extends CustomRelic{
 	
 	public AbstractCard generateCard(CardRarity rarity) {
 		
-		if (!will_spawn_a_status_card) return AbstractDungeon.getCard(rarity);
+		if (rarity == CardRarity.CURSE) return AbstractDungeon.getCard(rarity);
+		
+		if (!will_spawn_a_status_card) return CardLibrary.getAnyColorCard(rarity);
 		else {
 			QCFPunch_MiscCode.fastLoggerLine("size = " + status_cards.size());
 			
