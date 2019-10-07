@@ -140,59 +140,10 @@ public class RainbowBrush extends CustomRelic{
 			//and the card to the player's hand
 			//change probabilities
 			
-			
-			
-			//generate new card
 			CardRarity rarity = CardRarity.SPECIAL;
-			int which_rarity = AbstractDungeon.cardRng.random(100);
-			if (which_rarity < 0) which_rarity *= -1;
-			int comparing_rarity;
+			rarity = generateRarity();
 			
-			comparing_rarity = COMMON_CHANCE;
-			if (which_rarity <= comparing_rarity) rarity = CardRarity.COMMON;
-			
-			if (rarity == CardRarity.SPECIAL) {
-				comparing_rarity += UNCOMMON_CHANCE;
-				if (which_rarity <= comparing_rarity) rarity = CardRarity.UNCOMMON;
-			}
-			
-			if (rarity == CardRarity.SPECIAL) {
-				comparing_rarity += RARE_CHANCE;
-				if (which_rarity <= comparing_rarity) rarity = CardRarity.RARE;
-			}
-			
-			if ((rarity == CardRarity.SPECIAL) && (BLACK_CHANCE != 0)) {
-				comparing_rarity += BLACK_CHANCE;
-				//if (which_rarity <= comparing_rarity) rarity = CardRarity.BLACK;
-			}
-			
-			if (rarity == CardRarity.SPECIAL) {
-				comparing_rarity += CURSE_CHANCE;
-				if (which_rarity <= comparing_rarity) rarity = CardRarity.CURSE;
-			}
-			
-			if (rarity == CardRarity.SPECIAL) {
-				will_spawn_a_status_card = true;
-			}
-
-			QCFPunch_MiscCode.fastLoggerLine(rarity + "");
-			QCFPunch_MiscCode.fastLoggerLine(which_rarity + "");
-			QCFPunch_MiscCode.fastLoggerLine(comparing_rarity + "");
-			
-			AbstractCard card;
-			
-			if (!will_spawn_a_status_card) card = AbstractDungeon.getCard(rarity);
-			else {
-				QCFPunch_MiscCode.fastLoggerLine("size = " + status_cards.size());
-				
-				int random = AbstractDungeon.cardRng.random(status_cards.size());
-				if (random < 0) random *= -1;
-				
-				QCFPunch_MiscCode.fastLoggerLine("random = " + random);
-				
-				card = status_cards.getNCardFromTop(random);
-				will_spawn_a_status_card = false;
-			}
+			AbstractCard card = generateCard(rarity);
 			
 			AbstractDungeon.actionManager.addToBottom(
 					new MakeTempCardInHandAction(card, false, true));
@@ -204,6 +155,55 @@ public class RainbowBrush extends CustomRelic{
 		}
 		
 		logger.info(COMMON_CHANCE + " " + UNCOMMON_CHANCE);
+	}
+	
+	public CardRarity generateRarity() {
+		
+		int which_rarity = AbstractDungeon.cardRng.random(100);
+		if (which_rarity < 0) which_rarity *= -1;
+		int comparing_rarity;
+		
+		comparing_rarity = COMMON_CHANCE;
+		if (which_rarity <= comparing_rarity) return CardRarity.COMMON;
+		
+		comparing_rarity += UNCOMMON_CHANCE;
+		if (which_rarity <= comparing_rarity) return CardRarity.UNCOMMON;
+		
+		comparing_rarity += RARE_CHANCE;
+		if (which_rarity <= comparing_rarity) return CardRarity.RARE;
+		
+		if (BLACK_CHANCE != 0) {
+			comparing_rarity += BLACK_CHANCE;
+			//if (which_rarity <= comparing_rarity) return CardRarity.BLACK;
+		}
+		
+		comparing_rarity += CURSE_CHANCE;
+		if (which_rarity <= comparing_rarity) return CardRarity.CURSE;
+		
+		will_spawn_a_status_card = true;
+
+		QCFPunch_MiscCode.fastLoggerLine(which_rarity + "");
+		QCFPunch_MiscCode.fastLoggerLine(comparing_rarity + "");
+		
+		return CardRarity.SPECIAL;
+	}
+	
+	public AbstractCard generateCard(CardRarity rarity) {
+		
+		if (!will_spawn_a_status_card) return AbstractDungeon.getCard(rarity);
+		else {
+			QCFPunch_MiscCode.fastLoggerLine("size = " + status_cards.size());
+			
+			int random = AbstractDungeon.cardRng.random(status_cards.size());
+			if (random < 0) random *= -1;
+			
+			QCFPunch_MiscCode.fastLoggerLine("random = " + random);
+			
+			will_spawn_a_status_card = false;
+			return status_cards.getNCardFromTop(random);
+			
+		}
+		
 	}
 	
 	@Override
