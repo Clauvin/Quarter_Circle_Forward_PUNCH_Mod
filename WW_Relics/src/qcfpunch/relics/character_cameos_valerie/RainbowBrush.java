@@ -91,15 +91,15 @@ public class RainbowBrush extends CustomRelic{
 	public void initStatusCards() {
 		if (status_cards.size() == 0) {
 			
-		}
-		
-		ArrayList<AbstractCard> colorless_cards =
-				CardLibrary.getCardList(LibraryType.COLORLESS);
-		
-		for (int i = 0; i < colorless_cards.size(); i++) {
-			if (colorless_cards.get(i).type == CardType.STATUS) {
-				status_cards.addToTop(colorless_cards.get(i));
+			ArrayList<AbstractCard> colorless_cards =
+					CardLibrary.getCardList(LibraryType.COLORLESS);
+			
+			for (int i = 0; i < colorless_cards.size(); i++) {
+				if (colorless_cards.get(i).type == CardType.STATUS) {
+					status_cards.addToTop(colorless_cards.get(i));
+				}
 			}
+		
 		}
 	}
 
