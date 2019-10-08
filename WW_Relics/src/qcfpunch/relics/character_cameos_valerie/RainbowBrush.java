@@ -268,7 +268,7 @@ public class RainbowBrush extends CustomRelic{
 				int distributed_chance = extra_chance - 
 						(extra_common + extra_uncommon + extra_rare);
 				
-				for (int i = 1; i < distributed_chance; i++) {
+				for (int i = 1; i <= distributed_chance; i++) {
 					if (i < 4) extra_common += 1;
 					else extra_uncommon += 1;
 				}
