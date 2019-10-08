@@ -273,39 +273,45 @@ public class RainbowBrush extends CustomRelic{
 					(card_rarity == CardRarity.RARE)) {
 			
 			int pass_by = 0;
+			
 			if (card_rarity == CardRarity.COMMON) {
 				COMMON_CHANCE -= 6; pass_by += 6;
 				if (COMMON_CHANCE < 0) {
 					pass_by += COMMON_CHANCE; COMMON_CHANCE = 0;
 				}
-			} else {
-				COMMON_CHANCE += 3;
-			}
-			
-			if (card_rarity == CardRarity.UNCOMMON) {
+			} else if (card_rarity == CardRarity.UNCOMMON) {
 				UNCOMMON_CHANCE -= 6; pass_by += 6;
 				if (UNCOMMON_CHANCE < 0) {
 					pass_by += UNCOMMON_CHANCE; UNCOMMON_CHANCE = 0;
 				}
-			} else {
-				UNCOMMON_CHANCE += 3;
-			}
-			
-			if (card_rarity == CardRarity.RARE) {
+			} else 	if (card_rarity == CardRarity.RARE) {
 				RARE_CHANCE -= 6; pass_by += 6;
 				if (RARE_CHANCE < 0) {
 					pass_by += RARE_CHANCE; RARE_CHANCE = 0;
 				}
-			} else {
-				RARE_CHANCE += 3;
 			}
 			
-					
+			if (card_rarity != CardRarity.COMMON) {
+				COMMON_CHANCE += 3; pass_by -= 3;
+				if (pass_by < 0) {
+					COMMON_CHANCE += pass_by; pass_by = 0;
+				}
+			}
+				
+			if ((card_rarity != CardRarity.UNCOMMON) && (pass_by > 0)) {
+				UNCOMMON_CHANCE += 3; pass_by -= 3;
+				if (pass_by < 0) {
+					UNCOMMON_CHANCE += pass_by; pass_by = 0;
+				}
+			}
 			
+			if ((card_rarity != CardRarity.RARE) && (pass_by > 0)) {
+				RARE_CHANCE += 3; pass_by -= 3;
+				if (pass_by < 0) {
+					RARE_CHANCE += pass_by; pass_by = 0;
+				}
+			}	
 		}
-		
-		
-		
 	}
 	
 
