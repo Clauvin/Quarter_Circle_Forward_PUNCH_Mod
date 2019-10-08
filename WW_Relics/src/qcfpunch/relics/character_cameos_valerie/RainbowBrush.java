@@ -301,26 +301,11 @@ public class RainbowBrush extends CustomRelic{
 				}
 			}
 			
-			if (card_rarity != CardRarity.COMMON) {
-				COMMON_CHANCE += 3; pass_by -= 3;
-				if (pass_by < 0) {
-					COMMON_CHANCE += pass_by; pass_by = 0;
-				}
-			}
-				
-			if ((card_rarity != CardRarity.UNCOMMON) && (pass_by > 0)) {
-				UNCOMMON_CHANCE += 3; pass_by -= 3;
-				if (pass_by < 0) {
-					UNCOMMON_CHANCE += pass_by; pass_by = 0;
-				}
+			for (int i = 0; i < pass_by; i++) {
+				if (i%2 == 0) CURSE_CHANCE += 1;
+				if (i%2 == 1) STATUS_CHANCE += 1;
 			}
 			
-			if ((card_rarity != CardRarity.RARE) && (pass_by > 0)) {
-				RARE_CHANCE += 3; pass_by -= 3;
-				if (pass_by < 0) {
-					RARE_CHANCE += pass_by; pass_by = 0;
-				}
-			}	
 		}
 		
 		QCFP_Misc.fastLoggerLine(COMMON_CHANCE + "");
