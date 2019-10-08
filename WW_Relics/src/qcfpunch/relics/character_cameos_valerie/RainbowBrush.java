@@ -55,6 +55,8 @@ public class RainbowBrush extends CustomRelic{
 	public static final boolean do_black_cards_exist = QCFPunch_MiscCode.
 			silentlyCheckForMod(QCFPunch_MiscCode.infinite_spire_class_code);
 	
+	public static AbstractCard card_to_be_given;
+	
 	public static final Logger logger = LogManager.getLogger(
 			RainbowBrush.class.getName());
 	
@@ -69,6 +71,8 @@ public class RainbowBrush extends CustomRelic{
 		status_cards = new CardGroup(CardGroupType.UNSPECIFIED);
 		
 		initStatusCards();
+		
+		card_to_be_given = null;
 	}
 	
 	public void initChance() {
@@ -116,11 +120,23 @@ public class RainbowBrush extends CustomRelic{
 	}
 	
 	@Override
-	public void atPreBattle() {
-		super.atPreBattle();
+	public void atBattleStart() {
 		
+		createCardToGiveLater();
 		//generate card accordingly to probabilities
 		
+	}
+	
+	@Override
+	public void atTurnStartPostDraw() {
+		createCardToGiveLater();
+	}
+	
+	public void createCardToGiveLater() {
+		CardRarity rarity = CardRarity.SPECIAL;
+		rarity = generateRarity();
+		
+		card_to_be_given = generateCard(rarity);
 	}
 	
 	@Override
@@ -134,23 +150,18 @@ public class RainbowBrush extends CustomRelic{
 			counter = 0;
 			flash();
 			
-			
-			
 			//add Retain if it's not a curse or Status (maybe add anyway?)
 			//and the card to the player's hand
 			//change probabilities
 			
-			CardRarity rarity = CardRarity.SPECIAL;
-			rarity = generateRarity();
-			
-			AbstractCard card = generateCard(rarity);
-			
 			AbstractDungeon.actionManager.addToBottom(
-					new MakeTempCardInHandAction(card, false, true));
+					new MakeTempCardInHandAction(card_to_be_given, false, true));
 			
-			if ((card.type != CardType.CURSE) && (card.type != CardType.STATUS))
+			if ((card_to_be_given.type != CardType.CURSE) &&
+					(card_to_be_given.type != CardType.STATUS))
 			AbstractDungeon.actionManager.addToBottom(
-					new SetAlwaysRetainOfCardAtCombatAction(card.uuid, true));
+					new SetAlwaysRetainOfCardAtCombatAction(
+							card_to_be_given.uuid, true));
 			
 		}
 		
