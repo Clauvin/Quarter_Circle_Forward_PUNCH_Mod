@@ -139,35 +139,6 @@ public class RainbowBrush extends CustomRelic{
 		card_to_be_given = generateCard(rarity);
 	}
 	
-	@Override
-	public void onPlayCard(AbstractCard c, AbstractMonster m) {
-		super.onPlayCard(c, m);
-		
-		this.counter++;
-		
-		if (counter >= NUMBER_OF_CARDS_PLAYED_TO_ACTIVATE) {
-			
-			counter = 0;
-			flash();
-			
-			//add Retain if it's not a curse or Status (maybe add anyway?)
-			//and the card to the player's hand
-			//change probabilities
-			
-			AbstractDungeon.actionManager.addToBottom(
-					new MakeTempCardInHandAction(card_to_be_given, false, true));
-			
-			if ((card_to_be_given.type != CardType.CURSE) &&
-					(card_to_be_given.type != CardType.STATUS))
-			AbstractDungeon.actionManager.addToBottom(
-					new SetAlwaysRetainOfCardAtCombatAction(
-							card_to_be_given.uuid, true));
-			
-		}
-		
-		logger.info(COMMON_CHANCE + " " + UNCOMMON_CHANCE);
-	}
-	
 	public CardRarity generateRarity() {
 		
 		int which_rarity = AbstractDungeon.cardRng.random(100);
@@ -219,6 +190,125 @@ public class RainbowBrush extends CustomRelic{
 		
 	}
 	
+	
+	@Override
+	public void onPlayCard(AbstractCard c, AbstractMonster m) {
+		super.onPlayCard(c, m);
+		
+		this.counter++;
+		
+		if (counter >= NUMBER_OF_CARDS_PLAYED_TO_ACTIVATE) {
+			
+			counter = 0;
+			flash();
+			
+			
+			
+			AbstractDungeon.actionManager.addToBottom(
+					new MakeTempCardInHandAction(card_to_be_given, false, true));
+			
+			if ((card_to_be_given.type != CardType.CURSE) &&
+					(card_to_be_given.type != CardType.STATUS))
+			AbstractDungeon.actionManager.addToBottom(
+					new SetAlwaysRetainOfCardAtCombatAction(
+							card_to_be_given.uuid, true));
+			
+			//change probabilities
+			
+			/*
+			 * - If a card is picked, reduce it's percentage by 6 and raise Status and Curse by 3. (no percentage can go to 0)
+			- If a Curse of Status is chosen, it has 50% chance to choose Status or Curse again. (uses percentage values of both to pick from)
+			OK - If a Curse or Status is picked, set it's percentage to the initial value and pass all the extra value: Common receives half, Uncommon 1 third and Rare 1/6
+			- If Black is chosen, Black is chosen by the next 3 turns or when the player picks it, wherever comes first. Also, never resets.
+			 */
+			
+		}
+		
+		logger.info(COMMON_CHANCE + " " + UNCOMMON_CHANCE);
+	}
+	
+	public void changeProbabilities() {
+		
+		CardRarity card_rarity = card_to_be_given.rarity;
+		CardType card_type = card_to_be_given.type;
+		int bad_card_extra_chance = 0;
+		int bad_card_initial_chance = 0;
+		
+		if ((card_type == CardType.CURSE) || (card_type == CardType.STATUS)) {
+			
+			if (card_type == CardType.CURSE) {
+				bad_card_extra_chance = CURSE_CHANCE;
+				bad_card_initial_chance = CURSE_INITIAL_CHANCE;
+			} else {
+				bad_card_extra_chance = STATUS_CHANCE;
+				bad_card_initial_chance = STATUS_INITIAL_CHANCE;
+			}
+
+			int extra_chance = bad_card_extra_chance - bad_card_initial_chance;
+			int extra_common, extra_uncommon, extra_rare;
+			
+			if (card_type == CardType.CURSE) CURSE_CHANCE = bad_card_initial_chance;
+			else STATUS_CHANCE = bad_card_initial_chance;
+			
+			extra_common = extra_chance / 2;
+			extra_uncommon = extra_chance / 3;
+			extra_rare = extra_chance / 6;
+			
+			if (extra_common + extra_uncommon + extra_rare < extra_chance) {
+				int distributed_chance = extra_chance - 
+						(extra_common + extra_uncommon + extra_rare);
+				
+				for (int i = 1; i < distributed_chance; i++) {
+					if (i < 4) extra_common += 1;
+					else extra_uncommon += 1;
+				}
+			}
+			
+			COMMON_CHANCE += extra_common;
+			UNCOMMON_CHANCE += extra_uncommon;
+			RARE_CHANCE += extra_rare;
+			
+		} else if ((card_rarity == CardRarity.COMMON) || 
+					(card_rarity == CardRarity.UNCOMMON) ||
+					(card_rarity == CardRarity.RARE)) {
+			
+			int pass_by = 0;
+			if (card_rarity == CardRarity.COMMON) {
+				COMMON_CHANCE -= 6; pass_by += 6;
+				if (COMMON_CHANCE < 0) {
+					pass_by += COMMON_CHANCE; COMMON_CHANCE = 0;
+				}
+			} else {
+				COMMON_CHANCE += 3;
+			}
+			
+			if (card_rarity == CardRarity.UNCOMMON) {
+				UNCOMMON_CHANCE -= 6; pass_by += 6;
+				if (UNCOMMON_CHANCE < 0) {
+					pass_by += UNCOMMON_CHANCE; UNCOMMON_CHANCE = 0;
+				}
+			} else {
+				UNCOMMON_CHANCE += 3;
+			}
+			
+			if (card_rarity == CardRarity.RARE) {
+				RARE_CHANCE -= 6; pass_by += 6;
+				if (RARE_CHANCE < 0) {
+					pass_by += RARE_CHANCE; RARE_CHANCE = 0;
+				}
+			} else {
+				RARE_CHANCE += 3;
+			}
+			
+					
+			
+		}
+		
+		
+		
+	}
+	
+
 	@Override
 	public void onPlayerEndTurn() {
 		super.onPlayerEndTurn();
