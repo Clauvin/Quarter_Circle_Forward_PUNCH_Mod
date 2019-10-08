@@ -125,6 +125,8 @@ public class RainbowBrush extends CustomRelic{
 	}
 	
 	public void createCardToGiveLater() {
+		CardRarity rarity = CardRarity.SPECIAL;
+		
 		if (card_to_be_given != null) {
 			if ((card_to_be_given.type == CardType.CURSE) ||
 				(card_to_be_given.type == CardType.STATUS)) {
@@ -132,14 +134,15 @@ public class RainbowBrush extends CustomRelic{
 				
 				int heads_or_tails = AbstractDungeon.cardRng.random(1);
 				if (heads_or_tails > 0) {
-					
-				}
+					rarity = CardRarity.CURSE;
+					will_spawn_a_status_card =
+							card_to_be_given.type == CardType.STATUS;
+				} else rarity = generateRarity();
 				
 			}
+		} else {
+			rarity = generateRarity();
 		}
-		
-		CardRarity rarity = CardRarity.SPECIAL;
-		rarity = generateRarity();
 		
 		card_to_be_given = generateCard(rarity);
 	}
