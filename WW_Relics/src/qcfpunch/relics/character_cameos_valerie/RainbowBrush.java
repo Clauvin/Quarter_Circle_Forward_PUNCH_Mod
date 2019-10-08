@@ -122,28 +122,27 @@ public class RainbowBrush extends CustomRelic{
 	@Override
 	public void atTurnStartPostDraw() {
 		createCardToGiveLater();
+		QCFP_Misc.fastLoggerLine(card_to_be_given.name);
+		
 	}
 	
 	public void createCardToGiveLater() {
-		CardRarity rarity = CardRarity.SPECIAL;
+		CardRarity rarity = generateRarity();
 		
 		if (card_to_be_given != null) {
 			if ((card_to_be_given.type == CardType.CURSE) ||
 				(card_to_be_given.type == CardType.STATUS)) {
-				CardType card_type = card_to_be_given.type;
 				
 				int heads_or_tails = AbstractDungeon.cardRng.random(1);
 				if (heads_or_tails > 0) {
 					rarity = CardRarity.CURSE;
 					will_spawn_a_status_card =
 							card_to_be_given.type == CardType.STATUS;
-				} else rarity = generateRarity();
+				}
 				
 			}
-		} else {
-			rarity = generateRarity();
 		}
-		
+			
 		card_to_be_given = generateCard(rarity);
 	}
 	
@@ -242,6 +241,9 @@ public class RainbowBrush extends CustomRelic{
 		int bad_card_extra_chance = 0;
 		int bad_card_initial_chance = 0;
 		
+		QCFP_Misc.fastLoggerLine(card_to_be_given.name);
+		QCFP_Misc.fastLoggerLine(card_rarity.toString());
+		
 		if ((card_type == CardType.CURSE) || (card_type == CardType.STATUS)) {
 			
 			if (card_type == CardType.CURSE) {
@@ -320,6 +322,13 @@ public class RainbowBrush extends CustomRelic{
 				}
 			}	
 		}
+		
+		QCFP_Misc.fastLoggerLine(COMMON_CHANCE + "");
+		QCFP_Misc.fastLoggerLine(UNCOMMON_CHANCE + "");
+		QCFP_Misc.fastLoggerLine(RARE_CHANCE + "");
+		QCFP_Misc.fastLoggerLine(BLACK_CHANCE + "");
+		QCFP_Misc.fastLoggerLine(CURSE_CHANCE + "");
+		QCFP_Misc.fastLoggerLine(STATUS_CHANCE + "");
 	}
 	
 	@Override
