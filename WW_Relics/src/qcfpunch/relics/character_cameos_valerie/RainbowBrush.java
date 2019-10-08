@@ -21,7 +21,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 import basemod.abstracts.CustomRelic;
-import qcfpunch.QCFPunch_MiscCode;
+import qcfpunch.QCFP_Misc;
 import qcfpunch.actions.SetAlwaysRetainOfCardAtCombatAction;
 import qcfpunch.resources.relic_graphics.GraphicResources;
 
@@ -29,7 +29,7 @@ import qcfpunch.resources.relic_graphics.GraphicResources;
 //She's from Fantasy Strike, a fighting game from Sirlin.net
 public class RainbowBrush extends CustomRelic{
 	
-	public static final String ID = QCFPunch_MiscCode.returnPrefix() +
+	public static final String ID = QCFP_Misc.returnPrefix() +
 			"Rainbow_Brush";
 	
 	public static CardGroup status_cards;
@@ -52,8 +52,8 @@ public class RainbowBrush extends CustomRelic{
 	
 	public static boolean will_spawn_a_status_card = false;
 	
-	public static final boolean do_black_cards_exist = QCFPunch_MiscCode.
-			silentlyCheckForMod(QCFPunch_MiscCode.infinite_spire_class_code);
+	public static final boolean do_black_cards_exist = QCFP_Misc.
+			silentlyCheckForMod(QCFP_Misc.infinite_spire_class_code);
 	
 	public static AbstractCard card_to_be_given;
 	
@@ -120,19 +120,24 @@ public class RainbowBrush extends CustomRelic{
 	}
 	
 	@Override
-	public void atBattleStart() {
-		
-		createCardToGiveLater();
-		//generate card accordingly to probabilities
-		
-	}
-	
-	@Override
 	public void atTurnStartPostDraw() {
 		createCardToGiveLater();
 	}
 	
 	public void createCardToGiveLater() {
+		if (card_to_be_given != null) {
+			if ((card_to_be_given.type == CardType.CURSE) ||
+				(card_to_be_given.type == CardType.STATUS)) {
+				CardType card_type = card_to_be_given.type;
+				
+				int heads_or_tails = AbstractDungeon.cardRng.random(1);
+				if (heads_or_tails > 0) {
+					
+				}
+				
+			}
+		}
+		
 		CardRarity rarity = CardRarity.SPECIAL;
 		rarity = generateRarity();
 		
@@ -164,8 +169,8 @@ public class RainbowBrush extends CustomRelic{
 		
 		will_spawn_a_status_card = true;
 
-		QCFPunch_MiscCode.fastLoggerLine(which_rarity + "");
-		QCFPunch_MiscCode.fastLoggerLine(comparing_rarity + "");
+		QCFP_Misc.fastLoggerLine(which_rarity + "");
+		QCFP_Misc.fastLoggerLine(comparing_rarity + "");
 		
 		return CardRarity.SPECIAL;
 	}
@@ -176,12 +181,12 @@ public class RainbowBrush extends CustomRelic{
 		
 		if (!will_spawn_a_status_card) return CardLibrary.getAnyColorCard(rarity);
 		else {
-			QCFPunch_MiscCode.fastLoggerLine("size = " + status_cards.size());
+			QCFP_Misc.fastLoggerLine("size = " + status_cards.size());
 			
 			int random = AbstractDungeon.cardRng.random(status_cards.size());
 			if (random < 0) random *= -1;
 			
-			QCFPunch_MiscCode.fastLoggerLine("random = " + random);
+			QCFP_Misc.fastLoggerLine("random = " + random);
 			
 			will_spawn_a_status_card = false;
 			return status_cards.getNCardFromTop(random);
@@ -213,7 +218,7 @@ public class RainbowBrush extends CustomRelic{
 					new SetAlwaysRetainOfCardAtCombatAction(
 							card_to_be_given.uuid, true));
 			
-			//change probabilities
+			changeProbabilities();
 			
 			/*
 			 * OK - If a card is picked, reduce it's percentage by 6 and raise Status and Curse by 3. (no percentage can go to 0)
@@ -328,7 +333,7 @@ public class RainbowBrush extends CustomRelic{
 
         if (AbstractDungeon.player != null && AbstractDungeon.player.hasRelic(ID)) {
     		logger.info("Started saving Rainbow Brush information from");
-            logger.info(QCFPunch_MiscCode.classAndSaveSlotText());
+            logger.info(QCFP_Misc.classAndSaveSlotText());
 
     		if (AbstractDungeon.isDungeonBeaten || AbstractDungeon.player.isDead) {
     			
@@ -368,7 +373,7 @@ public class RainbowBrush extends CustomRelic{
     		}
 
             logger.info("Finished saving Rainbow Brush information from");
-            logger.info(QCFPunch_MiscCode.classAndSaveSlotText());
+            logger.info(QCFP_Misc.classAndSaveSlotText());
         }
         else {
         	clear(config);
@@ -379,7 +384,7 @@ public class RainbowBrush extends CustomRelic{
 	public static void load(final SpireConfig config) {
 		
 		logger.info("Loading Rainbow Brush info from");
-        logger.info(QCFPunch_MiscCode.classAndSaveSlotText());
+        logger.info(QCFP_Misc.classAndSaveSlotText());
         
         String class_name = AbstractDungeon.player.getClass().getName();
         String start_of_save_variable = "rainbow_brush_class_" + class_name +
@@ -417,7 +422,7 @@ public class RainbowBrush extends CustomRelic{
 			}
             
             logger.info("Finished loading Rainbow Brush info from");
-            logger.info(QCFPunch_MiscCode.classAndSaveSlotText());
+            logger.info(QCFP_Misc.classAndSaveSlotText());
         }
 		
 		else
@@ -429,7 +434,7 @@ public class RainbowBrush extends CustomRelic{
 	
 	public static void clear(final SpireConfig config) {
 		logger.info("Clearing Rainbow Brush variables from");
-        logger.info(QCFPunch_MiscCode.classAndSaveSlotText());
+        logger.info(QCFP_Misc.classAndSaveSlotText());
 		
         String class_name = AbstractDungeon.player.getClass().getName();
         String start_of_save_variable = "rainbow_brush_class_" + class_name +
@@ -448,7 +453,7 @@ public class RainbowBrush extends CustomRelic{
         config.remove(start_of_save_variable + "_STATUS_CHANCE");
         
         logger.info("Finished clearing Rainbow Brush variables from");
-        logger.info(QCFPunch_MiscCode.classAndSaveSlotText());
+        logger.info(QCFP_Misc.classAndSaveSlotText());
 	}
 	
 	public boolean canSpawn()
