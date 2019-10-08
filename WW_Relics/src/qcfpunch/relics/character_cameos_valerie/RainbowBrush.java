@@ -216,7 +216,7 @@ public class RainbowBrush extends CustomRelic{
 			//change probabilities
 			
 			/*
-			 * - If a card is picked, reduce it's percentage by 6 and raise Status and Curse by 3. (no percentage can go to 0)
+			 * OK - If a card is picked, reduce it's percentage by 6 and raise Status and Curse by 3. (no percentage can go to 0)
 			- If a Curse of Status is chosen, it has 50% chance to choose Status or Curse again. (uses percentage values of both to pick from)
 			OK - If a Curse or Status is picked, set it's percentage to the initial value and pass all the extra value: Common receives half, Uncommon 1 third and Rare 1/6
 			- If Black is chosen, Black is chosen by the next 3 turns or when the player picks it, wherever comes first. Also, never resets.
@@ -312,14 +312,6 @@ public class RainbowBrush extends CustomRelic{
 				}
 			}	
 		}
-	}
-	
-
-	@Override
-	public void onPlayerEndTurn() {
-		super.onPlayerEndTurn();
-		
-		//change card to generate, accordingly to probabilities and rules
 	}
 	
 	@Override
