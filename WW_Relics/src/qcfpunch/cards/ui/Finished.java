@@ -6,11 +6,11 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import basemod.abstracts.CustomCard;
-import qcfpunch.QCFPunch_MiscCode;
+import qcfpunch.QCFP_Misc;
 
 public class Finished extends CustomCard {
 
-	public static final String ID = QCFPunch_MiscCode.returnPrefix()
+	public static final String ID = QCFP_Misc.returnPrefix()
 			+ "Finished";
 	
 	private static final CardStrings cardStrings;
@@ -21,7 +21,7 @@ public class Finished extends CustomCard {
     
     public Finished() {
     	super(ID, Finished.NAME,
-        		QCFPunch_MiscCode.returnCardsImageMainFolder() + "temp_skill.png",
+        		QCFP_Misc.returnCardsImageMainFolder() + "temp_skill.png",
         		COST, Finished.DESCRIPTION, CardType.SKILL,
         		CardColor.COLORLESS, CardRarity.BASIC, CardTarget.SELF);
     }

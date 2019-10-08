@@ -8,7 +8,7 @@ import com.megacrit.cardcrawl.shop.StorePotion;
 import javassist.CannotCompileException;
 import javassist.expr.ExprEditor;
 import javassist.expr.NewExpr;
-import qcfpunch.QCFPunch_MiscCode;
+import qcfpunch.QCFP_Misc;
 
 public class ChallengerCoinOnlySpawnsOncePerMerchantShopPatches {
 	
@@ -20,7 +20,7 @@ public class ChallengerCoinOnlySpawnsOncePerMerchantShopPatches {
 		
 		@SpireInsertPatch(rloc=2)
 		public static void Insert(ShopScreen __instance) {
-			QCFPunch_MiscCode.resetNumberOfChallengerCoinPotionsVariable();
+			QCFP_Misc.resetNumberOfChallengerCoinPotionsVariable();
 		}
 		
 	}

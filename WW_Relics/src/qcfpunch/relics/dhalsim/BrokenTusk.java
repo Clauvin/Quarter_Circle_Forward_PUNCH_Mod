@@ -6,13 +6,13 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 import basemod.abstracts.CustomRelic;
-import qcfpunch.QCFPunch_MiscCode;
+import qcfpunch.QCFP_Misc;
 import qcfpunch.powers.FuryPower;
 import qcfpunch.resources.relic_graphics.GraphicResources;
 
 public class BrokenTusk extends CustomRelic {
 
-	public static final String ID = QCFPunch_MiscCode.returnPrefix() +
+	public static final String ID = QCFP_Misc.returnPrefix() +
 			"Broken_Tusk";
 	
 	public static final int EXTRA_DAMAGE_PER_CURSE_OR_STATUS = 2;

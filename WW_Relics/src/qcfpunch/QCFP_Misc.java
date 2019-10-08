@@ -11,7 +11,7 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.random.Random;
 
-public class QCFPunch_MiscCode {
+public class QCFP_Misc {
 
 	public final static String infinite_spire_class_code = "infinitespire.InfiniteSpire";
 	public final static String replay_the_spire_class_code = "replayTheSpire.ReplayTheSpireMod";
@@ -22,7 +22,7 @@ public class QCFPunch_MiscCode {
 	
 	public static int number_of_challenger_coin_potions_at_shop = 0;
 	
-	public static final Logger logger = LogManager.getLogger(QCFPunch_MiscCode.class.getName()); // lets us log output
+	public static final Logger logger = LogManager.getLogger(QCFP_Misc.class.getName()); // lets us log output
 	
 	public static String returnModName() {
 		return "Quarter Circle Forward PUNCH!";

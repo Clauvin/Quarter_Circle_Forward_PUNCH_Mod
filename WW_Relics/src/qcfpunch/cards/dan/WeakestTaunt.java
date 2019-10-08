@@ -9,12 +9,12 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.WeakPower;
 
 import basemod.abstracts.CustomCard;
-import qcfpunch.QCFPunch_MiscCode;
+import qcfpunch.QCFP_Misc;
 import qcfpunch.powers.PotentialPower;
 
 public class WeakestTaunt extends CustomCard {
 
-	public static final String ID = QCFPunch_MiscCode.returnPrefix() + "WeakestTaunt";
+	public static final String ID = QCFP_Misc.returnPrefix() + "WeakestTaunt";
     private static final CardStrings cardStrings;
     public static final String NAME;
     public static final String DESCRIPTION;
@@ -24,7 +24,7 @@ public class WeakestTaunt extends CustomCard {
     private static final int POTENTIAL_DENOMINATOR = 3;
 	
 	public WeakestTaunt() {
-		super(ID, WeakestTaunt.NAME, QCFPunch_MiscCode.returnCardsImageMainFolder() + "temp_skill.png",
+		super(ID, WeakestTaunt.NAME, QCFP_Misc.returnCardsImageMainFolder() + "temp_skill.png",
 				WeakestTaunt.COST, WeakestTaunt.DESCRIPTION, CardType.SKILL,
 				CardColor.COLORLESS, CardRarity.COMMON, CardTarget.ENEMY);
 

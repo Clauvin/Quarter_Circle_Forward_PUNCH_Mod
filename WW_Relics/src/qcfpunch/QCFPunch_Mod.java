@@ -23,7 +23,7 @@ import basemod.BaseMod;
 //import basemod.ModPanel;
 import basemod.helpers.RelicType;
 import basemod.interfaces.*;
-import qcfpunch.QCFPunch_MiscCode;
+import qcfpunch.QCFP_Misc;
 import qcfpunch.events.act2.FightingNoisesEvent;
 import qcfpunch.modifiers.*;
 import qcfpunch.monsters.elites.TiredGremlinNob;
@@ -53,10 +53,10 @@ public class QCFPunch_Mod implements AddCustomModeModsSubscriber, EditStringsSub
 
 	public static final Logger logger = LogManager.getLogger(QCFPunch_Mod.class.getName()); // lets us log output
 
-	public static final String MODNAME = QCFPunch_MiscCode.returnModName(); // mod name
-	public static final String MODID = QCFPunch_MiscCode.returnPrefix();
+	public static final String MODNAME = QCFP_Misc.returnModName(); // mod name
+	public static final String MODID = QCFP_Misc.returnPrefix();
 	public static final String AUTHOR = "Levender"; // your name
-	public static final String DESCRIPTION = QCFPunch_MiscCode.returnDescription();
+	public static final String DESCRIPTION = QCFP_Misc.returnDescription();
 	
 	public static final String INITIAL_LANGUAGE = "eng";
 	
@@ -105,7 +105,7 @@ public class QCFPunch_Mod implements AddCustomModeModsSubscriber, EditStringsSub
 						
 		Gson gson = new Gson();
 		String keywordStringsAddress = 
-				QCFPunch_MiscCode.returnSpecificLocalizationFile(
+				QCFP_Misc.returnSpecificLocalizationFile(
 						language + "/WW_Relics_Keywords.json");
 		String json = getJsonText(keywordStringsAddress); 
 		KeywordWithProper[] keywords = gson.fromJson(json, KeywordWithProper[].class);
@@ -164,7 +164,7 @@ public class QCFPunch_Mod implements AddCustomModeModsSubscriber, EditStringsSub
 	
 	private void LoadRelicsJSON(String language) {
 		String relicStringsAddress =
-				QCFPunch_MiscCode.returnSpecificLocalizationFile(
+				QCFP_Misc.returnSpecificLocalizationFile(
 						language + "/WW_Relics_Relics.json");
 	    String relicStrings = getJsonText(relicStringsAddress);
 	    
@@ -173,7 +173,7 @@ public class QCFPunch_Mod implements AddCustomModeModsSubscriber, EditStringsSub
 	
 	private void LoadPowersJSON(String language) {
 		String powerStringsAddress =
-				QCFPunch_MiscCode.returnSpecificLocalizationFile(
+				QCFP_Misc.returnSpecificLocalizationFile(
 						language + "/WW_Relics_Powers.json");
 	    String powerStrings = getJsonText(powerStringsAddress);
 	    
@@ -182,7 +182,7 @@ public class QCFPunch_Mod implements AddCustomModeModsSubscriber, EditStringsSub
 	
 	private void LoadModifiersJSON(String language) {
 		String modifiersStringsAddress =
-				QCFPunch_MiscCode.returnSpecificLocalizationFile(
+				QCFP_Misc.returnSpecificLocalizationFile(
 						language + "/WW_Relics_Modifiers.json");
 	    String modifiersStrings = getJsonText(modifiersStringsAddress);
 	    
@@ -191,7 +191,7 @@ public class QCFPunch_Mod implements AddCustomModeModsSubscriber, EditStringsSub
 	
 	private void LoadCardsJSON(String language) {
 		String cardsStringsAddress =
-				QCFPunch_MiscCode.returnSpecificLocalizationFile(
+				QCFP_Misc.returnSpecificLocalizationFile(
 						language + "/WW_Relics_Cards.json");
 	    String cardsStrings = getJsonText(cardsStringsAddress);
 	    
@@ -200,7 +200,7 @@ public class QCFPunch_Mod implements AddCustomModeModsSubscriber, EditStringsSub
 	
 	private void LoadPotionsJSON(String language) {
 		String potionsStringsAddress =
-				QCFPunch_MiscCode.returnSpecificLocalizationFile(
+				QCFP_Misc.returnSpecificLocalizationFile(
 						language + "/WW_Relics_Potions.json");
 		String potionsStrings = getJsonText(potionsStringsAddress);
 		
@@ -209,7 +209,7 @@ public class QCFPunch_Mod implements AddCustomModeModsSubscriber, EditStringsSub
 	
 	private void LoadEventsJSON(String language) {
 		String eventsStringsAddress =
-				QCFPunch_MiscCode.returnSpecificLocalizationFile(
+				QCFP_Misc.returnSpecificLocalizationFile(
 						language + "/WW_Relics_Events.json");
 		String eventsStrings = getJsonText(eventsStringsAddress);
 		
@@ -218,7 +218,7 @@ public class QCFPunch_Mod implements AddCustomModeModsSubscriber, EditStringsSub
 	
 	private void LoadMonstersJSON(String language) {
 		String monstersStringsAddress =
-				QCFPunch_MiscCode.returnSpecificLocalizationFile(
+				QCFP_Misc.returnSpecificLocalizationFile(
 						language + "/WW_Relics_Monsters.json");
 		String monstersStrings = getJsonText(monstersStringsAddress);
 		
@@ -373,10 +373,10 @@ public class QCFPunch_Mod implements AddCustomModeModsSubscriber, EditStringsSub
     }
     
 	public static void loadRunData() {
-        logger.info("Loading " + QCFPunch_MiscCode.returnModName()+ " data from");
-    	logger.info(QCFPunch_MiscCode.classAndSaveSlotText());
+        logger.info("Loading " + QCFP_Misc.returnModName()+ " data from");
+    	logger.info(QCFP_Misc.classAndSaveSlotText());
         try {
-            final SpireConfig config = new SpireConfig(QCFPunch_MiscCode.returnModName(), "SaveData");
+            final SpireConfig config = new SpireConfig(QCFP_Misc.returnModName(), "SaveData");
             WhiteBoots.load(config);
             DuffelBag.load(config);
             FightingGloves.load(config);
@@ -393,7 +393,7 @@ public class QCFPunch_Mod implements AddCustomModeModsSubscriber, EditStringsSub
         catch (IOException e) {
             e.printStackTrace();
         }
-        logger.info("Done loading " + QCFPunch_MiscCode.returnModName() + " data");
+        logger.info("Done loading " + QCFP_Misc.returnModName() + " data");
 	}
 	
 	public static boolean shouldSanitizeActOne() {
@@ -401,10 +401,10 @@ public class QCFPunch_Mod implements AddCustomModeModsSubscriber, EditStringsSub
 	}
 	
     public static void saveRunData() {
-        logger.info("Saving " + QCFPunch_MiscCode.returnModName() + " data from");
-    	logger.info(QCFPunch_MiscCode.classAndSaveSlotText());
+        logger.info("Saving " + QCFP_Misc.returnModName() + " data from");
+    	logger.info(QCFP_Misc.classAndSaveSlotText());
         try {
-        	final SpireConfig config = new SpireConfig(QCFPunch_MiscCode.returnModName(), "SaveData");
+        	final SpireConfig config = new SpireConfig(QCFP_Misc.returnModName(), "SaveData");
             WhiteBoots.save(config);
             DuffelBag.save(config);
             FightingGloves.save(config);
@@ -418,14 +418,14 @@ public class QCFPunch_Mod implements AddCustomModeModsSubscriber, EditStringsSub
         catch (IOException e) {
         	e.printStackTrace();
         }
-        logger.info("Done saving " + QCFPunch_MiscCode.returnModName() + " data");
+        logger.info("Done saving " + QCFP_Misc.returnModName() + " data");
     }
     
     public static void clearRunData() {
-    	logger.info("Clearing Saved " + QCFPunch_MiscCode.returnModName() + " data from");
-    	logger.info(QCFPunch_MiscCode.classAndSaveSlotText());
+    	logger.info("Clearing Saved " + QCFP_Misc.returnModName() + " data from");
+    	logger.info(QCFP_Misc.classAndSaveSlotText());
         try {
-        	final SpireConfig config = new SpireConfig(QCFPunch_MiscCode.returnModName(), "SaveData");
+        	final SpireConfig config = new SpireConfig(QCFP_Misc.returnModName(), "SaveData");
             WhiteBoots.clear(config);
             DuffelBag.clear(config);
             FightingGloves.clear(config);
@@ -440,7 +440,7 @@ public class QCFPunch_Mod implements AddCustomModeModsSubscriber, EditStringsSub
         catch (IOException e) {
         	e.printStackTrace();
         }
-        logger.info("Done clearing saved " + QCFPunch_MiscCode.returnModName() + " data");
+        logger.info("Done clearing saved " + QCFP_Misc.returnModName() + " data");
     }
     
     public void receiveStartGame() {

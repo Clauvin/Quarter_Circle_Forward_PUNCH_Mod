@@ -12,11 +12,11 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 
-import qcfpunch.QCFPunch_MiscCode;
+import qcfpunch.QCFP_Misc;
 
 public class RiskyOffensivePower extends AbstractPower {
 
-	public static final String POWER_ID = QCFPunch_MiscCode.returnPrefix() + "Power_Risky_Offensive";
+	public static final String POWER_ID = QCFP_Misc.returnPrefix() + "Power_Risky_Offensive";
 	private static final PowerStrings powerStrings = 
 			CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
 	public static final String NAME = powerStrings.NAME;

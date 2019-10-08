@@ -25,11 +25,11 @@ import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.powers.WeakPower;
 
 import basemod.abstracts.CustomMonster;
-import qcfpunch.QCFPunch_MiscCode;
+import qcfpunch.QCFP_Misc;
 
 public class TiredGremlinNob extends CustomMonster {
 
-	public static final String ID = QCFPunch_MiscCode.returnPrefix() + "TiredGremlinNob";
+	public static final String ID = QCFP_Misc.returnPrefix() + "TiredGremlinNob";
 	private static final MonsterStrings monsterstrings = CardCrawlGame.languagePack.getMonsterStrings(ID);
 	public static final String NAME = monsterstrings.NAME;
 	public static final String[] DIALOG = monsterstrings.DIALOG;
@@ -127,7 +127,7 @@ public class TiredGremlinNob extends CustomMonster {
 	public void addInitialEnemyBuffs() {
 		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this,
         		new StrengthPower(this, INITIAL_STR_BUFF)));
-        QCFPunch_MiscCode.addNonFastModeWaitAction(0.5f);
+        QCFP_Misc.addNonFastModeWaitAction(0.5f);
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this,
         		new AngerPower(this, INITIAL_ANGRY_BUFF), INITIAL_ANGRY_BUFF));
 	}
@@ -136,14 +136,14 @@ public class TiredGremlinNob extends CustomMonster {
 		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this,
 				new WeakPower(this,  INITIAL_WEAK_DEBUFF, false), INITIAL_WEAK_DEBUFF));
 		
-        QCFPunch_MiscCode.addNonFastModeWaitAction(0.5f);
+        QCFP_Misc.addNonFastModeWaitAction(0.5f);
         
         if (ascensionLevel >= 8) {
         	
     		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this,
     				new VulnerablePower(this,  A8_INITIAL_VULNERABLE_DEBUFF, false), A8_INITIAL_VULNERABLE_DEBUFF));
     		
-            QCFPunch_MiscCode.addNonFastModeWaitAction(0.5f);
+            QCFP_Misc.addNonFastModeWaitAction(0.5f);
             
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this,
     				new PoisonPower(this, this, A8_INITIAL_POISON_DEBUFF), A8_INITIAL_POISON_DEBUFF));       
@@ -153,24 +153,24 @@ public class TiredGremlinNob extends CustomMonster {
     		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this,
     				new VulnerablePower(this,  INITIAL_VULNERABLE_DEBUFF, false), INITIAL_VULNERABLE_DEBUFF));
     		
-            QCFPunch_MiscCode.addNonFastModeWaitAction(0.5f);
+            QCFP_Misc.addNonFastModeWaitAction(0.5f);
             
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this,
     				new PoisonPower(this, this, INITIAL_POISON_DEBUFF), INITIAL_POISON_DEBUFF));
             
         }
 
-        QCFPunch_MiscCode.addNonFastModeWaitAction(0.5f);
+        QCFP_Misc.addNonFastModeWaitAction(0.5f);
         
         if (WILL_HAVE_INITIAL_STUN) {
         	AbstractDungeon.actionManager.addToBottom(new StunMonsterAction(this, this));
-        	QCFPunch_MiscCode.addNonFastModeWaitAction(0.5f);
+        	QCFP_Misc.addNonFastModeWaitAction(0.5f);
         }
         
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this,
 				new ConstrictedPower(this, this, INITIAL_CONSTRICTED_DEBUFF), INITIAL_CONSTRICTED_DEBUFF));
         
-        QCFPunch_MiscCode.addNonFastModeWaitAction(0.5f);
+        QCFP_Misc.addNonFastModeWaitAction(0.5f);
 	}
 	
 	@Override
@@ -287,7 +287,7 @@ public class TiredGremlinNob extends CustomMonster {
 		if (strength_power != null) {
 			int amount_of_str_buff = strength_power.amount;
 			amount_of_str_buff /= 2;
-			QCFPunch_MiscCode.addNonFastModeWaitAction(0.5f);
+			QCFP_Misc.addNonFastModeWaitAction(0.5f);
 			AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this,
 					new StrengthPower(this, -amount_of_str_buff), -amount_of_str_buff));
 		}

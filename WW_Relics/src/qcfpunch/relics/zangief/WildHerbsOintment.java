@@ -9,13 +9,13 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 import basemod.abstracts.CustomRelic;
-import qcfpunch.QCFPunch_MiscCode;
+import qcfpunch.QCFP_Misc;
 import qcfpunch.powers.WildHerbsOintmentPower;
 import qcfpunch.resources.relic_graphics.GraphicResources;
 
 public class WildHerbsOintment extends CustomRelic  {
 
-	public static final String ID = QCFPunch_MiscCode.returnPrefix() + "Wild_Herbs_Ointment";
+	public static final String ID = QCFP_Misc.returnPrefix() + "Wild_Herbs_Ointment";
 	
 	public final int AMOUNT_OF_MAX_HP_GAINED = 3;
 	public final float PERCENTAGE_OF_MAX_HP_TO_LOSE = 0.3f;

@@ -15,7 +15,7 @@ import com.megacrit.cardcrawl.vfx.cardManip.PurgeCardEffect;
 
 import basemod.abstracts.CustomRelic;
 import qcfpunch.QCFPunch_GoodBehaviorLine;
-import qcfpunch.QCFPunch_MiscCode;
+import qcfpunch.QCFP_Misc;
 import qcfpunch.cards.ui.Finished;
 import qcfpunch.resources.relic_graphics.GraphicResources;
 
@@ -23,7 +23,7 @@ public class LotusStatue extends CustomRelic
 							implements OnRemoveCardFromMasterDeckRelic,
 									   ClickableRelic {
 
-	public static final String ID = QCFPunch_MiscCode.returnPrefix() +
+	public static final String ID = QCFP_Misc.returnPrefix() +
 			"Lotus_Statue";
 	
 	private static boolean using_this_relic_power_to_remove = false;

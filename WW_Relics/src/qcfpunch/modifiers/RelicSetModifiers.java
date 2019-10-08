@@ -5,7 +5,7 @@ import java.util.*;
 import com.megacrit.cardcrawl.screens.custom.CustomMod;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 
-import qcfpunch.QCFPunch_MiscCode;
+import qcfpunch.QCFP_Misc;
 import qcfpunch.relics.chun_li.*;
 import qcfpunch.relics.guile.*;
 import qcfpunch.relics.ken.BlackTrainingShirt;
@@ -17,10 +17,10 @@ public class RelicSetModifiers {
 
 	//Yes, I know this can be refactored to be a better class, I will do it, bear with me a while.
 	
-	public static final String WANDERING_WARRIOR_ID = QCFPunch_MiscCode.returnPrefix() + "WanderingWarrior";
-	public static final String BLUE_JADE_ID = QCFPunch_MiscCode.returnPrefix() + "BlueJade";
-	public static final String INDESTRUCTIBLE_FORTRESS_ID = QCFPunch_MiscCode.returnPrefix() + "IndestructibleFortress";
-	public static final String BLAZING_FIST_ID = QCFPunch_MiscCode.returnPrefix() + "BlazingFist";
+	public static final String WANDERING_WARRIOR_ID = QCFP_Misc.returnPrefix() + "WanderingWarrior";
+	public static final String BLUE_JADE_ID = QCFP_Misc.returnPrefix() + "BlueJade";
+	public static final String INDESTRUCTIBLE_FORTRESS_ID = QCFP_Misc.returnPrefix() + "IndestructibleFortress";
+	public static final String BLAZING_FIST_ID = QCFP_Misc.returnPrefix() + "BlazingFist";
 	
 	public static void addRelicSetModifiers(List<CustomMod> list) {
 		CustomMod wandering_warrior = new CustomMod(RelicSetModifiers.WANDERING_WARRIOR_ID, "y", true);

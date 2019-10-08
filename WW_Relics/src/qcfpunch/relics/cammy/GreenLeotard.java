@@ -8,12 +8,12 @@ import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 
 import basemod.abstracts.CustomRelic;
-import qcfpunch.QCFPunch_MiscCode;
+import qcfpunch.QCFP_Misc;
 import qcfpunch.resources.relic_graphics.GraphicResources;
 
 public class GreenLeotard extends CustomRelic {
 
-	public static final String ID = QCFPunch_MiscCode.returnPrefix() + "Green_Leotard";
+	public static final String ID = QCFP_Misc.returnPrefix() + "Green_Leotard";
 	
 	public static final int AMOUNT_OF_BLOCK_GAINED_PER_DRAW = 2;
 	
