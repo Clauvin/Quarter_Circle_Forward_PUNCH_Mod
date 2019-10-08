@@ -10,12 +10,12 @@ import com.megacrit.cardcrawl.core.Settings.GameLanguage;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.GameDictionary;
 
-public class SetRetainOfCardAtCombatAction extends AbstractGameAction  {
+public class SetAlwaysRetainOfCardAtCombatAction extends AbstractGameAction  {
 
 	UUID uuid;
 	boolean retain;
 	
-	public SetRetainOfCardAtCombatAction(UUID uuid, boolean it_retain) {
+	public SetAlwaysRetainOfCardAtCombatAction(UUID uuid, boolean it_retain) {
 		this.uuid = uuid;
 		this.retain = it_retain;
 		
