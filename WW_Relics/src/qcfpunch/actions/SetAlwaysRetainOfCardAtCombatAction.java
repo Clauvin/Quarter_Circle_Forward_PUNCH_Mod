@@ -2,6 +2,7 @@ package qcfpunch.actions;
 
 import java.util.UUID;
 
+import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.AlwaysRetainField;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
@@ -50,19 +51,25 @@ public class SetAlwaysRetainOfCardAtCombatAction extends AbstractGameAction  {
 	private void CheckGroupForCardToSet(CardGroup card_group) {
 		for (int i = 0; i < card_group.size(); i++) {
 			if (card_group.getNCardFromTop(i).uuid == this.uuid) {
-				AbstractCard the_card = card_group.getNCardFromTop(i);
-				the_card.retain = this.retain;
-				
-				String upper_cased_retain = GameDictionary.RETAIN.NAMES[0].
-						substring(0, 1).toUpperCase() + 
-						GameDictionary.RETAIN.NAMES[0].substring(1);
+				if (!AlwaysRetainField.alwaysRetain.
+						get(card_group.getNCardFromTop(i))) {
+					
+					AbstractCard the_card = card_group.getNCardFromTop(i);
+					AlwaysRetainField.alwaysRetain.set(the_card, this.retain);
+					the_card.retain = this.retain;
+					
+					String upper_cased_retain = GameDictionary.RETAIN.NAMES[0].
+							substring(0, 1).toUpperCase() + 
+							GameDictionary.RETAIN.NAMES[0].substring(1);
 
-				if (Settings.language == GameLanguage.ZHS)
-					upper_cased_retain = "" + upper_cased_retain;
-				
-				the_card.rawDescription = upper_cased_retain + ". NL " +
-						the_card.rawDescription;
-				the_card.initializeDescription();
+					if (Settings.language == GameLanguage.ZHS)
+						upper_cased_retain = "" + upper_cased_retain;
+					
+					the_card.rawDescription = upper_cased_retain + ". NL " +
+							the_card.rawDescription;
+					the_card.initializeDescription();
+					
+				}
 				
 				this.isDone = true;
 				break;
