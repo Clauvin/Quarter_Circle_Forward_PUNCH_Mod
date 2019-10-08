@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer.PlayerClass;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.random.Random;
 
 public class QCFPunch_MiscCode {
 
@@ -98,6 +99,10 @@ public class QCFPunch_MiscCode {
 	
 	public static Boolean hasNoDrawPower() {
 		return AbstractDungeon.player.hasPower("No Draw");
+	}
+	
+	public int headsOrTails(Random random) {
+		return random.random(1);
 	}
     
     public static String classAndSaveSlotText() {
