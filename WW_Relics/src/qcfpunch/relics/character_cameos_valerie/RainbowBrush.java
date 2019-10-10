@@ -33,6 +33,7 @@ public class RainbowBrush extends CustomRelic{
 			"Rainbow_Brush";
 	
 	public static CardGroup status_cards;
+	public static CardGroup curse_cards;
 	
 	public static int COMMON_CHANCE = -1;
 	public static int UNCOMMON_CHANCE = -1;
@@ -75,6 +76,8 @@ public class RainbowBrush extends CustomRelic{
 		
 		initStatusCards();
 		
+		initCurseCards();
+		
 		card_to_be_given = null;
 	}
 	
@@ -104,6 +107,21 @@ public class RainbowBrush extends CustomRelic{
 			for (int i = 0; i < colorless_cards.size(); i++) {
 				if (colorless_cards.get(i).type == CardType.STATUS) {
 					status_cards.addToTop(colorless_cards.get(i));
+				}
+			}
+		
+		}
+	}
+	
+	public void initCurseCards() {
+		if (curse_cards.size() == 0) {
+			
+			ArrayList<AbstractCard> list_of_curse_cards =
+					CardLibrary.getCardList(LibraryType.CURSE);
+			
+			for (int i = 0; i < list_of_curse_cards.size(); i++) {
+				if (list_of_curse_cards.get(i).cardID != "Parasite") {
+					curse_cards.addToTop(list_of_curse_cards.get(i));
 				}
 			}
 		
@@ -186,20 +204,20 @@ public class RainbowBrush extends CustomRelic{
 	
 	public AbstractCard generateCard(CardRarity rarity) {
 		
-		if (rarity == CardRarity.CURSE) return AbstractDungeon.getCard(rarity);
+		if (rarity == CardRarity.CURSE) {
+			int random = AbstractDungeon.cardRng.random(curse_cards.size()-1);
+			if (random < 0) random *= -1;
+			
+			return curse_cards.getNCardFromTop(random);
+		}
 		
 		if (!will_spawn_a_status_card) return CardLibrary.getAnyColorCard(rarity);
 		else {
-			QCFP_Misc.fastLoggerLine("size = " + status_cards.size());
-			
 			int random = AbstractDungeon.cardRng.random(status_cards.size()-1);
 			if (random < 0) random *= -1;
 			
-			QCFP_Misc.fastLoggerLine("random = " + random);
-			
 			will_spawn_a_status_card = false;
 			return status_cards.getNCardFromTop(random);
-			
 		}
 		
 	}
