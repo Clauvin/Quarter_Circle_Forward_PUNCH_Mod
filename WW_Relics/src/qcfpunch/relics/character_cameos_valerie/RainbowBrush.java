@@ -106,7 +106,8 @@ public class RainbowBrush extends CustomRelic{
 			
 			for (int i = 0; i < colorless_cards.size(); i++) {
 				if (colorless_cards.get(i).type == CardType.STATUS) {
-					status_cards.addToTop(colorless_cards.get(i));
+					if (colorless_cards.get(i).cardID != "Slimed")
+						status_cards.addToTop(colorless_cards.get(i));
 				}
 			}
 		
