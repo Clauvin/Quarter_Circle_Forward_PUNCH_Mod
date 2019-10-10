@@ -19,6 +19,7 @@ import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.CardLibrary.LibraryType;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
+import com.megacrit.cardcrawl.vfx.ThoughtBubble;
 
 import basemod.abstracts.CustomRelic;
 import qcfpunch.QCFP_Misc;
@@ -170,6 +171,12 @@ public class RainbowBrush extends CustomRelic{
 		}
 		
 		card_to_be_given = generateCard(rarity);
+		
+		AbstractDungeon.effectList.add(
+				new ThoughtBubble(
+					AbstractDungeon.player.dialogX,
+					AbstractDungeon.player.dialogY,
+						4.0F, card_to_be_given.name, true));
 	}
 	
 	private boolean cardIsACurseOrStatus(AbstractCard card) {
