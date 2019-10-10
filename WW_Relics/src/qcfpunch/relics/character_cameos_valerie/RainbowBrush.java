@@ -25,8 +25,11 @@ import qcfpunch.QCFP_Misc;
 import qcfpunch.actions.SetAlwaysRetainOfCardAtCombatAction;
 import qcfpunch.resources.relic_graphics.GraphicResources;
 
-//No, Valerie is not a character from Street Fighter
-//She's from Fantasy Strike, a fighting game from Sirlin.net
+//Valerie's from Fantasy Strike, a fighting game from Sirlin.net
+//Relic's weird since the character has manic depression, and
+//I tried to emulate the condition a bit.
+//Next random card relics won't have a pool of "every card",
+//Or will be much more predictable about which cards they give.
 public class RainbowBrush extends CustomRelic{
 	
 	public static final String ID = QCFP_Misc.returnPrefix() +
