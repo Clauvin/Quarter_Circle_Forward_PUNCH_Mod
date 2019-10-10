@@ -160,12 +160,12 @@
   
   "qcfpunch:Rainbow_Brush": {
     "NAME": "Rainbow Brush",
-    "FLAVOR": "Red Blue in peace / Bright painting, the clouds pierce / Darkness blocks twin star / Nothing done until the cycle restarts",
+    "FLAVOR": "Red Blue paints, the clouds pierce \n Darkness blocks twin star \n Nothing until the cycle restarts",
     "DESCRIPTIONS": [
       "Every #b",
-      " cards played, add the random card (can be ANY card) thought to your hand.",
-      " It has #yRetain (except if it's a #rStatus or #rCurse card). The card to be given ",
-      "changes every turn."
+      " cards played, add this turn's [#9400d3]r[#4b0082]a[#0000FF]n[#00FF00]d[#FFFF00]o[#FF7F00]m[#FF0000]i[#FF3333]z[#FF8888]e[#FFFFFF]d",
+      " card to your hand. It has #yRetain except if",
+      " it's a #rStatus or #rCurse."
     ]
   },
   
