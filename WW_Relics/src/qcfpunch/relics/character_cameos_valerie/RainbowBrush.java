@@ -52,6 +52,9 @@ public class RainbowBrush extends CustomRelic{
 	
 	public static boolean will_spawn_a_status_card = false;
 	
+	public static boolean extra_chance_for_a_bad_card = false;
+	public static int countdown_of_black_card_extra_chances = 0;
+	
 	public static final boolean do_black_cards_exist = QCFP_Misc.
 			silentlyCheckForMod(QCFP_Misc.infinite_spire_class_code);
 	
@@ -129,20 +132,24 @@ public class RainbowBrush extends CustomRelic{
 	public void createCardToGiveLater() {
 		CardRarity rarity = generateRarity();
 		
-		if (card_to_be_given != null) {
-			if ((card_to_be_given.type == CardType.CURSE) ||
-				(card_to_be_given.type == CardType.STATUS)) {
-				
-				int heads_or_tails = AbstractDungeon.cardRng.random(1);
-				if (heads_or_tails > 0) {
-					rarity = CardRarity.CURSE;
-					will_spawn_a_status_card =
-							card_to_be_given.type == CardType.STATUS;
+		if (extra_chance_for_a_bad_card) {
+			if (card_to_be_given != null) {
+				if ((card_to_be_given.type == CardType.CURSE) ||
+					(card_to_be_given.type == CardType.STATUS)) {
+					
+					int heads_or_tails = AbstractDungeon.cardRng.random(1);
+					if (heads_or_tails > 0) {
+						rarity = CardRarity.CURSE;
+						will_spawn_a_status_card =
+								card_to_be_given.type == CardType.STATUS;
+					}
+					extra_chance_for_a_bad_card = false;
 				}
-				
 			}
+		} else {
+			extra_chance_for_a_bad_card = true;
 		}
-			
+		
 		card_to_be_given = generateCard(rarity);
 	}
 	
