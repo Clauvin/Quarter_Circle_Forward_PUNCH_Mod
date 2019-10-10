@@ -73,6 +73,7 @@ public class RainbowBrush extends CustomRelic{
 		initChance();
 		
 		status_cards = new CardGroup(CardGroupType.UNSPECIFIED);
+		curse_cards = new CardGroup(CardGroupType.UNSPECIFIED);
 		
 		initStatusCards();
 		
