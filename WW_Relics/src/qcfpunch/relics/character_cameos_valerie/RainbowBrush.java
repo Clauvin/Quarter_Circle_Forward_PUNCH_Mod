@@ -53,6 +53,7 @@ public class RainbowBrush extends CustomRelic{
 	public static final int STATUS_INITIAL_CHANCE = 6;
 	
 	public static final int NUMBER_OF_CARDS_PLAYED_TO_ACTIVATE = 5;
+	public static final int PERCENTAGE_TO_REMOVE_OF_COMMON_UNCOMMON_RARE_CARDS = 6;
 	
 	public static boolean will_spawn_a_status_card = false;
 	
@@ -78,9 +79,7 @@ public class RainbowBrush extends CustomRelic{
 		status_cards = new CardGroup(CardGroupType.UNSPECIFIED);
 		curse_cards = new CardGroup(CardGroupType.UNSPECIFIED);
 		
-		initStatusCards();
-		
-		initCurseCards();
+		initStatusCards(); initCurseCards();
 		
 		card_to_be_given = null;
 	}
@@ -157,11 +156,8 @@ public class RainbowBrush extends CustomRelic{
 		
 		if (extra_chance_for_a_bad_card) {
 			if (card_to_be_given != null) {
-				if ((card_to_be_given.type == CardType.CURSE) ||
-					(card_to_be_given.type == CardType.STATUS)) {
-					
-					int heads_or_tails = AbstractDungeon.cardRng.random(1);
-					if (heads_or_tails > 0) {
+				if (cardIsACurseOrStatus(card_to_be_given)) {
+					if (QCFP_Misc.headsOrTails(AbstractDungeon.cardRng) > 0) {
 						rarity = CardRarity.CURSE;
 						will_spawn_a_status_card =
 								card_to_be_given.type == CardType.STATUS;
@@ -176,10 +172,14 @@ public class RainbowBrush extends CustomRelic{
 		card_to_be_given = generateCard(rarity);
 	}
 	
+	private boolean cardIsACurseOrStatus(AbstractCard card) {
+		return ((card.type == CardType.CURSE) || (card.type == CardType.STATUS));
+	}
+	
 	public CardRarity generateRarity() {
 		
-		int which_rarity = AbstractDungeon.cardRng.random(100);
-		if (which_rarity < 0) which_rarity *= -1;
+		int which_rarity = QCFP_Misc.rollRandomValue(AbstractDungeon.cardRng, 100);
+		
 		int comparing_rarity;
 		
 		comparing_rarity = UNCOMMON_CHANCE;
@@ -200,9 +200,6 @@ public class RainbowBrush extends CustomRelic{
 		if (which_rarity <= comparing_rarity) return CardRarity.CURSE;
 		
 		will_spawn_a_status_card = true;
-
-		QCFP_Misc.fastLoggerLine(which_rarity + "");
-		QCFP_Misc.fastLoggerLine(comparing_rarity + "");
 		
 		return CardRarity.SPECIAL;
 	}
@@ -210,16 +207,18 @@ public class RainbowBrush extends CustomRelic{
 	public AbstractCard generateCard(CardRarity rarity) {
 		
 		if (rarity == CardRarity.CURSE) {
-			int random = AbstractDungeon.cardRng.random(curse_cards.size()-1);
-			if (random < 0) random *= -1;
+			int random = 
+				QCFP_Misc.rollRandomValue(
+						AbstractDungeon.cardRng, curse_cards.size()-1);
 			
 			return curse_cards.getNCardFromTop(random);
 		}
 		
 		if (!will_spawn_a_status_card) return CardLibrary.getAnyColorCard(rarity);
 		else {
-			int random = AbstractDungeon.cardRng.random(status_cards.size()-1);
-			if (random < 0) random *= -1;
+			int random = 
+				QCFP_Misc.rollRandomValue(
+						AbstractDungeon.cardRng, status_cards.size()-1);
 			
 			will_spawn_a_status_card = false;
 			return status_cards.getNCardFromTop(random);
@@ -242,24 +241,15 @@ public class RainbowBrush extends CustomRelic{
 			AbstractDungeon.actionManager.addToBottom(
 					new MakeTempCardInHandAction(card_to_be_given, false, true));
 			
-			if ((card_to_be_given.type != CardType.CURSE) &&
-					(card_to_be_given.type != CardType.STATUS))
-			AbstractDungeon.actionManager.addToBottom(
-					new SetAlwaysRetainOfCardAtCombatAction(
-							card_to_be_given.uuid, true));
-			
+			if (!cardIsACurseOrStatus(card_to_be_given))
+				AbstractDungeon.actionManager.addToBottom(
+					new SetAlwaysRetainOfCardAtCombatAction(card_to_be_given.uuid,
+							true));
+							
 			changeProbabilities();
-			
-			/*
-			 * OK - If a card is picked, reduce it's percentage by 6 and raise Status and Curse by 3. (no percentage can go to 0)
-			OK - If a Curse of Status is chosen, it has 50% chance to choose Status or Curse again. (uses percentage values of both to pick from)
-			OK - If a Curse or Status is picked, set it's percentage to the initial value and pass all the extra value: Common receives half, Uncommon 1 third and Rare 1/6
-			- If Black is chosen, Black is chosen by the next 3 turns or when the player picks it, wherever comes first. Also, never resets.
-			 */
 			
 		}
 		
-		logger.info(COMMON_CHANCE + " " + UNCOMMON_CHANCE);
 	}
 	
 	public void changeProbabilities() {
@@ -272,7 +262,7 @@ public class RainbowBrush extends CustomRelic{
 		QCFP_Misc.fastLoggerLine(card_to_be_given.name);
 		QCFP_Misc.fastLoggerLine(card_rarity.toString());
 		
-		if ((card_type == CardType.CURSE) || (card_type == CardType.STATUS)) {
+		if (cardTypeIsCurseOrStatus(card_type)) {
 			
 			if (card_type == CardType.CURSE) {
 				bad_card_extra_chance = CURSE_CHANCE;
@@ -306,32 +296,35 @@ public class RainbowBrush extends CustomRelic{
 			RARE_CHANCE += extra_rare;
 			COMMON_CHANCE += extra_common;
 			
-		} else if (	(card_rarity == CardRarity.UNCOMMON) ||
+		} else if ((card_rarity == CardRarity.UNCOMMON) ||
 					(card_rarity == CardRarity.RARE) ||
 					(card_rarity == CardRarity.COMMON)) {
 			
 			int pass_by = 0;
+			final int PERCENTAGE_TO_REMOVE =
+					PERCENTAGE_TO_REMOVE_OF_COMMON_UNCOMMON_RARE_CARDS;
+			int amount;
 			
 			if (card_rarity == CardRarity.UNCOMMON) {
-				UNCOMMON_CHANCE -= 6; pass_by += 6;
-				if (UNCOMMON_CHANCE < 0) {
-					pass_by += UNCOMMON_CHANCE; UNCOMMON_CHANCE = 0;
-				}
+				
+				amount = QCFP_Misc.min(PERCENTAGE_TO_REMOVE, UNCOMMON_CHANCE);
+				UNCOMMON_CHANCE -= amount; pass_by += amount;
+				
 			} else 	if (card_rarity == CardRarity.RARE) {
-				RARE_CHANCE -= 6; pass_by += 6;
-				if (RARE_CHANCE < 0) {
-					pass_by += RARE_CHANCE; RARE_CHANCE = 0;
-				}
+				
+				amount = QCFP_Misc.min(PERCENTAGE_TO_REMOVE, RARE_CHANCE);
+				RARE_CHANCE -= amount; pass_by += amount;
+				
 			} else if (card_rarity == CardRarity.COMMON) {
-				COMMON_CHANCE -= 6; pass_by += 6;
-				if (COMMON_CHANCE < 0) {
-					pass_by += COMMON_CHANCE; COMMON_CHANCE = 0;
-				}
+				
+				amount = QCFP_Misc.min(PERCENTAGE_TO_REMOVE, COMMON_CHANCE);
+				COMMON_CHANCE -= amount; pass_by += amount;
+				
 			}
 			
 			for (int i = 0; i < pass_by; i++) {
 				if (i%2 == 0) CURSE_CHANCE += 1;
-				if (i%2 == 1) STATUS_CHANCE += 1;
+				else STATUS_CHANCE += 1;
 			}
 			
 		}
@@ -342,6 +335,10 @@ public class RainbowBrush extends CustomRelic{
 		QCFP_Misc.fastLoggerLine(BLACK_CHANCE + "");
 		QCFP_Misc.fastLoggerLine(CURSE_CHANCE + "");
 		QCFP_Misc.fastLoggerLine(STATUS_CHANCE + "");
+	}
+	
+	private boolean cardTypeIsCurseOrStatus(CardType type) {
+		return ((type == CardType.CURSE) || (type == CardType.STATUS));
 	}
 	
 	@Override
