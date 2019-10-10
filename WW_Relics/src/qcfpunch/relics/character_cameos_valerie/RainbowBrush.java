@@ -49,7 +49,7 @@ public class RainbowBrush extends CustomRelic{
 	public static final int CURSE_INITIAL_CHANCE = 6;
 	public static final int STATUS_INITIAL_CHANCE = 6;
 	
-	public static final int NUMBER_OF_CARDS_PLAYED_TO_ACTIVATE = 7;
+	public static final int NUMBER_OF_CARDS_PLAYED_TO_ACTIVATE = 5;
 	
 	public static boolean will_spawn_a_status_card = false;
 	
