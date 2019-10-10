@@ -185,7 +185,7 @@ public class RainbowBrush extends CustomRelic{
 		else {
 			QCFP_Misc.fastLoggerLine("size = " + status_cards.size());
 			
-			int random = AbstractDungeon.cardRng.random(status_cards.size());
+			int random = AbstractDungeon.cardRng.random(status_cards.size()-1);
 			if (random < 0) random *= -1;
 			
 			QCFP_Misc.fastLoggerLine("random = " + random);
