@@ -13,8 +13,10 @@ import com.megacrit.cardcrawl.random.Random;
 
 public class QCFP_Misc {
 
-	public final static String infinite_spire_class_code = "infinitespire.InfiniteSpire";
-	public final static String replay_the_spire_class_code = "replayTheSpire.ReplayTheSpireMod";
+	public final static String infinite_spire_class_code =
+			"infinitespire.InfiniteSpire";
+	public final static String replay_the_spire_class_code = 
+			"replayTheSpire.ReplayTheSpireMod";
 	public final static PlayerClass[] base_game_player_classes =
 			{PlayerClass.IRONCLAD, PlayerClass.THE_SILENT, PlayerClass.DEFECT};
 	
@@ -101,8 +103,19 @@ public class QCFP_Misc {
 		return AbstractDungeon.player.hasPower("No Draw");
 	}
 	
-	public int headsOrTails(Random random) {
+	public static int headsOrTails(Random random) {
 		return random.random(1);
+	}
+	
+	public static int rollRandomValue(Random random, int range) {
+		int value = random.random(range);
+		if (value < 0) value *= -1;
+		return value;
+	}
+	
+	public static int min(int a, int b) {
+		if (a <= b) return a;
+		else return b;
 	}
     
     public static String classAndSaveSlotText() {
