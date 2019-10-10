@@ -41,9 +41,9 @@ public class RainbowBrush extends CustomRelic{
 	public static int CURSE_CHANCE = -1;
 	public static int STATUS_CHANCE = -1;
 	
-	public static final int COMMON_INITIAL_CHANCE = 50;
-	public static final int UNCOMMON_INITIAL_CHANCE = 25;
-	public static final int RARE_INITIAL_CHANCE = 12;
+	public static final int COMMON_INITIAL_CHANCE = 12;
+	public static final int UNCOMMON_INITIAL_CHANCE = 50;
+	public static final int RARE_INITIAL_CHANCE = 25;
 	public static final int BLACK_INITIAL_CHANCE = 1;
 	public static final int CURSE_INITIAL_CHANCE = 6;
 	public static final int STATUS_INITIAL_CHANCE = 6;
@@ -152,14 +152,14 @@ public class RainbowBrush extends CustomRelic{
 		if (which_rarity < 0) which_rarity *= -1;
 		int comparing_rarity;
 		
-		comparing_rarity = COMMON_CHANCE;
-		if (which_rarity <= comparing_rarity) return CardRarity.COMMON;
-		
-		comparing_rarity += UNCOMMON_CHANCE;
+		comparing_rarity = UNCOMMON_CHANCE;
 		if (which_rarity <= comparing_rarity) return CardRarity.UNCOMMON;
 		
 		comparing_rarity += RARE_CHANCE;
 		if (which_rarity <= comparing_rarity) return CardRarity.RARE;
+		
+		comparing_rarity += COMMON_CHANCE;
+		if (which_rarity <= comparing_rarity) return CardRarity.COMMON;
 		
 		if (BLACK_CHANCE != 0) {
 			comparing_rarity += BLACK_CHANCE;
@@ -209,8 +209,6 @@ public class RainbowBrush extends CustomRelic{
 			counter = 0;
 			flash();
 			
-			
-			
 			AbstractDungeon.actionManager.addToBottom(
 					new MakeTempCardInHandAction(card_to_be_given, false, true));
 			
@@ -224,7 +222,7 @@ public class RainbowBrush extends CustomRelic{
 			
 			/*
 			 * OK - If a card is picked, reduce it's percentage by 6 and raise Status and Curse by 3. (no percentage can go to 0)
-			- If a Curse of Status is chosen, it has 50% chance to choose Status or Curse again. (uses percentage values of both to pick from)
+			OK - If a Curse of Status is chosen, it has 50% chance to choose Status or Curse again. (uses percentage values of both to pick from)
 			OK - If a Curse or Status is picked, set it's percentage to the initial value and pass all the extra value: Common receives half, Uncommon 1 third and Rare 1/6
 			- If Black is chosen, Black is chosen by the next 3 turns or when the player picks it, wherever comes first. Also, never resets.
 			 */
@@ -260,36 +258,31 @@ public class RainbowBrush extends CustomRelic{
 			if (card_type == CardType.CURSE) CURSE_CHANCE = bad_card_initial_chance;
 			else STATUS_CHANCE = bad_card_initial_chance;
 			
-			extra_common = extra_chance / 2;
-			extra_uncommon = extra_chance / 3;
-			extra_rare = extra_chance / 6;
+			extra_uncommon = extra_chance / 2;
+			extra_rare = extra_chance / 3;
+			extra_common = extra_chance / 6;
 			
-			if (extra_common + extra_uncommon + extra_rare < extra_chance) {
+			if (extra_uncommon + extra_rare + extra_common < extra_chance) {
 				int distributed_chance = extra_chance - 
-						(extra_common + extra_uncommon + extra_rare);
+						(extra_uncommon + extra_rare + extra_common);
 				
 				for (int i = 1; i <= distributed_chance; i++) {
-					if (i < 4) extra_common += 1;
-					else extra_uncommon += 1;
+					if (i < 4) extra_uncommon += 1;
+					else extra_rare += 1;
 				}
 			}
 			
-			COMMON_CHANCE += extra_common;
 			UNCOMMON_CHANCE += extra_uncommon;
 			RARE_CHANCE += extra_rare;
+			COMMON_CHANCE += extra_common;
 			
-		} else if ((card_rarity == CardRarity.COMMON) || 
-					(card_rarity == CardRarity.UNCOMMON) ||
-					(card_rarity == CardRarity.RARE)) {
+		} else if (	(card_rarity == CardRarity.UNCOMMON) ||
+					(card_rarity == CardRarity.RARE) ||
+					(card_rarity == CardRarity.COMMON)) {
 			
 			int pass_by = 0;
 			
-			if (card_rarity == CardRarity.COMMON) {
-				COMMON_CHANCE -= 6; pass_by += 6;
-				if (COMMON_CHANCE < 0) {
-					pass_by += COMMON_CHANCE; COMMON_CHANCE = 0;
-				}
-			} else if (card_rarity == CardRarity.UNCOMMON) {
+			if (card_rarity == CardRarity.UNCOMMON) {
 				UNCOMMON_CHANCE -= 6; pass_by += 6;
 				if (UNCOMMON_CHANCE < 0) {
 					pass_by += UNCOMMON_CHANCE; UNCOMMON_CHANCE = 0;
@@ -298,6 +291,11 @@ public class RainbowBrush extends CustomRelic{
 				RARE_CHANCE -= 6; pass_by += 6;
 				if (RARE_CHANCE < 0) {
 					pass_by += RARE_CHANCE; RARE_CHANCE = 0;
+				}
+			} else if (card_rarity == CardRarity.COMMON) {
+				COMMON_CHANCE -= 6; pass_by += 6;
+				if (COMMON_CHANCE < 0) {
+					pass_by += COMMON_CHANCE; COMMON_CHANCE = 0;
 				}
 			}
 			
@@ -308,9 +306,9 @@ public class RainbowBrush extends CustomRelic{
 			
 		}
 		
-		QCFP_Misc.fastLoggerLine(COMMON_CHANCE + "");
 		QCFP_Misc.fastLoggerLine(UNCOMMON_CHANCE + "");
 		QCFP_Misc.fastLoggerLine(RARE_CHANCE + "");
+		QCFP_Misc.fastLoggerLine(COMMON_CHANCE + "");
 		QCFP_Misc.fastLoggerLine(BLACK_CHANCE + "");
 		QCFP_Misc.fastLoggerLine(CURSE_CHANCE + "");
 		QCFP_Misc.fastLoggerLine(STATUS_CHANCE + "");
