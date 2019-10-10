@@ -134,15 +134,8 @@ public class RainbowBrush extends CustomRelic{
 	}
 
 	public String getUpdatedDescription() {
-		return DESCRIPTIONS[0];
-	}
-	
-	public String getPreCardDecidedDescription() {
-		return DESCRIPTIONS[0];
-	}
-	
-	public String getCardDecidedDescription() {
-		return DESCRIPTIONS[0];
+		return DESCRIPTIONS[0] + NUMBER_OF_CARDS_PLAYED_TO_ACTIVATE +
+				DESCRIPTIONS[1] + DESCRIPTIONS[2] + DESCRIPTIONS[3];
 	}
 	
 	@Override
@@ -177,6 +170,7 @@ public class RainbowBrush extends CustomRelic{
 					AbstractDungeon.player.dialogX,
 					AbstractDungeon.player.dialogY,
 						4.0F, card_to_be_given.name, true));
+		
 	}
 	
 	private boolean cardIsACurseOrStatus(AbstractCard card) {
