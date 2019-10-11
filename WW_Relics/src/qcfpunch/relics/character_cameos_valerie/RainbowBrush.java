@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -19,6 +20,7 @@ import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.CardLibrary.LibraryType;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
+import com.megacrit.cardcrawl.rooms.MonsterRoom;
 import com.megacrit.cardcrawl.vfx.ThoughtBubble;
 
 import basemod.abstracts.CustomRelic;
@@ -348,6 +350,31 @@ public class RainbowBrush extends CustomRelic{
 		
 		if (COMMON_CHANCE == -1) initChance();
 		
+	}
+	
+	@Override
+	public void renderInTopPanel(SpriteBatch sb) {
+		super.renderInTopPanel(sb);
+		
+		if ((this.hb.hovered) &&
+			(AbstractDungeon.getCurrRoom() != null)) {
+			if ((AbstractDungeon.getCurrRoom() instanceof MonsterRoom) &&
+				(card_to_be_given != null)) {
+						
+				QCFP_Misc.fastLoggerLine("True");
+					
+				float drawScale = 1.0f;
+				card_to_be_given.drawScale = drawScale;
+				card_to_be_given.current_x = this.currentX +
+						3 * card_to_be_given.hb.width;
+				card_to_be_given.current_y = this.currentY -
+						card_to_be_given.hb.height;
+				
+				
+				card_to_be_given.render(sb);
+							
+			}
+		}
 	}
 	
 	//Don't forget to add something to avoid cases where a card mod
