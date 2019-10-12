@@ -155,15 +155,13 @@ public class RainbowBrush extends CustomRelic{
 	public void atBattleStartPreDraw() {
 		int which_save_slot = CardCrawlGame.saveSlot;
 		
-		QCFP_Misc.fastLoggerLine(which_save_slot + " what");
-		
 		if (((which_save_slot == 0) && (!save_slot_0_helper_tip_given)) ||
 			((which_save_slot == 1) && (!save_slot_1_helper_tip_given)) ||
 			((which_save_slot == 2) && (!save_slot_2_helper_tip_given)))
 		{
-			QCFP_Misc.fastLoggerLine("test");
 			
-			 AbstractDungeon.ftue = new FtueTip("Test", "Yeah",
+			 AbstractDungeon.ftue = new FtueTip(DESCRIPTIONS[3],
+					 							DESCRIPTIONS[4],
 					 							Settings.WIDTH / 2.0F,
 					 							Settings.HEIGHT / 2.0F,
 					 							FtueTip.TipType.COMBAT);
@@ -182,14 +180,12 @@ public class RainbowBrush extends CustomRelic{
 			 		logger.info("Something is clearly wrong here...");
 			 		break;
 			 }
-			
 		}
 	}
 	
 	@Override
 	public void atTurnStartPostDraw() {
 		createCardToGiveLater();
-		
 	}
 	
 	public void createCardToGiveLater() {
@@ -225,9 +221,7 @@ public class RainbowBrush extends CustomRelic{
 						AbstractDungeon.player.dialogX + 
 						3 * card_to_be_shown_with_thought_balloon.hb.width,
 						AbstractDungeon.player.dialogY));
-		
-		//AbstractDungeon.effectList.add();
-		
+			
 	}
 	
 	private boolean cardIsACurseOrStatus(AbstractCard card) {
