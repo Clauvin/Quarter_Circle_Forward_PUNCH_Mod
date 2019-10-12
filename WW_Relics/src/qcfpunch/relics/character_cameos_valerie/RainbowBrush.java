@@ -160,8 +160,8 @@ public class RainbowBrush extends CustomRelic{
 			((which_save_slot == 2) && (!save_slot_2_helper_tip_given)))
 		{
 			
-			 AbstractDungeon.ftue = new FtueTip(DESCRIPTIONS[3],
-					 							DESCRIPTIONS[4],
+			 AbstractDungeon.ftue = new FtueTip(DESCRIPTIONS[4],
+					 							DESCRIPTIONS[3],
 					 							Settings.WIDTH / 2.0F,
 					 							Settings.HEIGHT / 2.0F,
 					 							FtueTip.TipType.COMBAT);
@@ -441,6 +441,7 @@ public class RainbowBrush extends CustomRelic{
     			String class_name = AbstractDungeon.player.getClass().getName();
     			String start_of_save_variable = "rainbow_brush_class_" + class_name +
         				"_save_slot_" + CardCrawlGame.saveSlot;
+    			String start_of_helper_tip_variables = "rainbow_brush_save_slot_";
     			
         		config.setInt(start_of_save_variable +
         				"_COMMON_CHANCE", COMMON_CHANCE);
@@ -460,8 +461,15 @@ public class RainbowBrush extends CustomRelic{
                 config.setInt(start_of_save_variable +
         				"_STATUS_CHANCE", STATUS_CHANCE);  
                 
-                //storeCardRewardCreated(config, card_reward);
-    			
+                config.setBool(start_of_helper_tip_variables + 0,
+                		save_slot_0_helper_tip_given);
+                
+                config.setBool(start_of_helper_tip_variables + 1,
+                		save_slot_0_helper_tip_given);
+                
+                config.setBool(start_of_helper_tip_variables + 2,
+                		save_slot_0_helper_tip_given);
+
                 try {
     				config.save();
     			} catch (IOException e) {
@@ -487,6 +495,7 @@ public class RainbowBrush extends CustomRelic{
         String class_name = AbstractDungeon.player.getClass().getName();
         String start_of_save_variable = "rainbow_brush_class_" + class_name +
 				"_save_slot_" + CardCrawlGame.saveSlot;
+        String start_of_helper_tip_variables = "rainbow_brush_save_slot_";
 		
 		if (AbstractDungeon.player.hasRelic(ID) && 
 				config.has(start_of_save_variable +
@@ -510,24 +519,29 @@ public class RainbowBrush extends CustomRelic{
     		STATUS_CHANCE = config.getInt(start_of_save_variable +
     				"_STATUS_CHANCE"); 
 			
-			//loadCardRewardStored(config);
-			
-            try {
-				config.load();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-            
-            logger.info("Finished loading Rainbow Brush info from");
-            logger.info(QCFP_Misc.classAndSaveSlotText());
-        }
-		
-		else
-		{
-			logger.info("There's no info, setting variables accordingly.");
-			logger.info("Finished setting Rainbow Brush variables.");
 		}
+		
+		save_slot_0_helper_tip_given =
+				config.getBool(start_of_helper_tip_variables + 0);
+         
+		save_slot_1_helper_tip_given = 
+				config.getBool(start_of_helper_tip_variables + 1);
+         
+		save_slot_2_helper_tip_given =
+				config.getBool(start_of_helper_tip_variables + 2);
+
+			
+        try {
+			config.load();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+            
+        logger.info("Finished loading Rainbow Brush info from");
+        logger.info(QCFP_Misc.classAndSaveSlotText());
+		logger.info("Finished setting Rainbow Brush variables.");
+
     }
 	
 	public static void clear(final SpireConfig config) {
