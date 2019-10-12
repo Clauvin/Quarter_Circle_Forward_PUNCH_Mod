@@ -22,6 +22,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rooms.MonsterRoom;
 import com.megacrit.cardcrawl.vfx.ThoughtBubble;
+import com.megacrit.cardcrawl.vfx.cardManip.ShowCardBrieflyEffect;
 
 import basemod.abstracts.CustomRelic;
 import qcfpunch.QCFP_Misc;
@@ -67,6 +68,8 @@ public class RainbowBrush extends CustomRelic{
 			silentlyCheckForMod(QCFP_Misc.infinite_spire_class_code);
 	
 	public static AbstractCard card_to_be_given;
+	public static AbstractCard card_to_be_shown_with_thought_balloon;
+	public static AbstractCard card_to_be_shown_while_hovering_relic;
 	
 	public static final Logger logger = LogManager.getLogger(
 			RainbowBrush.class.getName());
@@ -85,6 +88,8 @@ public class RainbowBrush extends CustomRelic{
 		initStatusCards(); initCurseCards();
 		
 		card_to_be_given = null;
+		card_to_be_shown_with_thought_balloon = null;
+		card_to_be_shown_while_hovering_relic = null;
 	}
 	
 	public void initChance() {
@@ -143,7 +148,6 @@ public class RainbowBrush extends CustomRelic{
 	@Override
 	public void atTurnStartPostDraw() {
 		createCardToGiveLater();
-		QCFP_Misc.fastLoggerLine(card_to_be_given.name);
 		
 	}
 	
@@ -166,12 +170,22 @@ public class RainbowBrush extends CustomRelic{
 		}
 		
 		card_to_be_given = generateCard(rarity);
+		card_to_be_shown_with_thought_balloon = card_to_be_given.makeStatEquivalentCopy();
+		card_to_be_shown_while_hovering_relic = card_to_be_given.makeStatEquivalentCopy();
 		
 		AbstractDungeon.effectList.add(
 				new ThoughtBubble(
 					AbstractDungeon.player.dialogX,
 					AbstractDungeon.player.dialogY,
-						4.0F, card_to_be_given.name, true));
+						2.5F, card_to_be_shown_with_thought_balloon.name, true));
+		
+		AbstractDungeon.effectList.add(
+				new ShowCardBrieflyEffect(card_to_be_shown_with_thought_balloon,
+						AbstractDungeon.player.dialogX + 
+						3 * card_to_be_shown_with_thought_balloon.hb.width,
+						AbstractDungeon.player.dialogY));
+		
+		//AbstractDungeon.effectList.add();
 		
 	}
 	
@@ -364,14 +378,13 @@ public class RainbowBrush extends CustomRelic{
 				QCFP_Misc.fastLoggerLine("True");
 					
 				float drawScale = 1.0f;
-				card_to_be_given.drawScale = drawScale;
-				card_to_be_given.current_x = this.currentX +
+				card_to_be_shown_while_hovering_relic.drawScale = drawScale;
+				card_to_be_shown_while_hovering_relic.current_x = this.currentX +
 						3 * card_to_be_given.hb.width;
-				card_to_be_given.current_y = this.currentY -
+				card_to_be_shown_while_hovering_relic.current_y = this.currentY -
 						card_to_be_given.hb.height;
 				
-				
-				card_to_be_given.render(sb);
+				card_to_be_shown_while_hovering_relic.render(sb);
 							
 			}
 		}
