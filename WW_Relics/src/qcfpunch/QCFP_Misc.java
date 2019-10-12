@@ -5,6 +5,9 @@ import org.apache.logging.log4j.Logger;
 
 import com.evacipated.cardcrawl.modthespire.Loader;
 import com.megacrit.cardcrawl.actions.utility.WaitAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.AbstractCard.CardColor;
+import com.megacrit.cardcrawl.cards.AbstractCard.CardType;
 import com.megacrit.cardcrawl.characters.AbstractPlayer.PlayerClass;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
@@ -101,6 +104,14 @@ public class QCFP_Misc {
 	
 	public static Boolean hasNoDrawPower() {
 		return AbstractDungeon.player.hasPower("No Draw");
+	}
+	
+	public static boolean isItACurse(AbstractCard card) {
+		return ((card.color == CardColor.CURSE) || (card.type == CardType.CURSE));
+	}
+	
+	public static boolean isItAStatus(AbstractCard card) {
+		return (card.type == CardType.STATUS);
 	}
 	
 	public static int headsOrTails(Random random) {
