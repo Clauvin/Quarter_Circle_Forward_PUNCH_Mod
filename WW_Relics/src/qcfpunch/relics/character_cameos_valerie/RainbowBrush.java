@@ -2,6 +2,7 @@ package qcfpunch.relics.character_cameos_valerie;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Map;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -43,6 +44,9 @@ public class RainbowBrush extends CustomRelic{
 	
 	public static CardGroup status_cards;
 	public static CardGroup curse_cards;
+	public static ArrayList<String> common_cards_ids;
+	public static ArrayList<String> uncommon_cards_ids;
+	public static ArrayList<String> rare_cards_ids;
 	
 	public static int COMMON_CHANCE = -1;
 	public static int UNCOMMON_CHANCE = -1;
@@ -90,8 +94,11 @@ public class RainbowBrush extends CustomRelic{
 		
 		status_cards = new CardGroup(CardGroupType.UNSPECIFIED);
 		curse_cards = new CardGroup(CardGroupType.UNSPECIFIED);
+		common_cards_ids = new ArrayList<String>();
+		uncommon_cards_ids = new ArrayList<String>();
+		rare_cards_ids = new ArrayList<String>();
 		
-		initStatusCards(); initCurseCards();
+		initStatusCards(); initCurseCards(); initUsualCardsNames();
 		
 		card_to_be_given = null;
 		card_to_be_shown_with_thought_balloon = null;
@@ -145,6 +152,36 @@ public class RainbowBrush extends CustomRelic{
 		
 		}
 	}
+	
+	public void initUsualCardsNames() {
+		
+		for (Map.Entry<String, AbstractCard> c : CardLibrary.cards.entrySet()) {
+			AbstractCard card = c.getValue();
+			
+			//Ok, Java is ambiguous here so
+			// "continue" means:
+			// end this loop's iteration and start the next iteration,
+			// not "go ahead in this iteration"
+			if ((QCFP_Misc.isItACurse(card)) || (QCFP_Misc.isItAStatus(card)))
+				continue;
+			
+			switch (card.rarity) {
+				case COMMON:
+					common_cards_ids.add(card.cardID);
+					break;
+				case UNCOMMON:
+					uncommon_cards_ids.add(card.cardID);
+					break;
+				case RARE:
+					rare_cards_ids.add(card.cardID);
+					break;
+				default:
+					logger.info("Something is not right here.");
+					break;
+			}
+		}
+		
+	}
 
 	public String getUpdatedDescription() {
 		return DESCRIPTIONS[0] + NUMBER_OF_CARDS_PLAYED_TO_ACTIVATE +
@@ -161,7 +198,7 @@ public class RainbowBrush extends CustomRelic{
 		{
 			
 			 AbstractDungeon.ftue = new FtueTip(DESCRIPTIONS[4],
-					 							DESCRIPTIONS[3],
+					 							DESCRIPTIONS[5],
 					 							Settings.WIDTH / 2.0F,
 					 							Settings.HEIGHT / 2.0F,
 					 							FtueTip.TipType.COMBAT);
@@ -266,7 +303,10 @@ public class RainbowBrush extends CustomRelic{
 			return curse_cards.getNCardFromTop(random);
 		}
 		
-		if (!will_spawn_a_status_card) return CardLibrary.getAnyColorCard(rarity);
+		if (!will_spawn_a_status_card) {
+			
+			return getAnyColorCard(rarity);
+		}
 		else {
 			int random = 
 				QCFP_Misc.rollRandomValue(
@@ -275,6 +315,34 @@ public class RainbowBrush extends CustomRelic{
 			will_spawn_a_status_card = false;
 			return status_cards.getNCardFromTop(random);
 		}
+		
+	}
+	
+	public AbstractCard getAnyColorCard(CardRarity rarity) {
+		
+		ArrayList<String> list_of_cards_ids = new ArrayList<String>();
+		int random_number;
+		String card_id;
+		switch (rarity) {
+			case COMMON:
+				list_of_cards_ids = common_cards_ids;
+				break;
+			case UNCOMMON:
+				list_of_cards_ids = uncommon_cards_ids;
+				break;
+			case RARE:
+				list_of_cards_ids = rare_cards_ids;
+				break;
+			default:
+				logger.info("Something wrong happened.");
+				break;
+		}
+		
+		random_number = QCFP_Misc.rollRandomValue(
+				AbstractDungeon.cardRng, list_of_cards_ids.size()-1);
+		card_id = list_of_cards_ids.get(random_number);
+		
+		return CardLibrary.cards.get(card_id).makeCopy();
 		
 	}
 	
