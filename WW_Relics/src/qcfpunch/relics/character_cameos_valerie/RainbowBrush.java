@@ -15,12 +15,14 @@ import com.megacrit.cardcrawl.cards.AbstractCard.CardType;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.CardGroup.CardGroupType;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.CardLibrary.LibraryType;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rooms.MonsterRoom;
+import com.megacrit.cardcrawl.ui.FtueTip;
 import com.megacrit.cardcrawl.vfx.ThoughtBubble;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardBrieflyEffect;
 
@@ -70,6 +72,10 @@ public class RainbowBrush extends CustomRelic{
 	public static AbstractCard card_to_be_given;
 	public static AbstractCard card_to_be_shown_with_thought_balloon;
 	public static AbstractCard card_to_be_shown_while_hovering_relic;
+	
+	public static boolean save_slot_1_helper_tip_given = false;
+	public static boolean save_slot_2_helper_tip_given = false;
+	public static boolean save_slot_3_helper_tip_given = false;
 	
 	public static final Logger logger = LogManager.getLogger(
 			RainbowBrush.class.getName());
@@ -143,6 +149,36 @@ public class RainbowBrush extends CustomRelic{
 	public String getUpdatedDescription() {
 		return DESCRIPTIONS[0] + NUMBER_OF_CARDS_PLAYED_TO_ACTIVATE +
 				DESCRIPTIONS[1] + DESCRIPTIONS[2] + DESCRIPTIONS[3];
+	}
+	
+	@Override
+	public void atBattleStartPreDraw() {
+		int which_save_slot = CardCrawlGame.saveSlot;
+		if (((which_save_slot == 1) && (!save_slot_1_helper_tip_given)) ||
+			((which_save_slot == 2) && (!save_slot_2_helper_tip_given)) ||
+			((which_save_slot == 3) && (!save_slot_3_helper_tip_given)))
+		{
+			 AbstractDungeon.ftue = new FtueTip("Test", "Yeah",
+					 							Settings.WIDTH / 2.0F,
+					 							Settings.HEIGHT / 2.0F,
+					 							FtueTip.TipType.COMBAT);
+			 
+			 switch(which_save_slot) {
+			 	case 1:
+			 		save_slot_1_helper_tip_given = true;
+			 		break;
+			 	case 2:
+			 		save_slot_2_helper_tip_given = true;
+			 		break;
+			 	case 3:
+			 		save_slot_3_helper_tip_given = true;
+			 		break;
+			 	default:
+			 		logger.info("Something is clearly wrong here...");
+			 		break;
+			 }
+			
+		}
 	}
 	
 	@Override
