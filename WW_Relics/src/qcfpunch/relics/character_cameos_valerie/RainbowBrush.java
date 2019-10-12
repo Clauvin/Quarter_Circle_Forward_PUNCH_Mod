@@ -73,9 +73,9 @@ public class RainbowBrush extends CustomRelic{
 	public static AbstractCard card_to_be_shown_with_thought_balloon;
 	public static AbstractCard card_to_be_shown_while_hovering_relic;
 	
+	public static boolean save_slot_0_helper_tip_given = false;
 	public static boolean save_slot_1_helper_tip_given = false;
 	public static boolean save_slot_2_helper_tip_given = false;
-	public static boolean save_slot_3_helper_tip_given = false;
 	
 	public static final Logger logger = LogManager.getLogger(
 			RainbowBrush.class.getName());
@@ -154,24 +154,34 @@ public class RainbowBrush extends CustomRelic{
 	@Override
 	public void atBattleStartPreDraw() {
 		int which_save_slot = CardCrawlGame.saveSlot;
-		if (((which_save_slot == 1) && (!save_slot_1_helper_tip_given)) ||
-			((which_save_slot == 2) && (!save_slot_2_helper_tip_given)) ||
-			((which_save_slot == 3) && (!save_slot_3_helper_tip_given)))
+		
+		QCFP_Misc.fastLoggerLine(which_save_slot + " what");
+		
+		if (((which_save_slot == 0) && (!save_slot_0_helper_tip_given)) ||
+			((which_save_slot == 1) && (!save_slot_1_helper_tip_given)) ||
+			((which_save_slot == 2) && (!save_slot_2_helper_tip_given)))
 		{
+			QCFP_Misc.fastLoggerLine("test");
+			
 			 AbstractDungeon.ftue = new FtueTip("Test", "Yeah",
 					 							Settings.WIDTH / 2.0F,
 					 							Settings.HEIGHT / 2.0F,
 					 							FtueTip.TipType.COMBAT);
 			 
+			 /*AbstractDungeon.ftue.openScreen(
+					 "Test", "Yeah",
+					 Settings.WIDTH / 2.0F,
+					 Settings.HEIGHT / 2.0F);*/
+			 
 			 switch(which_save_slot) {
+			 	case 0:
+			 		save_slot_0_helper_tip_given = true;
+			 		break;
 			 	case 1:
 			 		save_slot_1_helper_tip_given = true;
 			 		break;
 			 	case 2:
 			 		save_slot_2_helper_tip_given = true;
-			 		break;
-			 	case 3:
-			 		save_slot_3_helper_tip_given = true;
 			 		break;
 			 	default:
 			 		logger.info("Something is clearly wrong here...");
