@@ -168,11 +168,6 @@ public class RainbowBrush extends CustomRelic{
 					 							Settings.HEIGHT / 2.0F,
 					 							FtueTip.TipType.COMBAT);
 			 
-			 /*AbstractDungeon.ftue.openScreen(
-					 "Test", "Yeah",
-					 Settings.WIDTH / 2.0F,
-					 Settings.HEIGHT / 2.0F);*/
-			 
 			 switch(which_save_slot) {
 			 	case 0:
 			 		save_slot_0_helper_tip_given = true;
