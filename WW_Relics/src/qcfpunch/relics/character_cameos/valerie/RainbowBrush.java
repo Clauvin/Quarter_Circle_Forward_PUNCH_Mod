@@ -1,4 +1,4 @@
-package qcfpunch.relics.character_cameos_valerie;
+package qcfpunch.relics.character_cameos.valerie;
 
 import java.io.IOException;
 import java.util.ArrayList;
