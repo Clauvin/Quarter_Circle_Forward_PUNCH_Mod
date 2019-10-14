@@ -155,13 +155,6 @@ public class RainbowBrush extends CustomRelic{
 	
 	public static void initUsualCardsNames() {
 		
-		logger.info("common_cards_ids.size() " + common_cards_ids.size());
-		logger.info("uncommon_cards_ids.size() " + uncommon_cards_ids.size());
-		logger.info("rare_cards_ids.size() " + rare_cards_ids.size());
-		
-		logger.info("Entry set");
-		logger.info(CardLibrary.cards.entrySet().size());
-		
 		for (Map.Entry<String, AbstractCard> c : CardLibrary.cards.entrySet()) {
 			AbstractCard card = c.getValue();
 			
@@ -170,7 +163,7 @@ public class RainbowBrush extends CustomRelic{
 			// end this loop's iteration and start the next iteration,
 			// not "go ahead in this iteration"
 			if ((QCFP_Misc.isItACurse(card)) || (QCFP_Misc.isItAStatus(card) ||
-				 !(card.rarity == CardRarity.BASIC)))
+				 (card.rarity == CardRarity.BASIC)))
 				continue;
 			
 			switch (card.rarity) {
@@ -189,10 +182,6 @@ public class RainbowBrush extends CustomRelic{
 			}
 		}
 		
-		logger.info("AFTER common_cards_ids.size() " + common_cards_ids.size());
-		logger.info("uncommon_cards_ids.size() " + uncommon_cards_ids.size());
-		logger.info("rare_cards_ids.size() " + rare_cards_ids.size());
-		
 	}
 
 	public String getUpdatedDescription() {
@@ -202,9 +191,7 @@ public class RainbowBrush extends CustomRelic{
 	
 	@Override
 	public void atBattleStartPreDraw() {
-		
-		cardListSizePreemptiveCheckAndFix();
-		
+				
 		int which_save_slot = CardCrawlGame.saveSlot;
 		
 		if (((which_save_slot == 0) && (!save_slot_0_helper_tip_given)) ||
@@ -233,18 +220,6 @@ public class RainbowBrush extends CustomRelic{
 			 		break;
 			 }
 		}
-	}
-	
-	public void cardListSizePreemptiveCheckAndFix() {
-		
-		if ((common_cards_ids.size() == 0) || (uncommon_cards_ids.size() == 0)
-				|| (rare_cards_ids.size() == 0)) {
-			initUsualCardsNames();
-		}
-		
-		if (status_cards.size() == 0) initStatusCards();
-		if (curse_cards.size() == 0) initCurseCards();
-		
 	}
 	
 	@Override
