@@ -22,7 +22,7 @@ None by now.
 
 # Current State
 
-Working in Milestone 6's Dhalsim inspired relics.
+Working in Milestone 6's secret guest inspired relics.
 
 # Link to Releases and Pre-Releases
 
