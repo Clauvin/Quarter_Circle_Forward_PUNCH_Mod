@@ -177,8 +177,8 @@ public class RainbowBrush extends CustomRelic{
 					rare_cards_ids.add(card.cardID);
 					break;
 				default:
-					logger.info("Something is not right here.");
-					logger.info(card.rarity.toString());
+					logger.info("Something is not right with " + 
+							card.cardID.toString());
 					break;
 			}
 		}
