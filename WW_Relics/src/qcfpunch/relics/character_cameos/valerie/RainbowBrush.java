@@ -42,11 +42,11 @@ public class RainbowBrush extends CustomRelic{
 	public static final String ID = QCFP_Misc.returnPrefix() +
 			"Rainbow_Brush";
 	
-	public static CardGroup status_cards;
-	public static CardGroup curse_cards;
 	public static ArrayList<String> common_cards_ids;
 	public static ArrayList<String> uncommon_cards_ids;
 	public static ArrayList<String> rare_cards_ids;
+	public static CardGroup status_cards;
+	public static CardGroup curse_cards;
 	
 	public static int COMMON_CHANCE = -1;
 	public static int UNCOMMON_CHANCE = -1;
@@ -122,7 +122,7 @@ public class RainbowBrush extends CustomRelic{
 		STATUS_CHANCE = STATUS_INITIAL_CHANCE;
 	}
 	
-	public void initStatusCards() {
+	public static void initStatusCards() {
 		if (status_cards.size() == 0) {
 			
 			ArrayList<AbstractCard> colorless_cards =
@@ -138,7 +138,7 @@ public class RainbowBrush extends CustomRelic{
 		}
 	}
 	
-	public void initCurseCards() {
+	public static void initCurseCards() {
 		if (curse_cards.size() == 0) {
 			
 			ArrayList<AbstractCard> list_of_curse_cards =
@@ -153,7 +153,14 @@ public class RainbowBrush extends CustomRelic{
 		}
 	}
 	
-	public void initUsualCardsNames() {
+	public static void initUsualCardsNames() {
+		
+		logger.info("common_cards_ids.size() " + common_cards_ids.size());
+		logger.info("uncommon_cards_ids.size() " + uncommon_cards_ids.size());
+		logger.info("rare_cards_ids.size() " + rare_cards_ids.size());
+		
+		logger.info("Entry set");
+		logger.info(CardLibrary.cards.entrySet().size());
 		
 		for (Map.Entry<String, AbstractCard> c : CardLibrary.cards.entrySet()) {
 			AbstractCard card = c.getValue();
@@ -182,6 +189,10 @@ public class RainbowBrush extends CustomRelic{
 			}
 		}
 		
+		logger.info("AFTER common_cards_ids.size() " + common_cards_ids.size());
+		logger.info("uncommon_cards_ids.size() " + uncommon_cards_ids.size());
+		logger.info("rare_cards_ids.size() " + rare_cards_ids.size());
+		
 	}
 
 	public String getUpdatedDescription() {
@@ -191,6 +202,9 @@ public class RainbowBrush extends CustomRelic{
 	
 	@Override
 	public void atBattleStartPreDraw() {
+		
+		cardListSizePreemptiveCheckAndFix();
+		
 		int which_save_slot = CardCrawlGame.saveSlot;
 		
 		if (((which_save_slot == 0) && (!save_slot_0_helper_tip_given)) ||
@@ -219,6 +233,18 @@ public class RainbowBrush extends CustomRelic{
 			 		break;
 			 }
 		}
+	}
+	
+	public void cardListSizePreemptiveCheckAndFix() {
+		
+		if ((common_cards_ids.size() == 0) || (uncommon_cards_ids.size() == 0)
+				|| (rare_cards_ids.size() == 0)) {
+			initUsualCardsNames();
+		}
+		
+		if (status_cards.size() == 0) initStatusCards();
+		if (curse_cards.size() == 0) initCurseCards();
+		
 	}
 	
 	@Override
@@ -322,6 +348,9 @@ public class RainbowBrush extends CustomRelic{
 	public AbstractCard getAnyColorCard(CardRarity rarity) {
 		
 		ArrayList<String> list_of_cards_ids = new ArrayList<String>();
+		
+		
+		
 		int random_number;
 		String card_id;
 		switch (rarity) {
