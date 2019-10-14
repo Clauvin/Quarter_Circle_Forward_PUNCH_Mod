@@ -177,8 +177,7 @@ public class RainbowBrush extends CustomRelic{
 					rare_cards_ids.add(card.cardID);
 					break;
 				default:
-					logger.info("Something is not right with " + 
-							card.cardID.toString());
+					logger.info(card.cardID.toString() + " not added.");
 					break;
 			}
 		}
@@ -340,8 +339,10 @@ public class RainbowBrush extends CustomRelic{
 				break;
 		}
 		
-		random_number = QCFP_Misc.rollRandomValue(
-				AbstractDungeon.cardRng, list_of_cards_ids.size()-1);
+		logger.info("rarity " + rarity.name());
+		logger.info("list_of_cards_ids.size()" + list_of_cards_ids.size());
+		random_number = QCFP_Misc.rollPositiveRandomValue(
+				AbstractDungeon.cardRandomRng, list_of_cards_ids.size()-1);
 		card_id = list_of_cards_ids.get(random_number);
 		
 		return CardLibrary.cards.get(card_id).makeCopy();
