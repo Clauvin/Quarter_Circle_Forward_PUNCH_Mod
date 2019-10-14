@@ -45,8 +45,10 @@ public class RainbowBrush extends CustomRelic{
 	public static ArrayList<String> common_cards_ids;
 	public static ArrayList<String> uncommon_cards_ids;
 	public static ArrayList<String> rare_cards_ids;
+	public static ArrayList<String> black_cards_ids;
 	public static CardGroup status_cards;
 	public static CardGroup curse_cards;
+	
 	
 	public static int COMMON_CHANCE = -1;
 	public static int UNCOMMON_CHANCE = -1;
@@ -56,9 +58,9 @@ public class RainbowBrush extends CustomRelic{
 	public static int STATUS_CHANCE = -1;
 	
 	public static final int COMMON_INITIAL_CHANCE = 12;
-	public static final int UNCOMMON_INITIAL_CHANCE = 50;
+	public static final int UNCOMMON_INITIAL_CHANCE = 0;
 	public static final int RARE_INITIAL_CHANCE = 25;
-	public static final int BLACK_INITIAL_CHANCE = 1;
+	public static final int BLACK_INITIAL_CHANCE = 50;
 	public static final int CURSE_INITIAL_CHANCE = 6;
 	public static final int STATUS_INITIAL_CHANCE = 6;
 	
@@ -66,12 +68,12 @@ public class RainbowBrush extends CustomRelic{
 	public static final int PERCENTAGE_TO_REMOVE_OF_COMMON_UNCOMMON_RARE_CARDS = 6;
 	
 	public static boolean will_spawn_a_status_card = false;
+	public static boolean will_spawn_a_black_card = false;
 	
 	public static boolean extra_chance_for_a_bad_card = false;
 	public static int countdown_of_black_card_extra_chances = 0;
 	
-	public static final boolean do_black_cards_exist = QCFP_Misc.
-			silentlyCheckForMod(QCFP_Misc.infinite_spire_class_code);
+	public static boolean do_black_cards_exist;
 	
 	public static AbstractCard card_to_be_given;
 	public static AbstractCard card_to_be_shown_with_thought_balloon;
@@ -97,8 +99,17 @@ public class RainbowBrush extends CustomRelic{
 		common_cards_ids = new ArrayList<String>();
 		uncommon_cards_ids = new ArrayList<String>();
 		rare_cards_ids = new ArrayList<String>();
+		if (do_black_cards_exist) {
+			black_cards_ids = new ArrayList<String>();
+		}
 		
 		initStatusCards(); initCurseCards(); initUsualCardsNames();
+		
+		do_black_cards_exist = QCFP_Misc.
+				checkForMod(QCFP_Misc.infinite_spire_class_code);
+		
+		
+		
 		
 		card_to_be_given = null;
 		card_to_be_shown_with_thought_balloon = null;
@@ -162,9 +173,19 @@ public class RainbowBrush extends CustomRelic{
 			// "continue" means:
 			// end this loop's iteration and start the next iteration,
 			// not "go ahead in this iteration"
-			if ((QCFP_Misc.isItACurse(card)) || (QCFP_Misc.isItAStatus(card) ||
-				 (card.rarity == CardRarity.BASIC)))
+			if ((QCFP_Misc.isItACurse(card)) || (QCFP_Misc.isItAStatus(card)) ||
+				 (card.rarity == CardRarity.BASIC))
 				continue;
+			
+			if (do_black_cards_exist) {
+				if (card.color ==
+						infinitespire.patches.
+						CardColorEnumPatch.CardColorPatch.INFINITE_BLACK) {
+					black_cards_ids.add(card.cardID);
+					logger.info(card.cardID.toString() + " added.");
+					continue;
+				}
+			}
 			
 			switch (card.rarity) {
 				case COMMON:
@@ -284,7 +305,10 @@ public class RainbowBrush extends CustomRelic{
 		
 		if (BLACK_CHANCE != 0) {
 			comparing_rarity += BLACK_CHANCE;
-			//if (which_rarity <= comparing_rarity) return CardRarity.BLACK;
+			if (which_rarity <= comparing_rarity) {
+				will_spawn_a_black_card = true;
+				return CardRarity.SPECIAL;
+			}
 		}
 		
 		comparing_rarity += CURSE_CHANCE;
@@ -305,17 +329,20 @@ public class RainbowBrush extends CustomRelic{
 			return curse_cards.getNCardFromTop(random);
 		}
 		
-		if (!will_spawn_a_status_card) {
+		if ((!will_spawn_a_status_card) && (!will_spawn_a_black_card)) {
 			
 			return getAnyColorCard(rarity);
 		}
-		else {
+		else if (!will_spawn_a_black_card) {
 			int random = 
 				QCFP_Misc.rollRandomValue(
 						AbstractDungeon.cardRng, status_cards.size()-1);
 			
 			will_spawn_a_status_card = false;
 			return status_cards.getNCardFromTop(random);
+		} else {
+			will_spawn_a_black_card = false;
+			return getBlackCard();
 		}
 		
 	}
@@ -323,8 +350,6 @@ public class RainbowBrush extends CustomRelic{
 	public AbstractCard getAnyColorCard(CardRarity rarity) {
 		
 		ArrayList<String> list_of_cards_ids = new ArrayList<String>();
-		
-		
 		
 		int random_number;
 		String card_id;
@@ -353,6 +378,20 @@ public class RainbowBrush extends CustomRelic{
 		
 	}
 	
+	public AbstractCard getBlackCard() { 
+		
+		int random_number;
+		String card_id;
+		
+		logger.info("black = " + black_cards_ids.size());
+		
+		random_number = QCFP_Misc.rollPositiveRandomValue(
+				AbstractDungeon.cardRandomRng, black_cards_ids.size()-1);
+		card_id = black_cards_ids.get(random_number);
+		
+		return CardLibrary.cards.get(card_id).makeCopy();
+		
+	}
 	
 	@Override
 	public void onPlayCard(AbstractCard c, AbstractMonster m) {
