@@ -162,7 +162,8 @@ public class RainbowBrush extends CustomRelic{
 			// "continue" means:
 			// end this loop's iteration and start the next iteration,
 			// not "go ahead in this iteration"
-			if ((QCFP_Misc.isItACurse(card)) || (QCFP_Misc.isItAStatus(card)))
+			if ((QCFP_Misc.isItACurse(card)) || (QCFP_Misc.isItAStatus(card) ||
+				 !(card.rarity == CardRarity.BASIC)))
 				continue;
 			
 			switch (card.rarity) {
@@ -177,6 +178,7 @@ public class RainbowBrush extends CustomRelic{
 					break;
 				default:
 					logger.info("Something is not right here.");
+					logger.info(card.rarity.toString());
 					break;
 			}
 		}
