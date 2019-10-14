@@ -119,9 +119,17 @@ public class QCFP_Misc {
 	}
 	
 	public static int rollRandomValue(Random random, int range) {
+		logger.info("range " + range);
 		int value = random.random(range);
+		logger.info("value " + value);
 		if (value < 0) value *= -1;
 		return value;
+	}
+	
+	//Yeah, I know, this can be better
+	public static int rollPositiveRandomValue(Random random, int range) {
+		int value = rollRandomValue(random, range-1);
+		return value+1;
 	}
 	
 	public static int min(int a, int b) {
