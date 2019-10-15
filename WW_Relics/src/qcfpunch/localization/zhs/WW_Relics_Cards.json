@@ -3,6 +3,11 @@
     	"NAME": "“最强流”防御",
     	"DESCRIPTION": "虚无 。 NL 获得 !B! 点 格挡 。 NL 消耗。"
   	},
+
+  	"qcfpunch:ErrorCard": {
+    	"NAME": "Error!",
+    	"DESCRIPTION": "Something almost crashed the game involving the Quarter Circle Punch FORWARD mod. Can you inform the mod's creator about it? Thanks!"
+  	},
   	
   	"qcfpunch:Finished": {
     	"NAME": "Finished",
