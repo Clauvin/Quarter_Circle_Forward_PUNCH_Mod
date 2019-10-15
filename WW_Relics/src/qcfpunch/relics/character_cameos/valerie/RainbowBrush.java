@@ -30,6 +30,7 @@ import com.megacrit.cardcrawl.vfx.cardManip.ShowCardBrieflyEffect;
 import basemod.abstracts.CustomRelic;
 import qcfpunch.QCFP_Misc;
 import qcfpunch.actions.SetAlwaysRetainOfCardAtCombatAction;
+import qcfpunch.cards.ui.ErrorCard;
 import qcfpunch.resources.relic_graphics.GraphicResources;
 
 //Valerie's from Fantasy Strike, a fighting game from Sirlin.net
@@ -322,6 +323,11 @@ public class RainbowBrush extends CustomRelic{
 	public AbstractCard generateCard(CardRarity rarity) {
 		
 		if (rarity == CardRarity.CURSE) {
+			if (curse_cards.size() == 0) {
+				logger.info("Curse_cards.size() == 0");
+				return new ErrorCard();
+			}
+			
 			int random = 
 				QCFP_Misc.rollRandomValue(
 						AbstractDungeon.cardRng, curse_cards.size()-1);
@@ -335,6 +341,11 @@ public class RainbowBrush extends CustomRelic{
 			
 		}
 		else if (!will_spawn_a_black_card) {
+			if (status_cards.size() == 0) {
+				logger.info("Status_cards.size() == 0");
+				return new ErrorCard();
+			}
+			
 			int random = 
 				QCFP_Misc.rollRandomValue(
 						AbstractDungeon.cardRng, status_cards.size()-1);
@@ -369,6 +380,10 @@ public class RainbowBrush extends CustomRelic{
 				break;
 		}
 		
+		if (list_of_cards_ids.size() == 0) {
+			logger.info("Rarity " + rarity.toString() + "_cards_id.size() == 0");
+			return new ErrorCard();
+		}
 		random_number = QCFP_Misc.rollPositiveRandomValue(
 				AbstractDungeon.cardRandomRng, list_of_cards_ids.size()-1);
 		card_id = list_of_cards_ids.get(random_number);
@@ -382,7 +397,10 @@ public class RainbowBrush extends CustomRelic{
 		int random_number;
 		String card_id;
 		
-		logger.info("black = " + black_cards_ids.size());
+		if (black_cards_ids.size() == 0) {
+			logger.info("black_cards_ids.size() == 0");
+			return new ErrorCard();
+		}
 		
 		random_number = QCFP_Misc.rollPositiveRandomValue(
 				AbstractDungeon.cardRandomRng, black_cards_ids.size()-1);
