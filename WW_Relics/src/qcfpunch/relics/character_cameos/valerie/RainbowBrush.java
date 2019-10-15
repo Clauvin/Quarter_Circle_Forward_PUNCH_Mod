@@ -332,6 +332,7 @@ public class RainbowBrush extends CustomRelic{
 		if ((!will_spawn_a_status_card) && (!will_spawn_a_black_card)) {
 			
 			return getAnyColorCard(rarity);
+			
 		}
 		else if (!will_spawn_a_black_card) {
 			int random = 
@@ -364,12 +365,10 @@ public class RainbowBrush extends CustomRelic{
 				list_of_cards_ids = rare_cards_ids;
 				break;
 			default:
-				logger.info("Something wrong happened.");
+				logger.info("Something wrong happened with getAnyColorCard.");
 				break;
 		}
 		
-		logger.info("rarity " + rarity.name());
-		logger.info("list_of_cards_ids.size()" + list_of_cards_ids.size());
 		random_number = QCFP_Misc.rollPositiveRandomValue(
 				AbstractDungeon.cardRandomRng, list_of_cards_ids.size()-1);
 		card_id = list_of_cards_ids.get(random_number);
