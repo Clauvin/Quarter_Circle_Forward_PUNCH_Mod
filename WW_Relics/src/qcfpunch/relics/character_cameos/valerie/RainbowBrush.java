@@ -27,6 +27,7 @@ import com.megacrit.cardcrawl.ui.FtueTip;
 import com.megacrit.cardcrawl.vfx.ThoughtBubble;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardBrieflyEffect;
 
+import basemod.CustomEventRoom;
 import basemod.abstracts.CustomRelic;
 import qcfpunch.QCFP_Misc;
 import qcfpunch.actions.SetAlwaysRetainOfCardAtCombatAction;
@@ -558,7 +559,7 @@ public class RainbowBrush extends CustomRelic{
 		
 		if ((this.hb.hovered) &&
 			(AbstractDungeon.getCurrRoom() != null)) {
-			if ((AbstractDungeon.getCurrRoom() instanceof MonsterRoom) &&
+			if (isTypeOfRoomWhereWeCanShowTheMadeCard() &&
 				(card_to_be_given != null)) {
 					
 				float drawScale = 1.0f;
@@ -572,6 +573,12 @@ public class RainbowBrush extends CustomRelic{
 							
 			}
 		}
+		
+	}
+	
+	private boolean isTypeOfRoomWhereWeCanShowTheMadeCard() {
+		return AbstractDungeon.getCurrRoom() instanceof MonsterRoom ||
+				AbstractDungeon.getCurrRoom() instanceof CustomEventRoom;
 	}
 	
 	//Don't forget to add something to avoid cases where a card mod
