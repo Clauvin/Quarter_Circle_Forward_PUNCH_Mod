@@ -251,7 +251,7 @@ public class RainbowBrush extends CustomRelic{
 		if (extra_chance_for_a_bad_card) {
 			if (card_to_be_given != null) {
 				if (cardIsACurseOrStatus(card_to_be_given)) {
-					if (QCFP_Misc.headsOrTails(AbstractDungeon.cardRng) > 0) {
+					if (QCFP_Misc.headsOrTails(AbstractDungeon.cardRandomRng) > 0) {
 						rarity = CardRarity.CURSE;
 						will_spawn_a_status_card =
 								card_to_be_given.type == CardType.STATUS;
@@ -289,7 +289,8 @@ public class RainbowBrush extends CustomRelic{
 	
 	public CardRarity generateRarity() {
 		
-		int which_rarity = QCFP_Misc.rollRandomValue(AbstractDungeon.cardRng, 100);
+		int which_rarity = QCFP_Misc.rollRandomValue(
+				AbstractDungeon.cardRandomRng, 100);
 		
 		int comparing_rarity;
 		
@@ -328,7 +329,7 @@ public class RainbowBrush extends CustomRelic{
 			
 			int random = 
 				QCFP_Misc.rollRandomValue(
-						AbstractDungeon.cardRng, curse_cards.size()-1);
+						AbstractDungeon.cardRandomRng, curse_cards.size()-1);
 			
 			return curse_cards.getNCardFromTop(random);
 		}
@@ -346,7 +347,7 @@ public class RainbowBrush extends CustomRelic{
 			
 			int random = 
 				QCFP_Misc.rollRandomValue(
-						AbstractDungeon.cardRng, status_cards.size()-1);
+						AbstractDungeon.cardRandomRng, status_cards.size()-1);
 			
 			will_spawn_a_status_card = false;
 			return status_cards.getNCardFromTop(random);
