@@ -560,8 +560,6 @@ public class RainbowBrush extends CustomRelic{
 			(AbstractDungeon.getCurrRoom() != null)) {
 			if ((AbstractDungeon.getCurrRoom() instanceof MonsterRoom) &&
 				(card_to_be_given != null)) {
-						
-				QCFP_Misc.fastLoggerLine("True");
 					
 				float drawScale = 1.0f;
 				card_to_be_shown_while_hovering_relic.drawScale = drawScale;
