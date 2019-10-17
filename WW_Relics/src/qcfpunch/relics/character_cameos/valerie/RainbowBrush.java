@@ -11,6 +11,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.AbstractCard.CardColor;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardRarity;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardType;
 import com.megacrit.cardcrawl.cards.CardGroup;
@@ -272,7 +273,8 @@ public class RainbowBrush extends CustomRelic{
 	}
 	
 	private boolean cardIsACurseOrStatus(AbstractCard card) {
-		return ((card.type == CardType.CURSE) || (card.type == CardType.STATUS));
+		return ((card.type == CardType.CURSE) || (card.type == CardType.STATUS)
+				|| (card.color == CardColor.CURSE));
 	}
 	
 	public CardRarity generateRarity() {
