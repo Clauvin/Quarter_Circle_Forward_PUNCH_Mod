@@ -350,6 +350,10 @@ public class QCFPunch_Mod implements AddCustomModeModsSubscriber, EditStringsSub
 		if (isCustomModActive(RelicSetModifiers.BLAZING_FIST_ID)) {
 			RelicSetModifiers.addBlazingFistToCustomRun(relics);
 		}
+		
+		if (isCustomModActive(RelicSetModifiers.RED_CYCLONE_ID)) {
+			RelicSetModifiers.addRedCycloneToCustomRun(relics);
+		}
 	}
 	
 	
