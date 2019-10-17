@@ -1,4 +1,9 @@
 {
+	"qcfpunch:AsceticMonk": {
+		"NAME": "Ascetic Monk",
+		"DESCRIPTION": "Start with Broken Tusk, Necklace Of Skulls and Lotus Statue."
+	},
+
 	"qcfpunch:BlazingFist": {
 		"NAME": "Blazing Fist",
 		"DESCRIPTION": "Start with Black Training Shirt, Red Gi and Unceasing Flame."
