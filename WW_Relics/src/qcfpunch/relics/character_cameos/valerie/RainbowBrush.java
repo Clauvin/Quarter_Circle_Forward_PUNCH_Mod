@@ -403,10 +403,10 @@ public class RainbowBrush extends CustomRelic{
 	
 	private AbstractCard maybeUpgradeCardIfNotStatusOrCurse(AbstractCard card) {
 		
-		/*if (!cardIsACurseOrStatus(card)) {
+		if (!cardIsACurseOrStatus(card)) {
 			if (QCFP_Misc.headsOrTails(AbstractDungeon.cardRandomRng) > 0)
 			card.upgrade();
-		}*/
+		}
 		
 		return card;
 		
