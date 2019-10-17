@@ -33,6 +33,11 @@
 		"NAME": "Quarter Health Bar",
 		"DESCRIPTION": "Start with 25% Max HP."
 	},
+	
+	"qcfpunch:RedCyclone": {
+		"NAME": "Red Cyclone",
+		"DESCRIPTION": "Start with Wrestler's Cloak, Wild Herbs Ointment and Red Cyclone Teachings."
+	},
 
 	"qcfpunch:WanderingWarrior": {
 		"NAME": "Wandering Warrior",
