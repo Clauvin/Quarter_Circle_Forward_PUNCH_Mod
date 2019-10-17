@@ -402,7 +402,7 @@ public class RainbowBrush extends CustomRelic{
 	private AbstractCard reduceCardCostIfNotStatusOrCurse(AbstractCard card) {
 		
 		if (!cardIsACurseOrStatus(card)) {
-			if (card.cost > 0) card.updateCost(1);
+			if (card.cost > 0) card.updateCost(-1);
 		}
 		
 		return card;
