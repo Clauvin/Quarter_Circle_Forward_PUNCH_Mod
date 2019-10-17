@@ -362,6 +362,10 @@ public class QCFPunch_Mod implements AddCustomModeModsSubscriber, EditStringsSub
 		if (isCustomModActive(RelicSetModifiers.DELTA_SPIKE_ID)) {
 			RelicSetModifiers.addDeltaSpikeToCustomRun(relics);
 		}
+		
+		if (isCustomModActive(RelicSetModifiers.DELTA_SPIKE_ID)) {
+			RelicSetModifiers.addUnboundedCreativityToCustomRun(relics);
+		}
 	}
 	
 	
