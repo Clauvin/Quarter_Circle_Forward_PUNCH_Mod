@@ -354,6 +354,10 @@ public class QCFPunch_Mod implements AddCustomModeModsSubscriber, EditStringsSub
 		if (isCustomModActive(RelicSetModifiers.RED_CYCLONE_ID)) {
 			RelicSetModifiers.addRedCycloneToCustomRun(relics);
 		}
+		
+		if (isCustomModActive(RelicSetModifiers.ASCETIC_MONK_ID)) {
+			RelicSetModifiers.addAsceticMonkToCustomRun(relics);
+		}
 	}
 	
 	
