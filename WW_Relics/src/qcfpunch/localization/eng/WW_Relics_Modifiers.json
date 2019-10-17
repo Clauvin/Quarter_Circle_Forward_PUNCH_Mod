@@ -14,6 +14,11 @@
 		"DESCRIPTION": "Start with Spiky Bracers, White Boots and Handcuffs."
 	},
 	
+	"qcfpunch:DeltaSpike": {
+		"NAME": "Delta Spike",
+		"DESCRIPTION": "Start with Red Beret, Green Leotard and Special Ops Insignia."
+	},
+	
 	"qcfpunch:FreshStart": {
 		"NAME": "Fresh Start",
 		"DESCRIPTION": "Start without any Starter relics."
