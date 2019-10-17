@@ -250,7 +250,7 @@ public class RainbowBrush extends CustomRelic{
 		
 		card_to_be_given = generateCard(rarity);
 		
-		card_to_be_given = reduceCardCost(card_to_be_given);
+		card_to_be_given = reduceCardCostIfNotStatusOrCurse(card_to_be_given);
 		
 		card_to_be_shown_with_thought_balloon = 
 				card_to_be_given.makeStatEquivalentCopy();
@@ -397,7 +397,7 @@ public class RainbowBrush extends CustomRelic{
 		
 	}
 	
-	private AbstractCard reduceCardCost(AbstractCard card) {
+	private AbstractCard reduceCardCostIfNotStatusOrCurse(AbstractCard card) {
 		
 		if (!cardIsACurseOrStatus(card)) {
 			if (card.cost > 0) card.updateCost(1);
