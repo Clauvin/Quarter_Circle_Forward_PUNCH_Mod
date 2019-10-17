@@ -635,10 +635,10 @@ public class RainbowBrush extends CustomRelic{
                 		save_slot_0_helper_tip_given);
                 
                 config.setBool(start_of_helper_tip_variables + 1,
-                		save_slot_0_helper_tip_given);
+                		save_slot_1_helper_tip_given);
                 
                 config.setBool(start_of_helper_tip_variables + 2,
-                		save_slot_0_helper_tip_given);
+                		save_slot_2_helper_tip_given);
 
                 try {
     				config.save();
