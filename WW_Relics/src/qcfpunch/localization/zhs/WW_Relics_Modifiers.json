@@ -14,6 +14,11 @@
 		"DESCRIPTION": "初始拥有护手刺，白靴和手铐。"
 	},
 	
+	"qcfpunch:DeltaSpike": {
+		"NAME": "Delta Spike",
+		"DESCRIPTION": "Start with Red Beret, Green Leotard and Special Ops Insignia."
+	},
+	
 	"qcfpunch:FreshStart": {
 		"NAME": "清新开局",
 		"DESCRIPTION": "开局不带初始遗物。"
