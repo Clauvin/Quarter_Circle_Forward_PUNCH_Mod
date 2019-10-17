@@ -251,14 +251,20 @@ public class RainbowBrush extends CustomRelic{
 		
 		card_to_be_given = generateCard(rarity);
 		
-		card_to_be_given = maybeUpgradeCardIfNotStatusOrCurse(card_to_be_given);
+		maybeUpgradeCardIfNotStatusOrCurse(card_to_be_given);
 		
-		card_to_be_given = reduceCardCostIfNotStatusOrCurse(card_to_be_given);
+		reduceCardCostIfNotStatusOrCurse(card_to_be_given); 
 		
 		card_to_be_shown_with_thought_balloon = 
 				card_to_be_given.makeStatEquivalentCopy();
 		card_to_be_shown_while_hovering_relic =
 				card_to_be_given.makeStatEquivalentCopy();
+	
+		QCFP_Misc.setCardToAlwaysRetain(
+				card_to_be_shown_with_thought_balloon, true);
+		
+		QCFP_Misc.setCardToAlwaysRetain(
+				card_to_be_shown_while_hovering_relic, true);
 		
 		AbstractDungeon.effectList.add(
 				new ThoughtBubble(
@@ -401,24 +407,20 @@ public class RainbowBrush extends CustomRelic{
 		
 	}
 	
-	private AbstractCard maybeUpgradeCardIfNotStatusOrCurse(AbstractCard card) {
+	private void maybeUpgradeCardIfNotStatusOrCurse(AbstractCard card) {
 		
 		if (!cardIsACurseOrStatus(card)) {
 			if (QCFP_Misc.headsOrTails(AbstractDungeon.cardRandomRng) > 0)
 			card.upgrade();
 		}
 		
-		return card;
-		
 	}
 	
-	private AbstractCard reduceCardCostIfNotStatusOrCurse(AbstractCard card) {
+	private void reduceCardCostIfNotStatusOrCurse(AbstractCard card) {
 		
 		if (!cardIsACurseOrStatus(card)) {
 			if (card.cost > 0) card.modifyCostForCombat(-1);
 		}
-		
-		return card;
 		
 	}
 	
