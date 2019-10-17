@@ -6,6 +6,9 @@ import com.megacrit.cardcrawl.screens.custom.CustomMod;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 
 import qcfpunch.QCFP_Misc;
+import qcfpunch.relics.cammy.GreenLeotard;
+import qcfpunch.relics.cammy.RedBeret;
+import qcfpunch.relics.cammy.SpecialOpsInsignia;
 import qcfpunch.relics.chun_li.*;
 import qcfpunch.relics.dhalsim.BrokenTusk;
 import qcfpunch.relics.dhalsim.LotusStatue;
@@ -35,6 +38,8 @@ public class RelicSetModifiers {
 			QCFP_Misc.returnPrefix() + "RedCyclone";
 	public static final String ASCETIC_MONK_ID =
 			QCFP_Misc.returnPrefix() + "AsceticMonk";
+	public static final String DELTA_SPIKE_ID =
+			QCFP_Misc.returnPrefix() + "DeltaSpike";
 	
 	public static void addRelicSetModifiers(List<CustomMod> list) {
 		CustomMod wandering_warrior =
@@ -49,6 +54,8 @@ public class RelicSetModifiers {
 				new CustomMod(RelicSetModifiers.RED_CYCLONE_ID, "y", true);
 		CustomMod ascetic_monk =
 				new CustomMod(RelicSetModifiers.ASCETIC_MONK_ID, "y", true);
+		CustomMod delta_spike =
+				new CustomMod(RelicSetModifiers.DELTA_SPIKE_ID, "y", true);
 		
 		list.add(wandering_warrior);
 		list.add(blue_jade);
@@ -56,6 +63,7 @@ public class RelicSetModifiers {
 		list.add(blazing_fist);
 		list.add(red_cyclone);
 		list.add(ascetic_monk);
+		list.add(delta_spike);
 	}
 	
 	public static void addWanderingWarriorRelicsToCustomRun(ArrayList<String> relics) {
@@ -92,6 +100,12 @@ public class RelicSetModifiers {
 		addRelicToCustomRunRelicList(BrokenTusk.ID, relics);
 		addRelicToCustomRunRelicList(NecklaceOfSkulls.ID, relics);
 		addRelicToCustomRunRelicList(LotusStatue.ID, relics);
+	}
+	
+	public static void addDeltaSpikeToCustomRun(ArrayList<String> relics) {
+		addRelicToCustomRunRelicList(RedBeret.ID, relics);
+		addRelicToCustomRunRelicList(GreenLeotard.ID, relics);
+		addRelicToCustomRunRelicList(SpecialOpsInsignia.ID, relics);
 	}
 	
 	public static void addRelicToCustomRunRelicList(String ID, ArrayList<String> relics) {
