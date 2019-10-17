@@ -1,4 +1,9 @@
 {
+	"qcfpunch:AsceticMonk": {
+		"NAME": "Ascetic Monk",
+		"DESCRIPTION": "Start with Broken Tusk, Necklace Of Skulls and Lotus Statue."
+	},
+	
 	"qcfpunch:BlazingFist": {
 		"NAME": "炙热龙拳",
 		"DESCRIPTION": "初始拥有黑色训练衬衫，红色道服和不灭烈火"
@@ -32,6 +37,11 @@
 	"qcfpunch:QuarterHealthBar": {
 		"NAME": "红血",
 		"DESCRIPTION": "开局拥有 25% 的生命上限。"
+	},
+	
+	"qcfpunch:RedCyclone": {
+		"NAME": "Red Cyclone",
+		"DESCRIPTION": "Start with Wrestler's Cloak, Wild Herbs Ointment and Red Cyclone Teachings."
 	},
 
 	"qcfpunch:WanderingWarrior": {
