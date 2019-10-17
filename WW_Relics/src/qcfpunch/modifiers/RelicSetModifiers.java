@@ -9,6 +9,7 @@ import qcfpunch.QCFP_Misc;
 import qcfpunch.relics.cammy.GreenLeotard;
 import qcfpunch.relics.cammy.RedBeret;
 import qcfpunch.relics.cammy.SpecialOpsInsignia;
+import qcfpunch.relics.character_cameos.valerie.RainbowBrush;
 import qcfpunch.relics.chun_li.*;
 import qcfpunch.relics.dhalsim.BrokenTusk;
 import qcfpunch.relics.dhalsim.LotusStatue;
@@ -40,6 +41,8 @@ public class RelicSetModifiers {
 			QCFP_Misc.returnPrefix() + "AsceticMonk";
 	public static final String DELTA_SPIKE_ID =
 			QCFP_Misc.returnPrefix() + "DeltaSpike";
+	public static final String UNBOUNDED_CREATIVITY_ID =
+			QCFP_Misc.returnPrefix() + "UnboundedCreativity";
 	
 	public static void addRelicSetModifiers(List<CustomMod> list) {
 		CustomMod wandering_warrior =
@@ -56,6 +59,9 @@ public class RelicSetModifiers {
 				new CustomMod(RelicSetModifiers.ASCETIC_MONK_ID, "y", true);
 		CustomMod delta_spike =
 				new CustomMod(RelicSetModifiers.DELTA_SPIKE_ID, "y", true);
+		CustomMod unbounded_creativity =
+				new CustomMod(RelicSetModifiers.UNBOUNDED_CREATIVITY_ID,
+						"y", true);
 		
 		list.add(wandering_warrior);
 		list.add(blue_jade);
@@ -64,6 +70,7 @@ public class RelicSetModifiers {
 		list.add(red_cyclone);
 		list.add(ascetic_monk);
 		list.add(delta_spike);
+		list.add(unbounded_creativity);
 	}
 	
 	public static void addWanderingWarriorRelicsToCustomRun(ArrayList<String> relics) {
@@ -106,6 +113,10 @@ public class RelicSetModifiers {
 		addRelicToCustomRunRelicList(RedBeret.ID, relics);
 		addRelicToCustomRunRelicList(GreenLeotard.ID, relics);
 		addRelicToCustomRunRelicList(SpecialOpsInsignia.ID, relics);
+	}
+	
+	public static void addUnboundedCreativityToCustomRun(ArrayList<String> relics) {
+		addRelicToCustomRunRelicList(RainbowBrush.ID, relics);
 	}
 	
 	public static void addRelicToCustomRunRelicList(String ID, ArrayList<String> relics) {

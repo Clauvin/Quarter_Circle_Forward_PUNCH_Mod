@@ -48,6 +48,11 @@
 		"NAME": "Red Cyclone",
 		"DESCRIPTION": "Start with Wrestler's Cloak, Wild Herbs Ointment and Red Cyclone Teachings."
 	},
+	
+	"qcfpunch:UnboundedCreativity": {
+		"NAME": "Unbounded Creativity",
+		"DESCRIPTION": "Start with Rainbow Brush. Random multicolor shenanigans!"
+	},
 
 	"qcfpunch:WanderingWarrior": {
 		"NAME": "Wandering Warrior",
