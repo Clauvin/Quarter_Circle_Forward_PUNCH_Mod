@@ -12,6 +12,9 @@ import qcfpunch.relics.ken.BlackTrainingShirt;
 import qcfpunch.relics.ken.RedGi;
 import qcfpunch.relics.ken.UnceasingFlame;
 import qcfpunch.relics.ryu.*;
+import qcfpunch.relics.zangief.RedCycloneTeachings;
+import qcfpunch.relics.zangief.WildHerbsOintment;
+import qcfpunch.relics.zangief.WrestlersCloak;
 
 public class RelicSetModifiers {
 
@@ -21,17 +24,20 @@ public class RelicSetModifiers {
 	public static final String BLUE_JADE_ID = QCFP_Misc.returnPrefix() + "BlueJade";
 	public static final String INDESTRUCTIBLE_FORTRESS_ID = QCFP_Misc.returnPrefix() + "IndestructibleFortress";
 	public static final String BLAZING_FIST_ID = QCFP_Misc.returnPrefix() + "BlazingFist";
+	public static final String RED_CYCLONE_ID = QCFP_Misc.returnPrefix() + "RedCyclone";
 	
 	public static void addRelicSetModifiers(List<CustomMod> list) {
 		CustomMod wandering_warrior = new CustomMod(RelicSetModifiers.WANDERING_WARRIOR_ID, "y", true);
 		CustomMod blue_jade = new CustomMod(RelicSetModifiers.BLUE_JADE_ID, "y", true);
 		CustomMod indestructible_fortress = new CustomMod(RelicSetModifiers.INDESTRUCTIBLE_FORTRESS_ID, "y", true);
 		CustomMod blazing_fist = new CustomMod(RelicSetModifiers.BLAZING_FIST_ID, "y", true);
+		CustomMod red_cyclone = new CustomMod(RelicSetModifiers.RED_CYCLONE_ID, "y", true);
 		
 		list.add(wandering_warrior);
 		list.add(blue_jade);
 		list.add(indestructible_fortress);
 		list.add(blazing_fist);
+		list.add(red_cyclone);
 	}
 	
 	public static void addWanderingWarriorRelicsToCustomRun(ArrayList<String> relics) {
@@ -56,6 +62,12 @@ public class RelicSetModifiers {
 		addRelicToCustomRunRelicList(BlackTrainingShirt.ID, relics);
 		addRelicToCustomRunRelicList(RedGi.ID, relics);
 		addRelicToCustomRunRelicList(UnceasingFlame.ID, relics);
+	}
+	
+	public static void addRedCycloneToCustomRun(ArrayList<String> relics) {
+		addRelicToCustomRunRelicList(WrestlersCloak.ID, relics);
+		addRelicToCustomRunRelicList(WildHerbsOintment.ID, relics);
+		addRelicToCustomRunRelicList(RedCycloneTeachings.ID, relics);
 	}
 	
 	public static void addRelicToCustomRunRelicList(String ID, ArrayList<String> relics) {
