@@ -3,6 +3,7 @@ package qcfpunch;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.AlwaysRetainField;
 import com.evacipated.cardcrawl.modthespire.Loader;
 import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -11,7 +12,9 @@ import com.megacrit.cardcrawl.cards.AbstractCard.CardType;
 import com.megacrit.cardcrawl.characters.AbstractPlayer.PlayerClass;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.core.Settings.GameLanguage;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.GameDictionary;
 import com.megacrit.cardcrawl.random.Random;
 
 public class QCFP_Misc {
@@ -112,6 +115,25 @@ public class QCFP_Misc {
 	
 	public static boolean isItAStatus(AbstractCard card) {
 		return (card.type == CardType.STATUS);
+	}
+	
+	public static void setCardToAlwaysRetain(
+			AbstractCard the_card, boolean willRetain) {
+		
+		AlwaysRetainField.alwaysRetain.set(the_card, willRetain);
+		the_card.retain = willRetain;
+		
+		String upper_cased_retain = GameDictionary.RETAIN.NAMES[0].
+				substring(0, 1).toUpperCase() + 
+				GameDictionary.RETAIN.NAMES[0].substring(1);
+
+		if (Settings.language == GameLanguage.ZHS)
+			upper_cased_retain = "" + upper_cased_retain;
+		
+		the_card.rawDescription = upper_cased_retain + ". NL " +
+				the_card.rawDescription;
+		the_card.initializeDescription();
+		
 	}
 	
 	public static int headsOrTails(Random random) {
