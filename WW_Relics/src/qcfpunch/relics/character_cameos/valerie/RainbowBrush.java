@@ -251,6 +251,8 @@ public class RainbowBrush extends CustomRelic{
 		
 		card_to_be_given = generateCard(rarity);
 		
+		card_to_be_given = maybeUpgradeCardIfNotStatusOrCurse(card_to_be_given);
+		
 		card_to_be_given = reduceCardCostIfNotStatusOrCurse(card_to_be_given);
 		
 		card_to_be_shown_with_thought_balloon = 
@@ -399,10 +401,21 @@ public class RainbowBrush extends CustomRelic{
 		
 	}
 	
+	private AbstractCard maybeUpgradeCardIfNotStatusOrCurse(AbstractCard card) {
+		
+		/*if (!cardIsACurseOrStatus(card)) {
+			if (QCFP_Misc.headsOrTails(AbstractDungeon.cardRandomRng) > 0)
+			card.upgrade();
+		}*/
+		
+		return card;
+		
+	}
+	
 	private AbstractCard reduceCardCostIfNotStatusOrCurse(AbstractCard card) {
 		
 		if (!cardIsACurseOrStatus(card)) {
-			if (card.cost > 0) card.updateCost(-1);
+			if (card.cost > 0) card.modifyCostForCombat(-1);
 		}
 		
 		return card;
