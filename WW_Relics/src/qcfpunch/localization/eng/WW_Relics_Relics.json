@@ -130,6 +130,14 @@
     ]
   },
   
+  "qcfpunch:Mixed_Paint_Bucket": {
+    "NAME": "Mixed Paint Bucket",
+    "FLAVOR": "Rainbows can't be painted with only one color.",
+ 	"DESCRIPTIONS": [
+ 	  "At combat start, for each card color in your hand, add one #bPallete #bPaint to your hand, with Retain and Exhaust."
+    ]
+  },
+  
   "qcfpunch:Necklace_of_Skulls": {
     "NAME": "Necklace of Skulls",
     "FLAVOR": "\"Hatred begets weakness. Cultivate your heart.\" Who said that?",
