@@ -145,9 +145,9 @@
   
   "qcfpunch:Multicolor_Pen": {
     "NAME": "Multicolor Pen",
-    "FLAVOR": "\"Three colors, broad strokes, and so much lonely determination... even if they don't remember why they go on.\" - The Artist",
+    "FLAVOR": "Three colors, broad strokes, and lonely determination... - The Artist",
  	"DESCRIPTIONS": [
- 	  "Every 3 Attacks played, Paint 2 Red. NL Every 3 Skills played, Paint 2 Green. Every 3 Powers played, Paint 2 Blue."
+ 	  "Every #y3 Attacks played, Paint #y2 #rRed. NL Every #y3 Skills played, Paint 2 #gGreen. Every #y3 Powers played, Paint 2 #bBlue."
     ]
   },
   
