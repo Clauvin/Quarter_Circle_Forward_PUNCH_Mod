@@ -142,7 +142,15 @@
  	  "At combat start, for each card color in your hand, add one #bPallete #bPick to your hand, with Retain and Exhaust."
     ]
   },
-    
+  
+  "qcfpunch:Multicolor_Pen": {
+    "NAME": "Multicolor Pen",
+    "FLAVOR": "\"Three colors, broad strokes, and so much lonely determination... even if they don't remember why they go on.\" - The Artist",
+ 	"DESCRIPTIONS": [
+ 	  "Every 3 Attacks played, Paint 2 Red. NL Every 3 Skills played, Paint 2 Green. NL	Every 3 Powers played, Paint 2 Blue."
+    ]
+  },
+  
   "qcfpunch:Neverending_Blood": {
     "NAME": "湍流鲜血",
     "FLAVOR": "现在里面的血太多了，几乎感觉像是可以漏出来。",

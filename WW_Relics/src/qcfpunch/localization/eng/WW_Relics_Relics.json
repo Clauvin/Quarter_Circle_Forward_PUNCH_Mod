@@ -138,6 +138,14 @@
     ]
   },
   
+  "qcfpunch:Multicolor_Pen": {
+    "NAME": "Multicolor Pen",
+    "FLAVOR": "\"Three colors, broad strokes, and so much lonely determination... even if they don't remember why they go on.\" - The Artist",
+ 	"DESCRIPTIONS": [
+ 	  "Every 3 Attacks played, Paint 2 Red. NL Every 3 Skills played, Paint 2 Green. NL	Every 3 Powers played, Paint 2 Blue."
+    ]
+  },
+  
   "qcfpunch:Necklace_of_Skulls": {
     "NAME": "Necklace of Skulls",
     "FLAVOR": "\"Hatred begets weakness. Cultivate your heart.\" Who said that?",
