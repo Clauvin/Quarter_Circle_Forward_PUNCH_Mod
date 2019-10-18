@@ -38,6 +38,8 @@ public class MixedPaintBucket extends CustomRelic {
 	public void atBattleStart() {
 		AbstractDungeon.actionManager.addToBottom(
 				new MixedBucketAction(card_to_give));
+		
+		flash();
 	}
 	
 	public boolean canSpawn() {
