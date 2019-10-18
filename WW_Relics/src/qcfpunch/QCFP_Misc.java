@@ -85,7 +85,7 @@ public class QCFP_Misc {
             return false;
         }
     }
-    
+        
     //just stole this code from ReplayTheSpire who stole this from blank lol
     public static boolean silentlyCheckForMod(final String classPath) {
         try {
@@ -187,6 +187,11 @@ public class QCFP_Misc {
 	
     public static void fastLoggerLine(String message) {
     	logger.info(message);
+    }
+    
+    public static void fastLoggerLine(Boolean message) {
+    	String converted_message = message.toString();
+    	fastLoggerLine(converted_message);
     }
     
 }
