@@ -16,6 +16,8 @@ import com.megacrit.cardcrawl.relics.AbstractRelic;
 import basemod.abstracts.CustomRelic;
 import qcfpunch.QCFP_Misc;
 import qcfpunch.resources.relic_graphics.GraphicResources;
+import theArtist.AbstractCanvas.VexColor;
+import theArtist.actions.PaintAction;
 
 public class MulticolorPen extends CustomRelic  {
 
@@ -24,6 +26,10 @@ public class MulticolorPen extends CustomRelic  {
 	private static int attacks_played = 0;
 	private static int skills_played = 0;
 	private static int powers_played = 0;
+	
+	private static final int AMOUNT_OF_ATTACK_CARDS_PLAYED = 3;
+	private static final int AMOUNT_OF_SKILL_CARDS_PLAYED = 3;
+	private static final int AMOUNT_OF_POWER_CARDS_PLAYED = 3;
 	
 	public static final Logger logger =
 			LogManager.getLogger(MulticolorPen.class.getName());
@@ -55,6 +61,25 @@ public class MulticolorPen extends CustomRelic  {
 			default:
 				break;
 		}
+		
+		if (attacks_played >= AMOUNT_OF_ATTACK_CARDS_PLAYED) {
+			attacks_played = 0;
+			AbstractDungeon.actionManager.addToBottom(
+					new PaintAction(VexColor.RED));
+		}
+		
+		if (skills_played >= AMOUNT_OF_SKILL_CARDS_PLAYED) {
+			skills_played = 0;
+			AbstractDungeon.actionManager.addToBottom(
+					new PaintAction(VexColor.GREEN));
+		}
+		
+		if (powers_played >= AMOUNT_OF_POWER_CARDS_PLAYED) {
+			powers_played = 0;
+			AbstractDungeon.actionManager.addToBottom(
+					new PaintAction(VexColor.BLUE));
+		}
+		
 		
 		logger.info(attacks_played + " " + skills_played + " " + powers_played);
 	}
