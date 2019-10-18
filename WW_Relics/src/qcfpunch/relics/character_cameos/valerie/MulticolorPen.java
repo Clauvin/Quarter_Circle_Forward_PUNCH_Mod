@@ -26,7 +26,7 @@ public class MulticolorPen extends CustomRelic  {
 	
 	
 	public AbstractRelic makeCopy() { // always override this method to return a new instance of your relic
-		return new MixedPaintBucket();
+		return new MulticolorPen();
 	}
 	
 }
