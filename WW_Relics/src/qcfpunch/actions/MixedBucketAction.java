@@ -51,16 +51,16 @@ public class MixedBucketAction extends AbstractGameAction {
 				QCFP_Misc.fastLoggerLine("Loop 2");
 				AbstractCard given_card = card_to_give.makeStatEquivalentCopy();
 				
-				QCFP_Misc.setCardToAlwaysRetain(
-						given_card, true);
-				
 				QCFP_Misc.reduceCardCostIfNotStatusOrCurseByOne(given_card);
 				
 				AbstractDungeon.actionManager.addToBottom(
-						new MakeTempCardInHandAction(given_card));
+						new MakeTempCardInHandAction(given_card, false, true));
 				
 				AbstractDungeon.actionManager.addToBottom(
 						new SetExhaustOfCardAtCombatAction(given_card.uuid, true));
+				
+				AbstractDungeon.actionManager.addToBottom(
+						new SetAlwaysRetainOfCardAtCombatAction(given_card.uuid, true));
 			}
 			
 			
