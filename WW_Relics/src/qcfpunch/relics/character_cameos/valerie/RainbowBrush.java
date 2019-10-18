@@ -253,7 +253,7 @@ public class RainbowBrush extends CustomRelic{
 		
 		maybeUpgradeCardIfNotStatusOrCurse(card_to_be_given);
 		
-		reduceCardCostIfNotStatusOrCurse(card_to_be_given); 
+		QCFP_Misc.reduceCardCostIfNotStatusOrCurse(card_to_be_given); 
 		
 		card_to_be_shown_with_thought_balloon = 
 				card_to_be_given.makeStatEquivalentCopy();
@@ -278,11 +278,6 @@ public class RainbowBrush extends CustomRelic{
 						3 * card_to_be_shown_with_thought_balloon.hb.width,
 						AbstractDungeon.player.dialogY));
 			
-	}
-	
-	private boolean cardIsACurseOrStatus(AbstractCard card) {
-		return ((card.type == CardType.CURSE) || (card.type == CardType.STATUS)
-				|| (card.color == CardColor.CURSE));
 	}
 	
 	public CardRarity generateRarity() {
@@ -409,17 +404,9 @@ public class RainbowBrush extends CustomRelic{
 	
 	private void maybeUpgradeCardIfNotStatusOrCurse(AbstractCard card) {
 		
-		if (!cardIsACurseOrStatus(card)) {
+		if (!QCFP_Misc.cardIsACurseOrStatus(card)) {
 			if (QCFP_Misc.headsOrTails(AbstractDungeon.cardRandomRng) > 0)
 			card.upgrade();
-		}
-		
-	}
-	
-	private void reduceCardCostIfNotStatusOrCurse(AbstractCard card) {
-		
-		if (!cardIsACurseOrStatus(card)) {
-			if (card.cost > 0) card.modifyCostForCombat(-1);
 		}
 		
 	}
@@ -438,7 +425,7 @@ public class RainbowBrush extends CustomRelic{
 			AbstractDungeon.actionManager.addToBottom(
 					new MakeTempCardInHandAction(card_to_be_given, false, true));
 			
-			if (!cardIsACurseOrStatus(card_to_be_given))
+			if (!QCFP_Misc.cardIsACurseOrStatus(card_to_be_given))
 				AbstractDungeon.actionManager.addToBottom(
 					new SetAlwaysRetainOfCardAtCombatAction(card_to_be_given.uuid,
 							true));

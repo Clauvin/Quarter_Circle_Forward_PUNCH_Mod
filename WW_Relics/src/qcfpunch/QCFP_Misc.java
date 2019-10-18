@@ -138,6 +138,19 @@ public class QCFP_Misc {
 		
 	}
 	
+	public static boolean cardIsACurseOrStatus(AbstractCard card) {
+		return ((card.type == CardType.CURSE) || (card.type == CardType.STATUS)
+				|| (card.color == CardColor.CURSE));
+	}
+	
+	public static void reduceCardCostIfNotStatusOrCurse(AbstractCard card) {
+		
+		if (!cardIsACurseOrStatus(card)) {
+			if (card.cost > 0) card.modifyCostForCombat(-1);
+		}
+		
+	}
+	
 	public static int headsOrTails(Random random) {
 		return random.random(1);
 	}
