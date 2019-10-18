@@ -300,7 +300,9 @@ public class QCFPunch_Mod implements AddCustomModeModsSubscriber, EditStringsSub
 	}
 	
 	private void addValerieRelics() {
-		BaseMod.addRelic(new MixedPaintBucket(), RelicType.SHARED);
+		if (QCFP_Misc.silentlyCheckForMod(QCFP_Misc.the_artist_class_code)) {
+			BaseMod.addRelic(new MixedPaintBucket(), RelicType.SHARED);
+		}
 		BaseMod.addRelic(new RainbowBrush(), RelicType.SHARED);
 	}
 	
