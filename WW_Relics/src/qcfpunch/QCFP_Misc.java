@@ -174,11 +174,35 @@ public class QCFP_Misc {
 		else return b;
 	}
     
+	public static String debugStringStartedSaveDataManagement(String name) {
+		return "Saving " + name + " information from";
+	}
+	
+	public static String debugStringFinishedSaveDataManagement(String name) {
+		return "Finished saving " + name + " information from";
+	}
+	
+	public static String debugStringStartedLoadDataManagement(String name) {
+		return "Loading " + name + " information from";
+	}
+	
+	public static String debugStringFinishedLoadDataManagement(String name) {
+		return "Finished loading " + name + " information from";
+	}
+	
+	public static String debugStringStartedClearDataManagement(String name) {
+		return "Clearing " + name + " information from";
+	}
+	
+	public static String debugStringFinishedClearDataManagement(String name) {
+		return "Finished clearing " + name + " information from";
+	}
+	
     public static String classAndSaveSlotText() {
     	return "character " + AbstractDungeon.player.getClass().getName() +
     			", save slot " + CardCrawlGame.saveSlot + ".";
     }
-    
+
     public static void debugOnlyLoggerLine(Logger logger, String message) {
     	if (Loader.DEBUG) {
             logger.info(message);
