@@ -8,6 +8,6 @@
 	"author_list": ["Levender"],
 	"credits": "Current translations:\r\n English (Levender) \r\n Simplified Chinese (Rita Bernstein) \r\n \r\nOriginal creators of original CC BY 3.0 (https://creativecommons.org/licenses/by/3.0/) images that \r\nwere then modified by myself for the mod: \r\n \r\nLorc (http://lorcblog.blogspot.com/) - Basis of Duffel Bag, Fighting Gloves, White Boots and Handcuffs. \r\n \r\nDelapouite (http://delapouite.com/) - Basis of Red Headband.\r\n \r\nAll images above came from http://game-icons.net. \r\n \r\nBig thanks for all people who helped with testing, suggestions, ideas and criticism! More detailed thanks at https://github.com/Clauvin/Quarter_Circle_Forward_PUNCH_Mod",
 	"dependencies": ["basemod", "stslib"],
-	"optional_dependencies": ["infinitespire"],
+	"optional_dependencies": ["infinitespire", "TheArtist"],
 	"update_json": "https://api.github.com/repos/clauvin/Quarter_Circle_Forward_PUNCH_Mod/releases/latest"
 }
