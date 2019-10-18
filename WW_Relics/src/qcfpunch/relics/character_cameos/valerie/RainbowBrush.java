@@ -253,7 +253,7 @@ public class RainbowBrush extends CustomRelic{
 		
 		maybeUpgradeCardIfNotStatusOrCurse(card_to_be_given);
 		
-		QCFP_Misc.reduceCardCostIfNotStatusOrCurse(card_to_be_given); 
+		QCFP_Misc.reduceCardCostIfNotStatusOrCurseByOne(card_to_be_given); 
 		
 		card_to_be_shown_with_thought_balloon = 
 				card_to_be_given.makeStatEquivalentCopy();
