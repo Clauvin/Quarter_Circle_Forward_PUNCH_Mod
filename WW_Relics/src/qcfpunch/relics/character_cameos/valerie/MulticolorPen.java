@@ -6,8 +6,11 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
+import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.AbstractCard.CardType;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 import basemod.abstracts.CustomRelic;
@@ -33,6 +36,27 @@ public class MulticolorPen extends CustomRelic  {
 	
 	public String getUpdatedDescription() {
 		return DESCRIPTIONS[0];
+	}
+	
+	@Override
+	public void onPlayCard(AbstractCard c, AbstractMonster m) {
+		CardType card_type = c.type;
+		
+		switch(card_type) {
+			case ATTACK:
+				attacks_played += 1;
+				break;
+			case SKILL:
+				skills_played += 1;
+				break;
+			case POWER:
+				powers_played += 1;
+				break;
+			default:
+				break;
+		}
+		
+		logger.info(attacks_played + " " + skills_played + " " + powers_played);
 	}
 	
 	public static void save(final SpireConfig config) {
