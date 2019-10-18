@@ -1,6 +1,5 @@
 package qcfpunch.relics.character_cameos.valerie;
 
-
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.colorless.Discovery;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -48,7 +47,7 @@ public class MixedPaintBucket extends CustomRelic {
 	
 	
 	public AbstractRelic makeCopy() { // always override this method to return a new instance of your relic
-		return new MixedPaintBrush();
+		return new MixedPaintBucket();
 	}
 	
 }
