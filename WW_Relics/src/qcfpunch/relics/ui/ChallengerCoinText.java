@@ -13,12 +13,10 @@ public class ChallengerCoinText extends CustomRelic{
 	public ChallengerCoinText() {
 		super(ID, GraphicResources.LoadRelicImage("White_Boots - steeltoe-boots - Lorc - CC BY 3.0.png"),
 				RelicTier.SPECIAL, LandingSound.FLAT);
-
-		description = makeDescription();
 	}
 	
 	public String getUpdatedDescription() {
-		return description;
+		return makeDescription();
 	}
 	
 	private String makeDescription() {
@@ -38,7 +36,7 @@ public class ChallengerCoinText extends CustomRelic{
 	@Override
 	public AbstractRelic makeCopy() {
 		// TODO Auto-generated method stub
-		return null;
+		return new ChallengerCoinText();
 	}
 
 }
