@@ -2,6 +2,7 @@ package qcfpunch.relics.chun_li;
 
 import com.evacipated.cardcrawl.mod.stslib.actions.common.StunMonsterAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.cards.DamageInfo.DamageType;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -72,6 +73,9 @@ public class Handcuffs extends CustomRelic {
 
 			AbstractDungeon.actionManager.addToTop(
 					 new StunMonsterAction((AbstractMonster)target, AbstractDungeon.player));
+			
+			AbstractDungeon.actionManager.addToTop(
+					new RelicAboveCreatureAction(target, this));
 			
 			number_of_uses_left_in_this_fight--;
 		}
