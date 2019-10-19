@@ -14,6 +14,7 @@ import com.megacrit.cardcrawl.rewards.RewardItem;
 import com.megacrit.cardcrawl.rooms.AbstractRoom.RoomPhase;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndObtainEffect;
 
+import qcf.relics.ui.ChallengerCoinText;
 import qcfpunch.QCFP_Misc;
 import qcfpunch.monsters.elites.TiredGremlinNob;
 import qcfpunch.potions.ChallengerCoin;
@@ -80,7 +81,8 @@ public class FightingNoisesEvent extends AbstractImageEvent {
         this.imageEventText.setDialogOption(OPTIONS[WHERE_OPTION_TEXT_STARTS +
                                                     ElITE_ENCOUNTER_PART_1_OPTION]);
         this.imageEventText.setDialogOption(OPTIONS[WHERE_OPTION_TEXT_STARTS +
-                                                    THE_SAFER_PATH_GAINED_GOOD_INSTINCTS_OPTION]);
+                                                    THE_SAFER_PATH_GAINED_GOOD_INSTINCTS_OPTION],
+        									new GoodInstincts());
 
 		
     }
@@ -191,13 +193,17 @@ public class FightingNoisesEvent extends AbstractImageEvent {
     private void SetEventVictoriousAftermath() {
     	last_event_page_visited = ELITE_VICTORIOUS_AFTERMATH;
         this.imageEventText.setDialogOption(OPTIONS[WHERE_OPTION_TEXT_STARTS +
-                                                    GAINED_BLOOD_RELIC_OPTION]);
+                                                    GAINED_BLOOD_RELIC_OPTION],
+        									new NeverendingBlood());
         this.imageEventText.setDialogOption(OPTIONS[WHERE_OPTION_TEXT_STARTS +
-                                                    GAINED_SKELETON_RELIC_OPTION]);
+                                                    GAINED_SKELETON_RELIC_OPTION],
+        									new ExtraSkeleton());
         this.imageEventText.setDialogOption(OPTIONS[WHERE_OPTION_TEXT_STARTS +
-                                                    GAINED_CHALLENGER_COINS_OPTION]);
+                                                    GAINED_CHALLENGER_COINS_OPTION],
+        									new ChallengerCoinText());
         this.imageEventText.setDialogOption(OPTIONS[WHERE_OPTION_TEXT_STARTS +
-                                                    GAINED_NOPE_NOPE_CANTALOPE_2_GOOD_INSTINCTS_PLUS_OPTION]);
+                                                    GAINED_NOPE_NOPE_CANTALOPE_2_GOOD_INSTINCTS_PLUS_OPTION],
+        									new GoodInstincts());
 		this.imageEventText.updateBodyText(DESCRIPTIONS[WHERE_EVENT_TEXT_STARTS +
 		                                                ELITE_VICTORIOUS_AFTERMATH]);
 		CardCrawlGame.music.fadeAll();
