@@ -17,6 +17,10 @@ public class ChallengerCoinText extends CustomRelic{
 		description = makeDescription();
 	}
 	
+	public String getUpdatedDescription() {
+		return description;
+	}
+	
 	private String makeDescription() {
 		
 		String description = DESCRIPTIONS[0];
