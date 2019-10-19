@@ -14,12 +14,12 @@ import com.megacrit.cardcrawl.rewards.RewardItem;
 import com.megacrit.cardcrawl.rooms.AbstractRoom.RoomPhase;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndObtainEffect;
 
-import qcf.relics.ui.ChallengerCoinText;
 import qcfpunch.QCFP_Misc;
 import qcfpunch.monsters.elites.TiredGremlinNob;
 import qcfpunch.potions.ChallengerCoin;
 import qcfpunch.relics.mortal_kombat.ExtraSkeleton;
 import qcfpunch.relics.mortal_kombat.NeverendingBlood;
+import qcfpunch.relics.ui.ChallengerCoinText;
 
 public class FightingNoisesEvent extends AbstractImageEvent {
 

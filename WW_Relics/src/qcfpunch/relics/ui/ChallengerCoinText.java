@@ -1,4 +1,4 @@
-package qcf.relics.ui;
+package qcfpunch.relics.ui;
 
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 
