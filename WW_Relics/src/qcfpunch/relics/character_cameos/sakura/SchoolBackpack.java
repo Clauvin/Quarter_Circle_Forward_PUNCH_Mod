@@ -8,6 +8,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
+import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardColor;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardRarity;
@@ -149,6 +150,9 @@ public class SchoolBackpack extends CustomRelic {
 		AbstractDungeon.getCurrRoom().addCardReward(card_reward);
 		
 		flash();
+		
+		AbstractDungeon.actionManager.addToTop(
+				new RelicAboveCreatureAction(AbstractDungeon.player, this));
 		
 	}
 	
@@ -362,7 +366,11 @@ public class SchoolBackpack extends CustomRelic {
 		card_reward.text = DESCRIPTIONS[2];
 		
 		AbstractDungeon.getCurrRoom().addCardReward(card_reward);
+		
 		flash();
+		
+		AbstractDungeon.actionManager.addToTop(
+				new RelicAboveCreatureAction(AbstractDungeon.player, this));
 		
 	}
 	
