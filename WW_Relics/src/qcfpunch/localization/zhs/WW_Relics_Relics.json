@@ -45,6 +45,18 @@
     ]
   },
   
+    
+  "qcfpunch:ChallengerCoinText": {
+    "NAME": "Challenger Coin",
+    "FLAVOR": "Just for the Fighting Noises event.",
+    "DESCRIPTIONS": [
+      "The next floor #bnon-combat",
+	  ", #bnon-Portal",
+	  " rooms you can normally go will be, instead, #yElite #yrooms."
+    ]
+  },
+  
+  
   "qcfpunch:Combat_Fatigues": {
     "NAME": "迷彩服",
     "FLAVOR": "“战场服饰。能让你防御之后加以还击，但是不是为了和平。切记别忘了最后把它们取下来，好吗？” - 兰伟德。",
