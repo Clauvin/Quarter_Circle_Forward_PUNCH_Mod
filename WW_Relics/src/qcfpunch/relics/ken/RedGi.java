@@ -1,6 +1,7 @@
 package qcfpunch.relics.ken;
 
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
+import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardType;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -82,6 +83,8 @@ public class RedGi extends CustomRelic {
 		flash();
 		AbstractDungeon.actionManager.addToTop(
 				new DrawCardAction(AbstractDungeon.player, 1));
+		AbstractDungeon.actionManager.addToTop(
+				new RelicAboveCreatureAction(AbstractDungeon.player, this));
 	}
 	
 	@Override
