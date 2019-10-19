@@ -84,16 +84,22 @@ public class MulticolorPen extends CustomRelic  {
 			attacks_played = 0;
 			AbstractDungeon.actionManager.addToBottom(
 					new PaintAction(VexColor.RED));
+			AbstractDungeon.actionManager.addToBottom(
+					new PaintAction(VexColor.RED));
 		}
 		
 		if (skills_played >= AMOUNT_OF_SKILL_CARDS_PLAYED) {
 			skills_played = 0;
 			AbstractDungeon.actionManager.addToBottom(
 					new PaintAction(VexColor.GREEN));
+			AbstractDungeon.actionManager.addToBottom(
+					new PaintAction(VexColor.GREEN));
 		}
 		
 		if (powers_played >= AMOUNT_OF_POWER_CARDS_PLAYED) {
 			powers_played = 0;
+			AbstractDungeon.actionManager.addToBottom(
+					new PaintAction(VexColor.BLUE));
 			AbstractDungeon.actionManager.addToBottom(
 					new PaintAction(VexColor.BLUE));
 		}
