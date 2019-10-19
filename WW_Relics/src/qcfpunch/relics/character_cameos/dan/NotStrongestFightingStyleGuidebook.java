@@ -1,6 +1,7 @@
 package qcfpunch.relics.character_cameos.dan;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
@@ -27,6 +28,9 @@ public class NotStrongestFightingStyleGuidebook extends CustomRelic {
 	public void atBattleStartPreDraw() {
 		
 		AbstractPlayer player = AbstractDungeon.player;
+
+		AbstractDungeon.actionManager.addToBottom(
+				new RelicAboveCreatureAction(player, this));
 		
 		AbstractDungeon.actionManager.addToBottom(
 				new ApplyPowerAction(player, player, new WeakestFightingStylePower(player, 0)));
