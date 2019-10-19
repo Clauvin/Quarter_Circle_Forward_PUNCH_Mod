@@ -5,11 +5,15 @@ import java.io.IOException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardType;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 
@@ -31,6 +35,10 @@ public class MulticolorPen extends CustomRelic  {
 	private static final int AMOUNT_OF_SKILL_CARDS_PLAYED = 3;
 	private static final int AMOUNT_OF_POWER_CARDS_PLAYED = 3;
 	
+	private static final Color ATTACK_COLOR = new Color(0.9f, 0.0f, 0.0f, 1.0f);
+	private static final Color SKILL_COLOR = new Color(0.0f, 0.9f, 0.0f, 1.0f);
+	private static final Color POWER_COLOR = new Color(0.0f, 0.0f, 0.9f, 1.0f);
+	
 	public static final Logger logger =
 			LogManager.getLogger(MulticolorPen.class.getName());
 	
@@ -46,7 +54,15 @@ public class MulticolorPen extends CustomRelic  {
 	
 	@Override
 	public void onPlayCard(AbstractCard c, AbstractMonster m) {
-		CardType card_type = c.type;
+		checkAndCountCardType(c);
+		
+		applyEffectsAndResetCountersIfNecessary();
+		
+		logger.debug(attacks_played + " " + skills_played + " " + powers_played);
+	}
+	
+	private void checkAndCountCardType(AbstractCard card) {
+		CardType card_type = card.type;
 		
 		switch(card_type) {
 			case ATTACK:
@@ -61,7 +77,9 @@ public class MulticolorPen extends CustomRelic  {
 			default:
 				break;
 		}
-		
+	}
+	
+	private void applyEffectsAndResetCountersIfNecessary() {
 		if (attacks_played >= AMOUNT_OF_ATTACK_CARDS_PLAYED) {
 			attacks_played = 0;
 			AbstractDungeon.actionManager.addToBottom(
@@ -79,10 +97,47 @@ public class MulticolorPen extends CustomRelic  {
 			AbstractDungeon.actionManager.addToBottom(
 					new PaintAction(VexColor.BLUE));
 		}
-		
-		
-		logger.info(attacks_played + " " + skills_played + " " + powers_played);
 	}
+	
+	// Borrowed from regret-index's Administrix's ConductorRitualBaton.
+    @Override
+    public void renderInTopPanel(SpriteBatch sb) {
+        this.scale = Settings.scale;
+        if (Settings.hideRelics) {
+            return;
+        }
+
+        renderOutline(sb, true);
+        sb.setColor(Color.WHITE);
+        float offsetX = 0f;
+        float rotation = 0f;
+        sb.draw(this.img, this.currentX - 64.0F + offsetX,
+        		this.currentY - 64.0F, 64.0F, 64.0F, 128.0F, 128.0F,
+        		this.scale, this.scale, rotation, 0, 0, 128, 128, false, false);
+
+        renderCounters(sb, true);
+        renderFlash(sb, true);
+        this.hb.render(sb);
+    }
+    
+	// Borrowed from regret-index's Administrix's ConductorRitualBaton.
+    public void renderCounters(SpriteBatch sb, boolean inTopPanel) {
+        float offX = this.currentX;
+        float offXS = 26.0F * Settings.scale;
+
+        FontHelper.renderFontRightTopAligned(sb, 
+        		FontHelper.topPanelInfoFont, 
+        		Integer.toString(attacks_played), offX - offXS/2.0f,
+        		this.currentY - 7.0F * Settings.scale, ATTACK_COLOR);
+        FontHelper.renderFontRightTopAligned(sb, 
+        		FontHelper.topPanelInfoFont, 
+        		Integer.toString(skills_played), offX + offXS/2.0f,
+        		this.currentY - 7.0F * Settings.scale , SKILL_COLOR);
+        FontHelper.renderFontRightTopAligned(sb,
+        		FontHelper.topPanelInfoFont,
+        		Integer.toString(powers_played), offX + 2.5f*offXS/2.0f,
+        		this.currentY - 7.0F * Settings.scale, POWER_COLOR);
+    }
 	
 	public static void save(final SpireConfig config) {
 
