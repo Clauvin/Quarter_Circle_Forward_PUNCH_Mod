@@ -22,10 +22,34 @@ public class InitializeButtonsPatches
 	    	ArrayList<AbstractCampfireOption> campfireButtons = (ArrayList<AbstractCampfireOption>)ReflectionHacks.getPrivate(campfire, CampfireUI.class, "buttons");
 	    	if (AbstractDungeon.player.hasRelic("qcfpunch:Fighting_Gloves")) {
 	    		campfireButtons.add(new SmithOption(true));
+	    		campfireButtons.add(new SmithOption(true));
+	    		campfireButtons.add(new SmithOption(true));
+	    		campfireButtons.add(new SmithOption(true));
+	    		campfireButtons.add(new SmithOption(true));
+	    		campfireButtons.add(new SmithOption(true));
+	    		campfireButtons.add(new SmithOption(true));
+	    		campfireButtons.add(new SmithOption(true));
+	    		campfireButtons.add(new SmithOption(true));
+	    		campfireButtons.add(new SmithOption(true));
+	    		campfireButtons.add(new SmithOption(true));
+	    		campfireButtons.add(new SmithOption(true));
+	    		campfireButtons.add(new SmithOption(true));
+	    		campfireButtons.add(new SmithOption(true));
+	    		campfireButtons.add(new SmithOption(true));
+	    		campfireButtons.add(new SmithOption(true));
+	    		campfireButtons.add(new SmithOption(true));
+	    		campfireButtons.add(new SmithOption(true));
+	    		campfireButtons.add(new SmithOption(true));
+	    		campfireButtons.add(new SmithOption(true));
+	    		campfireButtons.add(new SmithOption(true));
+	    		campfireButtons.add(new SmithOption(true));
+	    		campfireButtons.add(new SmithOption(true));
+	    		campfireButtons.add(new SmithOption(true));
+	    		campfireButtons.add(new SmithOption(true));
 	    	}
 	    	
 	    } catch (SecurityException|IllegalArgumentException e) {
 	    	  e.printStackTrace();
-	    } 
+	    }
 	}
 }
