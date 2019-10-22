@@ -91,7 +91,7 @@ None by now.
 
 # Compatibility
 
-* Vex's [The Artificer](https://steamcommunity.com/sharedfiles/filedetails/?id=1842757025) character mod does NOT use cards, and break cards that somehow reach your hand. This should mess with the "Strongest" Style Guidebook relic.
+* Vex's [The Artificer](https://steamcommunity.com/sharedfiles/filedetails/?id=1842757025) character mod does NOT use cards (the character does not have a deck!) or usual relics, so almost all content here, when used with that character should not work/work poorly.
 
 * The [RumiaBox mod](https://steamcommunity.com/sharedfiles/filedetails/?id=1633577327) has an effect through the Challenger Book relic which gives you as a reward, a double of a relic which you already has. There's one case already of this mod's Duffel Bag relic crashing a game when it applied its effect when a double from an old WW_Relics mod version was present. This will be tested and if possible, fixed in the future. So far, just don't get a second Duffel Bag if the possibility is available.
 
