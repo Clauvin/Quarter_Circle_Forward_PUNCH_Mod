@@ -73,16 +73,13 @@ public class GreenLeotard extends CustomRelic {
 			if (AbstractDungeon.player.masterDeck.getNCardFromTop(i).baseDraw > 0)
 				count++;
 		}
-		can_draw_at_least_two_cards = count > 2;
+		can_draw_at_least_two_cards = count >= 2;
 		
 		return is_silent || hand_is_bigger_than_normal || can_draw_at_least_two_cards;
 				
 	}
 	
 	public AbstractRelic makeCopy() {
-		
-		
-				
 		return new GreenLeotard();
 	}
 }	
