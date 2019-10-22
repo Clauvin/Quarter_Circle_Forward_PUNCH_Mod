@@ -148,14 +148,6 @@
     ]
   },
   
-  "qcfpunch:Multicolor_Pen": {
-    "NAME": "Multicolor Pen",
-    "FLAVOR": "Three colors, broad strokes, and lonely determination... - The Artist",
- 	"DESCRIPTIONS": [
- 	  "Every #y3 Attacks played, Paint #y2 #rRed. NL Every #y3 Skills played, Paint 2 #gGreen. Every #y3 Powers played, Paint 2 #bBlue."
-    ]
-  },
-  
   "qcfpunch:Necklace_of_Skulls": {
     "NAME": "Necklace of Skulls",
     "FLAVOR": "\"Hatred begets weakness. Cultivate your heart.\" Who said that?",
@@ -181,6 +173,14 @@
     "FLAVOR": "\"My god, I must unlearn what I've read. WHY WOULD ANYONE FIGHT LIKE THIS?!\"",
     "DESCRIPTIONS": [
       "At the start of your turn, add a random #yqcfpunch:Weakest card to your hand.  NL Your max hand size is increased by #b1."
+    ]
+  },
+  
+  "qcfpunch:Primary_Brush": {
+    "NAME": "Primary Brush",
+    "FLAVOR": "Three colors, broad strokes, and lonely determination... - The Artist",
+ 	"DESCRIPTIONS": [
+ 	  "Every #y3 Attacks played, Paint #y2 #rRed. NL Every #y3 Skills played, Paint 2 #gGreen. Every #y3 Powers played, Paint 2 #bBlue."
     ]
   },
   

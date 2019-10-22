@@ -41,7 +41,7 @@ import qcfpunch.relics.cammy.*;
 import qcfpunch.relics.character_cameos.dan.NotStrongestFightingStyleGuidebook;
 import qcfpunch.relics.character_cameos.sakura.SchoolBackpack;
 import qcfpunch.relics.character_cameos.valerie.MixedPaintBucket;
-import qcfpunch.relics.character_cameos.valerie.MulticolorPen;
+import qcfpunch.relics.character_cameos.valerie.PrimaryBrush;
 import qcfpunch.relics.character_cameos.valerie.RainbowBrush;
 import qcfpunch.relics.mortal_kombat.*;
 import qcfpunch.relics.no_relation.Cattail;
@@ -303,7 +303,7 @@ public class QCFPunch_Mod implements AddCustomModeModsSubscriber, EditStringsSub
 	private void addValerieRelics() {
 		if (QCFP_Misc.silentlyCheckForMod(QCFP_Misc.the_artist_class_code)) {
 			BaseMod.addRelic(new MixedPaintBucket(), RelicType.SHARED);
-			BaseMod.addRelic(new MulticolorPen(), RelicType.SHARED);
+			BaseMod.addRelic(new PrimaryBrush(), RelicType.SHARED);
 		}
 		BaseMod.addRelic(new RainbowBrush(), RelicType.SHARED);
 	}
@@ -405,7 +405,7 @@ public class QCFPunch_Mod implements AddCustomModeModsSubscriber, EditStringsSub
             UnceasingFlame.load(config);
             SchoolBackpack.load(config);
             RainbowBrush.load(config);
-            MulticolorPen.load(config);
+            PrimaryBrush.load(config);
             Cattail.load(config);
             if (shouldSanitizeActOne()) {
             	ChallengerCoin.sanitizingActOne(config);
@@ -435,7 +435,7 @@ public class QCFPunch_Mod implements AddCustomModeModsSubscriber, EditStringsSub
             SchoolBackpack.save(config);
             Cattail.save(config);
             RainbowBrush.save(config);
-            MulticolorPen.save(config);
+            PrimaryBrush.save(config);
             ChallengerCoin.save(config);
             
         }
@@ -457,7 +457,7 @@ public class QCFPunch_Mod implements AddCustomModeModsSubscriber, EditStringsSub
             SchoolBackpack.clear(config);
             Cattail.clear(config);
             RainbowBrush.clear(config);
-            MulticolorPen.clear(config);
+            PrimaryBrush.clear(config);
             ChallengerCoin.clear(config);
         	config.save();
 

@@ -23,9 +23,9 @@ import qcfpunch.resources.relic_graphics.GraphicResources;
 import theArtist.AbstractCanvas.VexColor;
 import theArtist.actions.PaintAction;
 
-public class MulticolorPen extends CustomRelic  {
+public class PrimaryBrush extends CustomRelic  {
 
-	public static final String ID = QCFP_Misc.returnPrefix() + "Multicolor_Pen";
+	public static final String ID = QCFP_Misc.returnPrefix() + "Primary_Brush";
 	
 	private static int attacks_played = 0;
 	private static int skills_played = 0;
@@ -40,9 +40,9 @@ public class MulticolorPen extends CustomRelic  {
 	private static final Color POWER_COLOR = new Color(0.0f, 0.0f, 0.9f, 1.0f);
 	
 	public static final Logger logger =
-			LogManager.getLogger(MulticolorPen.class.getName());
+			LogManager.getLogger(PrimaryBrush.class.getName());
 	
-	public MulticolorPen() {
+	public PrimaryBrush() {
 		super(ID, GraphicResources.LoadRelicImage(
 				"Temp School Backpack - steeltoe-boots - Lorc - CC BY 3.0.png"),
 				RelicTier.RARE, LandingSound.CLINK);
@@ -148,7 +148,7 @@ public class MulticolorPen extends CustomRelic  {
 	public static void save(final SpireConfig config) {
 
         if (AbstractDungeon.player != null && AbstractDungeon.player.hasRelic(ID)) {
-        	logger.info(QCFP_Misc.debugStringStartedSaveDataManagement(MulticolorPen.ID));
+        	logger.info(QCFP_Misc.debugStringStartedSaveDataManagement(PrimaryBrush.ID));
     		logger.info(QCFP_Misc.classAndSaveSlotText());
 
         	String class_name = AbstractDungeon.player.getClass().getName();
@@ -165,7 +165,7 @@ public class MulticolorPen extends CustomRelic  {
 				e.printStackTrace();
 			}
             
-            logger.info(QCFP_Misc.debugStringFinishedSaveDataManagement(MulticolorPen.ID));
+            logger.info(QCFP_Misc.debugStringFinishedSaveDataManagement(PrimaryBrush.ID));
             logger.info(QCFP_Misc.classAndSaveSlotText());	
         }
         else {
@@ -176,7 +176,7 @@ public class MulticolorPen extends CustomRelic  {
 	
 	public static void load(final SpireConfig config) {
 		
-		logger.info(QCFP_Misc.debugStringStartedLoadDataManagement(MulticolorPen.ID));
+		logger.info(QCFP_Misc.debugStringStartedLoadDataManagement(PrimaryBrush.ID));
         logger.info(QCFP_Misc.classAndSaveSlotText());
 		
     	String class_name = AbstractDungeon.player.getClass().getName();
@@ -197,21 +197,21 @@ public class MulticolorPen extends CustomRelic  {
 				e.printStackTrace();
 			}
             logger.info(QCFP_Misc.debugStringFinishedLoadDataManagement(
-            		MulticolorPen.ID));
+            		PrimaryBrush.ID));
             logger.info(QCFP_Misc.classAndSaveSlotText());
         }
 		
 		else
 		{
 			logger.info("There's no info, setting variables accordingly.");
-			logger.info("Finished setting MulticolorPen variables.");
+			logger.info("Finished setting PrimaryBrush variables.");
 		}
 		
     }
 	
 	public static void clear(final SpireConfig config) {
 		logger.info(QCFP_Misc.debugStringStartedClearDataManagement(
-        		MulticolorPen.ID));
+        		PrimaryBrush.ID));
         logger.info(QCFP_Misc.classAndSaveSlotText());
 		
     	String class_name = AbstractDungeon.player.getClass().getName();
@@ -223,7 +223,7 @@ public class MulticolorPen extends CustomRelic  {
         config.remove(field_text + "_powers_played");
         
         logger.info(QCFP_Misc.debugStringFinishedClearDataManagement(
-        		MulticolorPen.ID));
+        		PrimaryBrush.ID));
         logger.info(QCFP_Misc.classAndSaveSlotText());
 	}
 	
@@ -232,7 +232,7 @@ public class MulticolorPen extends CustomRelic  {
 	}
 	
 	public AbstractRelic makeCopy() { // always override this method to return a new instance of your relic
-		return new MulticolorPen();
+		return new PrimaryBrush();
 	}
 	
 }

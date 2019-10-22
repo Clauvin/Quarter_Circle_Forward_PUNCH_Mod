@@ -154,15 +154,7 @@
  	  "At combat start, for each card color in your hand, add one #bPallete #bPick to your hand, with Retain and Exhaust."
     ]
   },
-  
-  "qcfpunch:Multicolor_Pen": {
-    "NAME": "Multicolor Pen",
-    "FLAVOR": "Three colors, broad strokes, and lonely determination... - The Artist",
- 	"DESCRIPTIONS": [
- 	  "Every #y3 Attacks played, Paint #y2 #rRed. NL Every #y3 Skills played, Paint 2 #gGreen. Every #y3 Powers played, Paint 2 #bBlue."
-    ]
-  },
-  
+
   "qcfpunch:Neverending_Blood": {
     "NAME": "湍流鲜血",
     "FLAVOR": "现在里面的血太多了，几乎感觉像是可以漏出来。",
@@ -179,6 +171,14 @@
     "FLAVOR": "“我的天，我必须把我读过的东西全忘了。怎么会有人这样战斗的？！”",
     "DESCRIPTIONS": [
       "每回合开始时，将一张随机 #yqcfpunch:最强流 牌加入你的手牌。 NL 你的手牌数量上限提高 #b1 。"
+    ]
+  },
+  
+  "qcfpunch:Primary_Brush": {
+    "NAME": "Primary Brush",
+    "FLAVOR": "Three colors, broad strokes, and lonely determination... - The Artist",
+ 	"DESCRIPTIONS": [
+ 	  "Every #y3 Attacks played, Paint #y2 #rRed. NL Every #y3 Skills played, Paint 2 #gGreen. Every #y3 Powers played, Paint 2 #bBlue."
     ]
   },
   
