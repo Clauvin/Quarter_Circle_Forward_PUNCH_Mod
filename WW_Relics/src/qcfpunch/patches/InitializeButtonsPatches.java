@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.ui.campfire.AbstractCampfireOption;
 import com.megacrit.cardcrawl.ui.campfire.SmithOption;
 
 import basemod.ReflectionHacks;
+import qcfpunch.relics.ryu.FightingGloves;
 
 //Yes, base from Vex's The Artificer's InitializeButtonsPatches.
 @SpirePatch(cls = "com.megacrit.cardcrawl.rooms.CampfireUI", method = "initializeButtons")
@@ -21,7 +22,14 @@ public class InitializeButtonsPatches
 	    try {
 	    	ArrayList<AbstractCampfireOption> campfireButtons = (ArrayList<AbstractCampfireOption>)ReflectionHacks.getPrivate(campfire, CampfireUI.class, "buttons");
 	    	if (AbstractDungeon.player.hasRelic("qcfpunch:Fighting_Gloves")) {
-	    		campfireButtons.add(new SmithOption(true));
+	    		FightingGloves gloves = (FightingGloves) AbstractDungeon.player.getRelic("qcfpunch:Fighting_Gloves");
+	    		if (gloves.shouldTheRelicBeUsedNow()) {
+	    			campfireButtons.add(new SmithOption(true));
+	    		}
+	    		else {
+	    			campfireButtons.add(new SmithOption(false));
+	    		}
+	    		
 	    	}
 	    	
 	    } catch (SecurityException|IllegalArgumentException e) {
