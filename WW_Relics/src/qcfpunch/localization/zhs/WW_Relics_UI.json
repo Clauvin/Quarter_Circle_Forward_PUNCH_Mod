@@ -1,3 +1,14 @@
 {
-
+	"FightingGlovesTrainEffect": {
+		"TEXT": [
+	      "Test"
+	    ]
+	},
+	
+	"Train Option": {
+	    "TEXT": [
+	      "Train (free action)",
+	      "Upgrade at most X cards of your deck."
+	    ]
+  	}
 }
