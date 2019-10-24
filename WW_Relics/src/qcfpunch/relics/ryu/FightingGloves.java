@@ -137,6 +137,18 @@ public class FightingGloves extends CustomRelic implements ClickableRelic {
 		
 	}
 	
+	public boolean shouldTheRelicBeUsedNow() {
+		if (haveCharges() && (haveCardsToUpgrade() &&
+				AbstractDungeon.getCurrRoom() instanceof RestRoom &&
+				AbstractDungeon.getCurrRoom().phase ==
+				AbstractRoom.RoomPhase.INCOMPLETE &&
+				CampfireUI.hidden == false)) {
+					return true;
+		} else {
+			return false;
+		}
+	}
+	
 	private boolean haveCharges() {	return positive_charges > 0; }
 	
 	private boolean haveCardsToUpgrade() { return getValidCardGroup().size() > 0; }
