@@ -159,6 +159,7 @@ public class QCFPunch_Mod implements AddCustomModeModsSubscriber, EditStringsSub
 	    LoadPotionsJSON(language);
 	    LoadEventsJSON(language);
 	    LoadMonstersJSON(language);
+	    LoadUIJSON(language);
 	    
 	    logger.info("finished editing " + language + " strings");
 		
@@ -225,6 +226,15 @@ public class QCFPunch_Mod implements AddCustomModeModsSubscriber, EditStringsSub
 		String monstersStrings = getJsonText(monstersStringsAddress);
 		
 		BaseMod.loadCustomStrings(MonsterStrings.class, monstersStrings);
+	}
+	
+	private void LoadUIJSON(String language) {
+		String uiStringsAddress = 
+				QCFP_Misc.returnSpecificLocalizationFile(
+						language + "/WW_Relics_UI.json");
+		String uiStrings = getJsonText(uiStringsAddress);
+		
+		BaseMod.loadCustomStrings(UIStrings.class, uiStrings);
 	}
 	
 	@Override
