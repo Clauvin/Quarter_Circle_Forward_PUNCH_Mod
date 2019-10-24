@@ -24,10 +24,10 @@ public class FightingGlovesTrainEffect extends AbstractGameEffect {
 		fighting_gloves = null;
 	
 		for (int i = 0; i < AbstractDungeon.player.relics.size(); i++) {
-		if (AbstractDungeon.player.relics.get(i).relicId ==
-				FightingGloves.ID) {
-				fighting_gloves = (FightingGloves)
-					AbstractDungeon.player.relics.get(i);
+		if (AbstractDungeon.player.hasRelic(FightingGloves.ID)) {
+			fighting_gloves = (FightingGloves) 
+					AbstractDungeon.player.getRelic(FightingGloves.ID);
+				AbstractDungeon.player.relics.get(i);
 				break;
 			}
 		}
