@@ -21,6 +21,7 @@ import com.megacrit.cardcrawl.vfx.cardManip.ShowCardBrieflyEffect;
 import basemod.abstracts.CustomRelic;
 import qcfpunch.QCFP_Misc;
 import qcfpunch.resources.relic_graphics.GraphicResources;
+import qcfpunch.restsite.FightingGlovesTrainOption;
 
 import java.util.*;
 
@@ -281,6 +282,16 @@ public class FightingGloves extends CustomRelic implements ClickableRelic {
 		addCharges(-number_of_cards_that_can_be_upgraded);
 		
 		counter = positive_charges;
+	}
+	
+	@Override
+	public void addCampfireOption(ArrayList<AbstractCampfireOption> options) {
+		if (shouldTheRelicBeUsedNow()) {
+			options.add(new FightingGlovesTrainOption(true)); 
+		} else {
+			options.add(new FightingGlovesTrainOption(false)); 
+		}
+		
 	}
 	
 	public static void save(final SpireConfig config) {
