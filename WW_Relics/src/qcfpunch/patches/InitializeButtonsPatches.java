@@ -1,1 +1,0 @@
-import qcfpunch.restsite.FightingGlovesTrainOption;
