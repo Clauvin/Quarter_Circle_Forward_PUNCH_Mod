@@ -22,11 +22,11 @@ public class FightingGlovesTrainEffect extends AbstractGameEffect {
 		fighting_gloves = null;
 	
 		for (int i = 0; i < AbstractDungeon.player.relics.size(); i++) {
-		if (AbstractDungeon.player.hasRelic(FightingGloves.ID)) {
-			fighting_gloves = (FightingGloves) 
-					AbstractDungeon.player.getRelic(FightingGloves.ID);
-				AbstractDungeon.player.relics.get(i);
-				break;
+			if (AbstractDungeon.player.hasRelic(FightingGloves.ID)) {
+				fighting_gloves = (FightingGloves) 
+						AbstractDungeon.player.getRelic(FightingGloves.ID);
+					AbstractDungeon.player.relics.get(i);
+					break;
 			}
 		}
 		
@@ -44,8 +44,8 @@ public class FightingGlovesTrainEffect extends AbstractGameEffect {
 		
 	    if (this.duration < 1.0F && !this.opened_screen) {
 	        this.opened_screen = true;
-	        /*AbstractDungeon.gridSelectScreen.open(
-	            CardGroup.getGroupWithoutBottledCards(AbstractDungeon.player.masterDeck.getPurgeableCards()), 1, TEXT[0], false, false, true, true);*/
+	        FightingGloves.player_havent_right_clicked_in_relic_here_before = false;
+			fighting_gloves.upgradingCards();
 	    } 
 	}
 	
