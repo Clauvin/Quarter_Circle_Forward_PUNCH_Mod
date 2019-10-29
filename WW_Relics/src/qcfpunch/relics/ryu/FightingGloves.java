@@ -42,7 +42,7 @@ public class FightingGloves extends CustomRelic implements ClickableRelic {
 	private static int number_of_cards_upgraded_in_this_room = 0;
 	
 	private static boolean player_right_clicked_in_relic_in_this_room = false;
-	private static boolean player_havent_right_clicked_in_relic_here_before = true;
+	public static boolean player_havent_right_clicked_in_relic_here_before = true;
 	
 	public FightingGloves() {
 		super(ID, GraphicResources.LoadRelicImage("Fighting Gloves - mailed-gloves - Lorc - CC BY 3.0.png"),
@@ -121,22 +121,6 @@ public class FightingGloves extends CustomRelic implements ClickableRelic {
 		if ((room instanceof RestRoom) && (counter > 0)){
 			flash();
 		}
-	}
-	
-	@Override
-	public void onRightClick() {
-		
-		if (player_havent_right_clicked_in_relic_here_before) {
-			if (haveCharges() && (haveCardsToUpgrade())) {
-				if (AbstractDungeon.getCurrRoom() instanceof RestRoom && 
-						AbstractDungeon.getCurrRoom().phase ==
-						AbstractRoom.RoomPhase.INCOMPLETE && CampfireUI.hidden == false) {
-					player_havent_right_clicked_in_relic_here_before = false;
-					upgradingCards();
-				}
-			}
-		}
-		
 	}
 	
 	public boolean shouldTheRelicBeUsedNow() {
@@ -391,6 +375,12 @@ public class FightingGloves extends CustomRelic implements ClickableRelic {
 
 	public AbstractRelic makeCopy() { // always override this method to return a new instance of your relic
 		return new FightingGloves();
+	}
+
+	@Override
+	public void onRightClick() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
