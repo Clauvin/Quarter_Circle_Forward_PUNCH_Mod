@@ -5,6 +5,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Interpolation;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.rooms.AbstractRoom.RoomPhase;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 
 import qcfpunch.relics.ryu.FightingGloves;
@@ -45,6 +46,11 @@ public class FightingGlovesTrainEffect extends AbstractGameEffect {
 	        FightingGloves.player_havent_right_clicked_in_relic_here_before = false;
 			fighting_gloves.upgradingCards();
 	    } 
+	    if (FightingGloves.cards_have_been_upgraded_in_this_room) {
+	    	this.isDone = true;
+	    	this.opened_screen = false;
+
+	    }
 	}
 	
 	private void updateBlackScreenColor() {

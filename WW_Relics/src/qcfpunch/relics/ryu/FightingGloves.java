@@ -38,8 +38,8 @@ public class FightingGloves extends CustomRelic implements ClickableRelic {
 	
 	private static int number_of_cards_that_can_be_upgraded;
 	
-	private static boolean cards_have_been_upgraded_in_this_room = false;
-	private static int number_of_cards_upgraded_in_this_room = 0;
+	public static boolean cards_have_been_upgraded_in_this_room = false;
+	public static int number_of_cards_upgraded_in_this_room = 0;
 	
 	private static boolean player_right_clicked_in_relic_in_this_room = false;
 	public static boolean player_havent_right_clicked_in_relic_here_before = true;
@@ -201,7 +201,6 @@ public class FightingGloves extends CustomRelic implements ClickableRelic {
 				AbstractDungeon.gridSelectScreen.selectedCards.clear();
 				
 				AbstractDungeon.overlayMenu.hideBlackScreen();
-				AbstractDungeon.dynamicBanner.appear();
 				AbstractDungeon.isScreenUp = false;
 				
 		    }
