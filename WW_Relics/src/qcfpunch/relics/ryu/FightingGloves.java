@@ -187,8 +187,6 @@ public class FightingGloves extends CustomRelic implements ClickableRelic {
 		if (player_right_clicked_in_relic_in_this_room) {
 			if (isTimeToUpgradeTheChosenCards())
 		    {
-				logger.info("Step 1");
-				
 	            flash();
 				
 				ArrayList<AbstractCard> cards_chosen = getCardsToUpgrade();

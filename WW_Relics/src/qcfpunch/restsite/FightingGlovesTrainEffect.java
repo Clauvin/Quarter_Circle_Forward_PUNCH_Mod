@@ -15,8 +15,6 @@ public class FightingGlovesTrainEffect extends AbstractGameEffect {
 	private boolean opened_screen;
 	private Color screen_color;
 	
-	
-	
 	public FightingGlovesTrainEffect() {
 		  
 		fighting_gloves = null;
