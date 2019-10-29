@@ -14,7 +14,7 @@ public class FightingGlovesTrainOption extends AbstractCampfireOption {
 	public FightingGlovesTrainOption(boolean usable) {
 		this.label = FightingGlovesTrainOption.TEXT[0];
         this.description = FightingGlovesTrainOption.TEXT[1];
-        this.img = ImageMaster.CAMPFIRE_DIG_BUTTON;
+        this.img = ImageMaster.CAMPFIRE_TRAIN_BUTTON;
 		this.usable = usable;
 	}
 	
