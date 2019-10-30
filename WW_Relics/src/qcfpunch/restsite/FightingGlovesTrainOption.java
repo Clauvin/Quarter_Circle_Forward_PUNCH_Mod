@@ -6,10 +6,14 @@ import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.ui.campfire.AbstractCampfireOption;
 
+import qcfpunch.relics.ryu.FightingGloves;
+
 public class FightingGlovesTrainOption extends AbstractCampfireOption {
 
     private static final UIStrings uiStrings;
     public static final String[] TEXT;
+    
+    private static boolean called_campfire_reset_effect = false; 
 	
 	public FightingGlovesTrainOption(boolean usable) {
 		this.label = FightingGlovesTrainOption.TEXT[0];
@@ -19,9 +23,20 @@ public class FightingGlovesTrainOption extends AbstractCampfireOption {
 	}
 	
 	public void useOption() {
-		AbstractDungeon.effectList.add(new FightingGlovesTrainEffect(this));
+		AbstractDungeon.effectList.add(new FightingGlovesTrainEffect());
 	}
     
+	@Override
+	public void update() {
+		super.update();
+		if ((FightingGloves.cards_have_been_upgraded_in_this_room) &&
+				(!called_campfire_reset_effect)) {
+			called_campfire_reset_effect = true;
+			AbstractDungeon.effectList.add(new CampfireBurnResetEffect(this));
+		}
+		
+	}
+	
     static {
         uiStrings = CardCrawlGame.languagePack.getUIString("Train Option");
         TEXT = FightingGlovesTrainOption.uiStrings.TEXT;
