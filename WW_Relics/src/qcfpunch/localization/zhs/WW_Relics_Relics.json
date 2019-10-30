@@ -88,18 +88,18 @@
   },
     
   "qcfpunch:Fighting_Gloves": {
-    "NAME": "格斗手套",
-    "FLAVOR": "“斗志昂扬！谁想和我一起训练？” - 兰伟德。",
+    "NAME": "Fighting Gloves",
+    "FLAVOR": "\"Inspiring! Who wants to train with me?\" - Ranwid.",
     "DESCRIPTIONS": [
-    "#r初始拥有",
-    "点充能",
-    "。",
-    " 在休息处，按下选择选项前， #r右键 使用所有的充能，每 #b1 点充能升级一张牌。每经过 #b",
-    " 层，获得 #b1 点充能",
-    "选择 ", 
-    " 张牌",
-    " 张牌",
-    " 升级。"
+    "#rStarts #rwith #r",
+    " #rcharge",
+    ".",
+    " At Rest Sites, you can use all charges to #yUpgrade #b1 chosen card per charge, as a free action. Each #b",
+    " rooms, gain #b1 charge.",
+    "Choose ", 
+    " card",
+    " cards",
+    " to upgrade."
     ]
   },
   
