@@ -139,7 +139,7 @@ public class FightingGloves extends CustomRelic implements ClickableRelic {
 	
 	private boolean haveCardsToUpgrade() { return getValidCardGroup().size() > 0; }
 	
-	private CardGroup getValidCardGroup() {
+	private static CardGroup getValidCardGroup() {
 		
 		CardGroup valid_card_group = new CardGroup(CardGroupType.UNSPECIFIED);
 		CardGroup master_deck = AbstractDungeon.player.masterDeck;
@@ -162,15 +162,7 @@ public class FightingGloves extends CustomRelic implements ClickableRelic {
 		
 		AbstractDungeon.getCurrRoom().phase = RoomPhase.INCOMPLETE;
 		
-		if (getValidCardGroup().size() >= positive_charges) {
-
-			number_of_cards_that_can_be_upgraded = positive_charges;
-			
-		} else {
-			
-			number_of_cards_that_can_be_upgraded = getValidCardGroup().size();
-			
-		}
+		number_of_cards_that_can_be_upgraded = howManyCardsCanBeUpgraded();
 		
 		AbstractDungeon.gridSelectScreen.open(getValidCardGroup(),
 				number_of_cards_that_can_be_upgraded,
@@ -178,6 +170,13 @@ public class FightingGloves extends CustomRelic implements ClickableRelic {
 		
 		player_right_clicked_in_relic_in_this_room = true;
 		
+	}
+	
+	public static int howManyCardsCanBeUpgraded() {
+		
+		if (getValidCardGroup().size() >= positive_charges) return positive_charges;
+		else return getValidCardGroup().size();
+
 	}
 	
 	public void update()
