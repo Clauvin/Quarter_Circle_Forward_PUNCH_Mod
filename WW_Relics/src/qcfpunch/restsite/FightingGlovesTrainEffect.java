@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Interpolation;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.rooms.AbstractRoom.RoomPhase;
+import com.megacrit.cardcrawl.ui.campfire.AbstractCampfireOption;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 
 import qcfpunch.relics.ryu.FightingGloves;
@@ -16,7 +17,9 @@ public class FightingGlovesTrainEffect extends AbstractGameEffect {
 	private boolean opened_screen;
 	private Color screen_color;
 	
-	public FightingGlovesTrainEffect() {
+	private AbstractCampfireOption caller_option;
+	
+	public FightingGlovesTrainEffect(AbstractCampfireOption caller_option) {
 		  
 		fighting_gloves = null;
 	
@@ -31,7 +34,8 @@ public class FightingGlovesTrainEffect extends AbstractGameEffect {
 		
 		this.opened_screen = false;
 		this.screen_color = AbstractDungeon.fadeColor.cpy();
-		  
+		
+		this.caller_option = caller_option;
 	}
 	
 	@Override
@@ -49,7 +53,7 @@ public class FightingGlovesTrainEffect extends AbstractGameEffect {
 	    if (FightingGloves.cards_have_been_upgraded_in_this_room) {
 	    	this.isDone = true;
 	    	this.opened_screen = false;
-
+	    	AbstractDungeon.effectList.add(new CampfireBurnResetEffect(caller_option));
 	    }
 	}
 	
