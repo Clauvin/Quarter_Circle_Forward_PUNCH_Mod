@@ -17,9 +17,20 @@ public class FightingGlovesTrainOption extends AbstractCampfireOption {
 	
 	public FightingGlovesTrainOption(boolean usable) {
 		this.label = FightingGlovesTrainOption.TEXT[0];
-        this.description = FightingGlovesTrainOption.TEXT[1] +
-        		FightingGloves.howManyCardsCanBeUpgraded() + 
-        		FightingGlovesTrainOption.TEXT[2];
+		
+		int cards_that_can_be_upgraded = FightingGloves.howManyCardsCanBeUpgraded();
+		
+		if (cards_that_can_be_upgraded > 1) {
+			this.description = FightingGlovesTrainOption.TEXT[1] +
+	        		FightingGloves.howManyCardsCanBeUpgraded() + 
+	        		FightingGlovesTrainOption.TEXT[3];
+		} else if (cards_that_can_be_upgraded == 1) {
+			this.description = FightingGlovesTrainOption.TEXT[1] +
+	        		FightingGloves.howManyCardsCanBeUpgraded() + 
+	        		FightingGlovesTrainOption.TEXT[2];
+		}
+		
+        
         this.img = ImageMaster.CAMPFIRE_TRAIN_BUTTON;
 		this.usable = usable;
 	}
