@@ -1,9 +1,5 @@
 package qcfpunch.restsite;
 
-import com.megacrit.cardcrawl.localization.*;
-import com.megacrit.cardcrawl.mod.replay.cards.*;
-import com.megacrit.cardcrawl.mod.replay.rooms.*;
-import com.megacrit.cardcrawl.mod.replay.vfx.*;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.rooms.CampfireUI;
 import com.megacrit.cardcrawl.rooms.RestRoom;
@@ -13,7 +9,6 @@ import com.megacrit.cardcrawl.dungeons.*;
 import java.util.ArrayList;
 
 import com.badlogic.gdx.*;
-import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.core.*;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 
@@ -27,7 +22,6 @@ import com.megacrit.cardcrawl.helpers.*;
 // Copied from The-Evil-Pickle's Replay-the-Spire code
 public class CampfireBurnResetEffect extends AbstractGameEffect
 {
-    private static final float DUR = 1.5f;
     private boolean openedScreen;
     private Color screenColor;
     private AbstractCampfireOption caller;
