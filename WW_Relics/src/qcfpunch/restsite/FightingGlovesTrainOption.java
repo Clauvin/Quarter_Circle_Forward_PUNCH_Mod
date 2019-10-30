@@ -13,7 +13,7 @@ public class FightingGlovesTrainOption extends AbstractCampfireOption {
     private static final UIStrings uiStrings;
     public static final String[] TEXT;
     
-    private static boolean called_campfire_reset_effect = false; 
+    private boolean called_campfire_reset_effect = false; 
 	
 	public FightingGlovesTrainOption(boolean usable) {
 		this.label = FightingGlovesTrainOption.TEXT[0];
