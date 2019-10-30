@@ -7,8 +7,9 @@
 	
 	"Train Option": {
 	    "TEXT": [
-	      "Train (free action)",
-	      "Upgrade at most X cards of your deck."
+	      "Train (Free Choice)",
+	      "Upgrade at most ",
+	      " cards of your deck."
 	    ]
   	}
 }
