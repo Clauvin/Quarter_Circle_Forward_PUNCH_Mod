@@ -19,7 +19,7 @@ public class FightingGlovesTrainOption extends AbstractCampfireOption {
 	}
 	
 	public void useOption() {
-		AbstractDungeon.effectList.add(new FightingGlovesTrainEffect());
+		AbstractDungeon.effectList.add(new FightingGlovesTrainEffect(this));
 	}
     
     static {
