@@ -28,10 +28,14 @@ public class FightingGlovesTrainOption extends AbstractCampfireOption {
 			this.description = FightingGlovesTrainOption.TEXT[1] +
 	        		FightingGloves.howManyCardsCanBeUpgraded() + 
 	        		FightingGlovesTrainOption.TEXT[2];
+		} else {
+			this.description = "";
 		}
 		
-        
-        this.img = ImageMaster.CAMPFIRE_TRAIN_BUTTON;
+        if (cards_that_can_be_upgraded > 0) {
+        	this.img = ImageMaster.CAMPFIRE_TRAIN_BUTTON;
+        } else this.img = ImageMaster.CAMPFIRE_TRAIN_DISABLE_BUTTON;
+       
 		this.usable = usable;
 	}
 	
