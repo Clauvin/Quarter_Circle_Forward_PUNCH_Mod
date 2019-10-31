@@ -416,7 +416,9 @@ public class QCFPunch_Mod implements AddCustomModeModsSubscriber, EditStringsSub
             UnceasingFlame.load(config);
             SchoolBackpack.load(config);
             RainbowBrush.load(config);
-            PrimaryBrush.load(config);
+            if (QCFP_Misc.silentlyCheckForMod(QCFP_Misc.the_artist_class_code)) {
+            	PrimaryBrush.load(config);
+            }
             Cattail.load(config);
             if (shouldSanitizeActOne()) {
             	ChallengerCoin.sanitizingActOne(config);
@@ -446,7 +448,9 @@ public class QCFPunch_Mod implements AddCustomModeModsSubscriber, EditStringsSub
             SchoolBackpack.save(config);
             Cattail.save(config);
             RainbowBrush.save(config);
-            PrimaryBrush.save(config);
+            if (QCFP_Misc.silentlyCheckForMod(QCFP_Misc.the_artist_class_code)) {
+            	PrimaryBrush.save(config);
+            }
             ChallengerCoin.save(config);
             
         }
