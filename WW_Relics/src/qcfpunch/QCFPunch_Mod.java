@@ -42,6 +42,7 @@ import qcfpunch.relics.character_cameos.dan.NotStrongestFightingStyleGuidebook;
 import qcfpunch.relics.character_cameos.sakura.SchoolBackpack;
 import qcfpunch.relics.character_cameos.valerie.MixedPaintBucket;
 import qcfpunch.relics.character_cameos.valerie.PrimaryBrush;
+import qcfpunch.relics.character_cameos.valerie.PrimaryBrushNoArtistSaveFix;
 import qcfpunch.relics.character_cameos.valerie.RainbowBrush;
 import qcfpunch.relics.mortal_kombat.*;
 import qcfpunch.relics.no_relation.Cattail;
@@ -467,7 +468,12 @@ public class QCFPunch_Mod implements AddCustomModeModsSubscriber, EditStringsSub
             SchoolBackpack.clear(config);
             Cattail.clear(config);
             RainbowBrush.clear(config);
-            PrimaryBrush.clear(config);
+            if (QCFP_Misc.silentlyCheckForMod(QCFP_Misc.the_artist_class_code)) {
+            	PrimaryBrush.clear(config);
+            } else {
+            	PrimaryBrushNoArtistSaveFix.clear(config);
+            }
+            
             ChallengerCoin.clear(config);
         	config.save();
 
