@@ -29,6 +29,7 @@ public class SpecialOpsInsignia extends CustomRelic  {
 	
 	public SpecialOpsInsignia() {
 		super(ID, GraphicResources.LoadRelicImage("White_Boots - steeltoe-boots - Lorc - CC BY 3.0.png"),
+				GraphicResources.LoadOutlineImage("White Boots Outline.png"),
 				RelicTier.RARE, LandingSound.FLAT);
 	}
 	
