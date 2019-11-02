@@ -117,7 +117,7 @@ Kiooeht (https://github.com/kiooeht) for ModTheSpire (https://github.com/kiooeht
 
 AGAIN Kiooeht for StSLib (https://github.com/kiooeht/StSLib), because it helps a lot for modding :)
 
-GK (https://github.com/erasels) as pointing many times that relic descriptions with 5 lines were no good.
+GK (https://github.com/erasels), the patron of Simplicity and Less Text Lines, as pointing many, MANY times that relic descriptions with 5 lines were no good.
 
 The-Evil-Pickle, for the [Replay The Spire](https://github.com/The-Evil-Pickle/Replay-the-Spire) save/load code, it was the basis of the one used at this mod.
 
