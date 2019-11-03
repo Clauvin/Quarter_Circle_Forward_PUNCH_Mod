@@ -50,7 +50,7 @@ Link too in the [wiki's page](https://github.com/Clauvin/World_Warriors_Relics/w
 
 - (thanks to rl issues, a pause will be made in this mod's development but 16 relics will be done already when finishing the fourth milestone)
 
-6. Relics inspired by Cammy, Dhalsim, Blanka, Zangief and a secret guest.
+6. Relics inspired by Cammy, Dhalsim, Blanka, Zangief and as a guest, Valerie from Fantasy Strike.
 7. Starting support to Nexus Mods.
 8. One boss relic for Boxer, Claw, Sagat and Dictator, respectively. (about the names chosen here, check https://en.wikipedia.org/wiki/Street_Fighter_II:_The_World_Warrior#Regional_differences)
 9. Focus in Akuma's inspired relic.
