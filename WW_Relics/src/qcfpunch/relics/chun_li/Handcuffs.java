@@ -2,6 +2,7 @@ package qcfpunch.relics.chun_li;
 
 import com.evacipated.cardcrawl.mod.stslib.actions.common.StunMonsterAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.cards.DamageInfo.DamageType;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -11,12 +12,12 @@ import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 import basemod.abstracts.CustomRelic;
-import qcfpunch.QCFPunch_MiscCode;
+import qcfpunch.QCFP_Misc;
 import qcfpunch.powers.UnsteadyPower;
 import qcfpunch.resources.relic_graphics.GraphicResources;
 
 public class Handcuffs extends CustomRelic {
-	public static final String ID = QCFPunch_MiscCode.returnPrefix() + "Handcuffs";
+	public static final String ID = QCFP_Misc.returnPrefix() + "Handcuffs";
 	
 	private static final int NUMBER_OF_USES_PER_FIGHT = 1;
 	private static final int NUMBER_OF_STR_DOWN_DEBUFFS = 0;
@@ -72,6 +73,9 @@ public class Handcuffs extends CustomRelic {
 
 			AbstractDungeon.actionManager.addToTop(
 					 new StunMonsterAction((AbstractMonster)target, AbstractDungeon.player));
+			
+			AbstractDungeon.actionManager.addToTop(
+					new RelicAboveCreatureAction(target, this));
 			
 			number_of_uses_left_in_this_fight--;
 		}

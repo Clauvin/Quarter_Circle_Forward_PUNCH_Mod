@@ -14,12 +14,12 @@ import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 
 import basemod.abstracts.CustomRelic;
-import qcfpunch.QCFPunch_MiscCode;
+import qcfpunch.QCFP_Misc;
 import qcfpunch.resources.relic_graphics.GraphicResources;
 
 public class Cattail extends CustomRelic {
 
-	public static final String ID = QCFPunch_MiscCode.returnPrefix() +
+	public static final String ID = QCFP_Misc.returnPrefix() +
 			"Cattail";
 	
 	public static int HOW_MANY_ROOMS_TO_GIVE_SMOKE_BOMB = 7;
@@ -74,7 +74,7 @@ public class Cattail extends CustomRelic {
         	String class_name = AbstractDungeon.player.getClass().getName();
         	
     		logger.info("Started saving " + ID + " information from");
-    		logger.info(QCFPunch_MiscCode.classAndSaveSlotText());
+    		logger.info(QCFP_Misc.classAndSaveSlotText());
 
             config.setInt("cattail_class_" + class_name +
             		"_save_slot_" + CardCrawlGame.saveSlot +
@@ -88,7 +88,7 @@ public class Cattail extends CustomRelic {
 			}
             
             logger.info("Finished saving " + ID + " info from");
-            logger.info(QCFPunch_MiscCode.classAndSaveSlotText());
+            logger.info(QCFP_Misc.classAndSaveSlotText());
         }
 
     }
@@ -96,7 +96,7 @@ public class Cattail extends CustomRelic {
 	public static void load(final SpireConfig config) {
 		
 		logger.info("Loading " + ID + " info");
-        logger.info(QCFPunch_MiscCode.classAndSaveSlotText());
+        logger.info(QCFP_Misc.classAndSaveSlotText());
         
     	String class_name = AbstractDungeon.player.getClass().getName();
 		
@@ -117,7 +117,7 @@ public class Cattail extends CustomRelic {
 				e.printStackTrace();
 			}
             logger.info("Finished loading " + ID + " info");
-            logger.info(QCFPunch_MiscCode.classAndSaveSlotText());
+            logger.info(QCFP_Misc.classAndSaveSlotText());
         }
 		
 		else
@@ -138,14 +138,14 @@ public class Cattail extends CustomRelic {
         		"_last_floor_where_relic_was_used")) {
 			
 			logger.info("Clearing " + ID + " variables from");
-	        logger.info(QCFPunch_MiscCode.classAndSaveSlotText());			
+	        logger.info(QCFP_Misc.classAndSaveSlotText());			
 			
 			config.remove("cattail_class_" + class_name +
 	        		"_save_slot_" + CardCrawlGame.saveSlot +
 	        		"_last_floor_where_relic_was_used");
 			
 			logger.info("Finished clearing " + ID + " variables from");
-	        logger.info(QCFPunch_MiscCode.classAndSaveSlotText());	
+	        logger.info(QCFP_Misc.classAndSaveSlotText());	
 			
 		} else {
 			logger.info("No " + ID + " variables to clean from this case.");

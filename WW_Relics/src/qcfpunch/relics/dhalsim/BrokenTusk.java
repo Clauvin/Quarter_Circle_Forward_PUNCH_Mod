@@ -6,17 +6,17 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 import basemod.abstracts.CustomRelic;
-import qcfpunch.QCFPunch_MiscCode;
+import qcfpunch.QCFP_Misc;
 import qcfpunch.powers.FuryPower;
 import qcfpunch.resources.relic_graphics.GraphicResources;
 
 public class BrokenTusk extends CustomRelic {
 
-	public static final String ID = QCFPunch_MiscCode.returnPrefix() +
+	public static final String ID = QCFP_Misc.returnPrefix() +
 			"Broken_Tusk";
 	
 	public static final int EXTRA_DAMAGE_PER_CURSE_OR_STATUS = 2;
-	public boolean extra_damage_got_activated_this_turn = false;
+	public boolean extra_damage_got_activated = false;
 	
 	public BrokenTusk() {
 		super(ID, GraphicResources.LoadRelicImage(
@@ -30,18 +30,22 @@ public class BrokenTusk extends CustomRelic {
 	}
 	
 	@Override
-	public void atTurnStart() {
-		extra_damage_got_activated_this_turn = false;
+	public void atBattleStart() {
+		extra_damage_got_activated = false;
 	}
 	
 	public void onCardDraw(AbstractCard drawnCard) {
-		if (!extra_damage_got_activated_this_turn) {
-			extra_damage_got_activated_this_turn = true;
-			AbstractDungeon.actionManager.addToBottom(
-				new ApplyPowerAction(AbstractDungeon.player,
-						AbstractDungeon.player,
-						new FuryPower(AbstractDungeon.player, 2)));
+		if (QCFP_Misc.cardIsACurseOrStatus(drawnCard)) {
+			if (!extra_damage_got_activated) {
+				extra_damage_got_activated = true;
+				AbstractDungeon.actionManager.addToBottom(
+					new ApplyPowerAction(AbstractDungeon.player,
+							AbstractDungeon.player,
+							new FuryPower(AbstractDungeon.player, 2)));
+			}
 		}
+		
+		
 	}
 	
 	public boolean canSpawn() {

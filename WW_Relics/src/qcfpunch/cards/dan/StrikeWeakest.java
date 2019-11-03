@@ -11,11 +11,11 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import basemod.abstracts.CustomCard;
-import qcfpunch.QCFPunch_MiscCode;
+import qcfpunch.QCFP_Misc;
 
 public class StrikeWeakest extends CustomCard {
 
-	public static final String ID = QCFPunch_MiscCode.returnPrefix() + "Strike_Weakest";
+	public static final String ID = QCFP_Misc.returnPrefix() + "Strike_Weakest";
     private static final CardStrings cardStrings;
     public static final String NAME;
     public static final String DESCRIPTION;
@@ -23,7 +23,7 @@ public class StrikeWeakest extends CustomCard {
     private static final int ATTACK_DMG = 1;
 	
     public StrikeWeakest() {
-        super(ID, StrikeWeakest.NAME, QCFPunch_MiscCode.returnCardsImageMainFolder() + "strike_weakest.png",
+        super(ID, StrikeWeakest.NAME, QCFP_Misc.returnCardsImageMainFolder() + "strike_weakest.png",
         		StrikeWeakest.COST, StrikeWeakest.DESCRIPTION,
         		CardType.ATTACK, CardColor.COLORLESS, CardRarity.BASIC, CardTarget.ENEMY);
         

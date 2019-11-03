@@ -45,6 +45,18 @@
     ]
   },
   
+    
+  "qcfpunch:ChallengerCoinText": {
+    "NAME": "New Challenger Coin",
+    "FLAVOR": "Just for the Fighting Noises event.",
+    "DESCRIPTIONS": [
+      "The next floor #bnon-combat",
+	  ", #bnon-Portal",
+	  " rooms you can normally go will be, instead, #yElite #yrooms."
+    ]
+  },
+  
+  
   "qcfpunch:Combat_Fatigues": {
     "NAME": "迷彩服",
     "FLAVOR": "“战场服饰。能让你防御之后加以还击，但是不是为了和平。切记别忘了最后把它们取下来，好吗？” - 兰伟德。",
@@ -76,18 +88,18 @@
   },
     
   "qcfpunch:Fighting_Gloves": {
-    "NAME": "格斗手套",
-    "FLAVOR": "“斗志昂扬！谁想和我一起训练？” - 兰伟德。",
+    "NAME": "Fighting Gloves",
+    "FLAVOR": "\"Inspiring! Who wants to train with me?\" - Ranwid.",
     "DESCRIPTIONS": [
-    "#r初始拥有",
-    "点充能",
-    "。",
-    " 在休息处，按下选择选项前， #r右键 使用所有的充能，每 #b1 点充能升级一张牌。每经过 #b",
-    " 层，获得 #b1 点充能",
-    "选择 ", 
-    " 张牌",
-    " 张牌",
-    " 升级。"
+    "#rStarts #rwith #r",
+    " #rcharge",
+    ".",
+    " At Rest Sites, you can use all charges to #yUpgrade #b1 chosen deck's card per charge, as a free choice (if chosen first). Each #b",
+    " rooms, gain #b1 charge.",
+    "Choose ", 
+    " card",
+    " cards",
+    " to upgrade."
     ]
   },
   
@@ -134,7 +146,15 @@
  	  "Choose a card to upgrade."
     ]
   },
-    
+  
+  "qcfpunch:Mixed_Paint_Bucket": {
+    "NAME": "Mixed Paint Bucket",
+    "FLAVOR": "Rainbows can't be painted with only one color.",
+ 	"DESCRIPTIONS": [
+ 	  "At combat start, for each card color in your hand, add one #bPallete #bPick to your hand, with Retain and Exhaust."
+    ]
+  },
+
   "qcfpunch:Neverending_Blood": {
     "NAME": "湍流鲜血",
     "FLAVOR": "现在里面的血太多了，几乎感觉像是可以漏出来。",
@@ -151,6 +171,27 @@
     "FLAVOR": "“我的天，我必须把我读过的东西全忘了。怎么会有人这样战斗的？！”",
     "DESCRIPTIONS": [
       "每回合开始时，将一张随机 #yqcfpunch:最强流 牌加入你的手牌。 NL 你的手牌数量上限提高 #b1 。"
+    ]
+  },
+  
+  "qcfpunch:Primary_Brush": {
+    "NAME": "Primary Brush",
+    "FLAVOR": "Three colors, broad strokes, and lonely determination... - The Artist",
+ 	"DESCRIPTIONS": [
+ 	  "Every #y3 Attacks played, Paint #y2 #rRed. NL Every #y3 Skills played, Paint 2 #gGreen. Every #y3 Powers played, Paint 2 #bBlue."
+    ]
+  },
+  
+  "qcfpunch:Rainbow_Brush": {
+    "NAME": "Rainbow Brush",
+    "FLAVOR": "Red Blue paints, the clouds pierce \n Darkness blocks twin star \n Nothing until the cycle restarts",
+    "DESCRIPTIONS": [
+      "Every #b",
+      " cards played, add this turn's [#9400d3]r[#4b0082]a[#0000FF]n[#00FF00]d[#FFFF00]o[#FF7F00]m[#FF0000]i[#FF3333]z[#FF8888]e[#FFFFFF]d",
+      " card to your hand. It costs 1-less and has #yRetain, unless",
+      " it's a #rStatus or #rCurse.",
+      "Rainbow Brush",
+      "If you wanna recheck which card Rainbow Brush's will give this turn, just place your mouse above the relic!"
     ]
   },
   

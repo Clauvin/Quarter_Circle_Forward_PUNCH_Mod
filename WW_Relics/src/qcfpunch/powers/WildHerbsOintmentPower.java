@@ -5,11 +5,11 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
-import qcfpunch.QCFPunch_MiscCode;
+import qcfpunch.QCFP_Misc;
 
 public class WildHerbsOintmentPower extends AbstractPower {
 	
-	public static final String POWER_ID = QCFPunch_MiscCode.returnPrefix() +
+	public static final String POWER_ID = QCFP_Misc.returnPrefix() +
 			"Power_Wild_Herbs_Ointment";
 	private static final PowerStrings powerStrings = 
 			CardCrawlGame.languagePack.getPowerStrings(POWER_ID);

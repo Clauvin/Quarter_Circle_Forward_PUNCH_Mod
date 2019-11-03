@@ -4,6 +4,11 @@
     	"DESCRIPTION": "Ethereal. NL Gain !B! Block. NL Exhaust."
   	},
   	
+  	"qcfpunch:ErrorCard": {
+    	"NAME": "Error!",
+    	"DESCRIPTION": "Something broke this relic. Can you inform Quarter Circle Forward PUNCH mod's creator about it? Thanks!"
+  	},
+  	
   	"qcfpunch:Finished": {
     	"NAME": "Finished",
     	"DESCRIPTION": "Enough choices were made by now."

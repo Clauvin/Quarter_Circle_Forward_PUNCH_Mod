@@ -16,7 +16,7 @@ import com.megacrit.cardcrawl.vfx.cardManip.ShowCardBrieflyEffect;
 
 import basemod.abstracts.CustomRelic;
 import qcfpunch.QCFPunch_GoodBehaviorLine;
-import qcfpunch.QCFPunch_MiscCode;
+import qcfpunch.QCFP_Misc;
 import qcfpunch.resources.relic_graphics.GraphicResources;
 
 //Currently won't work with Vampires event
@@ -25,7 +25,7 @@ import qcfpunch.resources.relic_graphics.GraphicResources;
 public class NecklaceOfSkulls extends CustomRelic
 							  implements OnRemoveCardFromMasterDeckRelic {
 
-	public static final String ID = QCFPunch_MiscCode.returnPrefix() +
+	public static final String ID = QCFP_Misc.returnPrefix() +
 			"Necklace_of_Skulls";
 	
 	private static int amount_of_upgrades = 0;

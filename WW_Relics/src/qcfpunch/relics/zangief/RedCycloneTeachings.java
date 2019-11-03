@@ -10,13 +10,13 @@ import com.megacrit.cardcrawl.monsters.MonsterGroup;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 import basemod.abstracts.CustomRelic;
-import qcfpunch.QCFPunch_MiscCode;
+import qcfpunch.QCFP_Misc;
 import qcfpunch.actions.EndTurnNowAction;
 import qcfpunch.resources.relic_graphics.GraphicResources;
 
 public class RedCycloneTeachings extends CustomRelic  {
 	
-	public static final String ID = QCFPunch_MiscCode.returnPrefix() + "Red_Cyclone_Teachings";
+	public static final String ID = QCFP_Misc.returnPrefix() + "Red_Cyclone_Teachings";
 	
 	public static final int MINIMUM_COST_TO_STUN = 3;
 	public static final int MAXIMUM_AMOUNT_OF_USES_PER_COMBAT = 2;

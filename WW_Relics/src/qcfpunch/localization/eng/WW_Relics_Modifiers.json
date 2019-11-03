@@ -1,4 +1,9 @@
 {
+	"qcfpunch:AsceticMonk": {
+		"NAME": "Ascetic Monk",
+		"DESCRIPTION": "Start with Broken Tusk, Necklace Of Skulls and Lotus Statue."
+	},
+
 	"qcfpunch:BlazingFist": {
 		"NAME": "Blazing Fist",
 		"DESCRIPTION": "Start with Black Training Shirt, Red Gi and Unceasing Flame."
@@ -7,6 +12,11 @@
 	"qcfpunch:BlueJade": {
 		"NAME": "Blue Jade",
 		"DESCRIPTION": "Start with Spiky Bracers, White Boots and Handcuffs."
+	},
+	
+	"qcfpunch:DeltaSpike": {
+		"NAME": "Delta Spike",
+		"DESCRIPTION": "Start with Red Beret, Green Leotard and Special Ops Insignia."
 	},
 	
 	"qcfpunch:FreshStart": {
@@ -32,6 +42,16 @@
 	"qcfpunch:QuarterHealthBar": {
 		"NAME": "Quarter Health Bar",
 		"DESCRIPTION": "Start with 25% Max HP."
+	},
+	
+	"qcfpunch:RedCyclone": {
+		"NAME": "Red Cyclone",
+		"DESCRIPTION": "Start with Wrestler's Cloak, Wild Herbs Ointment and Red Cyclone Teachings."
+	},
+	
+	"qcfpunch:UnboundedCreativity": {
+		"NAME": "Unbounded Creativity",
+		"DESCRIPTION": "Start with Rainbow Brush. Random multicolor shenanigans!"
 	},
 
 	"qcfpunch:WanderingWarrior": {

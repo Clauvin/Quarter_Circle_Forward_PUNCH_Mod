@@ -9,8 +9,8 @@ This mod follows the [Creative Commons Attribution 3.0 Unported](https://creativ
 
 # Content
 
-* Twenty-four relics done of 34+ planned, with temporary images and placeholder sounds.
-* Eight game modifiers, ranging from adding more relics at start to making the game harder.
+* Twenty-seven relics done of 34+ planned, with temporary images and placeholder sounds.
+* Eleven game modifiers, ranging from adding more relics at start to making the game harder.
 * Six cards, acessible through one specific relic.
 * One event, which is the gateway for two relics and one potion.
 
@@ -84,6 +84,10 @@ Slay The Spire 1.1, Mod The Spire 3.11.0+, BaseMod 5.15.1+ and StSLib 1.17.1+ (w
 * Vex's [The Artificer](https://steamcommunity.com/sharedfiles/filedetails/?id=1842757025) character mod does NOT use cards, and break cards that somehow reach your hand. This should mess with the "Strongest" Style Guidebook relic.
 
 * The [RumiaBox mod](https://steamcommunity.com/sharedfiles/filedetails/?id=1633577327) has an effect through the Challenger Book relic which gives you as a reward, a double of a relic which you already has. There's one case already of this mod's Duffel Bag relic crashing a game when it applied its effect when a double from an old WW_Relics mod version was present. This will be tested and if possible, fixed in the future. So far, just don't get a second Duffel Bag if the possibility is available.
+
+* The [Senshi mod](https://steamcommunity.com/sharedfiles/filedetails/?id=1787031743)'s cards which have unique animations do not work well when used by characters that aren't The Senshi and crash the game as a result. That by itself is not a problem, but the Rainbow Brush modifier gives the Rainbow Brush relic, and since that relic can give cards of other character mods which are loaded...
+
+...I can't recommend using that modifier with Senshi mod, if you aren't using the Senshi character.
 
 ## List of Incompatible Mods:
 

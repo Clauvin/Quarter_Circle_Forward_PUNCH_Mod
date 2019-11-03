@@ -11,13 +11,13 @@ import com.megacrit.cardcrawl.rooms.MonsterRoomElite;
 import com.megacrit.cardcrawl.rooms.AbstractRoom.RoomPhase;
 
 import basemod.abstracts.CustomRelic;
-import qcfpunch.QCFPunch_MiscCode;
+import qcfpunch.QCFP_Misc;
 import qcfpunch.actions.RemoveRelicFromPlayerAction;
 import qcfpunch.resources.relic_graphics.GraphicResources;
 
 public class WrestlersCloak extends CustomRelic implements ClickableRelic {
 	
-	public static final String ID = QCFPunch_MiscCode.returnPrefix() + "Wrestler's_Cloak";
+	public static final String ID = QCFP_Misc.returnPrefix() + "Wrestler's_Cloak";
 	
 	public final int TEMP_HP_TO_GIVE = 5;
 	public final float HP_PERCENTAGE_TO_TRIGGER_WARNING = 0.20f;

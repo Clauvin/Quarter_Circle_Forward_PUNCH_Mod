@@ -23,7 +23,7 @@ import basemod.BaseMod;
 //import basemod.ModPanel;
 import basemod.helpers.RelicType;
 import basemod.interfaces.*;
-import qcfpunch.QCFPunch_MiscCode;
+import qcfpunch.QCFP_Misc;
 import qcfpunch.events.act2.FightingNoisesEvent;
 import qcfpunch.modifiers.*;
 import qcfpunch.monsters.elites.TiredGremlinNob;
@@ -40,6 +40,10 @@ import qcfpunch.relics.zangief.*;
 import qcfpunch.relics.cammy.*;
 import qcfpunch.relics.character_cameos.dan.NotStrongestFightingStyleGuidebook;
 import qcfpunch.relics.character_cameos.sakura.SchoolBackpack;
+import qcfpunch.relics.character_cameos.valerie.MixedPaintBucket;
+import qcfpunch.relics.character_cameos.valerie.PrimaryBrush;
+import qcfpunch.relics.character_cameos.valerie.PrimaryBrushNoArtistSaveFix;
+import qcfpunch.relics.character_cameos.valerie.RainbowBrush;
 import qcfpunch.relics.mortal_kombat.*;
 import qcfpunch.relics.no_relation.Cattail;
 
@@ -52,10 +56,10 @@ public class QCFPunch_Mod implements AddCustomModeModsSubscriber, EditStringsSub
 
 	public static final Logger logger = LogManager.getLogger(QCFPunch_Mod.class.getName()); // lets us log output
 
-	public static final String MODNAME = QCFPunch_MiscCode.returnModName(); // mod name
-	public static final String MODID = QCFPunch_MiscCode.returnPrefix();
+	public static final String MODNAME = QCFP_Misc.returnModName(); // mod name
+	public static final String MODID = QCFP_Misc.returnPrefix();
 	public static final String AUTHOR = "Levender"; // your name
-	public static final String DESCRIPTION = QCFPunch_MiscCode.returnDescription();
+	public static final String DESCRIPTION = QCFP_Misc.returnDescription();
 	
 	public static final String INITIAL_LANGUAGE = "eng";
 	
@@ -104,7 +108,7 @@ public class QCFPunch_Mod implements AddCustomModeModsSubscriber, EditStringsSub
 						
 		Gson gson = new Gson();
 		String keywordStringsAddress = 
-				QCFPunch_MiscCode.returnSpecificLocalizationFile(
+				QCFP_Misc.returnSpecificLocalizationFile(
 						language + "/WW_Relics_Keywords.json");
 		String json = getJsonText(keywordStringsAddress); 
 		KeywordWithProper[] keywords = gson.fromJson(json, KeywordWithProper[].class);
@@ -156,6 +160,7 @@ public class QCFPunch_Mod implements AddCustomModeModsSubscriber, EditStringsSub
 	    LoadPotionsJSON(language);
 	    LoadEventsJSON(language);
 	    LoadMonstersJSON(language);
+	    LoadUIJSON(language);
 	    
 	    logger.info("finished editing " + language + " strings");
 		
@@ -163,7 +168,7 @@ public class QCFPunch_Mod implements AddCustomModeModsSubscriber, EditStringsSub
 	
 	private void LoadRelicsJSON(String language) {
 		String relicStringsAddress =
-				QCFPunch_MiscCode.returnSpecificLocalizationFile(
+				QCFP_Misc.returnSpecificLocalizationFile(
 						language + "/WW_Relics_Relics.json");
 	    String relicStrings = getJsonText(relicStringsAddress);
 	    
@@ -172,7 +177,7 @@ public class QCFPunch_Mod implements AddCustomModeModsSubscriber, EditStringsSub
 	
 	private void LoadPowersJSON(String language) {
 		String powerStringsAddress =
-				QCFPunch_MiscCode.returnSpecificLocalizationFile(
+				QCFP_Misc.returnSpecificLocalizationFile(
 						language + "/WW_Relics_Powers.json");
 	    String powerStrings = getJsonText(powerStringsAddress);
 	    
@@ -181,7 +186,7 @@ public class QCFPunch_Mod implements AddCustomModeModsSubscriber, EditStringsSub
 	
 	private void LoadModifiersJSON(String language) {
 		String modifiersStringsAddress =
-				QCFPunch_MiscCode.returnSpecificLocalizationFile(
+				QCFP_Misc.returnSpecificLocalizationFile(
 						language + "/WW_Relics_Modifiers.json");
 	    String modifiersStrings = getJsonText(modifiersStringsAddress);
 	    
@@ -190,7 +195,7 @@ public class QCFPunch_Mod implements AddCustomModeModsSubscriber, EditStringsSub
 	
 	private void LoadCardsJSON(String language) {
 		String cardsStringsAddress =
-				QCFPunch_MiscCode.returnSpecificLocalizationFile(
+				QCFP_Misc.returnSpecificLocalizationFile(
 						language + "/WW_Relics_Cards.json");
 	    String cardsStrings = getJsonText(cardsStringsAddress);
 	    
@@ -199,7 +204,7 @@ public class QCFPunch_Mod implements AddCustomModeModsSubscriber, EditStringsSub
 	
 	private void LoadPotionsJSON(String language) {
 		String potionsStringsAddress =
-				QCFPunch_MiscCode.returnSpecificLocalizationFile(
+				QCFP_Misc.returnSpecificLocalizationFile(
 						language + "/WW_Relics_Potions.json");
 		String potionsStrings = getJsonText(potionsStringsAddress);
 		
@@ -208,7 +213,7 @@ public class QCFPunch_Mod implements AddCustomModeModsSubscriber, EditStringsSub
 	
 	private void LoadEventsJSON(String language) {
 		String eventsStringsAddress =
-				QCFPunch_MiscCode.returnSpecificLocalizationFile(
+				QCFP_Misc.returnSpecificLocalizationFile(
 						language + "/WW_Relics_Events.json");
 		String eventsStrings = getJsonText(eventsStringsAddress);
 		
@@ -217,11 +222,20 @@ public class QCFPunch_Mod implements AddCustomModeModsSubscriber, EditStringsSub
 	
 	private void LoadMonstersJSON(String language) {
 		String monstersStringsAddress =
-				QCFPunch_MiscCode.returnSpecificLocalizationFile(
+				QCFP_Misc.returnSpecificLocalizationFile(
 						language + "/WW_Relics_Monsters.json");
 		String monstersStrings = getJsonText(monstersStringsAddress);
 		
 		BaseMod.loadCustomStrings(MonsterStrings.class, monstersStrings);
+	}
+	
+	private void LoadUIJSON(String language) {
+		String uiStringsAddress = 
+				QCFP_Misc.returnSpecificLocalizationFile(
+						language + "/WW_Relics_UI.json");
+		String uiStrings = getJsonText(uiStringsAddress);
+		
+		BaseMod.loadCustomStrings(UIStrings.class, uiStrings);
 	}
 	
 	@Override
@@ -286,6 +300,7 @@ public class QCFPunch_Mod implements AddCustomModeModsSubscriber, EditStringsSub
 	private void addCharacterCameoRelics() {
 		addDanRelics();
 		addSakuraRelics();
+		addValerieRelics();
 	}
 	
 	private void addDanRelics() {
@@ -294,6 +309,14 @@ public class QCFPunch_Mod implements AddCustomModeModsSubscriber, EditStringsSub
 	
 	private void addSakuraRelics() {
 		BaseMod.addRelic(new SchoolBackpack(), RelicType.SHARED);
+	}
+	
+	private void addValerieRelics() {
+		if (QCFP_Misc.silentlyCheckForMod(QCFP_Misc.the_artist_class_code)) {
+			BaseMod.addRelic(new MixedPaintBucket(), RelicType.SHARED);
+			BaseMod.addRelic(new PrimaryBrush(), RelicType.SHARED);
+		}
+		BaseMod.addRelic(new RainbowBrush(), RelicType.SHARED);
 	}
 	
 	private void addGameCameoRelics() {
@@ -344,6 +367,22 @@ public class QCFPunch_Mod implements AddCustomModeModsSubscriber, EditStringsSub
 		if (isCustomModActive(RelicSetModifiers.BLAZING_FIST_ID)) {
 			RelicSetModifiers.addBlazingFistToCustomRun(relics);
 		}
+		
+		if (isCustomModActive(RelicSetModifiers.RED_CYCLONE_ID)) {
+			RelicSetModifiers.addRedCycloneToCustomRun(relics);
+		}
+		
+		if (isCustomModActive(RelicSetModifiers.ASCETIC_MONK_ID)) {
+			RelicSetModifiers.addAsceticMonkToCustomRun(relics);
+		}
+		
+		if (isCustomModActive(RelicSetModifiers.DELTA_SPIKE_ID)) {
+			RelicSetModifiers.addDeltaSpikeToCustomRun(relics);
+		}
+		
+		if (isCustomModActive(RelicSetModifiers.UNBOUNDED_CREATIVITY_ID)) {
+			RelicSetModifiers.addUnboundedCreativityToCustomRun(relics);
+		}
 	}
 	
 	
@@ -367,15 +406,19 @@ public class QCFPunch_Mod implements AddCustomModeModsSubscriber, EditStringsSub
     }
     
 	public static void loadRunData() {
-        logger.info("Loading " + QCFPunch_MiscCode.returnModName()+ " data from");
-    	logger.info(QCFPunch_MiscCode.classAndSaveSlotText());
+        logger.info("Loading " + QCFP_Misc.returnModName()+ " data from");
+    	logger.info(QCFP_Misc.classAndSaveSlotText());
         try {
-            final SpireConfig config = new SpireConfig(QCFPunch_MiscCode.returnModName(), "SaveData");
+            final SpireConfig config = new SpireConfig(QCFP_Misc.returnModName(), "SaveData");
             WhiteBoots.load(config);
             DuffelBag.load(config);
             FightingGloves.load(config);
             UnceasingFlame.load(config);
             SchoolBackpack.load(config);
+            RainbowBrush.load(config);
+            if (QCFP_Misc.silentlyCheckForMod(QCFP_Misc.the_artist_class_code)) {
+            	PrimaryBrush.load(config);
+            }
             Cattail.load(config);
             if (shouldSanitizeActOne()) {
             	ChallengerCoin.sanitizingActOne(config);
@@ -386,7 +429,7 @@ public class QCFPunch_Mod implements AddCustomModeModsSubscriber, EditStringsSub
         catch (IOException e) {
             e.printStackTrace();
         }
-        logger.info("Done loading " + QCFPunch_MiscCode.returnModName() + " data");
+        logger.info("Done loading " + QCFP_Misc.returnModName() + " data");
 	}
 	
 	public static boolean shouldSanitizeActOne() {
@@ -394,36 +437,47 @@ public class QCFPunch_Mod implements AddCustomModeModsSubscriber, EditStringsSub
 	}
 	
     public static void saveRunData() {
-        logger.info("Saving " + QCFPunch_MiscCode.returnModName() + " data from");
-    	logger.info(QCFPunch_MiscCode.classAndSaveSlotText());
+        logger.info("Saving " + QCFP_Misc.returnModName() + " data from");
+    	logger.info(QCFP_Misc.classAndSaveSlotText());
         try {
-        	final SpireConfig config = new SpireConfig(QCFPunch_MiscCode.returnModName(), "SaveData");
+        	final SpireConfig config = new SpireConfig(QCFP_Misc.returnModName(), "SaveData");
             WhiteBoots.save(config);
             DuffelBag.save(config);
             FightingGloves.save(config);
             UnceasingFlame.save(config);
             SchoolBackpack.save(config);
             Cattail.save(config);
+            RainbowBrush.save(config);
+            if (QCFP_Misc.silentlyCheckForMod(QCFP_Misc.the_artist_class_code)) {
+            	PrimaryBrush.save(config);
+            }
             ChallengerCoin.save(config);
             
         }
         catch (IOException e) {
         	e.printStackTrace();
         }
-        logger.info("Done saving " + QCFPunch_MiscCode.returnModName() + " data");
+        logger.info("Done saving " + QCFP_Misc.returnModName() + " data");
     }
     
     public static void clearRunData() {
-    	logger.info("Clearing Saved " + QCFPunch_MiscCode.returnModName() + " data from");
-    	logger.info(QCFPunch_MiscCode.classAndSaveSlotText());
+    	logger.info("Clearing Saved " + QCFP_Misc.returnModName() + " data from");
+    	logger.info(QCFP_Misc.classAndSaveSlotText());
         try {
-        	final SpireConfig config = new SpireConfig(QCFPunch_MiscCode.returnModName(), "SaveData");
+        	final SpireConfig config = new SpireConfig(QCFP_Misc.returnModName(), "SaveData");
             WhiteBoots.clear(config);
             DuffelBag.clear(config);
             FightingGloves.clear(config);
             UnceasingFlame.clear(config);
             SchoolBackpack.clear(config);
             Cattail.clear(config);
+            RainbowBrush.clear(config);
+            if (QCFP_Misc.silentlyCheckForMod(QCFP_Misc.the_artist_class_code)) {
+            	PrimaryBrush.clear(config);
+            } else {
+            	PrimaryBrushNoArtistSaveFix.clear(config);
+            }
+            
             ChallengerCoin.clear(config);
         	config.save();
 
@@ -431,7 +485,7 @@ public class QCFPunch_Mod implements AddCustomModeModsSubscriber, EditStringsSub
         catch (IOException e) {
         	e.printStackTrace();
         }
-        logger.info("Done clearing saved " + QCFPunch_MiscCode.returnModName() + " data");
+        logger.info("Done clearing saved " + QCFP_Misc.returnModName() + " data");
     }
     
     public void receiveStartGame() {

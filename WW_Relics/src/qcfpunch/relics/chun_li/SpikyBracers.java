@@ -14,12 +14,12 @@ import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 
 import basemod.abstracts.CustomRelic;
-import qcfpunch.QCFPunch_MiscCode;
+import qcfpunch.QCFP_Misc;
 import qcfpunch.resources.relic_graphics.GraphicResources;
 
 public class SpikyBracers extends CustomRelic {
 	
-	public static final String ID = QCFPunch_MiscCode.returnPrefix() + "Spiky_Bracers";
+	public static final String ID = QCFP_Misc.returnPrefix() + "Spiky_Bracers";
 	
 	private static final int MINIMUM_WORKING_COST = 2;
 	private static final int UPDATE_COST_BY = -1;

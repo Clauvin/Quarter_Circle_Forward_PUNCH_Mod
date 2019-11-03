@@ -10,12 +10,12 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
-import qcfpunch.QCFPunch_MiscCode;
+import qcfpunch.QCFP_Misc;
 import qcfpunch.actions.UnsteadyAction;
 
 public class UnsteadyPower extends AbstractPower {
 
-	public static final String POWER_ID = QCFPunch_MiscCode.returnPrefix() + "Power_Unsteady";
+	public static final String POWER_ID = QCFP_Misc.returnPrefix() + "Power_Unsteady";
 	private static final PowerStrings powerStrings = 
 			CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
 	public static final String NAME = powerStrings.NAME;
