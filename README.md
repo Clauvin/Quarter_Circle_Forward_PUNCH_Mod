@@ -9,16 +9,20 @@ This mod follows the [Creative Commons Attribution 3.0 Unported](https://creativ
 
 # Content
 
-* Twenty-seven relics done of 34+ planned, with temporary images and placeholder sounds.
-* Eleven game modifiers, ranging from adding more relics at start to making the game harder.
+* Thirty relics done of 34+ planned, with temporary images and placeholder sounds.
+* Twelve game modifiers, ranging from adding more relics at start to making the game easier/harder.
 * Six cards, acessible through one specific relic.
 * One event, which is the gateway for two relics and one potion.
 
 * Most content above in English and simplified Chinese.
 
+# Mod Crossover Content
+
+None by now.
+
 # Current State
 
-Working in Milestone 6's Dhalsim inspired relics.
+Working in Milestone 6's secret guest inspired relics.
 
 # Link to Releases and Pre-Releases
 
@@ -48,40 +52,46 @@ Link too in the [wiki's page](https://github.com/Clauvin/World_Warriors_Relics/w
 
 6. Relics inspired by Cammy, Dhalsim, Blanka, Zangief and a secret guest.
 7. Starting support to Nexus Mods.
-8. Translation of the mod's created text so far to PT-BR. (all future milestones will launch with EN localization, PT-BR will come after a round of balancing)
-9. One boss relic for Boxer, Claw and Sagat, respectively. (about the names chosen here, check https://en.wikipedia.org/wiki/Street_Fighter_II:_The_World_Warrior#Regional_differences)
-10. Focus in Dictator's inspired relic. (only in his relic because it will use the Friendly Minions mod)
-11. Focus in T. Hawk relic (only in his relic because it will trigger events, and that's different from all the other relics so far)
-12. Relics inspired by Fei Long and Deejay. (number unknown)
-13. ?????????????????????
-14. Reworking of 1 Custom Modifier revolving around fighter's set relics to make the equivalent of mini-characters, as a test. (use Blademaster Perk system together with relic that triggers them)
-15. Reworking of other Custom Modifiers to have more mini-characters.
-16. Update of beta art and sound assets to release version
+8. One boss relic for Boxer, Claw, Sagat and Dictator, respectively. (about the names chosen here, check https://en.wikipedia.org/wiki/Street_Fighter_II:_The_World_Warrior#Regional_differences)
+9. Focus in Akuma's inspired relic.
+10. Focus in T. Hawk relic (only in his relic because it will trigger events, and that's different from all the other relics so far)
+11. Relics inspired by Fei Long and Deejay. (number unknown)
+12. ?????????????????????
+13. Undefined extra content.
+14. Test of 1 Custom Modifier revolving around fighter's set relics to make the equivalent of mini-characters, as a test. (use Blademaster Perk system together with relic that triggers them)
+15. Reworking of other Custom Modifiers to have more mini-characters, IF I'm fine with the results above
+16. Update of beta art and sound assets to v1.0
 17. Polishing, refactoring and balancing.
 
 (and here we reach v1.0)
 
-18. Synergy and adaptation with Infinite Spire. (Black cards? Black cards. o9)
-19. Boss inspired by Street Fighter 2 stuff.
-20. Synergy with Halation. (Simulated Spire? Yep.)
-21. Add a Challenge to Challenge The Spire. (which one? Hm...)
-22. Synergy and adaptation with other mods.
+18. Translation of the mod to PT-BR. (all future milestones will launch with EN localization, PT-BR will come after a round of balancing)
 
-And MAYBE (not making promises here)
+(mandatory 1 month break at this point for resting and recovering creative energies)
 
-23. Synergy with Googly Eyes
-24. Cards inspired by moves of fighting games (and here I include Smash), that can be get through events or other mod's access to a hidden character.
-25. Special shop with stuff from this mod (cards above mentioned included) and removal with a good discount.
-26. Elite monsters.
-27. Extra events.
+19. Synergy and adaptation with Infinite Spire. (Black cards? Black cards. o9)
+20. Boss inspired by Street Fighter 2 stuff.
+21. Synergy with Halation. (Simulated Spire? Yep.)
+22. Synergy and adaptation with other mods. (Googly Eyes included)
+
+And MAYBE in the future, for a v2.0 (not making promises here)
+
+23. Elite monsters.
+24. Extra events.
+25. Cards inspired by moves of fighting games (and here I include Smash), that can be get through events or other mod's access to a hidden character.
+26. Special shop with stuff from this mod (cards above mentioned included) and removal with a good discount.
 
 # Requirements
 
 Slay The Spire 1.1, Mod The Spire 3.11.0+, BaseMod 5.15.1+ and StSLib 1.17.1+ (when needed, the requirements will be updated to more recent versions of the game and libraries)
 
+# Optional Requirements
+
+None by now.
+
 # Compatibility
 
-* Vex's [The Artificer](https://steamcommunity.com/sharedfiles/filedetails/?id=1842757025) character mod does NOT use cards, and break cards that somehow reach your hand. This should mess with the "Strongest" Style Guidebook relic.
+* Vex's [The Artificer](https://steamcommunity.com/sharedfiles/filedetails/?id=1842757025) character mod does NOT use cards (the character does not have a deck!) or usual relics, so almost all content here, when used with that character should not work/work poorly.
 
 * The [RumiaBox mod](https://steamcommunity.com/sharedfiles/filedetails/?id=1633577327) has an effect through the Challenger Book relic which gives you as a reward, a double of a relic which you already has. There's one case already of this mod's Duffel Bag relic crashing a game when it applied its effect when a double from an old WW_Relics mod version was present. This will be tested and if possible, fixed in the future. So far, just don't get a second Duffel Bag if the possibility is available.
 
@@ -111,6 +121,8 @@ Kiooeht (https://github.com/kiooeht) for ModTheSpire (https://github.com/kiooeht
 
 AGAIN Kiooeht for StSLib (https://github.com/kiooeht/StSLib), because it helps a lot for modding :)
 
+GK (https://github.com/erasels), the patron of Simplicity and Less Text Lines, as pointing many, MANY times that relic descriptions with 5 lines were no good.
+
 The-Evil-Pickle, for the [Replay The Spire](https://github.com/The-Evil-Pickle/Replay-the-Spire) save/load code, it was the basis of the one used at this mod.
 
 [Rita Bernstein](https://github.com/Rita-Bernstein), for the simplified Chinese translation. 
@@ -123,7 +135,7 @@ Discord's bulbamaster#5216 for testing the 0.9 version.
 
 Discord's AvangionQ#9279 for testing older versions.
 
-Lots of people from the Slay The Spire Discord's modding channel for pointing stuff from this mod to improve/polish/buff/nerf, check the "suggestion from discord" tag in the Issues to see specifics.
+Lots of people from the Slay The Spire Discord's modding channel for pointing stuff from this mod to improve/polish/buff/nerf, check the "suggestion from discord" tag in the Issues to see most of the specifics.
 
 STREET FIGHTER is a registered trademark of CAPCOM U.S.A., INC.
 
