@@ -47,12 +47,12 @@
   
     
   "qcfpunch:ChallengerCoinText": {
-    "NAME": "New Challenger Coin",
-    "FLAVOR": "Just for the Fighting Noises event.",
+    "NAME": "新挑战者硬币",
+    "FLAVOR": "只是给交战声音事件做的。",
     "DESCRIPTIONS": [
-      "The next floor #bnon-combat",
-	  ", #bnon-Portal",
-	  " rooms you can normally go will be, instead, #yElite #yrooms."
+			"下一层 #b非战斗",
+			", #b非传送门",
+			" 房间，将会变成 #y精英房 。"
     ]
   },
   
@@ -88,18 +88,18 @@
   },
     
   "qcfpunch:Fighting_Gloves": {
-    "NAME": "Fighting Gloves",
-    "FLAVOR": "\"Inspiring! Who wants to train with me?\" - Ranwid.",
+    "NAME": "格斗手套",
+    "FLAVOR": "“斗志昂扬！谁想和我一起训练？” - 兰伟德。",
     "DESCRIPTIONS": [
-    "#rStarts #rwith #r",
-    " #rcharge",
-    ".",
-    " At Rest Sites, you can use all charges to #yUpgrade #b1 chosen deck's card per charge, as a free choice (if chosen first). Each #b",
-    " rooms, gain #b1 charge.",
-    "Choose ", 
-    " card",
-    " cards",
-    " to upgrade."
+    "#r初始拥有",
+    "点充能",
+    "。",
+    " 在休息处，按下选择选项前， #r右键 使用所有的充能，每 #b1 点充能升级一张牌。每经过 #b",
+    " 层，获得 #b1 点充能",
+    "选择 ", 
+    " 张牌",
+    " 张牌",
+    " 升级。"
     ]
   },
   
@@ -127,31 +127,31 @@
   },
   
   "qcfpunch:Lotus_Statue": {
-    "NAME": "Lotus Statue",
-    "FLAVOR": "\"Meditate now... Then the answers you seek will be revealed.\"",
+    "NAME": "观音莲花苑",
+    "FLAVOR": "“冥想……你的所有问题便会迎刃而解”",
  	"DESCRIPTIONS": [
- 	  "[#2aecd7]Right [#2aecd7]click at a #bRest #bSite before picking an option to remove at most #y",
- 	  " card per charge spent. Gain #y",
- 	  " charge when you remove a card without using this relic's effect. (Won't work with the Vampires event by now)",
- 	  "Choose ",
- 	  " card to be removed."
+ 	  " 在休息处，按下选择选项前 #r右键 ，每消耗一个充能，至多移除 #y",
+ 	  " 张牌。每当你不因该遗物效果移除一张牌时，获得 #y",
+ 	  " 点充能。（目前不会再吸血鬼事件生效）",
+ 	  "选择 ",
+ 	  " 张牌移除"
     ]
   },
   
   "qcfpunch:Necklace_of_Skulls": {
-    "NAME": "Necklace of Skulls",
-    "FLAVOR": "\"Hatred begets weakness. Cultivate your heart.\" Who said that?",
+    "NAME": "头骨项链",
+    "FLAVOR": "“仇恨滋生软弱。坚定你的内心。” 这是谁说的？",
  	"DESCRIPTIONS": [
- 	  "When you remove a card, #yUpgrade a card in your deck. (Won't work with the Vampires event by now)",
- 	  "Choose a card to upgrade."
+ 	  "每当移除牌组中的一张牌， #y升级 牌组中的一张牌。（目前不会再吸血鬼事件生效）",
+ 	  "选择一张牌升级"
     ]
   },
   
   "qcfpunch:Mixed_Paint_Bucket": {
-    "NAME": "Mixed Paint Bucket",
-    "FLAVOR": "Rainbows can't be painted with only one color.",
+    "NAME": "混合漆桶",
+    "FLAVOR": "彩虹可不只有一种颜色。",
  	"DESCRIPTIONS": [
- 	  "At combat start, for each card color in your hand, add one #bPallete #bPick to your hand, with Retain and Exhaust."
+ 	  "每场战斗开始时，你手牌中每有一种不同颜色的牌，将一张带有保留和消耗的 #bPallete #bPick 加入你的手牌。"
     ]
   },
 
@@ -175,23 +175,23 @@
   },
   
   "qcfpunch:Primary_Brush": {
-    "NAME": "Primary Brush",
-    "FLAVOR": "Three colors, broad strokes, and lonely determination... - The Artist",
+    "NAME": "主刷",
+    "FLAVOR": "三种颜色，宽阔的笔触，孤独的决心…… - 艺术家",
  	"DESCRIPTIONS": [
- 	  "Every #y3 Attacks played, Paint #y2 #rRed. NL Every #y3 Skills played, Paint 2 #gGreen. Every #y3 Powers played, Paint 2 #bBlue."
+ 	  "每打出 #y3 张攻击牌，描绘 #y2 张 #r红色 。 NL 每打出 #y3 张 技能牌，描绘 #y2 张 #g绿色 。 NL 每打出 #y3 张 能力牌，描绘 #y2 张 #b蓝色 。"
     ]
   },
   
   "qcfpunch:Rainbow_Brush": {
-    "NAME": "Rainbow Brush",
-    "FLAVOR": "Red Blue paints, the clouds pierce \n Darkness blocks twin star \n Nothing until the cycle restarts",
+    "NAME": "彩虹刷子",
+    "FLAVOR": "红蓝色的颜料，穿过黑暗的云层挡住了双星。 NL 在轮回重新开始之前什么都没有",
     "DESCRIPTIONS": [
-      "Every #b",
-      " cards played, add this turn's [#9400d3]r[#4b0082]a[#0000FF]n[#00FF00]d[#FFFF00]o[#FF7F00]m[#FF0000]i[#FF3333]z[#FF8888]e[#FFFFFF]d",
-      " card to your hand. It costs 1-less and has #yRetain, unless",
-      " it's a #rStatus or #rCurse.",
-      "Rainbow Brush",
-      "If you wanna recheck which card Rainbow Brush's will give this turn, just place your mouse above the relic!"
+      "你每打出 #b",
+      " 张牌，将本回合的 #y随机牌 ",
+      " 加入你的手牌。它的能耗减少1并带有保留。除非",
+      " 是 #r状态 或 #r诅咒 。",
+      "彩虹刷子",
+      "如果你想知道本回合彩虹刷子本回合会给你什么牌。把鼠标放到这个遗物上面就行了！"
     ]
   },
   

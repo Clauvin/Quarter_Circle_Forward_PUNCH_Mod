@@ -1,7 +1,7 @@
 {
 	"qcfpunch:AsceticMonk": {
-		"NAME": "Ascetic Monk",
-		"DESCRIPTION": "Start with Broken Tusk, Necklace Of Skulls and Lotus Statue."
+		"NAME": "苦行僧",
+		"DESCRIPTION": "初始拥有断牙， 头骨项链 和 观音莲花苑。"
 	},
 	
 	"qcfpunch:BlazingFist": {
@@ -15,8 +15,8 @@
 	},
 	
 	"qcfpunch:DeltaSpike": {
-		"NAME": "Delta Spike",
-		"DESCRIPTION": "Start with Red Beret, Green Leotard and Special Ops Insignia."
+		"NAME": "三角洲特种。",
+		"DESCRIPTION": "初始拥有红色贝雷帽，绿色紧身衣和特种作战徽章"
 	},
 	
 	"qcfpunch:FreshStart": {
@@ -45,13 +45,13 @@
 	},
 	
 	"qcfpunch:RedCyclone": {
-		"NAME": "Red Cyclone",
-		"DESCRIPTION": "Start with Wrestler's Cloak, Wild Herbs Ointment and Red Cyclone Teachings."
+		"NAME": "红色旋风",
+		"DESCRIPTION": "初始拥有 摔跤斗篷， 野药膏 和 红色旋风指南."
 	},
 	
 	"qcfpunch:UnboundedCreativity": {
-		"NAME": "Unbounded Creativity",
-		"DESCRIPTION": "Start with Rainbow Brush. Random multicolor shenanigans!"
+		"NAME": "无限的创造力",
+		"DESCRIPTION": "初始拥有彩虹刷子。随机多色骗局!"
 	},
 	
 	"qcfpunch:WanderingWarrior": {
