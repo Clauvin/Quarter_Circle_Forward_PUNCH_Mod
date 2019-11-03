@@ -3,10 +3,15 @@
     	"NAME": "“最强流”防御",
     	"DESCRIPTION": "虚无 。 NL 获得 !B! 点 格挡 。 NL 消耗。"
   	},
+
+  	"qcfpunch:ErrorCard": {
+    	"NAME": "错误！",
+    	"DESCRIPTION": "可能有什么其他玩意炸了这个遗物。你能把相关信息发给下前拳mod的作者吗？谢谢！"
+  	},
   	
   	"qcfpunch:Finished": {
-    	"NAME": "Finished",
-    	"DESCRIPTION": "Enough choices were made by now."
+    	"NAME": "终结",
+    	"DESCRIPTION": "到现在为止已经做出了足够的选择。"
   	},
 
 	"qcfpunch:Strike_Weakest": {
@@ -31,7 +36,7 @@
 	
 	"qcfpunch:WeakestTaunt": {
     	"NAME": "“最强流”嘲讽",
-    	"DESCRIPTION": "虚无 。 NL 给予 1 层 虚弱 。 NL Gain 1/3 qcfpunch:怒气槽 。 NL 消耗。"
+    	"DESCRIPTION": "虚无 。 NL 给予 1 层 虚弱 。 NL 获得 1/3 qcfpunch:怒气槽 。 NL 消耗。"
 	},
 
 	"WWWWWWWWWWWW": {
