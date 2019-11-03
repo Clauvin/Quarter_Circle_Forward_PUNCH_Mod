@@ -9,14 +9,14 @@ import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 
 import basemod.abstracts.CustomRelic;
-import qcfpunch.QCFPunch_MiscCode;
+import qcfpunch.QCFP_Misc;
 import qcfpunch.actions.SetEtherealOfCardAtCombatAction;
 import qcfpunch.actions.SetExhaustOfCardAtCombatAction;
 import qcfpunch.resources.relic_graphics.GraphicResources;
 
 public class SpecialOpsInsignia extends CustomRelic  {
 
-	public static final String ID = QCFPunch_MiscCode.returnPrefix() +
+	public static final String ID = QCFP_Misc.returnPrefix() +
 			"Special_Ops_Insignia";
 	
 	public static final int CARDS_TO_DRAW_TO_APPLY_EFFECT = 4;
@@ -29,6 +29,7 @@ public class SpecialOpsInsignia extends CustomRelic  {
 	
 	public SpecialOpsInsignia() {
 		super(ID, GraphicResources.LoadRelicImage("White_Boots - steeltoe-boots - Lorc - CC BY 3.0.png"),
+				GraphicResources.LoadOutlineImage("White Boots Outline.png"),
 				RelicTier.RARE, LandingSound.FLAT);
 	}
 	

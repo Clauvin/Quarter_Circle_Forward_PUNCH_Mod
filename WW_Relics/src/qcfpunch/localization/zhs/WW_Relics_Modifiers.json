@@ -1,4 +1,9 @@
 {
+	"qcfpunch:AsceticMonk": {
+		"NAME": "苦行僧",
+		"DESCRIPTION": "初始拥有断牙， 头骨项链 和 观音莲花苑。"
+	},
+	
 	"qcfpunch:BlazingFist": {
 		"NAME": "炙热龙拳",
 		"DESCRIPTION": "初始拥有黑色训练衬衫，红色道服和不灭烈火"
@@ -7,6 +12,11 @@
 	"qcfpunch:BlueJade": {
 		"NAME": "玉兰花",
 		"DESCRIPTION": "初始拥有护手刺，白靴和手铐。"
+	},
+	
+	"qcfpunch:DeltaSpike": {
+		"NAME": "三角洲特种。",
+		"DESCRIPTION": "初始拥有红色贝雷帽，绿色紧身衣和特种作战徽章"
 	},
 	
 	"qcfpunch:FreshStart": {
@@ -33,7 +43,17 @@
 		"NAME": "红血",
 		"DESCRIPTION": "开局拥有 25% 的生命上限。"
 	},
-
+	
+	"qcfpunch:RedCyclone": {
+		"NAME": "红色旋风",
+		"DESCRIPTION": "初始拥有 摔跤斗篷， 野药膏 和 红色旋风指南."
+	},
+	
+	"qcfpunch:UnboundedCreativity": {
+		"NAME": "无限的创造力",
+		"DESCRIPTION": "初始拥有彩虹刷子。随机多色骗局!"
+	},
+	
 	"qcfpunch:WanderingWarrior": {
 		"NAME": "修行格斗家",
 		"DESCRIPTION": "初始拥有旅行袋，格斗手套和红色头带。"

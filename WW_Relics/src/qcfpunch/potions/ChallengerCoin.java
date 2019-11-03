@@ -26,7 +26,7 @@ import com.megacrit.cardcrawl.rooms.MonsterRoomElite;
 import com.megacrit.cardcrawl.rooms.TreasureRoom;
 import com.megacrit.cardcrawl.mod.replay.rooms.TeleportRoom;
 import infinitespire.rooms.NightmareEliteRoom;
-import qcfpunch.QCFPunch_MiscCode;
+import qcfpunch.QCFP_Misc;
 import qcfpunch.interfaces.IPostMapGenerationAddStuff;
 import qcfpunch.map_generation.PostMapGenerationChange;
 import qcfpunch.map_generation.PostMapGenerationManager;
@@ -35,7 +35,7 @@ import qcfpunch.rooms.MonsterRoomEmeraldElite;
 
 public class ChallengerCoin extends OutOfCombatPotion implements IPostMapGenerationAddStuff {
 
-	public static final String ID = QCFPunch_MiscCode.returnPrefix() + "Challenger_Coin";
+	public static final String ID = QCFP_Misc.returnPrefix() + "Challenger_Coin";
 	
 	private static final PotionStrings potionStrings = CardCrawlGame.
 			languagePack.getPotionString(ID);
@@ -98,7 +98,7 @@ public class ChallengerCoin extends OutOfCombatPotion implements IPostMapGenerat
 		
 		String description = DESCRIPTIONS[0];
 		
-		if (QCFPunch_MiscCode.silentlyCheckForMod(QCFPunch_MiscCode.replay_the_spire_class_code)) {
+		if (QCFP_Misc.silentlyCheckForMod(QCFP_Misc.replay_the_spire_class_code)) {
 			description += DESCRIPTIONS[1];
 		}
 		
@@ -154,11 +154,11 @@ public class ChallengerCoin extends OutOfCombatPotion implements IPostMapGenerat
 				!(room instanceof MonsterRoomElite) &&
 				!(room instanceof MonsterRoomBoss);
 		
-		if (QCFPunch_MiscCode.silentlyCheckForMod(QCFPunch_MiscCode.replay_the_spire_class_code)) {
+		if (QCFP_Misc.silentlyCheckForMod(QCFP_Misc.replay_the_spire_class_code)) {
 			evaluation &= !(room instanceof TeleportRoom);
 		}
 		
-		if (QCFPunch_MiscCode.silentlyCheckForMod(QCFPunch_MiscCode.infinite_spire_class_code)) {
+		if (QCFP_Misc.silentlyCheckForMod(QCFP_Misc.infinite_spire_class_code)) {
 			evaluation &= !(room instanceof NightmareEliteRoom);
 		}
 		

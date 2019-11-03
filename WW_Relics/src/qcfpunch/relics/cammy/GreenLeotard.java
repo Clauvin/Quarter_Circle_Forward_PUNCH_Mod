@@ -8,12 +8,12 @@ import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 
 import basemod.abstracts.CustomRelic;
-import qcfpunch.QCFPunch_MiscCode;
+import qcfpunch.QCFP_Misc;
 import qcfpunch.resources.relic_graphics.GraphicResources;
 
 public class GreenLeotard extends CustomRelic {
 
-	public static final String ID = QCFPunch_MiscCode.returnPrefix() + "Green_Leotard";
+	public static final String ID = QCFP_Misc.returnPrefix() + "Green_Leotard";
 	
 	public static final int AMOUNT_OF_BLOCK_GAINED_PER_DRAW = 2;
 	
@@ -73,16 +73,13 @@ public class GreenLeotard extends CustomRelic {
 			if (AbstractDungeon.player.masterDeck.getNCardFromTop(i).baseDraw > 0)
 				count++;
 		}
-		can_draw_at_least_two_cards = count > 2;
+		can_draw_at_least_two_cards = count >= 2;
 		
 		return is_silent || hand_is_bigger_than_normal || can_draw_at_least_two_cards;
 				
 	}
 	
 	public AbstractRelic makeCopy() {
-		
-		
-				
 		return new GreenLeotard();
 	}
 }	

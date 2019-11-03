@@ -46,6 +46,16 @@
     ]
   },
   
+  "qcfpunch:ChallengerCoinText": {
+    "NAME": "New Challenger Coin",
+    "FLAVOR": "Just for the Fighting Noises event.",
+    "DESCRIPTIONS": [
+      "The next floor #bnon-combat",
+	  ", #bnon-Portal",
+	  " rooms you can normally go will be, instead, #yElite #yrooms."
+    ]
+  },
+  
   "qcfpunch:Combat_Fatigues": {
     "NAME": "Combat Fatigues",
     "FLAVOR": "\"War clothes. Pumps you to defend and then attack, but not for peace. Remember to take them off eventually, will ya?\" - Ranwid",
@@ -86,7 +96,7 @@
     "#rStarts #rwith #r",
     " #rcharge",
     ".",
-    " At Rest Sites, [#2aecd7]right [#2aecd7]click before picking an option: uses all charges to #yUpgrade #b1 chosen card per charge. Each #b",
+    " At Rest Sites, you can use all charges to #yUpgrade #b1 chosen deck's card per charge, as a free choice (if chosen first). Each #b",
     " rooms, gain #b1 charge.",
     "Choose ", 
     " card",
@@ -130,6 +140,14 @@
     ]
   },
   
+  "qcfpunch:Mixed_Paint_Bucket": {
+    "NAME": "Mixed Paint Bucket",
+    "FLAVOR": "Rainbows can't be painted with only one color.",
+ 	"DESCRIPTIONS": [
+ 	  "At combat start, for each card color in your hand, add one #bPallete #bPick to your hand, with Retain and Exhaust."
+    ]
+  },
+  
   "qcfpunch:Necklace_of_Skulls": {
     "NAME": "Necklace of Skulls",
     "FLAVOR": "\"Hatred begets weakness. Cultivate your heart.\" Who said that?",
@@ -155,6 +173,27 @@
     "FLAVOR": "\"My god, I must unlearn what I've read. WHY WOULD ANYONE FIGHT LIKE THIS?!\"",
     "DESCRIPTIONS": [
       "At the start of your turn, add a random #yqcfpunch:Weakest card to your hand.  NL Your max hand size is increased by #b1."
+    ]
+  },
+  
+  "qcfpunch:Primary_Brush": {
+    "NAME": "Primary Brush",
+    "FLAVOR": "Three colors, broad strokes, and lonely determination... - The Artist",
+ 	"DESCRIPTIONS": [
+ 	  "Every #y3 Attacks played, Paint #y2 #rRed. NL Every #y3 Skills played, Paint 2 #gGreen. Every #y3 Powers played, Paint 2 #bBlue."
+    ]
+  },
+  
+  "qcfpunch:Rainbow_Brush": {
+    "NAME": "Rainbow Brush",
+    "FLAVOR": "Red Blue paints, the clouds pierce \n Darkness blocks twin star \n Nothing until the cycle restarts",
+    "DESCRIPTIONS": [
+      "Every #b",
+      " cards played, add this turn's [#9400d3]r[#4b0082]a[#0000FF]n[#00FF00]d[#FFFF00]o[#FF7F00]m[#FF0000]i[#FF3333]z[#FF8888]e[#FFFFFF]d",
+      " card to your hand. It costs 1-less and has #yRetain, unless",
+      " it's a #rStatus or #rCurse.",
+      "Rainbow Brush",
+      "If you wanna recheck which card Rainbow Brush's will give this turn, just place your mouse above the relic!"
     ]
   },
   

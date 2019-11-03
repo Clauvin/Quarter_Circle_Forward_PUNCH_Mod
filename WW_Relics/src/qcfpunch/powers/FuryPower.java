@@ -18,11 +18,11 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
-import qcfpunch.QCFPunch_MiscCode;
+import qcfpunch.QCFP_Misc;
 
 public class FuryPower extends AbstractPower {
 	
-	public static final String POWER_ID = QCFPunch_MiscCode.returnPrefix() +
+	public static final String POWER_ID = QCFP_Misc.returnPrefix() +
 			"Power_Fury";
 	private static final PowerStrings powerStrings =
 			CardCrawlGame.languagePack.getPowerStrings(POWER_ID);

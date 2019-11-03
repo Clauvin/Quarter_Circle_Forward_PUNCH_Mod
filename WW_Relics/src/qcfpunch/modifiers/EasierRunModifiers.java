@@ -5,11 +5,11 @@ import java.util.List;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.screens.custom.CustomMod;
 
-import qcfpunch.QCFPunch_MiscCode;
+import qcfpunch.QCFP_Misc;
 
 public class EasierRunModifiers {
 
-	public static final String LOWERING_THE_HANDICAP_ID = QCFPunch_MiscCode.returnPrefix() + "LoweringTheHandicap";
+	public static final String LOWERING_THE_HANDICAP_ID = QCFP_Misc.returnPrefix() + "LoweringTheHandicap";
 	public static final int LOWERING_THE_HANDICAP_STARTING_HEALTH_PERCENTAGE = 125;
 	
 	public static final void AddEasierSetModifiers(List<CustomMod> list) {
