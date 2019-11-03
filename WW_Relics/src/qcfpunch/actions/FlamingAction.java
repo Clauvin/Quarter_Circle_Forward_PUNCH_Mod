@@ -8,7 +8,7 @@ import com.megacrit.cardcrawl.cards.DamageInfo.DamageType;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
-import qcfpunch.QCFPunch_MiscCode;
+import qcfpunch.QCFP_Misc;
 
 public class FlamingAction extends AbstractGameAction {
 
@@ -73,7 +73,7 @@ public class FlamingAction extends AbstractGameAction {
 		AbstractDungeon.actionManager.addToBottom(
 				new RemoveSpecificPowerAction(AbstractDungeon.player,
 						AbstractDungeon.player,
-						AbstractDungeon.player.getPower(QCFPunch_MiscCode.returnPrefix() + "Power_Flaming")));
+						AbstractDungeon.player.getPower(QCFP_Misc.returnPrefix() + "Power_Flaming")));
 	}
 
 }

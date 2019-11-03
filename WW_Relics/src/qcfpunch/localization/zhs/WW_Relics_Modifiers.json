@@ -1,4 +1,9 @@
 {
+	"qcfpunch:AsceticMonk": {
+		"NAME": "Ascetic Monk",
+		"DESCRIPTION": "Start with Broken Tusk, Necklace Of Skulls and Lotus Statue."
+	},
+	
 	"qcfpunch:BlazingFist": {
 		"NAME": "炙热龙拳",
 		"DESCRIPTION": "初始拥有黑色训练衬衫，红色道服和不灭烈火"
@@ -7,6 +12,11 @@
 	"qcfpunch:BlueJade": {
 		"NAME": "玉兰花",
 		"DESCRIPTION": "初始拥有护手刺，白靴和手铐。"
+	},
+	
+	"qcfpunch:DeltaSpike": {
+		"NAME": "Delta Spike",
+		"DESCRIPTION": "Start with Red Beret, Green Leotard and Special Ops Insignia."
 	},
 	
 	"qcfpunch:FreshStart": {
@@ -33,7 +43,17 @@
 		"NAME": "红血",
 		"DESCRIPTION": "开局拥有 25% 的生命上限。"
 	},
-
+	
+	"qcfpunch:RedCyclone": {
+		"NAME": "Red Cyclone",
+		"DESCRIPTION": "Start with Wrestler's Cloak, Wild Herbs Ointment and Red Cyclone Teachings."
+	},
+	
+	"qcfpunch:UnboundedCreativity": {
+		"NAME": "Unbounded Creativity",
+		"DESCRIPTION": "Start with Rainbow Brush. Random multicolor shenanigans!"
+	},
+	
 	"qcfpunch:WanderingWarrior": {
 		"NAME": "修行格斗家",
 		"DESCRIPTION": "初始拥有旅行袋，格斗手套和红色头带。"

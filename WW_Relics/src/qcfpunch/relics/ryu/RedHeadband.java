@@ -9,12 +9,12 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 import basemod.abstracts.CustomRelic;
-import qcfpunch.QCFPunch_MiscCode;
+import qcfpunch.QCFP_Misc;
 import qcfpunch.actions.DrawRandomCardToHandAction;
 import qcfpunch.resources.relic_graphics.GraphicResources;
 
 public class RedHeadband extends CustomRelic {
-	public static final String ID = QCFPunch_MiscCode.returnPrefix() + "Red_Headband";
+	public static final String ID = QCFP_Misc.returnPrefix() + "Red_Headband";
 	private static final int DRAW_PER_STATUS_OR_CURSE = 1;
 	private static final int NUMBER_OF_DRAWS = 1;
 	
@@ -41,7 +41,7 @@ public class RedHeadband extends CustomRelic {
 				
 		        AbstractPlayer p = AbstractDungeon.player;
 
-		        if (QCFPunch_MiscCode.abscenceOfNoDrawPower()) {
+		        if (QCFP_Misc.abscenceOfNoDrawPower()) {
 			        for (int i = 0; i < DRAW_PER_STATUS_OR_CURSE; i++) {
 				        if (!p.drawPile.group.isEmpty()) {
 				        	AbstractDungeon.actionManager.addToBottom(new WaitAction(0.4f));

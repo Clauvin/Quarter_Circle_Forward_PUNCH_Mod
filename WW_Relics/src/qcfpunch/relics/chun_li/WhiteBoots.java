@@ -16,11 +16,11 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 import basemod.abstracts.CustomRelic;
-import qcfpunch.QCFPunch_MiscCode;
+import qcfpunch.QCFP_Misc;
 import qcfpunch.resources.relic_graphics.GraphicResources;
 
 public class WhiteBoots extends CustomRelic {
-	public static final String ID = QCFPunch_MiscCode.returnPrefix() + "White_Boots";
+	public static final String ID = QCFP_Misc.returnPrefix() + "White_Boots";
 	private static final int CONSTANT_DAMAGE = 1;
 	private static final int DAMAGE_FOR_EACH_UPGRADE = 1;
 	private static final int CARDS_DREW_FOR_MULTIPLIER = 3;
@@ -86,7 +86,9 @@ public class WhiteBoots extends CustomRelic {
 		if (is_third_card) total_damage *= SIZE_OF_MULTIPLIER;
 		
 		DamageInfo damage_info = new DamageInfo(AbstractDungeon.player, total_damage, DamageInfo.DamageType.HP_LOSS);
-		AbstractDungeon.actionManager.addToBottom(new PummelDamageAction(creature, damage_info));
+		flash();
+		AbstractDungeon.actionManager.addToBottom(
+				new PummelDamageAction(creature, damage_info));
 	}
 	
 	public boolean isThirdCard() {
@@ -125,7 +127,7 @@ public class WhiteBoots extends CustomRelic {
         	
         	
     		logger.info("Started saving White Boots information from");
-    		logger.info(QCFPunch_MiscCode.classAndSaveSlotText());
+    		logger.info(QCFP_Misc.classAndSaveSlotText());
     		
             config.setInt("White_Boots_number_of_draws_class_" + class_name +
             				"_save_slot_" + CardCrawlGame.saveSlot, 
@@ -137,7 +139,7 @@ public class WhiteBoots extends CustomRelic {
 				e.printStackTrace();
 			}
             logger.info("Finished saving White Boots info from");
-            logger.info(QCFPunch_MiscCode.classAndSaveSlotText());
+            logger.info(QCFP_Misc.classAndSaveSlotText());
         }
         else {
 
@@ -154,7 +156,7 @@ public class WhiteBoots extends CustomRelic {
         				"_save_slot_" + CardCrawlGame.saveSlot)){
 			
 			logger.info("Loading White Boots info from");
-			logger.info(QCFPunch_MiscCode.classAndSaveSlotText());
+			logger.info(QCFP_Misc.classAndSaveSlotText());
 			
             WhiteBoots.number_of_attacks_drew = 
             		config.getInt("White_Boots_number_of_draws_class_" + class_name +
@@ -168,7 +170,7 @@ public class WhiteBoots extends CustomRelic {
 				e.printStackTrace();
 			}
             logger.info("Finished loading White Boots from");
-            logger.info(QCFPunch_MiscCode.classAndSaveSlotText());
+            logger.info(QCFP_Misc.classAndSaveSlotText());
         }
 		
 		else
@@ -185,14 +187,14 @@ public class WhiteBoots extends CustomRelic {
 		String class_name = AbstractDungeon.player.getClass().getName();
 		
 		logger.info("Clearing White Boots variables from");
-		logger.info(QCFPunch_MiscCode.classAndSaveSlotText()); 
+		logger.info(QCFP_Misc.classAndSaveSlotText()); 
 		
 		config.remove("White_Boots_number_of_draws_class_" + class_name +
 				"_save_slot_" + CardCrawlGame.saveSlot);
 		
 		
         logger.info("Finished clearing White Boots variables from");
-        logger.info(QCFPunch_MiscCode.classAndSaveSlotText());  
+        logger.info(QCFP_Misc.classAndSaveSlotText());  
 	}
 
 	public AbstractRelic makeCopy() { // always override this method to return a new instance of your relic

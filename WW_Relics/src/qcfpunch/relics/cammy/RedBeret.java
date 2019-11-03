@@ -5,12 +5,12 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 import basemod.abstracts.CustomRelic;
-import qcfpunch.QCFPunch_MiscCode;
+import qcfpunch.QCFP_Misc;
 import qcfpunch.resources.relic_graphics.GraphicResources;
 
 public class RedBeret extends CustomRelic {
 
-	public static final String ID = QCFPunch_MiscCode.returnPrefix() + "Red_Beret";
+	public static final String ID = QCFP_Misc.returnPrefix() + "Red_Beret";
 	
 	public static final int EXTRA_CARD_DRAW_TO_GIVE = 2; 
 	
@@ -38,14 +38,14 @@ public class RedBeret extends CustomRelic {
 			AbstractDungeon.actionManager.addToBottom(
 					new DrawCardAction(AbstractDungeon.player, EXTRA_CARD_DRAW_TO_GIVE));
 			gave_extra_draw = true;
-		} else if (QCFPunch_MiscCode.hasNoDrawPower())
+		} else if (QCFP_Misc.hasNoDrawPower())
 			AbstractDungeon.player.getPower("No Draw").flash();
 		
 		return super.onPlayerGainedBlock(blockAmount);
 	}
 
 	public boolean canGiveExtraDraw() {
-		return 	QCFPunch_MiscCode.abscenceOfNoDrawPower() && !gave_extra_draw;
+		return 	QCFP_Misc.abscenceOfNoDrawPower() && !gave_extra_draw;
 	}
 	
 	@Override

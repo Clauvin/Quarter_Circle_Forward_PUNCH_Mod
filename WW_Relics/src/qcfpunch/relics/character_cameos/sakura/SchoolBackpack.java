@@ -8,6 +8,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
+import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardColor;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardRarity;
@@ -23,7 +24,7 @@ import com.megacrit.cardcrawl.rewards.RewardItem;
 import com.megacrit.cardcrawl.rewards.RewardItem.RewardType;
 
 import basemod.abstracts.CustomRelic;
-import qcfpunch.QCFPunch_MiscCode;
+import qcfpunch.QCFP_Misc;
 import qcfpunch.resources.relic_graphics.GraphicResources;
 
 /* Lose all hope of a clean and easy to do relic, those who enter here
@@ -33,7 +34,7 @@ import qcfpunch.resources.relic_graphics.GraphicResources;
  */
 public class SchoolBackpack extends CustomRelic {
 
-	public static final String ID = QCFPunch_MiscCode.returnPrefix() + "School_Backpack";
+	public static final String ID = QCFP_Misc.returnPrefix() + "School_Backpack";
 	
 	public static final int NUMBER_OF_EXTRA_CARDS = 5;
 	public static final float CHANCE_OF_UPGRADED_CARDS = 0.1f;
@@ -150,13 +151,16 @@ public class SchoolBackpack extends CustomRelic {
 		
 		flash();
 		
+		AbstractDungeon.actionManager.addToTop(
+				new RelicAboveCreatureAction(AbstractDungeon.player, this));
+		
 	}
 	
 	private PlayerClass getRandomBaseGameNotYoursPlayerClass() {
 		
 		ArrayList<PlayerClass> base_game_classes = new ArrayList<PlayerClass>();
 		
-		for (PlayerClass base_game_player_class : QCFPunch_MiscCode.base_game_player_classes) {
+		for (PlayerClass base_game_player_class : QCFP_Misc.base_game_player_classes) {
 			
 			if (base_game_player_class != AbstractDungeon.player.chosenClass) {
 				base_game_classes.add(base_game_player_class);
@@ -362,7 +366,11 @@ public class SchoolBackpack extends CustomRelic {
 		card_reward.text = DESCRIPTIONS[2];
 		
 		AbstractDungeon.getCurrRoom().addCardReward(card_reward);
+		
 		flash();
+		
+		AbstractDungeon.actionManager.addToTop(
+				new RelicAboveCreatureAction(AbstractDungeon.player, this));
 		
 	}
 	
@@ -370,7 +378,7 @@ public class SchoolBackpack extends CustomRelic {
 
         if (AbstractDungeon.player != null && AbstractDungeon.player.hasRelic(ID)) {
     		logger.info("Started saving School Backpack information from");
-            logger.info(QCFPunch_MiscCode.classAndSaveSlotText());
+            logger.info(QCFP_Misc.classAndSaveSlotText());
 
     		if (AbstractDungeon.isDungeonBeaten || AbstractDungeon.player.isDead) {
     			
@@ -404,7 +412,7 @@ public class SchoolBackpack extends CustomRelic {
     		}
 
             logger.info("Finished saving School Backpack information from");
-            logger.info(QCFPunch_MiscCode.classAndSaveSlotText());
+            logger.info(QCFP_Misc.classAndSaveSlotText());
         }
         else {
         	clear(config);
@@ -451,7 +459,7 @@ public class SchoolBackpack extends CustomRelic {
 	public static void load(final SpireConfig config) {
 		
 		logger.info("Loading School Backpack info from");
-        logger.info(QCFPunch_MiscCode.classAndSaveSlotText());
+        logger.info(QCFP_Misc.classAndSaveSlotText());
         
         String class_name = AbstractDungeon.player.getClass().getName();
 		
@@ -481,7 +489,7 @@ public class SchoolBackpack extends CustomRelic {
 				e.printStackTrace();
 			}
             logger.info("Finished loading School Backpack info from");
-            logger.info(QCFPunch_MiscCode.classAndSaveSlotText());
+            logger.info(QCFP_Misc.classAndSaveSlotText());
         }
 		
 		else
@@ -519,7 +527,7 @@ public class SchoolBackpack extends CustomRelic {
 	
 	public static void clear(final SpireConfig config) {
 		logger.info("Clearing School Backpack variables from");
-        logger.info(QCFPunch_MiscCode.classAndSaveSlotText());
+        logger.info(QCFP_Misc.classAndSaveSlotText());
 		
         String class_name = AbstractDungeon.player.getClass().getName();
 		
@@ -547,7 +555,7 @@ public class SchoolBackpack extends CustomRelic {
         }
         
         logger.info("Finished clearing School Backpack variables from");
-        logger.info(QCFPunch_MiscCode.classAndSaveSlotText());
+        logger.info(QCFP_Misc.classAndSaveSlotText());
 	}
 	
 	public static void clearCardRewardStored(final SpireConfig config) {

@@ -16,11 +16,13 @@ import com.megacrit.cardcrawl.dungeons.TheEnding;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rooms.*;
 import com.megacrit.cardcrawl.rooms.AbstractRoom.*;
+import com.megacrit.cardcrawl.ui.campfire.AbstractCampfireOption;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardBrieflyEffect;
 
 import basemod.abstracts.CustomRelic;
-import qcfpunch.QCFPunch_MiscCode;
+import qcfpunch.QCFP_Misc;
 import qcfpunch.resources.relic_graphics.GraphicResources;
+import qcfpunch.restsite.FightingGlovesTrainOption;
 
 import java.util.*;
 
@@ -28,7 +30,7 @@ public class FightingGloves extends CustomRelic implements ClickableRelic {
 	
 	public static final Logger logger = LogManager.getLogger(FightingGloves.class.getName());
 	
-	public static final String ID = QCFPunch_MiscCode.returnPrefix() + "Fighting_Gloves";
+	public static final String ID = QCFP_Misc.returnPrefix() + "Fighting_Gloves";
 	private static final int INITIAL_CHARGES = 1;
 	private static int positive_charges;
 	private static final int EVERY_X_ROOMS_VISITED_ADDS_A_CHARGE = 4;
@@ -36,11 +38,11 @@ public class FightingGloves extends CustomRelic implements ClickableRelic {
 	
 	private static int number_of_cards_that_can_be_upgraded;
 	
-	private static boolean cards_have_been_upgraded_in_this_room = false;
-	private static int number_of_cards_upgraded_in_this_room = 0;
+	public static boolean cards_have_been_upgraded_in_this_room = false;
+	public static int number_of_cards_upgraded_in_this_room = 0;
 	
 	private static boolean player_right_clicked_in_relic_in_this_room = false;
-	private static boolean player_havent_right_clicked_in_relic_here_before = true;
+	public static boolean player_havent_right_clicked_in_relic_here_before = true;
 	
 	public FightingGloves() {
 		super(ID, GraphicResources.LoadRelicImage("Fighting Gloves - mailed-gloves - Lorc - CC BY 3.0.png"),
@@ -121,27 +123,23 @@ public class FightingGloves extends CustomRelic implements ClickableRelic {
 		}
 	}
 	
-	@Override
-	public void onRightClick() {
-		
-		if (player_havent_right_clicked_in_relic_here_before) {
-			if (haveCharges() && (haveCardsToUpgrade())) {
-				if (AbstractDungeon.getCurrRoom() instanceof RestRoom && 
-						AbstractDungeon.getCurrRoom().phase ==
-						AbstractRoom.RoomPhase.INCOMPLETE && CampfireUI.hidden == false) {
-					player_havent_right_clicked_in_relic_here_before = false;
-					upgradingCards();
-				}
-			}
+	public boolean shouldTheRelicBeUsedNow() {
+		if (haveCharges() && (haveCardsToUpgrade() &&
+				AbstractDungeon.getCurrRoom() instanceof RestRoom &&
+				AbstractDungeon.getCurrRoom().phase ==
+				AbstractRoom.RoomPhase.INCOMPLETE &&
+				CampfireUI.hidden == false)) {
+					return true;
+		} else {
+			return false;
 		}
-		
 	}
 	
 	private boolean haveCharges() {	return positive_charges > 0; }
 	
 	private boolean haveCardsToUpgrade() { return getValidCardGroup().size() > 0; }
 	
-	private CardGroup getValidCardGroup() {
+	private static CardGroup getValidCardGroup() {
 		
 		CardGroup valid_card_group = new CardGroup(CardGroupType.UNSPECIFIED);
 		CardGroup master_deck = AbstractDungeon.player.masterDeck;
@@ -164,15 +162,7 @@ public class FightingGloves extends CustomRelic implements ClickableRelic {
 		
 		AbstractDungeon.getCurrRoom().phase = RoomPhase.INCOMPLETE;
 		
-		if (getValidCardGroup().size() >= positive_charges) {
-
-			number_of_cards_that_can_be_upgraded = positive_charges;
-			
-		} else {
-			
-			number_of_cards_that_can_be_upgraded = getValidCardGroup().size();
-			
-		}
+		number_of_cards_that_can_be_upgraded = howManyCardsCanBeUpgraded();
 		
 		AbstractDungeon.gridSelectScreen.open(getValidCardGroup(),
 				number_of_cards_that_can_be_upgraded,
@@ -182,6 +172,13 @@ public class FightingGloves extends CustomRelic implements ClickableRelic {
 		
 	}
 	
+	public static int howManyCardsCanBeUpgraded() {
+		
+		if (getValidCardGroup().size() >= positive_charges) return positive_charges;
+		else return getValidCardGroup().size();
+
+	}
+	
 	public void update()
 	{
 		super.update();
@@ -189,8 +186,6 @@ public class FightingGloves extends CustomRelic implements ClickableRelic {
 		if (player_right_clicked_in_relic_in_this_room) {
 			if (isTimeToUpgradeTheChosenCards())
 		    {
-				logger.info("Step 1");
-				
 	            flash();
 				
 				ArrayList<AbstractCard> cards_chosen = getCardsToUpgrade();
@@ -205,7 +200,6 @@ public class FightingGloves extends CustomRelic implements ClickableRelic {
 				AbstractDungeon.gridSelectScreen.selectedCards.clear();
 				
 				AbstractDungeon.overlayMenu.hideBlackScreen();
-				AbstractDungeon.dynamicBanner.appear();
 				AbstractDungeon.isScreenUp = false;
 				
 		    }
@@ -243,6 +237,7 @@ public class FightingGloves extends CustomRelic implements ClickableRelic {
         
 		for (AbstractCard c: chosen_cards) {
     		c.upgrade();
+    		AbstractDungeon.player.bottledCardUpgradeCheck(c);
 			logger.info("Upgraded " + c.name);
     		
 			ShowCardBrieflyEffect card_brief_effect = new ShowCardBrieflyEffect(
@@ -270,11 +265,21 @@ public class FightingGloves extends CustomRelic implements ClickableRelic {
 		counter = positive_charges;
 	}
 	
+	@Override
+	public void addCampfireOption(ArrayList<AbstractCampfireOption> options) {
+		if (shouldTheRelicBeUsedNow()) {
+			options.add(new FightingGlovesTrainOption(true)); 
+		} else {
+			options.add(new FightingGlovesTrainOption(false)); 
+		}
+		
+	}
+	
 	public static void save(final SpireConfig config) {
 
         if (AbstractDungeon.player != null && AbstractDungeon.player.hasRelic(ID)) {
     		logger.info("Started saving Fighting Gloves information from");
-    		logger.info(QCFPunch_MiscCode.classAndSaveSlotText());
+    		logger.info(QCFP_Misc.classAndSaveSlotText());
 
         	String class_name = AbstractDungeon.player.getClass().getName();
     		
@@ -291,7 +296,7 @@ public class FightingGloves extends CustomRelic implements ClickableRelic {
 				e.printStackTrace();
 			}
             logger.info("Finished saving Fighting Gloves info from");
-            logger.info(QCFPunch_MiscCode.classAndSaveSlotText());	
+            logger.info(QCFP_Misc.classAndSaveSlotText());	
         }
         else {
 
@@ -302,7 +307,7 @@ public class FightingGloves extends CustomRelic implements ClickableRelic {
 	public static void load(final SpireConfig config) {
 		
 		logger.info("Loading Fighting Gloves info from");
-        logger.info(QCFPunch_MiscCode.classAndSaveSlotText());
+        logger.info(QCFP_Misc.classAndSaveSlotText());
 		
     	String class_name = AbstractDungeon.player.getClass().getName();
 		
@@ -325,7 +330,7 @@ public class FightingGloves extends CustomRelic implements ClickableRelic {
 				e.printStackTrace();
 			}
             logger.info("Finished loading Fighting Gloves info from");
-            logger.info(QCFPunch_MiscCode.classAndSaveSlotText());
+            logger.info(QCFP_Misc.classAndSaveSlotText());
         }
 		
 		else
@@ -349,7 +354,7 @@ public class FightingGloves extends CustomRelic implements ClickableRelic {
 	
 	public static void clear(final SpireConfig config) {
 		logger.info("Clearing Fighting Gloves variables from");
-        logger.info(QCFPunch_MiscCode.classAndSaveSlotText());
+        logger.info(QCFP_Misc.classAndSaveSlotText());
 		
     	String class_name = AbstractDungeon.player.getClass().getName();
 		
@@ -361,11 +366,17 @@ public class FightingGloves extends CustomRelic implements ClickableRelic {
         		"_positive_charges");
         
         logger.info("Finished clearing Fighting Gloves variables from");
-        logger.info(QCFPunch_MiscCode.classAndSaveSlotText());
+        logger.info(QCFP_Misc.classAndSaveSlotText());
 	}
 
 	public AbstractRelic makeCopy() { // always override this method to return a new instance of your relic
 		return new FightingGloves();
+	}
+
+	@Override
+	public void onRightClick() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
