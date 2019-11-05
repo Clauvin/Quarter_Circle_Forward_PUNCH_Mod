@@ -58,7 +58,7 @@
   
   "qcfpunch:Combat_Fatigues": {
     "NAME": "Combat Fatigues",
-    "FLAVOR": "\"War clothes. Pumps you to defend and then attack, but not for peace. Remember to take them off eventually, will ya?\" - Ranwid",
+    "FLAVOR": "\"Not made for peace. Remember to take them off eventually, will ya?\" - Ranwid",
     "DESCRIPTIONS": [
       "At the start of your turn, if you #rgained ",
       "#yBlock and #rdidn't #yplay Attacks last turn, gain #b",
