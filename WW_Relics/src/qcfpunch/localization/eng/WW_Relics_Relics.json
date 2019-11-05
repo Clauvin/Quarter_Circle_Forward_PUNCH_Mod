@@ -12,8 +12,8 @@
     "NAME": "Black Training Shirt",
     "FLAVOR": "Training is important, even in the Spire.",
     "DESCRIPTIONS": [
-      "At combat start, gain #b",
-      " #yStrength. Once per combat, when you use a Skill card lose #b",
+      "At the start of combat, gain #b",
+      " #yStrength. The first time each combat, when you use a Skill card lose #b",
       " #yStrength."
     ]
   },
