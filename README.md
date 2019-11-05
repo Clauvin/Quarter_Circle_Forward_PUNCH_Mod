@@ -121,7 +121,7 @@ Kiooeht (https://github.com/kiooeht) for ModTheSpire (https://github.com/kiooeht
 
 AGAIN Kiooeht for StSLib (https://github.com/kiooeht/StSLib), because it helps a lot for modding :)
 
-GK (https://github.com/erasels), the patron of Simplicity and Less Text Lines, as pointing many, MANY times that relic descriptions with 5 lines were no good.
+GK (https://github.com/erasels), the patron of Simplicity and Less Text Lines, as pointing many, MANY times that relic descriptions could be smaller/simpler/polished.
 
 The-Evil-Pickle, for the [Replay The Spire](https://github.com/The-Evil-Pickle/Replay-the-Spire) save/load code, it was the basis of the one used at this mod.
 
@@ -143,7 +143,7 @@ STREET FIGHTER is a registered trademark of CAPCOM U.S.A., INC.
 
 To MegaCrit, the makes from SlayTheSpire, because the game is awesome and they are cool with mods of their game :D
 
-The whole modding channel from the Discord's Slay The Spire server and all people who goes there to support and banter and laugh about modding the game and other things. You rock, fellows.
+The whole modding channel from the Discord's Slay The Spire server and all people who goes there to support and banter and laugh about modding the game and #anime-discussion and #add-any-subject-here. You rock, fellows.
 
 To game-icons.net, because without it the mod probably would not have proper temporary icons for its relics.
 
