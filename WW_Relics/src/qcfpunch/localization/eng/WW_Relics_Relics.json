@@ -230,8 +230,8 @@
     "FLAVOR": "Made of good fabric that doesn't hinder movements and inspires to be offensive.",
     "DESCRIPTIONS": [
       "If you play #y",
-      " Attacks in a row this turn, draw #y",
-      " card. If it's an Attack, it costs #y",
+      " Attacks in a row this turn, draw #b",
+      " card. If it's an #yAttack, it costs #b",
       " less this turn."
     ]
   },
