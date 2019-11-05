@@ -305,9 +305,9 @@
   
    "qcfpunch:Wrestler's_Cloak": {
     "NAME": "Wrestler's Cloak",
-    "FLAVOR": "Never underestimate the power of a good presentation before a fight.",
+    "FLAVOR": "Never underestimate the power of a good entrance before a fight.",
     "DESCRIPTIONS": [
-	  "At Elite/Boss rooms, gain #b",
+	  "At the start of Elite and Boss fights, gain #b",
 	  " #yTemporary_HP. [#2aecd7]Right [#2aecd7]click [#2aecd7]during [#2aecd7]your [#2aecd7]turn [#2aecd7]to gain #b",
 	  " #yTemporary_HP and lose this relic."
     ]
