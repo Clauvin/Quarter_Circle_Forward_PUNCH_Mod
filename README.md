@@ -16,9 +16,9 @@ This mod follows the [Creative Commons Attribution 3.0 Unported](https://creativ
 
 * Most content above in English and simplified Chinese.
 
-# Mod Crossover Content
+# Mod Crossover Content (needs the mod to add the content)
 
-None by now.
+With Vex TheArtist Mod(https://steamcommunity.com/sharedfiles/filedetails/?id=1840178754): two relics.
 
 # Current State
 
