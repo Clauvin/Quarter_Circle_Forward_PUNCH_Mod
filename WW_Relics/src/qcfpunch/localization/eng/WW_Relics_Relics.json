@@ -285,7 +285,8 @@
     "NAME": "White Boots",
     "FLAVOR": "Very, very worn shoes... as much from hitting as from walking.",
     "DESCRIPTIONS": [
-    "Each three #yAttacks drawn do #b",
+    "Each #b",
+    " #yAttacks drawn do #b",
     " damage to the latest single enemy attacked.",
     " Each #yupgraded #yAttack drawn do #b",
     " damage to the latest single enemy attacked."
