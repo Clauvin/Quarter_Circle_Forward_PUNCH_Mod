@@ -286,10 +286,10 @@
     "FLAVOR": "Very, very worn shoes... as much from hitting as from walking.",
     "DESCRIPTIONS": [
     "Each #b",
-    " #yAttacks drawn do #b",
-    " damage to the latest single enemy attacked.",
-    " Each #yupgraded #yAttack drawn do #b",
-    " damage to the latest single enemy attacked."
+    " #yAttacks drawn deal #b",
+    " damage to the last single enemy attacked.",
+    " Each #yupgraded #yAttack drawn deals #b",
+    " damage to that enemy."
     ]
   },
   
