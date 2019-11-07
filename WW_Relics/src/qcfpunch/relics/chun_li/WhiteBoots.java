@@ -5,6 +5,7 @@ import java.io.IOException;
 import org.apache.logging.log4j.*;
 
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
+import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.PummelDamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardType;
@@ -21,10 +22,9 @@ import qcfpunch.resources.relic_graphics.GraphicResources;
 
 public class WhiteBoots extends CustomRelic {
 	public static final String ID = QCFP_Misc.returnPrefix() + "White_Boots";
-	private static final int CONSTANT_DAMAGE = 1;
+	private static final int CONSTANT_DAMAGE = 4;
 	private static final int DAMAGE_FOR_EACH_UPGRADE = 1;
-	private static final int CARDS_DREW_FOR_MULTIPLIER = 3;
-	private static final int SIZE_OF_MULTIPLIER = 2;
+	private static final int CARDS_DREW_FOR_NORMAL_ATTACKS = 3;
 	
 	private static int number_of_attacks_drew;
 	
@@ -51,36 +51,54 @@ public class WhiteBoots extends CustomRelic {
 	@Override
 	public void onCardDraw(AbstractCard c) {
 		
+		if (isAnUpgradedAttackCard(c)){
+			doUpgradedAttackDamageToTarget(c, single_enemy_attacked);	
+		}
 		if (isAnAttackCard(c)) {
 			addOneToNumberOfAttacksDrew();
-			if (isTimeToDoDamage()) {
+			if (isTimeToDoAttackCardDamage()) {
 				doDamageToTarget(c, single_enemy_attacked);
 			}
 		}
+
+		setNumberOfAttacksDrew();
+		setCounter();
+	}
+
+	private boolean isAnUpgradedAttackCard(AbstractCard c) {
+		return isAnAttackCard(c) && c.upgraded;
+	}
+	
+	private void doUpgradedAttackDamageToTarget(AbstractCard card,
+			AbstractCreature creature) {
+		int total_damage = 0;
 		
+		total_damage += DAMAGE_FOR_EACH_UPGRADE;
+		
+		DamageInfo damage_info =
+				new DamageInfo(AbstractDungeon.player,
+						total_damage, DamageInfo.DamageType.HP_LOSS);
+		flash();
+		AbstractDungeon.actionManager.addToBottom(
+				new DamageAction(creature, damage_info));
 	}
 	
 	public boolean isAnAttackCard(AbstractCard c) {
 		return c.type == CardType.ATTACK;
 	}
-	
+
 	public void addOneToNumberOfAttacksDrew() {
 		number_of_attacks_drew++;
-		counter = number_of_attacks_drew % CARDS_DREW_FOR_MULTIPLIER;
-	}
+	}	
 	
-	public boolean isTimeToDoDamage() {
-		return single_enemy_attacked != null;
+	public boolean isTimeToDoAttackCardDamage() {
+		return (single_enemy_attacked != null) && (number_of_attacks_drew >= 3); 
 	}
-	
+
 	public void doDamageToTarget(AbstractCard card, AbstractCreature creature) {
 		int total_damage = 0;
-		int number_of_upgrades = card.timesUpgraded;
-		boolean is_third_card = isThirdCard();
 		
 		total_damage += CONSTANT_DAMAGE;
-		total_damage += DAMAGE_FOR_EACH_UPGRADE * number_of_upgrades;
-		if (is_third_card) total_damage *= SIZE_OF_MULTIPLIER;
 		
 		DamageInfo damage_info = new DamageInfo(AbstractDungeon.player, total_damage, DamageInfo.DamageType.HP_LOSS);
 		flash();
@@ -88,8 +106,12 @@ public class WhiteBoots extends CustomRelic {
 				new PummelDamageAction(creature, damage_info));
 	}
 	
-	public boolean isThirdCard() {
-		return number_of_attacks_drew % CARDS_DREW_FOR_MULTIPLIER == 0;
+	private void setNumberOfAttacksDrew() {
+		number_of_attacks_drew %= 3;
+	}
+	
+	private void setCounter() {
+		counter = number_of_attacks_drew;
 	}
 	
 	@Override
