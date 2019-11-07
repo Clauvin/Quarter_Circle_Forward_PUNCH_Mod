@@ -285,10 +285,10 @@
     "NAME": "White Boots",
     "FLAVOR": "Very, very worn shoes... as much from hitting as from walking.",
     "DESCRIPTIONS": [
-	  "#rAttack draws do #yX+",
-	  " damage to the last enemy attacked, X is how many upgrades the Attack has.",
-	  " #bThird #rAttack draws do #y2X+",
-	  " damage instead."
+    "Each three #yAttacks drawn do #b",
+    " damage to the latest single enemy attacked.",
+    " Each #yupgraded #yAttack drawn do #b",
+    " damage to the latest single enemy attacked."
     ]
   },
   
