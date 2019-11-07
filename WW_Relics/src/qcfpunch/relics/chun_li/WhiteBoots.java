@@ -83,28 +83,35 @@ public class WhiteBoots extends CustomRelic {
 				new DamageAction(creature, damage_info));
 	}
 	
-	public boolean isAnAttackCard(AbstractCard c) {
+	private boolean isAnAttackCard(AbstractCard c) {
 		return c.type == CardType.ATTACK;
 	}
 
-	public void addOneToNumberOfAttacksDrew() {
+	private void addOneToNumberOfAttacksDrew() {
 		number_of_attacks_drew++;
 	}	
 	
-	public boolean isTimeToDoAttackCardDamage() {
+	private boolean isTimeToDoAttackCardDamage() {
 		return (single_enemy_attacked != null) &&
 				(number_of_attacks_drew >= CARDS_DREW_FOR_NORMAL_ATTACKS); 
 	}
 
-	public void doDamageToTarget(AbstractCard card, AbstractCreature creature) {
+	private void doDamageToTarget(AbstractCard card, AbstractCreature creature) {
 		int total_damage = 0;
 		
 		total_damage += CONSTANT_DAMAGE;
 		
-		DamageInfo damage_info = new DamageInfo(AbstractDungeon.player, total_damage, DamageInfo.DamageType.HP_LOSS);
-		flash();
-		AbstractDungeon.actionManager.addToBottom(
-				new PummelDamageAction(creature, damage_info));
+		for (int i = 0; i < total_damage; i++) {
+			
+			DamageInfo damage_info = new DamageInfo(
+					AbstractDungeon.player, 1, DamageInfo.DamageType.HP_LOSS);
+			flash();
+			AbstractDungeon.actionManager.addToBottom(
+					new PummelDamageAction(creature, damage_info));
+			
+		}
+		
+		
 	}
 	
 	private void setNumberOfAttacksDrew() {
@@ -131,7 +138,7 @@ public class WhiteBoots extends CustomRelic {
 		
 	}
 	
-	public boolean enemyAttackedCounts(DamageInfo info) {
+	private boolean enemyAttackedCounts(DamageInfo info) {
 		return info.type == DamageType.NORMAL;
 	}
 
