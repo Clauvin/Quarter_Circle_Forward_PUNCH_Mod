@@ -30,9 +30,6 @@ public class WhiteBoots extends CustomRelic {
 	
 	private static AbstractCreature single_enemy_attacked;
 	
-	public int[] copied_cards_x_position = {100, 120, 120, 100};
-	public int[] copied_cards_y_position = {100, 80, -80, -100};
-	
 	public static final Logger logger = LogManager.getLogger(WhiteBoots.class.getName());
 	
 	public WhiteBoots() {
