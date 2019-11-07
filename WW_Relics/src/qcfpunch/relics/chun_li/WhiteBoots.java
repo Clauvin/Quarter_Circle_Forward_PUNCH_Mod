@@ -92,7 +92,8 @@ public class WhiteBoots extends CustomRelic {
 	}	
 	
 	public boolean isTimeToDoAttackCardDamage() {
-		return (single_enemy_attacked != null) && (number_of_attacks_drew >= 3); 
+		return (single_enemy_attacked != null) &&
+				(number_of_attacks_drew >= CARDS_DREW_FOR_NORMAL_ATTACKS); 
 	}
 
 	public void doDamageToTarget(AbstractCard card, AbstractCreature creature) {
@@ -107,7 +108,7 @@ public class WhiteBoots extends CustomRelic {
 	}
 	
 	private void setNumberOfAttacksDrew() {
-		number_of_attacks_drew %= 3;
+		number_of_attacks_drew %= CARDS_DREW_FOR_NORMAL_ATTACKS;
 	}
 	
 	private void setCounter() {
