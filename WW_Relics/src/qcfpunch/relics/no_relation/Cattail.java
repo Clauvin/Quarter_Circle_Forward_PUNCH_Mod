@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.potions.SmokeBomb;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
+import com.megacrit.cardcrawl.vfx.combat.SmokeBombEffect;
 
 import basemod.abstracts.CustomRelic;
 import qcfpunch.QCFP_Misc;
@@ -65,6 +66,7 @@ public class Cattail extends CustomRelic {
 			flash();
 			AbstractDungeon.player.obtainPotion(new SmokeBomb());
 			counter = -2;
+			AbstractDungeon.effectList.add(new SmokeBombEffect(this.currentX, this.currentY));
 		}
 	}
 	
