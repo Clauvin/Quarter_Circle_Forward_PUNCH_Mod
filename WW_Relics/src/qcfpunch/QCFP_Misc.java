@@ -15,6 +15,8 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.core.Settings.GameLanguage;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.GameDictionary;
+import com.megacrit.cardcrawl.potions.AbstractPotion;
+import com.megacrit.cardcrawl.potions.PotionSlot;
 import com.megacrit.cardcrawl.random.Random;
 
 public class QCFP_Misc {
@@ -149,6 +151,17 @@ public class QCFP_Misc {
 			if (card.cost > 0) card.modifyCostForCombat(-1);
 		}
 		
+	}
+	
+	public boolean haveSpaceForANewPotion() {
+		int index = 0;
+	    for (AbstractPotion p : AbstractDungeon.player.potions) {
+	    	if (p instanceof PotionSlot) break;
+	    	index++;
+	    } 
+	    
+	    if (index < AbstractDungeon.player.potionSlots) return true;
+	    else return false;
 	}
 	
 	public static int headsOrTails(Random random) {
