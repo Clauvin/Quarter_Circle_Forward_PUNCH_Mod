@@ -70,6 +70,23 @@ public class Cattail extends CustomRelic {
 		}
 	}
 	
+	@Override
+	public void atTurnStart() {
+		youShouldFreeOnePotionSlot();
+	}
+	
+	@Override
+	public void onVictory() {
+		youShouldFreeOnePotionSlot();
+	}
+	
+	private void youShouldFreeOnePotionSlot() {
+		if ((counter == 1) && (!QCFP_Misc.haveSpaceForANewPotion())) {
+			flash();
+		}
+	}
+	
+	
 	public static void save(final SpireConfig config) {
 
         if (AbstractDungeon.player != null && AbstractDungeon.player.hasRelic(ID)) {
