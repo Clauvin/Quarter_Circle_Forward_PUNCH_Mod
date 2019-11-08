@@ -153,7 +153,7 @@ public class QCFP_Misc {
 		
 	}
 	
-	public boolean haveSpaceForANewPotion() {
+	public static boolean haveSpaceForANewPotion() {
 		int index = 0;
 	    for (AbstractPotion p : AbstractDungeon.player.potions) {
 	    	if (p instanceof PotionSlot) break;
