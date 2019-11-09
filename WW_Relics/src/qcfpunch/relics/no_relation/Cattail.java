@@ -66,14 +66,20 @@ public class Cattail extends CustomRelic {
 			flash();
 			AbstractDungeon.player.obtainPotion(new SmokeBomb());
 			counter = -2;
-			AbstractDungeon.actionManager.addToBottom(
-					new CattailTacticalEspionageAction(this));
+			
 		}
 	}
 	
 	@Override
 	public void atTurnStart() {
-		youShouldFreeOnePotionSlot();
+		if (counter <= 0) {
+			AbstractDungeon.actionManager.addToBottom(
+					new CattailTacticalEspionageAction(this));
+		} else {
+			youShouldFreeOnePotionSlot();	
+		}
+		
+		
 	}
 	
 	@Override
