@@ -27,6 +27,8 @@ public class Cattail extends CustomRelic {
 	
 	private static int last_floor_where_relic_counter_was_changed = 0;
 	
+	private static boolean the_ninja_did_not_escape = true;
+	
 	public static final Logger logger = LogManager.getLogger(Cattail.class.getName());
 	
 	public Cattail() {
@@ -73,6 +75,7 @@ public class Cattail extends CustomRelic {
 	@Override
 	public void atTurnStart() {
 		if (counter <= 0) {
+			the_ninja_did_not_escape = false;
 			AbstractDungeon.actionManager.addToBottom(
 					new CattailTacticalEspionageAction(this));
 		} else {
@@ -144,7 +147,6 @@ public class Cattail extends CustomRelic {
             logger.info("Finished loading " + ID + " info");
             logger.info(QCFP_Misc.classAndSaveSlotText());
         }
-		
 		else
 		{
 			logger.info("There's no info, setting variables accordingly.");
@@ -180,7 +182,8 @@ public class Cattail extends CustomRelic {
 	}
 	
 	public boolean canSpawn() {
-		return (Settings.isEndless || AbstractDungeon.floorNum <= 48);
+		return (Settings.isEndless || AbstractDungeon.floorNum <= 48) && 
+				(the_ninja_did_not_escape);
 	}
 	
 	public AbstractRelic makeCopy() {
