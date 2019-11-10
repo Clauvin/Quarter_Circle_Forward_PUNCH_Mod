@@ -220,7 +220,7 @@
     "NAME": "Red Headband",
     "FLAVOR": "Placing it in your head gives some focus against distractions.",
     "DESCRIPTIONS": [
-      "Each turn, discard the first #rStatus or #rCurse drawn. If you discarded it, draw one random card from the draw pile."
+      "The first time you draw a Status or Curse each turn, discard it and draw a random card."
     ]
   },
   
