@@ -26,8 +26,7 @@ public class Cattail extends CustomRelic {
 	public static int HOW_MANY_ROOMS_TO_GIVE_SMOKE_BOMB = 7;
 	
 	private static int last_floor_where_relic_counter_was_changed = 0;
-	
-	private static boolean the_ninja_did_not_escape = true;
+	private static final int RELIC_HAVENT_SPAWNED_YET = 0;
 	
 	public static final Logger logger = LogManager.getLogger(Cattail.class.getName());
 	
@@ -75,7 +74,6 @@ public class Cattail extends CustomRelic {
 	@Override
 	public void atTurnStart() {
 		if (counter <= 0) {
-			the_ninja_did_not_escape = false;
 			AbstractDungeon.actionManager.addToBottom(
 					new CattailTacticalEspionageAction(this));
 		} else {
@@ -183,7 +181,8 @@ public class Cattail extends CustomRelic {
 	
 	public boolean canSpawn() {
 		return (Settings.isEndless || AbstractDungeon.floorNum <= 48) && 
-				(the_ninja_did_not_escape);
+				(last_floor_where_relic_counter_was_changed == 
+					RELIC_HAVENT_SPAWNED_YET);
 	}
 	
 	public AbstractRelic makeCopy() {
