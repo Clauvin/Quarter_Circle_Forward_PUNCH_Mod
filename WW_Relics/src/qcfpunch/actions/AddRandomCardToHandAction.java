@@ -5,11 +5,11 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
-public class DrawRandomCardToHandAction extends AbstractGameAction {
+public class AddRandomCardToHandAction extends AbstractGameAction {
 
 	private AbstractPlayer player;
 		
-	public DrawRandomCardToHandAction() {
+	public AddRandomCardToHandAction() {
 		
 		player = AbstractDungeon.player;
 		this.actionType = ActionType.DRAW;

@@ -11,7 +11,7 @@ import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 import basemod.abstracts.CustomRelic;
 import qcfpunch.QCFP_Misc;
-import qcfpunch.actions.DrawRandomCardToHandAction;
+import qcfpunch.actions.AddRandomCardToHandAction;
 import qcfpunch.resources.relic_graphics.GraphicResources;
 
 public class RedHeadband extends CustomRelic {
