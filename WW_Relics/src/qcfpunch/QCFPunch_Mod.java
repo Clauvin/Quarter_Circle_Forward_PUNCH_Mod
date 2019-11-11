@@ -37,6 +37,7 @@ import qcfpunch.relics.guile.*;
 import qcfpunch.relics.ken.*;
 import qcfpunch.relics.ryu.*;
 import qcfpunch.relics.zangief.*;
+import qcfpunch.relics.bosses.KillianEngineAlpha;
 import qcfpunch.relics.cammy.*;
 import qcfpunch.relics.character_cameos.dan.NotStrongestFightingStyleGuidebook;
 import qcfpunch.relics.character_cameos.sakura.SchoolBackpack;
@@ -251,6 +252,7 @@ public class QCFPunch_Mod implements AddCustomModeModsSubscriber, EditStringsSub
 		addCharacterCameoRelics();
 		addGameCameoRelics();
 		addNoRelationRelics();
+		addBossRelics();
 		logger.info("Done adding relics");
 	}
 
@@ -330,6 +332,10 @@ public class QCFPunch_Mod implements AddCustomModeModsSubscriber, EditStringsSub
 	
 	private void addNoRelationRelics() {
 		BaseMod.addRelic(new Cattail(), RelicType.SHARED);
+	}
+	
+	private void addBossRelics() {
+		BaseMod.addRelic(new KillianEngineAlpha(), RelicType.SHARED);
 	}
 	
 	@Override
