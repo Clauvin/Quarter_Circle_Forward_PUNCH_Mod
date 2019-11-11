@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.helpers.CardLibrary;
 
 import basemod.abstracts.CustomRelic;
 import qcfpunch.QCFP_Misc;
+import qcfpunch.relics.character_cameos.sakura.SchoolBackpack;
 import qcfpunch.resources.relic_graphics.GraphicResources;
 
 public class KillianEngineAlpha extends CustomRelic {
@@ -81,7 +82,7 @@ public class KillianEngineAlpha extends CustomRelic {
 			
 		}
 		
-		
+		card
 		
 	}
 	
@@ -125,5 +126,11 @@ public class KillianEngineAlpha extends CustomRelic {
 	public static void clear(final SpireConfig config) {
 
 	}
+	
+	@Override
+	public CustomRelic makeCopy() {
+		return new KillianEngineAlpha();
+	}
+
 
 }
