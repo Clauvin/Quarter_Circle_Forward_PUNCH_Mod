@@ -132,7 +132,7 @@
   	"NAME": "Killian Engine Alpha",
   	"FLAVOR": "Here, a vast amount of fighting information rests. Even yours. BUT NOT BLACK CARDS FROM INFINITE SPIRE, go get your Black cards elsewhere, shoo, shoo!",
   	"DESCRIPTIONS": [
-  	 "When you pick this relic, choose a character that's not yours. Each 2 combats, add one card reward of that character.",
+  	 "When you pick this relic, choose another Color. Cards of the chosen color may appear where cards of your chosen character would.",
   	 "Character chosen is:"
 	]  	 
   },
