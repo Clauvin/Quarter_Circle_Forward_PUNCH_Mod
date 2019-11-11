@@ -1,26 +1,17 @@
 package qcfpunch.relics.bosses;
 
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Map;
 
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
-import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardColor;
-import com.megacrit.cardcrawl.cards.AbstractCard.CardRarity;
 import com.megacrit.cardcrawl.cards.CardGroup.CardGroupType;
-import com.megacrit.cardcrawl.characters.AbstractPlayer.PlayerClass;
-import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
-import com.megacrit.cardcrawl.rewards.RewardItem;
-import com.megacrit.cardcrawl.rewards.RewardItem.RewardType;
 
 import basemod.abstracts.CustomRelic;
 import qcfpunch.QCFP_Misc;
-import qcfpunch.relics.ken.UnceasingFlame;
 import qcfpunch.resources.relic_graphics.GraphicResources;
 
 public class KillianEngineAlpha extends CustomRelic {
