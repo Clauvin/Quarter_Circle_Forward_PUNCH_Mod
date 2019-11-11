@@ -126,6 +126,12 @@
     ]
   },
   
+  "qcfpunch:Killian_Engine_Alpha": {
+  	"NAME": "Killian Engine Alpha",
+  	"FLAVOR": "Here, a vast amount of fighting information rests. Even yours. BUT NOT BLACK CARDS FROM INFINITE SPIRE, go get your Black cards elsewhere, shoo, shoo!",
+  	"DESCRIPTIONS": "Choose 2 colors (except Black): the next 6 combats drop an additional upgraded card reward of one of the chosen colors randomly."
+  },
+  
   "qcfpunch:Lotus_Statue": {
     "NAME": "观音莲花苑",
     "FLAVOR": "“冥想……你的所有问题便会迎刃而解”",
@@ -138,6 +144,14 @@
     ]
   },
   
+  "qcfpunch:Mixed_Paint_Bucket": {
+    "NAME": "混合漆桶",
+    "FLAVOR": "彩虹可不只有一种颜色。",
+ 	"DESCRIPTIONS": [
+ 	  "每场战斗开始时，你手牌中每有一种不同颜色的牌，将一张带有保留和消耗的 #bPallete #bPick 加入你的手牌。"
+    ]
+  },
+  
   "qcfpunch:Necklace_of_Skulls": {
     "NAME": "头骨项链",
     "FLAVOR": "“仇恨滋生软弱。坚定你的内心。” 这是谁说的？",
@@ -147,13 +161,7 @@
     ]
   },
   
-  "qcfpunch:Mixed_Paint_Bucket": {
-    "NAME": "混合漆桶",
-    "FLAVOR": "彩虹可不只有一种颜色。",
- 	"DESCRIPTIONS": [
- 	  "每场战斗开始时，你手牌中每有一种不同颜色的牌，将一张带有保留和消耗的 #bPallete #bPick 加入你的手牌。"
-    ]
-  },
+
 
   "qcfpunch:Neverending_Blood": {
     "NAME": "湍流鲜血",
