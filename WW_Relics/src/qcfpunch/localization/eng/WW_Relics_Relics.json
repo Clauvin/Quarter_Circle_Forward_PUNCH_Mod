@@ -128,6 +128,12 @@
     ]
   },
   
+  "qcfpunch:Killian_Engine_Alpha": {
+  	"NAME": "Killian Engine Alpha",
+  	"FLAVOR": "Here, a vast amount of fighting information rests. Even yours. BUT NOT BLACK CARDS FROM INFINITE SPIRE, go get your Black cards elsewhere, shoo, shoo!",
+  	"DESCRIPTIONS": "Choose 2 colors (except Black): the next 6 combats drop an additional upgraded card reward of one of the chosen colors randomly."
+  },
+  
   "qcfpunch:Lotus_Statue": {
     "NAME": "Lotus Statue",
     "FLAVOR": "\"Meditate now... Then the answers you seek will be revealed.\"",
