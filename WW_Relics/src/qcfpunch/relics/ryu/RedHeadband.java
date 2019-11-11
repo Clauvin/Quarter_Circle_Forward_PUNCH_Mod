@@ -1,6 +1,7 @@
 package qcfpunch.relics.ryu;
 
 import com.megacrit.cardcrawl.actions.common.DiscardSpecificCardAction;
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -35,23 +36,23 @@ public class RedHeadband extends CustomRelic {
 			(drawnCard.type == AbstractCard.CardType.STATUS)) 
 		{
 			if (drawn_status_and_curses_in_the_turn  < NUMBER_OF_DRAWS) {
-				AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(AbstractDungeon.player, this));
+				AbstractDungeon.actionManager.addToBottom(
+						new RelicAboveCreatureAction(AbstractDungeon.player, this));
 				
-		        AbstractDungeon.actionManager.addToBottom(new DiscardSpecificCardAction(drawnCard));
+		        AbstractDungeon.actionManager.addToBottom(
+		        		new DiscardSpecificCardAction(drawnCard));
 				
 		        AbstractPlayer p = AbstractDungeon.player;
 
 		        if (QCFP_Misc.abscenceOfNoDrawPower()) {
 			        for (int i = 0; i < DRAW_PER_STATUS_OR_CURSE; i++) {
-				        if (!p.drawPile.group.isEmpty()) {
-				        	AbstractDungeon.actionManager.addToBottom(new WaitAction(0.4f));
-				        	AbstractDungeon.actionManager.addToBottom(new DrawRandomCardToHandAction());
-				        } else { break; }
-				        
-						drawn_status_and_curses_in_the_turn++;
-			        }
-		        } else {
-		        	AbstractDungeon.player.getPower("No Draw").flash();
+				        AbstractDungeon.actionManager.addToBottom(new WaitAction(0.4f));
+				        AbstractDungeon.actionManager.
+				        	addToBottom(new DrawCardAction(p, 1));
+				    }
+				    drawn_status_and_curses_in_the_turn++;
+			    } else {
+		        	p.getPower("No Draw").flash();
 		        }
 			}
 		}
