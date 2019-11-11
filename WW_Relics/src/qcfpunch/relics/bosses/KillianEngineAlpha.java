@@ -12,7 +12,6 @@ import com.megacrit.cardcrawl.helpers.CardLibrary;
 
 import basemod.abstracts.CustomRelic;
 import qcfpunch.QCFP_Misc;
-import qcfpunch.relics.character_cameos.sakura.SchoolBackpack;
 import qcfpunch.resources.relic_graphics.GraphicResources;
 
 public class KillianEngineAlpha extends CustomRelic {
@@ -20,7 +19,7 @@ public class KillianEngineAlpha extends CustomRelic {
 	public static final String ID = QCFP_Misc.returnPrefix() +
 			"Killian_Engine_Alpha";
 	
-	public static final int AMOUNT_OF_COMBAT_REWARDS = 6;
+	public static final int EXTRA_CARD_AMOUNT_FOR_REWARDS = 1;
 	public static final float CHANCE_OF_UPGRADED_CARDS = 0.1f;
 	
 	public static boolean is_it_time_to_add_a_card_reward = false;
@@ -82,7 +81,11 @@ public class KillianEngineAlpha extends CustomRelic {
 			
 		}
 		
-		card
+	}
+	
+	public int changeNumberOfCardsInReward(int numCards) {
+		
+		return numCards + EXTRA_CARD_AMOUNT_FOR_REWARDS;
 		
 	}
 	
