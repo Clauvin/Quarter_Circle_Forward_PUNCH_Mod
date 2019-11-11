@@ -186,7 +186,7 @@ public class SchoolBackpack extends CustomRelic {
 		ArrayList<AbstractCard> basic_array_of_cards = new ArrayList<AbstractCard>();
 	    
 	    int num_cards = 3;
-	    num_cards = circunstancesThatChangeCardNumber(num_cards);
+	    num_cards = QCFP_Misc.circunstancesThatChangeCardNumber(num_cards);
 	    
 	    AbstractCard.CardRarity rarity;
 	    for (int i = 0; i < num_cards; i++)
@@ -241,14 +241,6 @@ public class SchoolBackpack extends CustomRelic {
     		default: 
     			logger.info("Paraphrasing the base game code: WTF?");
     	}
-	}
-	
-	private int circunstancesThatChangeCardNumber(int num_cards) {
-		if (AbstractDungeon.player.hasRelic("Question Card")) 	num_cards++;
-		if (AbstractDungeon.player.hasRelic("Busted Crown")) 	num_cards -= 2;
-		if (ModHelper.isModEnabled("Binary")) 					num_cards--;
-	
-		return num_cards;
 	}
 
 	private static AbstractCard getCardAvoidingDuplicates(ArrayList<AbstractCard> array_of_cards_to_check, 
