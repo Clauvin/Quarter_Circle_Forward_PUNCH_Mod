@@ -278,7 +278,7 @@ public class SchoolBackpack extends CustomRelic {
 		for (Map.Entry<String, AbstractCard> a_card : CardLibrary.cards.entrySet()) {
 			AbstractCard one_more_card = a_card.getValue();
 			
-			if (cardIsOfChosenColor(one_more_card, class_color)) {
+			if (QCFP_Misc.cardIsOfChosenColor(one_more_card, class_color)) {
 				
 				CardRarity this_card_rarity = ((AbstractCard)one_more_card).rarity;			
 				
@@ -319,15 +319,6 @@ public class SchoolBackpack extends CustomRelic {
 		else if (a_class == PlayerClass.IRONCLAD) 		class_color = CardColor.RED;
 		
 		return class_color;
-	}
-	
-	public static boolean cardIsOfChosenColor(AbstractCard one_card, CardColor class_color) {
-		
-		AbstractCard card = (AbstractCard)one_card;
-		
-		return (card.color == class_color) && (card.type != AbstractCard.CardType.STATUS) &&
-				(card.type != AbstractCard.CardType.CURSE);
-		
 	}
 	
 	public void AddSavedReward() {

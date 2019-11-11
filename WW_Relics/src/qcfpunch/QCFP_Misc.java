@@ -15,6 +15,7 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.core.Settings.GameLanguage;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.GameDictionary;
+import com.megacrit.cardcrawl.helpers.ModHelper;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
 import com.megacrit.cardcrawl.potions.PotionSlot;
 import com.megacrit.cardcrawl.random.Random;
@@ -150,6 +151,24 @@ public class QCFP_Misc {
 		if (!cardIsACurseOrStatus(card)) {
 			if (card.cost > 0) card.modifyCostForCombat(-1);
 		}
+		
+	}
+	
+	public static int circunstancesThatChangeCardNumber(int num_cards) {
+		if (AbstractDungeon.player.hasRelic("Question Card")) 	num_cards++;
+		if (AbstractDungeon.player.hasRelic("Busted Crown")) 	num_cards -= 2;
+		if (ModHelper.isModEnabled("Binary")) 					num_cards--;
+	
+		return num_cards;
+	}
+	
+	public static boolean cardIsOfChosenColor(AbstractCard one_card, CardColor class_color) {
+		
+		AbstractCard card = (AbstractCard)one_card;
+		
+		return (card.color == class_color) &&
+				(card.type != AbstractCard.CardType.STATUS) &&
+				(card.type != AbstractCard.CardType.CURSE);
 		
 	}
 	
