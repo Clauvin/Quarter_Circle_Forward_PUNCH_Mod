@@ -227,7 +227,7 @@
     
   "qcfpunch:Red_Headband": {
     "NAME": "Red Headband",
-    "FLAVOR": "Placing it in your head gives some focus against distractions.",
+    "FLAVOR": "Wearing it gives some focus against distractions.",
     "DESCRIPTIONS": [
       "The first time you draw a #rStatus or #rCurse each turn, discard it and draw a card."
     ]
