@@ -15,7 +15,7 @@ public class DarkGi extends CustomRelic {
 	
 	public static final String ID = QCFP_Misc.returnPrefix() + "Dark_Gi";
 	
-	public static final float PERCENTAGE_OF_MAX_HP_TO_LOSE = 0.3f;
+	public static final float PERCENTAGE_OF_MAX_HP_TO_LOSE = 0.25f;
 	public static final float HEAL_EFFECTIVENESS = 0.5f;
 	public static final int AMOUNT_TO_DRAW_WHEN_A_CARD_IS_PLAYED = 1;
 	public static final int EXTRA_DRAW_EACH_TURN = 1;
@@ -48,12 +48,16 @@ public class DarkGi extends CustomRelic {
 		return amount_to_heal;
 	}
 	
+	
+	
 	@Override
 	public void onPlayCard(AbstractCard c, AbstractMonster m) {
 		super.onPlayCard(c, m);
-		AbstractDungeon.actionManager.addToBottom(
-				new DrawCardAction(AbstractDungeon.player,
-						AMOUNT_TO_DRAW_WHEN_A_CARD_IS_PLAYED));
+		if (c.costForTurn > 0) {
+			AbstractDungeon.actionManager.addToBottom(
+					new DrawCardAction(AbstractDungeon.player,
+							AMOUNT_TO_DRAW_WHEN_A_CARD_IS_PLAYED));
+		}
 	}
 	
 	@Override
