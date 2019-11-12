@@ -38,6 +38,7 @@ import qcfpunch.relics.ken.*;
 import qcfpunch.relics.ryu.*;
 import qcfpunch.relics.seth.KillianEngineAlpha;
 import qcfpunch.relics.zangief.*;
+import qcfpunch.relics.akuma.DarkGi;
 import qcfpunch.relics.cammy.*;
 import qcfpunch.relics.character_cameos.dan.NotStrongestFightingStyleGuidebook;
 import qcfpunch.relics.character_cameos.sakura.SchoolBackpack;

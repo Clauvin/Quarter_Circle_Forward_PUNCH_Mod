@@ -20,7 +20,7 @@ public class DarkGi extends CustomRelic {
 	
 	public DarkGi() {
 		super(ID, GraphicResources.LoadRelicImage("White_Boots - steeltoe-boots - Lorc - CC BY 3.0.png"),
-				RelicTier.UNCOMMON, LandingSound.FLAT);
+				RelicTier.BOSS, LandingSound.FLAT);
 	}
 	
 	public String getUpdatedDescription() {
