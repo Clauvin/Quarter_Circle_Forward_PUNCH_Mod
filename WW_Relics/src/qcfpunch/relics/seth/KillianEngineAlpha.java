@@ -1,4 +1,4 @@
-package qcfpunch.relics.bosses;
+package qcfpunch.relics.seth;
 
 import java.util.Map;
 
