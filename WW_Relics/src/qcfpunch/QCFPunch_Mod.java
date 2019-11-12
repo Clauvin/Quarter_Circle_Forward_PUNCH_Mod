@@ -335,6 +335,7 @@ public class QCFPunch_Mod implements AddCustomModeModsSubscriber, EditStringsSub
 	}
 	
 	private void addBossRelics() {
+		BaseMod.addRelic(new DarkGi(), RelicType.SHARED);
 		BaseMod.addRelic(new KillianEngineAlpha(), RelicType.SHARED);
 	}
 	
