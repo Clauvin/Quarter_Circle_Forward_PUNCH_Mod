@@ -66,6 +66,14 @@
     ]
   },
 
+  "qcfpunch:Dark_Gi": {
+    "NAME": "Dark Gi",
+    "FLAVOR": "The power of a master of the fist is hard to wield.",
+    "DESCRIPTIONS": [
+	  "Increase your hand size by 1. When you play a card, draw a card. Lose 30% of your Max HP. All healing is 50% less effective."
+    ]
+  },
+
   "qcfpunch:Duffel_Bag": {
     "NAME": "Duffel Bag",
     "FLAVOR": "Very practical when wandering.",
