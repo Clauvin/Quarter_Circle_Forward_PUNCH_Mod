@@ -36,8 +36,12 @@ public class DarkGi extends CustomRelic {
 	
 	@Override
 	public void onPlayCard(AbstractCard c, AbstractMonster m) {
+		boolean x_cost_card_spent_energy = false;
+		if ((c.cost == -1) && (AbstractDungeon.player.energy.energy > 0)) {
+			x_cost_card_spent_energy = true;
+		}
 		super.onPlayCard(c, m);
-		if (c.costForTurn > 0) {
+		if (c.costForTurn > 0 || x_cost_card_spent_energy) {
 			AbstractDungeon.actionManager.addToBottom(
 					new DrawCardAction(AbstractDungeon.player,
 							AMOUNT_TO_DRAW_WHEN_A_CARD_IS_PLAYED));
