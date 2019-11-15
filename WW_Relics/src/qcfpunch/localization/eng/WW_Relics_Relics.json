@@ -68,9 +68,9 @@
 
   "qcfpunch:Dark_Gi": {
     "NAME": "Dark Gi",
-    "FLAVOR": "The power of a master of the fist is hard to wield.",
+    "FLAVOR": "A master of the fist's power is hard to wield.",
     "DESCRIPTIONS": [
-	  "Draw #b1 extra card every turn. Increase your max hand size by #b1. When you play a card, draw a card. Lose #b30% of your Max HP. All healing is #b50% less effective."
+	  "When you spend Energy to play a card, draw a card. Lose #b35% of your Max HP."
     ]
   },
 
