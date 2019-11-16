@@ -32,7 +32,7 @@ public class CrimsonSash extends CustomRelic  {
 	@Override
 	public int onPlayerHeal(int healAmount) {
 		int true_heal_amount = Math.round(healAmount * HEALING_LOWER_EFFICIENCY); 
-		
+		flash();
 		return super.onPlayerHeal(true_heal_amount);
 	}
 	
