@@ -5,6 +5,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
+import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 
 import basemod.abstracts.CustomRelic;
 import qcfpunch.QCFP_Misc;
@@ -37,7 +38,7 @@ public class DarkGi extends CustomRelic {
 	@Override
 	public void onPlayCard(AbstractCard c, AbstractMonster m) {
 		boolean x_cost_card_spent_energy = false;
-		if ((c.cost == -1) && (AbstractDungeon.player.energy.energy > 0)) {
+		if ((c.cost == -1) && (EnergyPanel.totalCount > 0)) {
 			x_cost_card_spent_energy = true;
 		}
 		super.onPlayCard(c, m);
