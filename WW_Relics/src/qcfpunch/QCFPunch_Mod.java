@@ -33,6 +33,7 @@ import qcfpunch.relics.chun_li.*;
 import qcfpunch.relics.dhalsim.BrokenTusk;
 import qcfpunch.relics.dhalsim.LotusStatue;
 import qcfpunch.relics.dhalsim.NecklaceOfSkulls;
+import qcfpunch.relics.gen.CrimsonSash;
 import qcfpunch.relics.guile.*;
 import qcfpunch.relics.ken.*;
 import qcfpunch.relics.ryu.*;
@@ -337,6 +338,7 @@ public class QCFPunch_Mod implements AddCustomModeModsSubscriber, EditStringsSub
 	
 	private void addBossRelics() {
 		BaseMod.addRelic(new DarkGi(), RelicType.SHARED);
+		BaseMod.addRelic(new CrimsonSash(), RelicType.SHARED);
 		BaseMod.addRelic(new KillianEngineAlpha(), RelicType.SHARED);
 	}
 	
