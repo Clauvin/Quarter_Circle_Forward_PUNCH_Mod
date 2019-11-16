@@ -240,14 +240,18 @@ public class QCFP_Misc {
             logger.info(message);
         }
     }
-	
-    public static void fastLoggerLine(String message) {
-    	logger.info(message);
-    }
     
     public static void fastLoggerLine(Boolean message) {
     	String converted_message = message.toString();
     	fastLoggerLine(converted_message);
+    }
+    
+    public static void fastLoggerLine(int message) {
+    	fastLoggerLine("" + message);
+    }
+    
+    public static void fastLoggerLine(String message) {
+    	logger.info(message);
     }
     
 }
