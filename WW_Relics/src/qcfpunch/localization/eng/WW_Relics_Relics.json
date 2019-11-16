@@ -65,6 +65,14 @@
       " #yTemporary #yStrength and your next Attack deals #ydouble #ydamage."
     ]
   },
+  
+  "qcfpunch:Crimson_Sash": {
+    "NAME": "Crimson Sash",
+    "FLAVOR": "A grim reminder that no matter how skilled, no one beats their end forever.",
+    "DESCRIPTIONS": [
+      "Gain #b1 E. All healing is #b50% #rless effective."
+    ]
+  },
 
   "qcfpunch:Dark_Gi": {
     "NAME": "Dark Gi",
