@@ -56,6 +56,13 @@
     ]
   },
   
+  "qcfpunch:Crimson_Sash": {
+    "NAME": "Crimson Sash",
+    "FLAVOR": "A grim reminder that no matter how skilled, no one beats their end forever.",
+    "DESCRIPTIONS": [
+      "Gain 1 E. All healing is 50% less effective."
+    ]
+  },
   
   "qcfpunch:Combat_Fatigues": {
     "NAME": "迷彩服",
