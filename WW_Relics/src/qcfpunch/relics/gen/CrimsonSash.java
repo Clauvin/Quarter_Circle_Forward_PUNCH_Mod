@@ -36,6 +36,11 @@ public class CrimsonSash extends CustomRelic  {
 		return super.onPlayerHeal(true_heal_amount);
 	}
 	
+	@Override
+	public void onEnterRestRoom() {
+		flash();
+	}
+	
 	public AbstractRelic makeCopy() {
 		return new CrimsonSash();
 	}
