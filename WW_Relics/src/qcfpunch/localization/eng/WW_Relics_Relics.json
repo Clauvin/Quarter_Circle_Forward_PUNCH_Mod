@@ -70,7 +70,7 @@
     "NAME": "Crimson Sash",
     "FLAVOR": "A grim reminder that no matter how skilled, no one avoids their own end forever.",
     "DESCRIPTIONS": [
-      "Gain #b1 [E]. You recover #b50% #rless HP from healing."
+      "Gain [E] at the start of your turn. You recover #b50% #rless HP from healing."
     ]
   },
 
