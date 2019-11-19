@@ -3,8 +3,10 @@ package qcfpunch.relics.seth;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
+import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndObtainEffect;
 
 import basemod.abstracts.CustomRelic;
 import qcfpunch.QCFP_Misc;
@@ -18,6 +20,8 @@ public class KillianEngineAlpha extends CustomRelic {
 	public static final int CARD_AMOUNT_TO_CHOOSE_FROM = 15;
 	public static final int CARD_AMOUNT_TO_PICK_AT_MOST = 5;
 
+	public boolean choose_card_grid_have_appeared = false;
+	
 	public static String current_description;
 	
 	public KillianEngineAlpha() {
@@ -30,13 +34,36 @@ public class KillianEngineAlpha extends CustomRelic {
 		return DESCRIPTIONS[0];
 	}
 
+	public void update() {
+	    super.update();
+	    if (this.choose_card_grid_have_appeared && 
+	    		!AbstractDungeon.isScreenUp &&
+	    		!AbstractDungeon.gridSelectScreen.selectedCards.isEmpty()) {
+	      
+	    	for (int i = 0;
+	    			i < AbstractDungeon.gridSelectScreen.selectedCards.size();
+	    			i++) {
+	    		
+	    		AbstractCard c = ((AbstractCard)AbstractDungeon.
+	    				gridSelectScreen.selectedCards.get(i)).makeCopy();
+	    		
+	    		AbstractDungeon.effectList.add(
+	    				new ShowCardAndObtainEffect(c,
+	    						Settings.WIDTH / 2.0F, Settings.HEIGHT / 2.0F));
+	    		
+	    	}
+	      
+	    	AbstractDungeon.gridSelectScreen.selectedCards.clear();
+	    } 
+	}
+	
 	@Override
 	public void onEquip() {
 		
         CardGroup cards_to_choose = new CardGroup(
         		CardGroup.CardGroupType.UNSPECIFIED);
 
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < CARD_AMOUNT_TO_CHOOSE_FROM; i++) {
         	AbstractCard card = AbstractDungeon.getCard(
         		  AbstractDungeon.rollRarity()).makeCopy();
           
@@ -77,8 +104,12 @@ public class KillianEngineAlpha extends CustomRelic {
         for (AbstractCard c : cards_to_choose.group) {
         	UnlockTracker.markCardAsSeen(c.cardID);
         }
+
+        choose_card_grid_have_appeared = true;
+        
         AbstractDungeon.gridSelectScreen.open(cards_to_choose,
         		CARD_AMOUNT_TO_PICK_AT_MOST, "Testing", false);
+        
         return;
 		
 		//choose character
