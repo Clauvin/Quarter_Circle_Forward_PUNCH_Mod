@@ -1,6 +1,5 @@
 package qcfpunch.relics.seth;
 
-import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.core.Settings;
@@ -20,7 +19,10 @@ public class KillianEngineAlpha extends CustomRelic {
 	public static final int CARD_AMOUNT_TO_CHOOSE_FROM = 15;
 	public static final int CARD_AMOUNT_TO_PICK_AT_MOST = 5;
 
-	public boolean choose_card_grid_have_appeared = false;
+	public boolean upgrade_card_grid_have_appeared = false;
+	public boolean remove_card_grid_have_appeared = false;
+	
+	private int amount_of_cards_added;
 	
 	public static String current_description;
 	
@@ -36,12 +38,16 @@ public class KillianEngineAlpha extends CustomRelic {
 
 	public void update() {
 	    super.update();
-	    if (this.choose_card_grid_have_appeared && 
+	    if (this.upgrade_card_grid_have_appeared && 
+	    	!this.remove_card_grid_have_appeared &&
 	    		!AbstractDungeon.isScreenUp &&
 	    		!AbstractDungeon.gridSelectScreen.selectedCards.isEmpty()) {
+	    	
+	    	amount_of_cards_added = AbstractDungeon.
+	    			gridSelectScreen.selectedCards.size();
 	      
 	    	for (int i = 0;
-	    			i < AbstractDungeon.gridSelectScreen.selectedCards.size();
+	    			i < amount_of_cards_added;
 	    			i++) {
 	    		
 	    		AbstractCard c = ((AbstractCard)AbstractDungeon.
@@ -54,7 +60,24 @@ public class KillianEngineAlpha extends CustomRelic {
 	    	}
 	      
 	    	AbstractDungeon.gridSelectScreen.selectedCards.clear();
-	    } 
+	    	
+	    	if (CardGroup.getGroupWithoutBottledCards(
+	    			AbstractDungeon.player.masterDeck.getPurgeableCards())
+	                .size() > 0) {
+	    		
+	    		AbstractDungeon.gridSelectScreen.open(
+	    			CardGroup.getGroupWithoutBottledCards(
+	    					AbstractDungeon.player.masterDeck
+	    				.getPurgeableCards()), amount_of_cards_added, "Testing 2",
+	    			false, false, false, true);
+	    		
+	    	}
+
+	    	remove_card_grid_have_appeared = true;
+	    	
+	    	
+	    }
+	    
 	}
 	
 	@Override
@@ -105,7 +128,7 @@ public class KillianEngineAlpha extends CustomRelic {
         	UnlockTracker.markCardAsSeen(c.cardID);
         }
 
-        choose_card_grid_have_appeared = true;
+        upgrade_card_grid_have_appeared = true;
         
         AbstractDungeon.gridSelectScreen.open(cards_to_choose,
         		CARD_AMOUNT_TO_PICK_AT_MOST, "Testing", false);
@@ -176,7 +199,7 @@ public class KillianEngineAlpha extends CustomRelic {
 		
 	}*/
 	
-	public static void save(final SpireConfig config) {
+	/*public static void save(final SpireConfig config) {
 
     }
 	
@@ -186,7 +209,7 @@ public class KillianEngineAlpha extends CustomRelic {
 	
 	public static void clear(final SpireConfig config) {
 
-	}
+	}*/
 	
 	@Override
 	public CustomRelic makeCopy() {
