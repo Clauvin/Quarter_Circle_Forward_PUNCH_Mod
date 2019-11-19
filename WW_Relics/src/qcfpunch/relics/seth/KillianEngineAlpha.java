@@ -1,14 +1,10 @@
 package qcfpunch.relics.seth;
 
-import java.util.Map;
-
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
-import com.megacrit.cardcrawl.cards.AbstractCard.CardColor;
-import com.megacrit.cardcrawl.cards.CardGroup.CardGroupType;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.helpers.CardLibrary;
+import com.megacrit.cardcrawl.unlock.UnlockTracker;
 
 import basemod.abstracts.CustomRelic;
 import qcfpunch.QCFP_Misc;
@@ -19,11 +15,9 @@ public class KillianEngineAlpha extends CustomRelic {
 	public static final String ID = QCFP_Misc.returnPrefix() +
 			"Killian_Engine_Alpha";
 	
-	public static final int EXTRA_CARD_AMOUNT_FOR_REWARDS = 1;
-	public static final float CHANCE_OF_UPGRADED_CARDS = 0.1f;
-	
-	public static boolean is_it_time_to_add_a_card_reward = false;
-	
+	public static final int CARD_AMOUNT_TO_CHOOSE_FROM = 15;
+	public static final int CARD_AMOUNT_TO_PICK_AT_MOST = 5;
+
 	public static String current_description;
 	
 	public KillianEngineAlpha() {
@@ -33,27 +27,66 @@ public class KillianEngineAlpha extends CustomRelic {
 	}
 	
 	public String getUpdatedDescription() {
-		if (current_description == null) return getCommonDescription();
-		else return current_description;
-	}
-	
-	public String getCommonDescription() {
 		return DESCRIPTIONS[0];
 	}
 
-	public String getEmptyRelicDescription() {
-		return DESCRIPTIONS[0];
-	}
-	
 	@Override
 	public void onEquip() {
 		
+        CardGroup cards_to_choose = new CardGroup(
+        		CardGroup.CardGroupType.UNSPECIFIED);
+
+        for (int i = 0; i < 20; i++) {
+        	AbstractCard card = AbstractDungeon.getCard(
+        		  AbstractDungeon.rollRarity()).makeCopy();
+          
+        	boolean containsDupe = true;
+        	while (containsDupe) {
+        		containsDupe = false;
+            
+        		for (AbstractCard c : cards_to_choose.group) {
+        			if (c.cardID.equals(card.cardID)) {
+        				containsDupe = true;
+        				card = AbstractDungeon.getCard(
+        						AbstractDungeon.rollRarity()).makeCopy();
+        			} 
+        		} 
+        	} 
+
+          
+        	if (!cards_to_choose.contains(card)) {
+        		
+        		if (card.type == AbstractCard.CardType.ATTACK &&
+        				AbstractDungeon.player.hasRelic("Molten Egg 2")) {
+        			card.upgrade();
+        		} else if (card.type == AbstractCard.CardType.SKILL &&
+        				AbstractDungeon.player.hasRelic("Toxic Egg 2")) {
+        			card.upgrade();
+        		} else if (card.type == AbstractCard.CardType.POWER &&
+        				AbstractDungeon.player.hasRelic("Frozen Egg 2")) {
+        			card.upgrade();
+        		}
+        		
+        		cards_to_choose.addToBottom(card);
+        	
+        	} else {
+	            i--;
+        	} 
+        } 
+        
+        for (AbstractCard c : cards_to_choose.group) {
+        	UnlockTracker.markCardAsSeen(c.cardID);
+        }
+        AbstractDungeon.gridSelectScreen.open(cards_to_choose,
+        		CARD_AMOUNT_TO_PICK_AT_MOST, "Testing", false);
+        return;
+		
 		//choose character
-		CardColor chosen_color = CardColor.RED;
+		//CardColor chosen_color = AbstractDungeon.player.getCardColor();
 		
 		//store info
 		
-		CardGroup rare_extra_pool = new CardGroup(CardGroupType.CARD_POOL);
+		/*CardGroup rare_extra_pool = new CardGroup(CardGroupType.CARD_POOL);
 		CardGroup uncommon_extra_pool = new CardGroup(CardGroupType.CARD_POOL);
 		CardGroup common_extra_pool = new CardGroup(CardGroupType.CARD_POOL);
 		
@@ -79,17 +112,11 @@ public class KillianEngineAlpha extends CustomRelic {
 			AbstractDungeon.commonCardPool.addToBottom(
 					common_extra_pool.getNCardFromTop(i));
 			
-		}
+		}*/
 		
 	}
 	
-	public int changeNumberOfCardsInReward(int numCards) {
-		
-		return numCards + EXTRA_CARD_AMOUNT_FOR_REWARDS;
-		
-	}
-	
-	@SuppressWarnings("incomplete-switch")
+	/*@SuppressWarnings("incomplete-switch")
 	public void makeCardGroupOfAColor(
 			CardColor card_color,
 			CardGroup rare_extra_pool,
@@ -116,7 +143,7 @@ public class KillianEngineAlpha extends CustomRelic {
 			}
 		}		
 		
-	}
+	}*/
 	
 	public static void save(final SpireConfig config) {
 
@@ -134,6 +161,5 @@ public class KillianEngineAlpha extends CustomRelic {
 	public CustomRelic makeCopy() {
 		return new KillianEngineAlpha();
 	}
-
 
 }
