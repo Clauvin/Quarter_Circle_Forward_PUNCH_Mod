@@ -2,10 +2,8 @@ package qcfpunch.relics.seth;
 
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
-import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
-import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndObtainEffect;
 
 import basemod.abstracts.CustomRelic;
 import qcfpunch.QCFP_Misc;
@@ -21,6 +19,7 @@ public class KillianEngineAlpha extends CustomRelic {
 
 	public boolean upgrade_card_grid_have_appeared = false;
 	public boolean remove_card_grid_have_appeared = false;
+	public boolean is_done = false;
 	
 	private int amount_of_cards_added;
 	
@@ -53,9 +52,7 @@ public class KillianEngineAlpha extends CustomRelic {
 	    		AbstractCard c = ((AbstractCard)AbstractDungeon.
 	    				gridSelectScreen.selectedCards.get(i)).makeCopy();
 	    		
-	    		AbstractDungeon.effectList.add(
-	    				new ShowCardAndObtainEffect(c,
-	    						Settings.WIDTH / 2.0F, Settings.HEIGHT / 2.0F));
+	    		AbstractDungeon.player.masterDeck.addToTop(c);
 	    		
 	    	}
 	      
@@ -69,13 +66,35 @@ public class KillianEngineAlpha extends CustomRelic {
 	    			CardGroup.getGroupWithoutBottledCards(
 	    					AbstractDungeon.player.masterDeck
 	    				.getPurgeableCards()), amount_of_cards_added, "Testing 2",
-	    			false, false, false, true);
+	    			false, false, false, false);
 	    		
 	    	}
 
 	    	remove_card_grid_have_appeared = true;
 	    	
 	    	
+	    }
+	    
+	    if (this.upgrade_card_grid_have_appeared && 
+		    	this.remove_card_grid_have_appeared &&
+		    	!is_done &&
+		    		!AbstractDungeon.isScreenUp &&
+		    		!AbstractDungeon.gridSelectScreen.selectedCards.isEmpty()) {
+	    	
+	    	QCFP_Misc.fastLoggerLine("Huh");
+	    	
+	    	for (int i = 0;
+	    			i < AbstractDungeon.gridSelectScreen.selectedCards.size();
+	    			i++) {
+	    		
+	    		AbstractCard card = AbstractDungeon.
+	    				gridSelectScreen.selectedCards.get(i);
+	    		
+	    		AbstractDungeon.player.masterDeck.removeCard(card);
+	    		
+	    	}
+	    	
+	    	is_done = true;
 	    }
 	    
 	}
