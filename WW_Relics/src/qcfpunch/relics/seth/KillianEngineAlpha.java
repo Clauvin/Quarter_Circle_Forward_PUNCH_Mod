@@ -94,6 +94,8 @@ public class KillianEngineAlpha extends CustomRelic {
 	    		
 	    	}
 	    	
+	    	AbstractDungeon.gridSelectScreen.selectedCards.clear();
+	    	
 	    	is_done = true;
 	    }
 	    
