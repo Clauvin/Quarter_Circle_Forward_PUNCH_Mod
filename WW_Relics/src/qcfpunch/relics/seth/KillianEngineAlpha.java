@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardColor;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardRarity;
+import com.megacrit.cardcrawl.cards.AbstractCard.CardType;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
@@ -185,7 +186,7 @@ public class KillianEngineAlpha extends CustomRelic {
 			card = CardLibrary.getAnyColorCard(rarity);
 			
 			for (CardColor bad_color: card_colors_to_avoid) {
-				if (card.color == bad_color) {
+				if ((card.color == bad_color) || (card.type == CardType.CURSE)) {
 					card_is_of_a_color_to_avoid = true;
 					break;
 				}
