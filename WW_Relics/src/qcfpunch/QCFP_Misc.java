@@ -30,6 +30,8 @@ public class QCFP_Misc {
 			"theArtist.TheArtist";
 	public final static PlayerClass[] base_game_player_classes =
 			{PlayerClass.IRONCLAD, PlayerClass.THE_SILENT, PlayerClass.DEFECT};
+	public final static CardColor[] base_game_player_classes_colors =
+		{CardColor.RED, CardColor.GREEN, CardColor.BLUE, CardColor.COLORLESS};
 	
 	public final static byte THIS_BYTE_DOES_NOT_MATTER = -1;
 	
