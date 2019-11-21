@@ -99,9 +99,11 @@ None by now.
 
 ...I can't recommend using that modifier with Senshi mod, if you aren't using the Senshi character.
 
+* Currently (21/11/19), Jorbs' Wanderer mod has the same type of problem as Senshi: cards that interact with Wanderer's Sin/Virtues seem to crash the game when used with other classes, so, same warning: don't use that modifier with Wanderer mod, since cards will be added to your hand with Retain that will be game-crashing if used.
+
 ## List of Incompatible Mods:
 
-There are more than one hundred mods at Steam Workshop and who knows how many more outside of it, so I can't say that it won't crash your game in any possible mod combination. In case of it happening, open one issue, I will check it out.
+There are more than one hundred mods at Steam Workshop and who knows how many more outside of it, so I can't say that it won't crash your game in any possible mod combination. In case of it happening, open one issue or tell me so, I will check it out.
 
 THAT said... none that I know so far.
 
