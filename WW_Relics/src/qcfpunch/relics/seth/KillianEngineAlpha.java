@@ -123,8 +123,8 @@ public class KillianEngineAlpha extends CustomRelic {
         		for (AbstractCard c : cards_to_choose.group) {
         			if (c.cardID.equals(card.cardID)) {
         				containsDupe = true;
-        				card = AbstractDungeon.getCard(
-        						AbstractDungeon.rollRarity()).makeCopy();
+        				card = getCardOfAnyOtherClass(
+        	        			AbstractDungeon.rollRarity());
         			} 
         		} 
         	} 
@@ -169,7 +169,7 @@ public class KillianEngineAlpha extends CustomRelic {
 		card_colors_to_avoid.add(CardColor.COLORLESS);
 		card_colors_to_avoid.add(CardColor.CURSE);
 		card_colors_to_avoid.add(AbstractDungeon.player.getCardColor());
-		QCFP_Misc.fastLoggerLine(AbstractDungeon.player.getCardColor().toString());
+		
 		
 		if (QCFP_Misc.silentlyCheckForMod(QCFP_Misc.infinite_spire_class_code)) {
 			card_colors_to_avoid.add(infinitespire.patches.
@@ -192,7 +192,7 @@ public class KillianEngineAlpha extends CustomRelic {
 			}
 			
 		} while (card_is_of_a_color_to_avoid);
-		
+
 		return card.makeCopy();
 	}
 	
