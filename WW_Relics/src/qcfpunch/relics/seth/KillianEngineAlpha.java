@@ -1,8 +1,13 @@
 package qcfpunch.relics.seth;
 
+import java.util.ArrayList;
+
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
+import com.megacrit.cardcrawl.cards.AbstractCard.CardColor;
+import com.megacrit.cardcrawl.cards.AbstractCard.CardRarity;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 
 import basemod.abstracts.CustomRelic;
@@ -14,7 +19,7 @@ public class KillianEngineAlpha extends CustomRelic {
 	public static final String ID = QCFP_Misc.returnPrefix() +
 			"Killian_Engine_Alpha";
 	
-	public static final int CARD_AMOUNT_TO_CHOOSE_FROM = 15;
+	public static final int CARD_AMOUNT_TO_CHOOSE_FROM = 20;
 	public static final int CARD_AMOUNT_TO_PICK_AT_MOST = 5;
 
 	public boolean upgrade_card_grid_have_appeared = false;
@@ -108,8 +113,8 @@ public class KillianEngineAlpha extends CustomRelic {
         		CardGroup.CardGroupType.UNSPECIFIED);
 
         for (int i = 0; i < CARD_AMOUNT_TO_CHOOSE_FROM; i++) {
-        	AbstractCard card = AbstractDungeon.getCard(
-        		  AbstractDungeon.rollRarity()).makeCopy();
+        	AbstractCard card = getCardOfAnyOtherClass(
+        			AbstractDungeon.rollRarity());
           
         	boolean containsDupe = true;
         	while (containsDupe) {
@@ -123,7 +128,6 @@ public class KillianEngineAlpha extends CustomRelic {
         			} 
         		} 
         	} 
-
           
         	if (!cards_to_choose.contains(card)) {
         		
@@ -153,72 +157,44 @@ public class KillianEngineAlpha extends CustomRelic {
         
         AbstractDungeon.gridSelectScreen.open(cards_to_choose,
         		CARD_AMOUNT_TO_PICK_AT_MOST, "Testing", false);
-        
+
         return;
-		
-		//choose character
-		//CardColor chosen_color = AbstractDungeon.player.getCardColor();
-		
-		//store info
-		
-		/*CardGroup rare_extra_pool = new CardGroup(CardGroupType.CARD_POOL);
-		CardGroup uncommon_extra_pool = new CardGroup(CardGroupType.CARD_POOL);
-		CardGroup common_extra_pool = new CardGroup(CardGroupType.CARD_POOL);
-		
-		makeCardGroupOfAColor(chosen_color, rare_extra_pool,
-				uncommon_extra_pool, common_extra_pool);
-		
-		for (int i = 0; i < rare_extra_pool.size(); i++) {
-			
-			AbstractDungeon.rareCardPool.addToBottom(
-					rare_extra_pool.getNCardFromTop(i));
-			
-		}
-		
-		for (int i = 0; i < uncommon_extra_pool.size(); i++) {
-			
-			AbstractDungeon.uncommonCardPool.addToBottom(
-					uncommon_extra_pool.getNCardFromTop(i));
-			
-		}
-		
-		for (int i = 0; i < common_extra_pool.size(); i++) {
-			
-			AbstractDungeon.commonCardPool.addToBottom(
-					common_extra_pool.getNCardFromTop(i));
-			
-		}*/
-		
 	}
 	
-	/*@SuppressWarnings("incomplete-switch")
-	public void makeCardGroupOfAColor(
-			CardColor card_color,
-			CardGroup rare_extra_pool,
-			CardGroup uncommon_extra_pool,
-			CardGroup common_extra_pool) {
-
-		for (Map.Entry<String, AbstractCard> a_card : CardLibrary.cards.entrySet()) {
-			AbstractCard one_card = a_card.getValue();
-			
-			if (QCFP_Misc.cardIsOfChosenColor(one_card, card_color)) {		
-				
-				switch (one_card.rarity) {
-					case RARE:
-						rare_extra_pool.addToBottom((AbstractCard)one_card);
-						break;
-				    case UNCOMMON: 
-				    	uncommon_extra_pool.addToBottom((AbstractCard)one_card);
-				    	break;
-				    case COMMON:
-				    	common_extra_pool.addToBottom((AbstractCard)one_card);
-				    	break;
-				}
-					
-			}
-		}		
+	public AbstractCard getCardOfAnyOtherClass(CardRarity rarity) {
 		
-	}*/
+		//make list of colors to not get, and add the player class to it
+		ArrayList<CardColor> card_colors_to_avoid = new ArrayList<CardColor>();
+		
+		card_colors_to_avoid.add(CardColor.COLORLESS);
+		card_colors_to_avoid.add(CardColor.CURSE);
+		card_colors_to_avoid.add(AbstractDungeon.player.getCardColor());
+		QCFP_Misc.fastLoggerLine(AbstractDungeon.player.getCardColor().toString());
+		
+		if (QCFP_Misc.silentlyCheckForMod(QCFP_Misc.infinite_spire_class_code)) {
+			card_colors_to_avoid.add(infinitespire.patches.
+						CardColorEnumPatch.CardColorPatch.INFINITE_BLACK);
+		}
+		
+		AbstractCard card; 
+		boolean card_is_of_a_color_to_avoid;
+
+		do{
+			card_is_of_a_color_to_avoid = false;
+			
+			card = CardLibrary.getAnyColorCard(rarity);
+			
+			for (CardColor bad_color: card_colors_to_avoid) {
+				if (card.color == bad_color) {
+					card_is_of_a_color_to_avoid = true;
+					break;
+				}
+			}
+			
+		} while (card_is_of_a_color_to_avoid);
+		
+		return card.makeCopy();
+	}
 	
 	/*public static void save(final SpireConfig config) {
 
