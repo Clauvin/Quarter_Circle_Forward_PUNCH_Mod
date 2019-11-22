@@ -9,16 +9,16 @@ This mod follows the [Creative Commons Attribution 3.0 Unported](https://creativ
 
 # Content
 
-* Thirty relics done of 34+ planned, with temporary images and placeholder sounds.
-* Twelve game modifiers, ranging from adding more relics at start to making the game easier/harder.
+* Thirty one relics done of fourth four planned, with temporary images and placeholder sounds.
+* Twelve game modifiers, ranging from adding more relics at start to making the game easier/harder/wackier.
 * Six cards, acessible through one specific relic.
 * One event, which is the gateway for two relics and one potion.
 
 * Most content above in English and simplified Chinese.
 
-# Mod Crossover Content
+# Mod Crossover Content (mods listed below needed to access it)
 
-None by now.
+With Vex TheArtist Mod(https://steamcommunity.com/sharedfiles/filedetails/?id=1840178754): two relics.
 
 # Current State
 
@@ -61,7 +61,7 @@ Link too in the [wiki's page](https://github.com/Clauvin/World_Warriors_Relics/w
 14. Test of 1 Custom Modifier revolving around fighter's set relics to make the equivalent of mini-characters, as a test. (use Blademaster Perk system together with relic that triggers them)
 15. Reworking of other Custom Modifiers to have more mini-characters, IF I'm fine with the results above
 16. Update of beta art and sound assets to v1.0
-17. Polishing, refactoring and balancing.
+17. Polishing, refactoring, balancing - mostly reducing the Issues list size.
 
 (and here we reach v1.0)
 
@@ -84,10 +84,6 @@ And MAYBE in the future, for a v2.0 (not making promises here)
 # Requirements
 
 Slay The Spire 1.1, Mod The Spire 3.11.0+, BaseMod 5.15.1+ and StSLib 1.17.1+ (when needed, the requirements will be updated to more recent versions of the game and libraries)
-
-# Optional Requirements
-
-None by now.
 
 # Compatibility
 
