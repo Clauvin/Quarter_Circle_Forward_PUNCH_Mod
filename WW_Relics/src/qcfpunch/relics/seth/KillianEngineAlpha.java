@@ -41,6 +41,14 @@ public class KillianEngineAlpha extends CustomRelic {
 	public String getUpdatedDescription() {
 		return DESCRIPTIONS[0];
 	}
+	
+	public String textForAddCardsGrid() {
+		return DESCRIPTIONS[1] + CARD_AMOUNT_TO_CHOOSE_FROM + DESCRIPTIONS[2];
+	}
+	
+	public String textForRemoveCardsGrid() {
+		return DESCRIPTIONS[3] + CARD_AMOUNT_TO_CHOOSE_FROM + DESCRIPTIONS[4];
+	}
 
 	public void update() {
 	    super.update();
@@ -79,7 +87,7 @@ public class KillianEngineAlpha extends CustomRelic {
     	    			CardGroup.getGroupWithoutBottledCards(
     	    					AbstractDungeon.player.masterDeck
     	    				.getPurgeableCards()), amount_of_cards_added,
-    	    			textForAddCardsGrid(),
+    	    			textForRemoveCardsGrid(),
     	    			false, false, false, false);
     	    		
     	    	}
@@ -119,10 +127,6 @@ public class KillianEngineAlpha extends CustomRelic {
 		
 	}
 	
-	public String textForAddCardsGrid() {
-		return DESCRIPTIONS[1] + CARD_AMOUNT_TO_CHOOSE_FROM + DESCRIPTIONS[2];
-	}
-	
 	public boolean canIRemoveTheChosenCardsOfTheDeck() {
 		
 		return this.upgrade_card_grid_have_appeared && 
@@ -160,7 +164,7 @@ public class KillianEngineAlpha extends CustomRelic {
         upgrade_card_grid_have_appeared = true;
         
         AbstractDungeon.gridSelectScreen.open(cards_to_choose,
-        		CARD_AMOUNT_TO_PICK_AT_MOST, "Testing", false);
+        		CARD_AMOUNT_TO_PICK_AT_MOST, textForAddCardsGrid(), false);
 	}
 	
 	public AbstractCard getCardOfAnyOtherClass(CardRarity rarity) {
