@@ -141,18 +141,7 @@ public class KillianEngineAlpha extends CustomRelic {
         	} 
           
         	if (!cards_to_choose.contains(card)) {
-        		
-        		if (card.type == AbstractCard.CardType.ATTACK &&
-        				AbstractDungeon.player.hasRelic("Molten Egg 2")) {
-        			card.upgrade();
-        		} else if (card.type == AbstractCard.CardType.SKILL &&
-        				AbstractDungeon.player.hasRelic("Toxic Egg 2")) {
-        			card.upgrade();
-        		} else if (card.type == AbstractCard.CardType.POWER &&
-        				AbstractDungeon.player.hasRelic("Frozen Egg 2")) {
-        			card.upgrade();
-        		}
-        		
+
         		cards_to_choose.addToBottom(card);
         	
         	} else {
