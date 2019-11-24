@@ -21,7 +21,7 @@ public class KillianEngineAlpha extends CustomRelic {
 	public static final String ID = QCFP_Misc.returnPrefix() +
 			"Killian_Engine_Alpha";
 	
-	public static final int CARD_AMOUNT_TO_CHOOSE_FROM = 20;
+	public static final int CARD_AMOUNT_TO_CHOOSE_FROM = 25;
 	public static final int CARD_AMOUNT_TO_PICK_AT_MOST = 5;
 
 	public boolean upgrade_card_grid_have_appeared = false;
