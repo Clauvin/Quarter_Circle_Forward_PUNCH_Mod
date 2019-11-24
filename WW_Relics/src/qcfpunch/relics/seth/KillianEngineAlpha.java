@@ -47,12 +47,9 @@ public class KillianEngineAlpha extends CustomRelic {
 	    
 	    if (!is_done) {
 	    	
-	    	if (this.upgrade_card_grid_have_appeared && 
-	    	    	!this.remove_card_grid_have_appeared &&
-	    	    		!AbstractDungeon.isScreenUp &&
-	    	    		!AbstractDungeon.gridSelectScreen.selectedCards.isEmpty()) {
+	    	if (canIAddTheChosenCardsToTheDeck()) {
 	    	    	
-	    	    	amount_of_cards_added = AbstractDungeon.
+	    			amount_of_cards_added = AbstractDungeon.
 	    	    			gridSelectScreen.selectedCards.size();
 	    	      
 	    	    	for (int i = 0;
@@ -120,6 +117,15 @@ public class KillianEngineAlpha extends CustomRelic {
 	    	
 	    }
 	    
+	}
+	
+	public boolean canIAddTheChosenCardsToTheDeck() {
+		
+		return this.upgrade_card_grid_have_appeared && 
+				!this.remove_card_grid_have_appeared &&
+				!AbstractDungeon.isScreenUp &&
+				!AbstractDungeon.gridSelectScreen.selectedCards.isEmpty();
+		
 	}
 	
 	@Override
