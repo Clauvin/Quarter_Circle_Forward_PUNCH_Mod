@@ -26,7 +26,7 @@ public class KillianEngineAlpha extends CustomRelic {
 
 	public boolean upgrade_card_grid_have_appeared = false;
 	public boolean remove_card_grid_have_appeared = false;
-	public boolean is_done = false;
+	public boolean is_done = true;
 	
 	private int amount_of_cards_added;
 	
@@ -45,80 +45,87 @@ public class KillianEngineAlpha extends CustomRelic {
 	public void update() {
 	    super.update();
 	    
-	    if (this.upgrade_card_grid_have_appeared && 
-	    	!this.remove_card_grid_have_appeared &&
-	    		!AbstractDungeon.isScreenUp &&
-	    		!AbstractDungeon.gridSelectScreen.selectedCards.isEmpty()) {
+	    if (!is_done) {
 	    	
-	    	amount_of_cards_added = AbstractDungeon.
-	    			gridSelectScreen.selectedCards.size();
-	      
-	    	for (int i = 0;
-	    			i < amount_of_cards_added;
-	    			i++) {
-	    		
-	    		AbstractCard c = ((AbstractCard)AbstractDungeon.
-	    				gridSelectScreen.selectedCards.get(i)).makeCopy();
-	    		
-	    		AbstractDungeon.player.masterDeck.addToTop(c);
-	    		
-	    		for (AbstractRelic r : AbstractDungeon.player.relics) {
-	    	        r.onObtainCard(c);
-	    	    }
-	    		
-	    	    for (AbstractRelic r : AbstractDungeon.player.relics) {
-	    	    	r.onMasterDeckChange();
-	    	    }
-	    		
-	    	}
-	      
-	    	AbstractDungeon.gridSelectScreen.selectedCards.clear();
-	    	
-	    	if (CardGroup.getGroupWithoutBottledCards(
-	    			AbstractDungeon.player.masterDeck.getPurgeableCards())
-	                .size() > 0) {
-	    		
-	    		AbstractDungeon.gridSelectScreen.open(
-	    			CardGroup.getGroupWithoutBottledCards(
-	    					AbstractDungeon.player.masterDeck
-	    				.getPurgeableCards()), amount_of_cards_added, "Testing 2",
-	    			false, false, false, false);
-	    		
-	    	}
+	    	if (this.upgrade_card_grid_have_appeared && 
+	    	    	!this.remove_card_grid_have_appeared &&
+	    	    		!AbstractDungeon.isScreenUp &&
+	    	    		!AbstractDungeon.gridSelectScreen.selectedCards.isEmpty()) {
+	    	    	
+	    	    	amount_of_cards_added = AbstractDungeon.
+	    	    			gridSelectScreen.selectedCards.size();
+	    	      
+	    	    	for (int i = 0;
+	    	    			i < amount_of_cards_added;
+	    	    			i++) {
+	    	    		
+	    	    		AbstractCard c = ((AbstractCard)AbstractDungeon.
+	    	    				gridSelectScreen.selectedCards.get(i)).makeCopy();
+	    	    		
+	    	    		AbstractDungeon.player.masterDeck.addToTop(c);
+	    	    		
+	    	    		for (AbstractRelic r : AbstractDungeon.player.relics) {
+	    	    	        r.onObtainCard(c);
+	    	    	    }
+	    	    		
+	    	    	    for (AbstractRelic r : AbstractDungeon.player.relics) {
+	    	    	    	r.onMasterDeckChange();
+	    	    	    }
+	    	    		
+	    	    	}
+	    	      
+	    	    	AbstractDungeon.gridSelectScreen.selectedCards.clear();
+	    	    	
+	    	    	if (CardGroup.getGroupWithoutBottledCards(
+	    	    			AbstractDungeon.player.masterDeck.getPurgeableCards())
+	    	                .size() > 0) {
+	    	    		
+	    	    		AbstractDungeon.gridSelectScreen.open(
+	    	    			CardGroup.getGroupWithoutBottledCards(
+	    	    					AbstractDungeon.player.masterDeck
+	    	    				.getPurgeableCards()), amount_of_cards_added,
+	    	    			"Testing 2",
+	    	    			false, false, false, false);
+	    	    		
+	    	    	}
 
-	    	remove_card_grid_have_appeared = true;
+	    	    	remove_card_grid_have_appeared = true;
+	    	    	
+	    	    }
+	    	    
+	    	    if (this.upgrade_card_grid_have_appeared && 
+	    		    	this.remove_card_grid_have_appeared &&
+	    		    	!is_done &&
+	    		    		!AbstractDungeon.isScreenUp &&
+	    		    		!AbstractDungeon.gridSelectScreen.
+	    		    		selectedCards.isEmpty()) {
+	    	    	
+	    	    	QCFP_Misc.fastLoggerLine("Huh");
+	    	    	
+	    	    	for (int i = 0;
+	    	    			i < AbstractDungeon.gridSelectScreen.selectedCards.size();
+	    	    			i++) {
+	    	    		
+	    	    		AbstractCard card = AbstractDungeon.
+	    	    				gridSelectScreen.selectedCards.get(i);
+	    	    		
+	    	    		AbstractDungeon.player.masterDeck.removeCard(card);
+	    	    		
+	    	    	}
+	    	    	
+	    	    	AbstractDungeon.gridSelectScreen.selectedCards.clear();
+	    	    	
+	    	    	is_done = true;
+	    	    }
 	    	
-	    	
-	    }
-	    
-	    if (this.upgrade_card_grid_have_appeared && 
-		    	this.remove_card_grid_have_appeared &&
-		    	!is_done &&
-		    		!AbstractDungeon.isScreenUp &&
-		    		!AbstractDungeon.gridSelectScreen.selectedCards.isEmpty()) {
-	    	
-	    	QCFP_Misc.fastLoggerLine("Huh");
-	    	
-	    	for (int i = 0;
-	    			i < AbstractDungeon.gridSelectScreen.selectedCards.size();
-	    			i++) {
-	    		
-	    		AbstractCard card = AbstractDungeon.
-	    				gridSelectScreen.selectedCards.get(i);
-	    		
-	    		AbstractDungeon.player.masterDeck.removeCard(card);
-	    		
-	    	}
-	    	
-	    	AbstractDungeon.gridSelectScreen.selectedCards.clear();
-	    	
-	    	is_done = true;
 	    }
 	    
 	}
 	
 	@Override
 	public void onEquip() {
+		
+		is_done = false;
 		
         CardGroup cards_to_choose = new CardGroup(
         		CardGroup.CardGroupType.UNSPECIFIED);
