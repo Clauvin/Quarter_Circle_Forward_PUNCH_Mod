@@ -142,6 +142,7 @@ public class KillianEngineAlpha extends CustomRelic {
         		CardGroup.CardGroupType.UNSPECIFIED);
 
         for (int i = 0; i < CARD_AMOUNT_TO_CHOOSE_FROM; i++) {
+        	
         	AbstractCard card = getCardOfAnyOtherClass(
         			AbstractDungeon.rollRarity());
           
@@ -149,6 +150,7 @@ public class KillianEngineAlpha extends CustomRelic {
           
         	if (!cards_to_choose.contains(card)) cards_to_choose.addToBottom(card);
         	else i--;
+        	
         } 
         
         for (AbstractCard c : cards_to_choose.group) {
@@ -216,18 +218,6 @@ public class KillianEngineAlpha extends CustomRelic {
     	} 
 		
 	}
-	
-	/*public static void save(final SpireConfig config) {
-
-    }
-	
-	public static void load(final SpireConfig config) {
-		
-    }
-	
-	public static void clear(final SpireConfig config) {
-
-	}*/
 	
 	@Override
 	public CustomRelic makeCopy() {
