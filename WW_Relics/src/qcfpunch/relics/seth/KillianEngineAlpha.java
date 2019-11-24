@@ -127,26 +127,10 @@ public class KillianEngineAlpha extends CustomRelic {
         	AbstractCard card = getCardOfAnyOtherClass(
         			AbstractDungeon.rollRarity());
           
-        	boolean containsDupe = true;
-        	while (containsDupe) {
-        		containsDupe = false;
-            
-        		for (AbstractCard c : cards_to_choose.group) {
-        			if (c.cardID.equals(card.cardID)) {
-        				containsDupe = true;
-        				card = getCardOfAnyOtherClass(
-        	        			AbstractDungeon.rollRarity());
-        			} 
-        		} 
-        	} 
+        	theDuplicateCardTest(cards_to_choose, card);
           
-        	if (!cards_to_choose.contains(card)) {
-
-        		cards_to_choose.addToBottom(card);
-        	
-        	} else {
-	            i--;
-        	} 
+        	if (!cards_to_choose.contains(card)) cards_to_choose.addToBottom(card);
+        	else i--;
         } 
         
         for (AbstractCard c : cards_to_choose.group) {
@@ -157,8 +141,6 @@ public class KillianEngineAlpha extends CustomRelic {
         
         AbstractDungeon.gridSelectScreen.open(cards_to_choose,
         		CARD_AMOUNT_TO_PICK_AT_MOST, "Testing", false);
-
-        return;
 	}
 	
 	public AbstractCard getCardOfAnyOtherClass(CardRarity rarity) {
@@ -194,6 +176,23 @@ public class KillianEngineAlpha extends CustomRelic {
 		} while (card_is_of_a_color_to_avoid);
 
 		return card.makeCopy();
+	}
+	
+	public void theDuplicateCardTest(CardGroup card_group, AbstractCard card) {
+		
+		boolean containsDupe = true;
+    	while (containsDupe) {
+    		containsDupe = false;
+        
+    		for (AbstractCard c : card_group.group) {
+    			if (c.cardID.equals(card.cardID)) {
+    				containsDupe = true;
+    				card = getCardOfAnyOtherClass(
+    	        			AbstractDungeon.rollRarity());
+    			} 
+    		} 
+    	} 
+		
 	}
 	
 	/*public static void save(final SpireConfig config) {
