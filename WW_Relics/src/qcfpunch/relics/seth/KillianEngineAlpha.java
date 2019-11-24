@@ -152,7 +152,6 @@ public class KillianEngineAlpha extends CustomRelic {
 		card_colors_to_avoid.add(CardColor.CURSE);
 		card_colors_to_avoid.add(AbstractDungeon.player.getCardColor());
 		
-		
 		if (QCFP_Misc.silentlyCheckForMod(QCFP_Misc.infinite_spire_class_code)) {
 			card_colors_to_avoid.add(infinitespire.patches.
 						CardColorEnumPatch.CardColorPatch.INFINITE_BLACK);
@@ -167,10 +166,15 @@ public class KillianEngineAlpha extends CustomRelic {
 			card = CardLibrary.getAnyColorCard(rarity);
 			
 			for (CardColor bad_color: card_colors_to_avoid) {
-				if ((card.color == bad_color) || (card.type == CardType.CURSE)) {
+				if ((card.color == bad_color)) {
 					card_is_of_a_color_to_avoid = true;
 					break;
 				}
+			}
+			
+			if (card.type == CardType.CURSE) {
+				card_is_of_a_color_to_avoid = true;
+				break;
 			}
 			
 		} while (card_is_of_a_color_to_avoid);
