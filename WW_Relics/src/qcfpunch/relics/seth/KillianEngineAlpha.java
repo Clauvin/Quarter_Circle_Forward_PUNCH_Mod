@@ -94,9 +94,7 @@ public class KillianEngineAlpha extends CustomRelic {
     		    		!AbstractDungeon.isScreenUp &&
     		    		!AbstractDungeon.gridSelectScreen.
     		    		selectedCards.isEmpty()) {
-    	    	
-    	    	QCFP_Misc.fastLoggerLine("Huh");
-    	    	
+    	    	    	    	
     	    	for (int i = 0;
     	    			i < AbstractDungeon.gridSelectScreen.selectedCards.size();
     	    			i++) {
