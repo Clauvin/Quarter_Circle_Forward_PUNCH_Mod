@@ -148,8 +148,8 @@
   	"NAME": "Killian Engine Alpha",
   	"FLAVOR": "Here, a vast amount of fighting information rests.",
   	"DESCRIPTIONS": [
-  	 "When you pick this relic, add up to ",
-  	 " from ",
+  	 "When you pick this relic, add up to #b",
+  	 " from #b",
   	 " random cards of other player classes to your deck. Then, remove the same amount of cards.",
   	 "Choose up to ",
   	 " cards to add to your deck.",
