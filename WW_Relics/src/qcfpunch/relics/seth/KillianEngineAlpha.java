@@ -39,15 +39,17 @@ public class KillianEngineAlpha extends CustomRelic {
 	}
 	
 	public String getUpdatedDescription() {
-		return DESCRIPTIONS[0];
+		return DESCRIPTIONS[0] + CARD_AMOUNT_TO_PICK_AT_MOST + 
+				DESCRIPTIONS[1] + CARD_AMOUNT_TO_CHOOSE_FROM + 
+				DESCRIPTIONS[2];
 	}
 	
 	public String textForAddCardsGrid() {
-		return DESCRIPTIONS[1] + CARD_AMOUNT_TO_CHOOSE_FROM + DESCRIPTIONS[2];
+		return DESCRIPTIONS[3] + CARD_AMOUNT_TO_CHOOSE_FROM + DESCRIPTIONS[4];
 	}
 	
 	public String textForRemoveCardsGrid() {
-		return DESCRIPTIONS[3] + CARD_AMOUNT_TO_CHOOSE_FROM + DESCRIPTIONS[4];
+		return DESCRIPTIONS[5] + CARD_AMOUNT_TO_CHOOSE_FROM + DESCRIPTIONS[6];
 	}
 
 	public void update() {
