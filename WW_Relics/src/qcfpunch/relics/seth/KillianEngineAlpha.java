@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard.CardRarity;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardType;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
+import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 
 import basemod.abstracts.CustomRelic;
@@ -43,6 +44,7 @@ public class KillianEngineAlpha extends CustomRelic {
 
 	public void update() {
 	    super.update();
+	    
 	    if (this.upgrade_card_grid_have_appeared && 
 	    	!this.remove_card_grid_have_appeared &&
 	    		!AbstractDungeon.isScreenUp &&
@@ -59,6 +61,14 @@ public class KillianEngineAlpha extends CustomRelic {
 	    				gridSelectScreen.selectedCards.get(i)).makeCopy();
 	    		
 	    		AbstractDungeon.player.masterDeck.addToTop(c);
+	    		
+	    		for (AbstractRelic r : AbstractDungeon.player.relics) {
+	    	        r.onObtainCard(c);
+	    	    }
+	    		
+	    	    for (AbstractRelic r : AbstractDungeon.player.relics) {
+	    	    	r.onMasterDeckChange();
+	    	    }
 	    		
 	    	}
 	      
