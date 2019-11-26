@@ -46,11 +46,11 @@ public class KillianEngineAlpha extends CustomRelic {
 	}
 	
 	public String textForAddCardsGrid() {
-		return DESCRIPTIONS[3] + CARD_AMOUNT_TO_CHOOSE_FROM + DESCRIPTIONS[4];
+		return DESCRIPTIONS[3] + CARD_AMOUNT_TO_PICK_AT_MOST + DESCRIPTIONS[4];
 	}
 	
 	public String textForRemoveCardsGrid() {
-		return DESCRIPTIONS[5] + CARD_AMOUNT_TO_CHOOSE_FROM + DESCRIPTIONS[6];
+		return DESCRIPTIONS[5] + amount_of_cards_added + DESCRIPTIONS[6];
 	}
 
 	public void update() {
