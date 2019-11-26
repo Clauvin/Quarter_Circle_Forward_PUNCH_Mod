@@ -14,6 +14,7 @@ import com.megacrit.cardcrawl.unlock.UnlockTracker;
 
 import basemod.abstracts.CustomRelic;
 import qcfpunch.QCFP_Misc;
+import qcfpunch.cards.ui.NoCardThanks5;
 import qcfpunch.resources.relic_graphics.GraphicResources;
 
 public class KillianEngineAlpha extends CustomRelic {
@@ -61,9 +62,18 @@ public class KillianEngineAlpha extends CustomRelic {
 	    	    	
 	    		amount_of_cards_added = AbstractDungeon.
 	    	    			gridSelectScreen.selectedCards.size();
-	    	      
+
+	    		int amount_of_no_card_thanks = 0;
+	    		
 	    		for (int i = 0; i < amount_of_cards_added; i++) {
-	    	    		
+	    	    	
+	    			if (AbstractDungeon.
+    	    				gridSelectScreen.selectedCards.get(i).cardID == 
+    	    				NoCardThanks5.ID) {
+	    				amount_of_no_card_thanks++;
+	    				continue;
+	    			}
+	    			
     	    		AbstractCard c = ((AbstractCard)AbstractDungeon.
     	    				gridSelectScreen.selectedCards.get(i)).makeCopy();
     	    		
@@ -80,6 +90,13 @@ public class KillianEngineAlpha extends CustomRelic {
     	    	}
 	    	      
     	    	AbstractDungeon.gridSelectScreen.selectedCards.clear();
+    	    	
+    	    	amount_of_cards_added -= amount_of_no_card_thanks;
+    	    	
+    	    	if (amount_of_cards_added == 0) {
+    	    		is_done = true;
+    	    		return;
+    	    	}
     	    	
     	    	if (CardGroup.getGroupWithoutBottledCards(
     	    			AbstractDungeon.player.masterDeck.getPurgeableCards())
@@ -146,7 +163,7 @@ public class KillianEngineAlpha extends CustomRelic {
 		
         CardGroup cards_to_choose = new CardGroup(
         		CardGroup.CardGroupType.UNSPECIFIED);
-
+        
         for (int i = 0; i < CARD_AMOUNT_TO_CHOOSE_FROM; i++) {
         	
         	AbstractCard card = getCardOfAnyOtherClass(
@@ -161,6 +178,12 @@ public class KillianEngineAlpha extends CustomRelic {
         
         for (AbstractCard c : cards_to_choose.group) {
         	UnlockTracker.markCardAsSeen(c.cardID);
+        }
+        
+        for (int i = 0; i < CARD_AMOUNT_TO_PICK_AT_MOST; i++) {
+        	
+        	cards_to_choose.addToBottom(new NoCardThanks5());
+        
         }
 
         upgrade_card_grid_have_appeared = true;
