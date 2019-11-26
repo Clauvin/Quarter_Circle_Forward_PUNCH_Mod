@@ -50,7 +50,11 @@ public class KillianEngineAlpha extends CustomRelic {
 	}
 	
 	public String textForRemoveCardsGrid() {
-		return DESCRIPTIONS[5] + amount_of_cards_added + DESCRIPTIONS[6];
+		if (amount_of_cards_added > 1)
+			return DESCRIPTIONS[5] + amount_of_cards_added + DESCRIPTIONS[6];
+		else {
+			return DESCRIPTIONS[5] + amount_of_cards_added + DESCRIPTIONS[7];
+		}
 	}
 
 	public void update() {
