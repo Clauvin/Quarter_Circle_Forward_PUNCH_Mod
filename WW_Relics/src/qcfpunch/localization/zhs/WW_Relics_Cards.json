@@ -13,6 +13,11 @@
     	"NAME": "终结",
     	"DESCRIPTION": "到现在为止已经做出了足够的选择。"
   	},
+  	
+  	"qcfpunch:No_Card_Thanks": {
+    	"NAME": "No Card, Thanks",
+    	"DESCRIPTION": "Here to be picked in place of other card if you want less than 5 to be added."
+  	},
 
 	"qcfpunch:Strike_Weakest": {
     	"NAME": "“最强流”打击",
