@@ -143,8 +143,17 @@
   
   "qcfpunch:Killian_Engine_Alpha": {
   	"NAME": "Killian Engine Alpha",
-  	"FLAVOR": "Here, a vast amount of fighting information rests. Even yours. BUT NOT BLACK CARDS FROM INFINITE SPIRE, go get your Black cards elsewhere, shoo, shoo!",
-  	"DESCRIPTIONS": "Choose 2 colors (except Black): the next 6 combats drop an additional upgraded card reward of one of the chosen colors randomly."
+  	"FLAVOR": "Here, a vast amount of fighting information rests.",
+  	"DESCRIPTIONS": [
+  	 "Upon pickup, obtain up to #b",
+  	 " from #b",
+  	 " random cards of other classes. Then, remove the same amount of cards from your deck.",
+  	 "Choose up to ",
+  	 " cards to add to your deck.",
+  	 "Choose ",
+  	 " cards to remove them of your deck.",
+  	 " card to remove of your deck."
+	]  	 
   },
   
   "qcfpunch:Lotus_Statue": {
