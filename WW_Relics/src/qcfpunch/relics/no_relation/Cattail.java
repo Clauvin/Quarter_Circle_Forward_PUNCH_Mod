@@ -31,7 +31,7 @@ public class Cattail extends CustomRelic {
 	public static final Logger logger = LogManager.getLogger(Cattail.class.getName());
 	
 	public Cattail() {
-		super(ID, GraphicResources.LoadRelicImage("Temp Army Boots - steeltoe-boots - Lorc - CC BY 3.0.png"),
+		super(ID, GraphicResources.LoadRelicImage("Cattail - reed - Delapouite - CC BB 3.0.png"),
 				RelicTier.SHOP, LandingSound.MAGICAL);
 		
 		counter = HOW_MANY_ROOMS_TO_GIVE_SMOKE_BOMB;
