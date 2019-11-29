@@ -19,7 +19,7 @@ public class DarkGi extends CustomRelic {
 	public static final int AMOUNT_TO_DRAW_WHEN_A_CARD_IS_PLAYED = 1;
 	
 	public DarkGi() {
-		super(ID, GraphicResources.LoadRelicImage("White_Boots - steeltoe-boots - Lorc - CC BY 3.0.png"),
+		super(ID, GraphicResources.LoadRelicImage("Dark Gi - kimono - Delapouite - CC BY 3.0.png"),
 				RelicTier.BOSS, LandingSound.FLAT);
 	}
 	
