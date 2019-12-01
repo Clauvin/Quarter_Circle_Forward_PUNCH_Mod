@@ -42,7 +42,7 @@ public class NecklaceOfSkulls extends CustomRelic
 	
 	public NecklaceOfSkulls() {
 		super(ID, GraphicResources.
-				LoadRelicImage("White_Boots - steeltoe-boots - Lorc - CC BY 3.0.png"),
+				LoadRelicImage("Necklace of Skulls - death-skull - sbed - CC BY 3.0.png"),
 				RelicTier.UNCOMMON, LandingSound.CLINK);
 	}
 	
