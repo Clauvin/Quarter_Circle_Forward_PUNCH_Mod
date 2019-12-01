@@ -35,7 +35,7 @@ public class KillianEngineAlpha extends CustomRelic {
 	
 	public KillianEngineAlpha() {
 		super(ID, GraphicResources.LoadRelicImage(
-				"White_Boots - steeltoe-boots - Lorc - CC BY 3.0.png"),
+				"Killian Engine Alpha - triple-yin - Lorc - CC BY 3.0.png"),
 				RelicTier.BOSS, LandingSound.MAGICAL);
 	}
 	
