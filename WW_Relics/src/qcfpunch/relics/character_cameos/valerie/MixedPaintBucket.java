@@ -19,7 +19,7 @@ public class MixedPaintBucket extends CustomRelic {
 	
 	public MixedPaintBucket() {
 		super(ID, GraphicResources.LoadRelicImage(
-				"Temp School Backpack - steeltoe-boots - Lorc - CC BY 3.0.png"),
+				"White_Boots - steeltoe-boots - Lorc - CC BY 3.0.png"),
 				RelicTier.UNCOMMON, LandingSound.CLINK);
 		
 		if (QCFP_Misc.silentlyCheckForMod(QCFP_Misc.the_artist_class_code)) {
