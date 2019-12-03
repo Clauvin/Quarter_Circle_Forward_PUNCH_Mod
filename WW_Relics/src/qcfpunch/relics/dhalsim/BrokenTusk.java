@@ -20,7 +20,7 @@ public class BrokenTusk extends CustomRelic {
 	
 	public BrokenTusk() {
 		super(ID, GraphicResources.LoadRelicImage(
-				"White_Boots - steeltoe-boots - Lorc - CC BY 3.0.png"),
+				"Temp Broken Tusk - steeltoe-boots - Lorc - CC BY 3.0.png"),
 				RelicTier.COMMON, LandingSound.HEAVY);
 	}
 	
