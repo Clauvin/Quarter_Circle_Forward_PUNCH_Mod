@@ -51,7 +51,8 @@ public class SchoolBackpack extends CustomRelic {
 	public static final Logger logger = LogManager.getLogger(SchoolBackpack.class.getName());
 	
 	public SchoolBackpack() {
-		super(ID, GraphicResources.LoadRelicImage("Temp School Backpack - steeltoe-boots - Lorc - CC BY 3.0.png"), 
+		super(ID, GraphicResources.LoadRelicImage(
+				"School Backpack - light-backpack - Delapouite - CC BY 3.0.png"), 
 				RelicTier.UNCOMMON, LandingSound.HEAVY);
 		
 		counter = NUMBER_OF_EXTRA_CARDS;
