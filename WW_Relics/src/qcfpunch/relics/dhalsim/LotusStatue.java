@@ -42,7 +42,7 @@ public class LotusStatue extends CustomRelic
 		
 	public LotusStatue() {
 		super(ID, GraphicResources.LoadRelicImage(
-				"White_Boots - steeltoe-boots - Lorc - CC BY 3.0.png"),
+				"Temp Lotus Statue - steeltoe-boots - Lorc - CC BY 3.0.png"),
 				RelicTier.RARE, LandingSound.MAGICAL);
 		
 		this.counter = INITIAL_AMOUNT_OF_CHARGES;
