@@ -28,8 +28,8 @@ public class SpecialOpsInsignia extends CustomRelic  {
 	public boolean effect_triggered_this_turn;
 	
 	public SpecialOpsInsignia() {
-		super(ID, GraphicResources.LoadRelicImage("White_Boots - steeltoe-boots - Lorc - CC BY 3.0.png"),
-				GraphicResources.LoadOutlineImage("White Boots Outline.png"),
+		super(ID, GraphicResources.LoadRelicImage("Temp Special Ops Insignia - steeltoe-boots - Lorc - CC BY 3.0.png"),
+				GraphicResources.LoadOutlineImage("Temp Special Ops Insignia Outline.png"),
 				RelicTier.RARE, LandingSound.FLAT);
 	}
 	
