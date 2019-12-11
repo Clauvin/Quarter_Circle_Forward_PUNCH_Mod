@@ -5,7 +5,7 @@ A Slay The Spire mod, which adds primarily relics directly inspired by fighters 
 
 # License
 
-This mod follows the [Creative Commons Attribution 3.0 Unported](https://creativecommons.org/licenses/by/3.0/) license.
+This mod follows the [Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/) license.
 
 # Content
 
