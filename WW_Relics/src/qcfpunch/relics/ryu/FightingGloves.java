@@ -145,13 +145,22 @@ public class FightingGloves extends CustomRelic implements ClickableRelic {
 		CardGroup master_deck = AbstractDungeon.player.masterDeck;
 		
 		for (AbstractCard c : master_deck.group){
-			if (c.canUpgrade()) {
+			if (QCFP_Misc.silentlyCheckForMod(QCFP_Misc.conspire_class_code)) {
+				supportInfiniteJournalLimitlessUpgrading(valid_card_group, c);
+			} else if (c.canUpgrade()){
 				valid_card_group.addToTop(c);
 			}
 		}
 		
 		return valid_card_group;
 		
+	}
+	
+	private static void supportInfiniteJournalLimitlessUpgrading(
+			CardGroup valid_card_group, AbstractCard c) {
+		if (conspire.relics.InfiniteJournal.canUpgradeCard(c)) {
+			valid_card_group.addToTop(c);
+		}
 	}
 	
 	public void upgradingCards() {
@@ -194,7 +203,8 @@ public class FightingGloves extends CustomRelic implements ClickableRelic {
 				
 				spendChargesForUpgradedCards();
 				
-				if (number_of_cards_upgraded_in_this_room == number_of_cards_that_can_be_upgraded)
+				if (number_of_cards_upgraded_in_this_room ==
+						number_of_cards_that_can_be_upgraded)
 					cards_have_been_upgraded_in_this_room = true;
 				
 				AbstractDungeon.gridSelectScreen.selectedCards.clear();
@@ -224,7 +234,8 @@ public class FightingGloves extends CustomRelic implements ClickableRelic {
 		return AbstractDungeon.gridSelectScreen.selectedCards;
 	}
 	
-	private static void upgradeAndShowChosenCards(ArrayList<AbstractCard> chosen_cards) {
+	private static void upgradeAndShowChosenCards(
+			ArrayList<AbstractCard> chosen_cards) {
 		
 		float x = Settings.WIDTH;
         float y = Settings.HEIGHT;
@@ -236,7 +247,11 @@ public class FightingGloves extends CustomRelic implements ClickableRelic {
         logger.info("c " + chosen_cards.size());
         
 		for (AbstractCard c: chosen_cards) {
-    		c.upgrade();
+			if (QCFP_Misc.silentlyCheckForMod(QCFP_Misc.conspire_class_code)) {
+				conspire.relics.InfiniteJournal.upgradeCard(c);
+			} else {
+	    		c.upgrade();
+			}
     		AbstractDungeon.player.bottledCardUpgradeCheck(c);
 			logger.info("Upgraded " + c.name);
     		
