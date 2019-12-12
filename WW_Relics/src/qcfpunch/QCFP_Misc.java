@@ -26,6 +26,8 @@ public class QCFP_Misc {
 			"infinitespire.InfiniteSpire";
 	public final static String replay_the_spire_class_code = 
 			"replayTheSpire.ReplayTheSpireMod";
+	public final static String conspire_class_code = 
+			"conspire.Conspire";
 	public final static String the_artist_class_code =
 			"theArtist.TheArtist";
 	public final static PlayerClass[] base_game_player_classes =
