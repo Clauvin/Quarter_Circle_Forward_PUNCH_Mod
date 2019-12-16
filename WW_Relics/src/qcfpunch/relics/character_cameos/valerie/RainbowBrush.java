@@ -259,11 +259,13 @@ public class RainbowBrush extends CustomRelic{
 		card_to_be_shown_while_hovering_relic =
 				card_to_be_given.makeStatEquivalentCopy();
 	
-		QCFP_Misc.setCardToAlwaysRetain(
-				card_to_be_shown_with_thought_balloon, true);
-		
-		QCFP_Misc.setCardToAlwaysRetain(
-				card_to_be_shown_while_hovering_relic, true);
+		if (!QCFP_Misc.cardIsACurseOrStatus(card_to_be_given)) {
+			QCFP_Misc.setCardToAlwaysRetain(
+					card_to_be_shown_with_thought_balloon, true);
+			
+			QCFP_Misc.setCardToAlwaysRetain(
+					card_to_be_shown_while_hovering_relic, true);
+		}
 		
 		AbstractDungeon.effectList.add(
 				new ThoughtBubble(
