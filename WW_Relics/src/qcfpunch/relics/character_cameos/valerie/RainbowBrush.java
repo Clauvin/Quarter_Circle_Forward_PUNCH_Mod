@@ -12,6 +12,7 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardRarity;
+import com.megacrit.cardcrawl.cards.AbstractCard.CardTags;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardType;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.CardGroup.CardGroupType;
@@ -182,6 +183,11 @@ public class RainbowBrush extends CustomRelic{
 					black_cards_ids.add(card.cardID);
 					continue;
 				}
+			}
+			
+			if (card.hasTag(CardTags.HEALING)) {
+				logger.info(card.cardID.toString() + " not added, it was a healing card.");
+				continue;
 			}
 			
 			switch (card.rarity) {
