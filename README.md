@@ -22,7 +22,7 @@ With Vex TheArtist Mod(https://steamcommunity.com/sharedfiles/filedetails/?id=18
 
 # Current State
 
-Working in Milestone 6's secret guest inspired relics.
+Working in some polishing before the next Steam release.
 
 # Link to Releases and Pre-Releases
 
