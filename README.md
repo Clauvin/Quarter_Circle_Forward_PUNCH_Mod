@@ -9,7 +9,7 @@ This mod follows the [Creative Commons Attribution 4.0 International](https://cr
 
 # Content
 
-* Thirty one relics done of fourth four planned, with temporary images and placeholder sounds.
+* Thirty two relics done of fourth four planned, with temporary images and placeholder sounds.
 * Twelve game modifiers, ranging from adding more relics at start to making the game easier/harder/wackier.
 * Six cards, acessible through one specific relic.
 * One event, which is the gateway for two relics and one potion.
