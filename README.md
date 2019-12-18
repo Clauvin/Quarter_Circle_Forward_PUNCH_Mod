@@ -53,19 +53,24 @@ Link too in the [wiki's page](https://github.com/Clauvin/World_Warriors_Relics/w
 6. Relics inspired by Cammy, Dhalsim, Blanka, Zangief and as a guest, Valerie from Fantasy Strike. - Working on it.
 7. Focus in Akuma's inspired relic. - Done in 6.
 8. Starting support to Nexus Mods.
-9. One boss relic for Boxer, Claw, Sagat and Dictator, respectively. (about the names chosen here, check https://en.wikipedia.org/wiki/Street_Fighter_II:_The_World_Warrior#Regional_differences)
-10. Focus in T. Hawk relic (only in his relic because it will trigger events, and that's different from all the other relics so far)
-11. Relics inspired by Fei Long and Deejay. (number unknown)
-12. ?????????????????????
+9. Add system to gather anonimized player data for better understanding of how the mod is used.
+10. Relics inspired by E. Honda, the missing SF2 character.
+11. One boss relic for Boxer, Claw, Sagat and Dictator, respectively. (about the names chosen here, check https://en.wikipedia.org/wiki/Street_Fighter_II:_The_World_Warrior#Regional_differences)
+12. ????????????????????? (goose sounds can be heard at a distance)
 13. Undefined extra content.
-14. Test of 1 Custom Modifier revolving around fighter's set relics to make the equivalent of mini-characters, as a test. (use Blademaster Perk system together with relic that triggers them)
-15. Reworking of other Custom Modifiers to have more mini-characters, IF I'm fine with the results above
-16. Update of beta art and sound assets to v1.0
-17. Polishing, refactoring, balancing - mostly reducing the Issues list size.
+
+(break by an undefined amount of time to recover creative energies)
+
+14. Focus in T. Hawk relic (only in his relic because it will trigger events, and that's different from all the other relics so far)
+15. Relics inspired by Fei Long and Deejay. (number unknown)
+16. Test of 1 Custom Modifier revolving around fighter's set relics to make the equivalent of mini-characters, as a test. (use Blademaster Perk system together with relic that triggers them)
+17. Reworking of other Custom Modifiers to have more mini-characters, IF I'm fine with the results above
+18. Update of beta art and sound assets to v1.0
+19. Polishing, refactoring, balancing - mostly reducing the Issues list size.
 
 (and here we reach v1.0)
 
-18. Translation of the mod to PT-BR. (all future milestones will launch with EN localization, PT-BR will come after a round of balancing)
+20. Translation of the mod to PT-BR. (all future milestones will launch with EN localization, PT-BR will come after a round of balancing)
 
 (mandatory 1 month break at this point for resting and recovering creative energies)
 
