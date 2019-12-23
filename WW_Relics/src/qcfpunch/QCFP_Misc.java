@@ -157,7 +157,6 @@ public class QCFP_Misc {
 				the_card.exhaustOnUseOnce) {
 			has_exhaust = true;
 		}
-		
 		if (the_card.isEthereal) has_ethereal = true;
 		
 		if (has_ethereal || has_exhaust) return;
@@ -195,14 +194,20 @@ public class QCFP_Misc {
 		
 		String upper_cased_exhaust = GameDictionary.EXHAUST.NAMES[0].
 				substring(0, 1).toUpperCase() + 
-				GameDictionary.RETAIN.NAMES[0].substring(1);
+				GameDictionary.EXHAUST.NAMES[0].substring(1);
+		
+		QCFP_Misc.fastLoggerLine(upper_cased_exhaust);
 		
 		if (Settings.language == GameLanguage.ZHS)
 			upper_cased_exhaust = "" + upper_cased_exhaust;
 		
 		the_card.rawDescription += " NL " +
-				the_card.rawDescription;
+				upper_cased_exhaust;
+		
+		QCFP_Misc.fastLoggerLine(the_card.rawDescription);
+		
 		the_card.initializeDescription();
+		
 		
 	}
 	
@@ -217,6 +222,20 @@ public class QCFP_Misc {
 			if (card.cost > 0) card.modifyCostForCombat(-1);
 		}
 		
+	}
+	
+	public static AbstractCard doCopyWithEtherealExhaustAndDescription(AbstractCard
+			original_card) {
+		
+		AbstractCard new_card = original_card.makeStatEquivalentCopy();
+		new_card.isEthereal = original_card.isEthereal;
+		new_card.exhaust = original_card.exhaust;
+		new_card.exhaustOnFire = original_card.exhaustOnFire;
+		new_card.exhaustOnUseOnce = original_card.exhaustOnUseOnce;
+		new_card.description = original_card.description;
+		new_card.rawDescription = original_card.rawDescription;
+		
+		return new_card;
 	}
 	
 	public static int circunstancesThatChangeCardNumber(int num_cards) {
