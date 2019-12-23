@@ -254,6 +254,10 @@ public class RainbowBrush extends CustomRelic{
 		CardRarity rarity = generateRarity();
 		
 		card_to_be_given = generateCard(rarity);
+		card_to_be_shown_with_thought_balloon = 
+				card_to_be_given.makeStatEquivalentCopy();
+		card_to_be_shown_while_hovering_relic =
+				card_to_be_given.makeStatEquivalentCopy();
 		
 		maybeUpgradeCardIfNotStatusOrCurse(card_to_be_given);
 		
@@ -265,13 +269,15 @@ public class RainbowBrush extends CustomRelic{
 		QCFP_Misc.reduceCardCostIfNotStatusOrCurseByOne(card_to_be_given);
 		
 		if (card_to_be_given.cost == 0 && card_to_be_given.isEthereal) {
-			card_to_be_given.modifyCostForCombat(1);
+			card_to_be_given.modifyCostForCombat(-1);
 		}
 		
 		card_to_be_shown_with_thought_balloon = 
-				card_to_be_given.makeStatEquivalentCopy();
+				QCFP_Misc.
+				doCopyWithEtherealExhaustAndDescription(card_to_be_given);
 		card_to_be_shown_while_hovering_relic =
-				card_to_be_given.makeStatEquivalentCopy();
+				QCFP_Misc.
+				doCopyWithEtherealExhaustAndDescription(card_to_be_given);
 	
 		AbstractDungeon.effectList.add(
 				new ThoughtBubble(
@@ -417,6 +423,7 @@ public class RainbowBrush extends CustomRelic{
 		}
 		
 	}
+
 	
 	@Override
 	public void onPlayCard(AbstractCard c, AbstractMonster m) {
