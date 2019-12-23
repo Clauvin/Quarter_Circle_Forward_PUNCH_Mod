@@ -9,7 +9,6 @@ import org.apache.logging.log4j.Logger;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardRarity;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardTags;
@@ -31,6 +30,7 @@ import com.megacrit.cardcrawl.vfx.cardManip.ShowCardBrieflyEffect;
 import basemod.CustomEventRoom;
 import basemod.abstracts.CustomRelic;
 import qcfpunch.QCFP_Misc;
+import qcfpunch.actions.RainbowBrushAddTempCardToHandAction;
 import qcfpunch.cards.ui.ErrorCard;
 import qcfpunch.resources.relic_graphics.GraphicResources;
 
@@ -437,7 +437,8 @@ public class RainbowBrush extends CustomRelic{
 			flash();
 			
 			AbstractDungeon.actionManager.addToBottom(
-					new MakeTempCardInHandAction(card_to_be_given, false, true));
+					new RainbowBrushAddTempCardToHandAction(
+							card_to_be_given, false, true));
 							
 			changeProbabilities();
 			
