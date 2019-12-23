@@ -19,6 +19,7 @@ public class RainbowBrushAddTempCardToHandAction extends
 	
 	public RainbowBrushAddTempCardToHandAction(AbstractCard card, boolean isOtherCardInCenter, boolean sameUUID) {
 		super(card, isOtherCardInCenter, sameUUID);
+		card_to_temp = card;
 		this_action_is_other_card_in_center = isOtherCardInCenter;
 
 	}
@@ -82,6 +83,7 @@ public class RainbowBrushAddTempCardToHandAction extends
 	}
 	
 	public AbstractCard makeNewCard() {
+		QCFP_Misc.fastLoggerLine("Here");
 		return QCFP_Misc.doCopyWithEtherealExhaustAndDescription(card_to_temp);
 	}
 
