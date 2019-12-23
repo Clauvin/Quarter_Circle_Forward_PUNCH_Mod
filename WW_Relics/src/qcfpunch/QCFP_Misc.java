@@ -147,6 +147,65 @@ public class QCFP_Misc {
 		
 	}
 	
+	public static void setCardToHaveExhaustOrEtherealIfItsNotAlready(
+			AbstractCard the_card) {
+		
+		boolean has_ethereal = false;
+		boolean has_exhaust = false;
+		
+		if (the_card.exhaust || the_card.exhaustOnFire ||
+				the_card.exhaustOnUseOnce) {
+			has_exhaust = true;
+		}
+		
+		if (the_card.isEthereal) has_ethereal = true;
+		
+		if (has_ethereal || has_exhaust) return;
+		
+		int choose = headsOrTails(new Random());
+		
+		if (choose == 1) {
+			setCardToHaveEthereal(the_card);
+		} else {
+			setCardToHaveExhaust(the_card);
+		}
+
+	}
+	
+	public static void setCardToHaveEthereal(AbstractCard the_card) {
+		
+		the_card.isEthereal = true;
+		
+		String upper_cased_ethereal = GameDictionary.ETHEREAL.NAMES[0].
+				substring(0, 1).toUpperCase() + 
+				GameDictionary.ETHEREAL.NAMES[0].substring(1);
+		
+		if (Settings.language == GameLanguage.ZHS)
+			upper_cased_ethereal = "" + upper_cased_ethereal;
+		
+		the_card.rawDescription = upper_cased_ethereal + ". NL " +
+				the_card.rawDescription;
+		the_card.initializeDescription();
+		
+	}
+	
+	public static void setCardToHaveExhaust(AbstractCard the_card) {
+		
+		the_card.exhaust = true;
+		
+		String upper_cased_exhaust = GameDictionary.EXHAUST.NAMES[0].
+				substring(0, 1).toUpperCase() + 
+				GameDictionary.RETAIN.NAMES[0].substring(1);
+		
+		if (Settings.language == GameLanguage.ZHS)
+			upper_cased_exhaust = "" + upper_cased_exhaust;
+		
+		the_card.rawDescription += " NL " +
+				the_card.rawDescription;
+		the_card.initializeDescription();
+		
+	}
+	
 	public static boolean cardIsACurseOrStatus(AbstractCard card) {
 		return ((card.type == CardType.CURSE) || (card.type == CardType.STATUS)
 				|| (card.color == CardColor.CURSE));
