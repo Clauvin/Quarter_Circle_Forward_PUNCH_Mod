@@ -31,7 +31,6 @@ public class RainbowBrushAddTempCardToHandAction extends
 	    } 
 	    int discardAmount = 0;
 	    int handAmount = this.amount;
-
 	    
 	    if (this.amount + AbstractDungeon.player.hand.size() > 10) {
 	    	AbstractDungeon.player.createHandIsFullDialog();
@@ -59,12 +58,12 @@ public class RainbowBrushAddTempCardToHandAction extends
 			if (handAmt == 1) {
 				if (this.this_action_is_other_card_in_center) {
 					AbstractDungeon.effectList.add(new ShowCardAndAddToHandEffect(
-	                  makeNewCard(), Settings.WIDTH / 2.0F - PADDING + AbstractCard.IMG_WIDTH,
+							makeNewRainbowCard(), Settings.WIDTH / 2.0F - PADDING + AbstractCard.IMG_WIDTH,
 	                  Settings.HEIGHT / 2.0F));
 				}
 	          else {
 	        	  AbstractDungeon.effectList.add(
-	        			  new ShowCardAndAddToHandEffect(makeNewCard()));
+	        			  new ShowCardAndAddToHandEffect(makeNewRainbowCard()));
 	          } 
 	        }
 		}
@@ -77,12 +76,12 @@ public class RainbowBrushAddTempCardToHandAction extends
 			case 1:
 				if (discardAmt == 1) {
 					AbstractDungeon.effectList.add(new ShowCardAndAddToDiscardEffect(
-		                makeNewCard(), Settings.WIDTH / 2.0F + PADDING + AbstractCard.IMG_WIDTH, Settings.HEIGHT / 2.0F));
+		                this.makeNewRainbowCard(), Settings.WIDTH / 2.0F + PADDING + AbstractCard.IMG_WIDTH, Settings.HEIGHT / 2.0F));
 		        }
 		}
 	}
 	
-	public AbstractCard makeNewCard() {
+	public AbstractCard makeNewRainbowCard() {
 		QCFP_Misc.fastLoggerLine("Here");
 		return QCFP_Misc.doCopyWithEtherealExhaustAndDescription(card_to_temp);
 	}
