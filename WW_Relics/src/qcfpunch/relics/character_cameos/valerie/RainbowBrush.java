@@ -254,31 +254,27 @@ public class RainbowBrush extends CustomRelic{
 		CardRarity rarity = generateRarity();
 		
 		card_to_be_given = generateCard(rarity);
-		card_to_be_shown_with_thought_balloon = 
-				card_to_be_given.makeStatEquivalentCopy();
-		card_to_be_shown_while_hovering_relic =
-				card_to_be_given.makeStatEquivalentCopy();
 		
 		maybeUpgradeCardIfNotStatusOrCurse(card_to_be_given);
+		
+		QCFP_Misc.reduceCardCostIfNotStatusOrCurseByOne(card_to_be_given);
 		
 		if (!QCFP_Misc.cardIsACurseOrStatus(card_to_be_given)) {
 			QCFP_Misc.setCardToHaveExhaustOrEtherealIfItsNotAlready(
 					card_to_be_given);
 		}
 		
-		QCFP_Misc.reduceCardCostIfNotStatusOrCurseByOne(card_to_be_given);
-		
 		if (card_to_be_given.cost == 0 && card_to_be_given.isEthereal) {
-			card_to_be_given.modifyCostForCombat(-1);
+			card_to_be_given.updateCost(1);
 		}
-		
+
 		card_to_be_shown_with_thought_balloon = 
 				QCFP_Misc.
 				doCopyWithEtherealExhaustAndDescription(card_to_be_given);
 		card_to_be_shown_while_hovering_relic =
 				QCFP_Misc.
 				doCopyWithEtherealExhaustAndDescription(card_to_be_given);
-	
+		
 		AbstractDungeon.effectList.add(
 				new ThoughtBubble(
 					AbstractDungeon.player.dialogX,
@@ -290,7 +286,6 @@ public class RainbowBrush extends CustomRelic{
 						AbstractDungeon.player.dialogX + 
 						3 * card_to_be_shown_with_thought_balloon.hb.width,
 						AbstractDungeon.player.dialogY));
-			
 	}
 	
 	public CardRarity generateRarity() {
@@ -435,7 +430,7 @@ public class RainbowBrush extends CustomRelic{
 			
 			counter = 0;
 			flash();
-			
+
 			AbstractDungeon.actionManager.addToBottom(
 					new RainbowBrushAddTempCardToHandAction(
 							card_to_be_given, false, true));
