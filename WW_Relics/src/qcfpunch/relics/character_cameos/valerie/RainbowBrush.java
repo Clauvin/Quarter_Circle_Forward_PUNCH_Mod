@@ -437,6 +437,8 @@ public class RainbowBrush extends CustomRelic{
 							
 			changeProbabilities();
 			
+			//createCardToGiveLater();
+			
 		}
 		
 	}
