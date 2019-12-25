@@ -235,6 +235,10 @@ public class QCFP_Misc {
 		new_card.description = original_card.description;
 		new_card.rawDescription = original_card.rawDescription;
 		
+		if (new_card.isEthereal && original_card.cost == 0) {
+			new_card.modifyCostForCombat(1);
+		}
+		
 		return new_card;
 	}
 	
