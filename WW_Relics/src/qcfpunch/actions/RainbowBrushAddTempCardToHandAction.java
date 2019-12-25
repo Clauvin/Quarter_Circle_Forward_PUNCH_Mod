@@ -55,15 +55,16 @@ public class RainbowBrushAddTempCardToHandAction extends
 		case 0:
 			return;
 		case 1:
+			AbstractCard card = makeNewRainbowCard();
 			if (handAmt == 1) {
 				if (this.this_action_is_other_card_in_center) {
 					AbstractDungeon.effectList.add(new ShowCardAndAddToHandEffect(
-							makeNewRainbowCard(), Settings.WIDTH / 2.0F - PADDING + AbstractCard.IMG_WIDTH,
+							card, Settings.WIDTH / 2.0F - PADDING + AbstractCard.IMG_WIDTH,
 	                  Settings.HEIGHT / 2.0F));
 				}
 	          else {
 	        	  AbstractDungeon.effectList.add(
-	        			  new ShowCardAndAddToHandEffect(makeNewRainbowCard()));
+	        			  new ShowCardAndAddToHandEffect(card));
 	          } 
 	        }
 		}
@@ -76,15 +77,14 @@ public class RainbowBrushAddTempCardToHandAction extends
 			case 1:
 				if (discardAmt == 1) {
 					AbstractDungeon.effectList.add(new ShowCardAndAddToDiscardEffect(
-		                this.makeNewRainbowCard(), Settings.WIDTH / 2.0F + PADDING + AbstractCard.IMG_WIDTH, Settings.HEIGHT / 2.0F));
+		                makeNewRainbowCard(), Settings.WIDTH / 2.0F + PADDING + AbstractCard.IMG_WIDTH,
+		                Settings.HEIGHT / 2.0F));
 		        }
 		}
 	}
 	
 	public AbstractCard makeNewRainbowCard() {
-		QCFP_Misc.fastLoggerLine("Here");
 		return QCFP_Misc.doCopyWithEtherealExhaustAndDescription(card_to_temp);
 	}
 
-		
 }
