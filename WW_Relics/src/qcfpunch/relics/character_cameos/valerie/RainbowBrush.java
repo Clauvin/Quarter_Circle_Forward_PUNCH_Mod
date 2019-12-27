@@ -255,6 +255,10 @@ public class RainbowBrush extends CustomRelic{
 		
 		card_to_be_given = generateCard(rarity);
 		
+		if (!card_to_be_given.isSeen) {
+			card_to_be_given.isSeen = true;
+		}
+		
 		maybeUpgradeCardIfNotStatusOrCurse(card_to_be_given);
 		
 		QCFP_Misc.reduceCardCostIfNotStatusOrCurseByOne(card_to_be_given);
