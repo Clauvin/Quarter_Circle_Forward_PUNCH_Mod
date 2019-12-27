@@ -41,7 +41,7 @@
 	
 	"qcfpunch:QuarterHealthBar": {
 		"NAME": "Quarter Health Bar",
-		"DESCRIPTION": "Start with 25% Max HP. Send me a message if you managed to beat Act 3 or the Heart with this much initial HP. .-."
+		"DESCRIPTION": "Start with 25% Max HP. Congrats if you beat the Heart without any Max HP increase and this modifier!"
 	},
 	
 	"qcfpunch:RedCyclone": {
