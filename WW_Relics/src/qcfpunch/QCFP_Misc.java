@@ -202,7 +202,7 @@ public class QCFP_Misc {
 			upper_cased_exhaust = "" + upper_cased_exhaust;
 		
 		the_card.rawDescription += " NL " +
-				upper_cased_exhaust;
+				upper_cased_exhaust + ".";
 		
 		QCFP_Misc.fastLoggerLine(the_card.rawDescription);
 		
