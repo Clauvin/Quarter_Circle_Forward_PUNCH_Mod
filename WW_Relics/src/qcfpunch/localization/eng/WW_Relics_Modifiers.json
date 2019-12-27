@@ -1,37 +1,37 @@
 {
 	"qcfpunch:AsceticMonk": {
 		"NAME": "Ascetic Monk",
-		"DESCRIPTION": "Start with Broken Tusk, Necklace Of Skulls and Lotus Statue."
+		"DESCRIPTION": "Start with Broken Tusk, Necklace Of Skulls and Lotus Statue. Sometimes, you have to remove the excess."
 	},
 
 	"qcfpunch:BlazingFist": {
 		"NAME": "Blazing Fist",
-		"DESCRIPTION": "Start with Black Training Shirt, Red Gi and Unceasing Flame."
+		"DESCRIPTION": "Start with Black Training Shirt, Red Gi and Unceasing Flame. Who needs Block?"
 	},
 	
 	"qcfpunch:BlueJade": {
 		"NAME": "Blue Jade",
-		"DESCRIPTION": "Start with Spiky Bracers, White Boots and Handcuffs."
+		"DESCRIPTION": "Start with Spiky Bracers, White Boots and Handcuffs. If uncertain... you have time kid."
 	},
 	
 	"qcfpunch:DeltaSpike": {
 		"NAME": "Delta Spike",
-		"DESCRIPTION": "Start with Red Beret, Green Leotard and Special Ops Insignia."
+		"DESCRIPTION": "Start with Red Beret, Green Leotard and Special Ops Insignia. Draw, draw, prepare, action!"
 	},
 	
 	"qcfpunch:FreshStart": {
 		"NAME": "Fresh Start",
-		"DESCRIPTION": "Start without any Starter relics."
+		"DESCRIPTION": "Start without any Starter relics. Who needs Ironclad's Boiling Blood, am I right? :)"
 	},
 	
 	"qcfpunch:HalfHealthBar": {
 		"NAME": "Half Health Bar",
-		"DESCRIPTION": "Start with 50% Max HP."
+		"DESCRIPTION": "Start with 50% Max HP. Also 200% courage and 200% OUCH."
 	},
 
 	"qcfpunch:IndestructibleFortress": {
 		"NAME": "Indestructible Fortress",
-		"DESCRIPTION": "Start with Army Boots, Chain With Nametags and Combat Fatigues."
+		"DESCRIPTION": "Start with Army Boots, Chain With Nametags and Combat Fatigues. Because the best defense... is the best defense, duh."
 	},
 
 	"qcfpunch:LoweringTheHandicap": {
@@ -41,12 +41,12 @@
 	
 	"qcfpunch:QuarterHealthBar": {
 		"NAME": "Quarter Health Bar",
-		"DESCRIPTION": "Start with 25% Max HP."
+		"DESCRIPTION": "Start with 25% Max HP. Send me a message if you managed to beat Act 3 or the Heart with this much initial HP. .-."
 	},
 	
 	"qcfpunch:RedCyclone": {
 		"NAME": "Red Cyclone",
-		"DESCRIPTION": "Start with Wrestler's Cloak, Wild Herbs Ointment and Red Cyclone Teachings."
+		"DESCRIPTION": "Start with Wrestler's Cloak, Wild Herbs Ointment and Red Cyclone Teachings. Getting stronger with pain and then stunning all opposition."
 	},
 	
 	"qcfpunch:UnboundedCreativity": {
@@ -56,7 +56,7 @@
 
 	"qcfpunch:WanderingWarrior": {
 		"NAME": "Wandering Warrior",
-		"DESCRIPTION": "Start with Duffel Bag, Fighting Gloves and Red Headband."
+		"DESCRIPTION": "Start with Duffel Bag, Fighting Gloves and Red Headband. You don't excel, but have the tools to surpass any challenge."
 	},
 
 	"WWWWWWWWWWWWWWWWW": {
