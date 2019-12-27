@@ -21,6 +21,7 @@ import basemod.abstracts.CustomRelic;
 import qcfpunch.QCFP_Misc;
 import qcfpunch.resources.relic_graphics.GraphicResources;
 import theArtist.AbstractCanvas.VexColor;
+import theArtist.TheArtist;
 import theArtist.actions.PaintAction;
 
 public class PrimaryBrush extends CustomRelic  {
@@ -228,7 +229,12 @@ public class PrimaryBrush extends CustomRelic  {
 	}
 	
 	public boolean canSpawn() {
-		return QCFP_Misc.checkForMod(QCFP_Misc.the_artist_class_code);
+		if (QCFP_Misc.checkForMod(QCFP_Misc.the_artist_class_code)){
+			return AbstractDungeon.player.chosenClass != TheArtist.Enums.THE_ARTIST;
+		} else {
+			return false;	
+		}
+		
 	}
 	
 	public AbstractRelic makeCopy() { // always override this method to return a new instance of your relic
