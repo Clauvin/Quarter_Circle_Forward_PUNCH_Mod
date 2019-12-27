@@ -11,6 +11,7 @@ import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 import basemod.abstracts.CustomRelic;
 import qcfpunch.QCFP_Misc;
+import qcfpunch.relics.dhalsim.BrokenTusk;
 import qcfpunch.resources.relic_graphics.GraphicResources;
 
 public class RedHeadband extends CustomRelic {
@@ -31,10 +32,13 @@ public class RedHeadband extends CustomRelic {
 	}
 	
 	public void onCardDraw(AbstractCard drawnCard) {
-		if ((drawnCard.type == AbstractCard.CardType.CURSE) ||
-			(drawnCard.type == AbstractCard.CardType.STATUS)) 
+		if (AbstractDungeon.player.hasRelic(BrokenTusk.ID)) {
+			AbstractDungeon.player.getRelic(BrokenTusk.ID).onCardDraw(drawnCard);
+		}
+		
+		if (QCFP_Misc.cardIsACurseOrStatus(drawnCard)) 
 		{
-			if (drawn_status_and_curses_in_the_turn  < NUMBER_OF_DRAWS) {
+			if (drawn_status_and_curses_in_the_turn < NUMBER_OF_DRAWS) {
 				AbstractDungeon.actionManager.addToBottom(
 						new RelicAboveCreatureAction(AbstractDungeon.player, this));
 				
@@ -55,7 +59,6 @@ public class RedHeadband extends CustomRelic {
 		        }
 			}
 		}
-		
 	}
 	
 	public void atTurnStart() {
