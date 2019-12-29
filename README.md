@@ -9,7 +9,7 @@ This mod follows the [Creative Commons Attribution 4.0 International](https://cr
 
 # Content
 
-* Thirty relics done of 34+ planned, with temporary images and placeholder sounds.
+* Thirty two relics done of 34+ planned, with temporary images and placeholder sounds.
 * Twelve game modifiers, ranging from adding more relics at start to making the game easier/harder.
 * Six cards, acessible through one specific relic.
 * One event, which is the gateway for two relics and one potion.
@@ -18,11 +18,11 @@ This mod follows the [Creative Commons Attribution 4.0 International](https://cr
 
 # Mod Crossover Content (needs the mod to add the content)
 
-With Vex TheArtist Mod(https://steamcommunity.com/sharedfiles/filedetails/?id=1840178754): two relics.
+With Vex TheArtist Mod (https://steamcommunity.com/sharedfiles/filedetails/?id=1840178754): two relics.
 
 # Current State
 
-Working in Milestone 6's secret guest inspired relics.
+On hiatus thanks to rl stuff.
 
 # Link to Releases and Pre-Releases
 
@@ -30,7 +30,7 @@ Link [here](https://github.com/Clauvin/World_Warriors_Mod/releases).
 
 # FAQ
 
-Link [here](https://github.com/Clauvin/World_Warriors_Mod/wiki/FAQ-(in-construction)).
+Link [here](https://github.com/Clauvin/Quarter_Circle_Forward_PUNCH_Mod/wiki/FANSFAQ).
 
 # Relics
 
@@ -50,15 +50,15 @@ Link too in the [wiki's page](https://github.com/Clauvin/World_Warriors_Relics/w
 
 - (thanks to rl issues, a pause will be made in this mod's development but 16 relics will be done already when finishing the fourth milestone)
 
-6. Relics inspired by Cammy, Dhalsim, Blanka, Zangief and as a guest, Valerie from Fantasy Strike.
-7. Starting support to Nexus Mods.
-8. One boss relic for Boxer, Claw, Sagat and Dictator, respectively. (about the names chosen here, check https://en.wikipedia.org/wiki/Street_Fighter_II:_The_World_Warrior#Regional_differences)
-9. Focus in Akuma's inspired relic.
-10. Focus in T. Hawk relic (only in his relic because it will trigger events, and that's different from all the other relics so far)
-11. Relics inspired by Fei Long and Deejay. (number unknown)
+6. Relics inspired by Cammy, Dhalsim, Blanka, Zangief and as a guest, Valerie from Fantasy Strike. - Done.
+7. Focus in Akuma's inspired relic. - Done.
+8. One boss relic for Boxer, Claw, Sagat and Dictator, respectively. (about the names chosen here, check ttps://en.wikipedia.org/wiki/Street_Fighter_II:_The_World_Warrior#Regional_differences)
+9. Starting support to Nexus Mods.
+10. Add Data tracking to know how the mods is being used
+11. ????????????????????
 12. ?????????????????????
 13. Undefined extra content.
-14. Test of 1 Custom Modifier revolving around fighter's set relics to make the equivalent of mini-characters, as a test. (use Blademaster Perk system together with relic that triggers them)
+14. (Maybe) Test of 1 Custom Modifier revolving around fighter's set relics to make the equivalent of mini-characters, as a test. (use Blademaster Perk system together with relic that triggers them)
 15. Reworking of other Custom Modifiers to have more mini-characters, IF I'm fine with the results above
 16. Update of beta art and sound assets to v1.0
 17. Polishing, refactoring and balancing.
@@ -69,10 +69,12 @@ Link too in the [wiki's page](https://github.com/Clauvin/World_Warriors_Relics/w
 
 (mandatory 1 month break at this point for resting and recovering creative energies)
 
-19. Synergy and adaptation with Infinite Spire. (Black cards? Black cards. o9)
-20. Boss inspired by Street Fighter 2 stuff.
-21. Synergy with Halation. (Simulated Spire? Yep.)
-22. Synergy and adaptation with other mods. (Googly Eyes included)
+19. Focus in T. Hawk relic (only in his relic because it will trigger events, and that's different from all the other relics so far)
+20. Relics inspired by Fei Long and Deejay. (number unknown)
+21. Synergy and adaptation with Infinite Spire. (Black cards? Black cards. o9)
+22. Boss inspired by Street Fighter 2 stuff.
+23. Synergy with Halation. (Simulated Spire? Yep.)
+24. Synergy and adaptation with other mods. (Googly Eyes included)
 
 And MAYBE in the future, for a v2.0 (not making promises here)
 
@@ -87,7 +89,7 @@ Slay The Spire 1.1, Mod The Spire 3.11.0+, BaseMod 5.15.1+ and StSLib 1.17.1+ (w
 
 # Optional Requirements
 
-None by now.
+* Vex TheArtist mod: adds two relics to this mod.
 
 # Compatibility
 
@@ -125,7 +127,7 @@ GK (https://github.com/erasels), the patron of Simplicity and Less Text Lines, a
 
 The-Evil-Pickle, for the [Replay The Spire](https://github.com/The-Evil-Pickle/Replay-the-Spire) save/load code, it was the basis of the one used at this mod.
 
-[Rita Bernstein](https://github.com/Rita-Bernstein), for the simplified Chinese translation. 
+[Rita Bernstein](https://github.com/Rita-Bernstein), for the simplified Chinese translations. 
 
 Thiago, for helping with finding some bugs in the 0.6.* versions.
 
@@ -135,7 +137,7 @@ Discord's bulbamaster#5216 for testing the 0.9 version.
 
 Discord's AvangionQ#9279 for testing older versions.
 
-Lots of people from the Slay The Spire Discord's modding channel for pointing stuff from this mod to improve/polish/buff/nerf, check the "suggestion from discord" tag in the Issues to see most of the specifics.
+Lots of people from the Slay The Spire Discord's modding channel and beyond for pointing stuff from this mod to improve/polish/buff/nerf, check the suggestion tags in the Issues to see most of the specifics.
 
 STREET FIGHTER is a registered trademark of CAPCOM U.S.A., INC.
 
@@ -151,17 +153,31 @@ To Robert C. Martin because of his book [Clean Code](https://www.oreilly.com/lib
 
 # Art Assets
 
-Duffel Bag - Found original at https://game-icons.net/1x1/lorc/swap-bag.html - Made by Lorc, and shared through CC BY 3.0 - Version in game is modified by mod creator.
+Cattail - Found original at https://game-icons.net/1x1/delapouite/reed.html - Made by Delapouite, and shared through CC BY 3.0 - Version in game is modified by mod creator.
 
-Red Headband - Found original at https://game-icons.net/1x1/delapouite/headband-knot.html - Made by Delapouite, and shared through CC BY 3.0 - Version in game is modified by mod creator.
+Dark Gi and Red Gi - Found original at https://game-icons.net/1x1/delapouite/kimono.html - Made by Delapouite, and shared through CC BY 3.0 - Version in game is modified by mod creator.
+
+Duffel Bag - Found original at https://game-icons.net/1x1/lorc/swap-bag.html - Made by Lorc, and shared through CC BY 3.0 - Version in game is modified by mod creator.
 
 Fighting Gloves - Found original at https://game-icons.net/1x1/lorc/mailed-fist.html - Made by Lorc, and shared through CC BY 3.0 - Version in game is modified by mod creator.
 
+Handcuffs - Found original at https://game-icons.net/1x1/lorc/handcuffs.html - Made by Lorc, and shared through CC BY 3.0 - Version in game is modified by mod creator.
+
+Killian Engine Alpha - Found original at https://game-icons.net/1x1/lorc/triple-yin.html - Made by lorc, and shared through CC BY 3.0 - Version in game is modified by mod creator.
+
+Light backpack - Found original at https://game-icons.net/1x1/delapouite/light-backpack.html - Made by Delapouite, and shared through CC BY 3.0 - Version in game is modified by mod creator.
+
+Mixed Paint Bucket - - Found original at https://game-icons.net/1x1/delapouite/paint-bucket.html - Made by Delapouite, and shared through CC BY 3.0 - Version in game is modified by mod creator.
+
+Necklace of Skulls - Found original at https://game-icons.net/1x1/sbed/death-skull.html - Made by sbed, and shared through CC BY 3.0 - Version in game is modified by mod creator.
+
+Red Headband - Found original at https://game-icons.net/1x1/delapouite/headband-knot.html - Made by Delapouite,  and shared through CC BY 3.0 - Version in game is modified by mod creator.
+
 Spiky Bracers - Made by hand by mod creator.
 
-White Boots - Found original at https://game-icons.net/1x1/lorc/steeltoe-boots.html - Made by Lorc, and shared through CC BY 3.0 - Version in game is modified by mod creator.
-
-Handcuffs - Found original at https://game-icons.net/1x1/lorc/handcuffs.html - Made by Lorc, and shared through CC BY 3.0 - Version in game is modified by mod creator.
+White Boots and many other relics with boots as images, Neverending Blood, - Found original at https://game-icons.net/1x1/lorc/steeltoe-boots.html - Made by Lorc, and shared through CC BY 3.0 - Version in game is modified by mod creator.
+ 
+Wrestler's Cloak - Found original at https://game-icons.net/1x1/delapouite/cape.html - Made by Delapouite, and shared through CC BY 3.0 - Version in game is modified by mod creator.
 
 # Notes For Contributors
 
