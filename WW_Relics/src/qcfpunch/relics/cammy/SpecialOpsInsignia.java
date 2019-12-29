@@ -4,6 +4,7 @@ import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.colorless.Forethought;
 import com.megacrit.cardcrawl.cards.green.Setup;
+import com.megacrit.cardcrawl.characters.AbstractPlayer.PlayerClass;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
@@ -107,15 +108,21 @@ public class SpecialOpsInsignia extends CustomRelic  {
 		setCardAndVariableCounters(0);
 		effect_triggered_this_turn = false;
 	}
+	
+	public void setCardAndVariableCounters(int new_value) {
+		extra_cards_drawn_this_turn = new_value;
+		counter = new_value;
+	}
 
 	@Override
 	public AbstractRelic makeCopy() {
 		return new SpecialOpsInsignia();
 	}
 	
-	public void setCardAndVariableCounters(int new_value) {
-		extra_cards_drawn_this_turn = new_value;
-		counter = new_value;
+	@Override
+	public boolean canSpawn() {
+		// TODO Auto-generated method stub
+		return AbstractDungeon.player.chosenClass == PlayerClass.THE_SILENT;
 	}
 	
 }
