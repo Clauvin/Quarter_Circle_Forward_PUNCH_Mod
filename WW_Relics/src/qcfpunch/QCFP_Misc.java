@@ -216,6 +216,10 @@ public class QCFP_Misc {
 				|| (card.color == CardColor.CURSE));
 	}
 	
+	public static boolean cardIsACurse(AbstractCard card) {
+		return (card.type == CardType.CURSE) || (card.color == CardColor.CURSE);
+	}
+	
 	public static void reduceCardCostIfNotStatusOrCurseByOne(AbstractCard card) {
 		
 		if (!cardIsACurseOrStatus(card)) {
