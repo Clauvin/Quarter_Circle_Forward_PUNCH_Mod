@@ -15,7 +15,7 @@ public class CrimsonSash extends CustomRelic  {
 	public static final int MORE_ENERGY_YAY = 1;
 	
 	public CrimsonSash() {
-		super(ID, GraphicResources.LoadRelicImage("Temp Army Boots - steeltoe-boots - Lorc - CC BY 3.0.png"),
+		super(ID, GraphicResources.LoadRelicImage("Temp Crimson Sash - steeltoe-boots - Lorc - CC BY 3.0.png"),
 				RelicTier.BOSS, LandingSound.FLAT);
 	}
 	
