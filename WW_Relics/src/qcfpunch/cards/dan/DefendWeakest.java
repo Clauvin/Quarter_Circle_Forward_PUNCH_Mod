@@ -22,7 +22,7 @@ public class DefendWeakest extends CustomCard {
 	
     public DefendWeakest() {
         super(ID, DefendWeakest.NAME,
-        		QCFP_Misc.returnCardsImageMainFolder() + "temp_skill.png", COST, DefendWeakest.DESCRIPTION,
+        		QCFP_Misc.returnCardsImageMainFolder() + "defend_weakest.png", COST, DefendWeakest.DESCRIPTION,
         		CardType.SKILL, CardColor.COLORLESS, CardRarity.BASIC, CardTarget.SELF);
         
         this.baseBlock = BLOCK_INIT_GAINED;
