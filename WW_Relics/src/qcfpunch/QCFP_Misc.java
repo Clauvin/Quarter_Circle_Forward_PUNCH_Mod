@@ -50,13 +50,13 @@ public class QCFP_Misc {
 	}
 	
 	public static String returnDescription() {
-		return "v0.16.34-UnstableGithub" +
+		return "v0.17.0-UnstableGithub" +
 				"\r\n"
 				  + "\r\n Adds thirty-two relics (two need The Artist mod, one is Custom Mode only for now)"
 				  + "\r\n"
 				  + "based mostly in SF2's main characters (also other fighting games), twelve game modifiers, one event and one potion, all in English and simplified Chinese."
 				  + "\r\n"
-				  + "\r\n v1.0 will have 34+ relics."
+				  + "\r\n v1.0 will have more relics."
 				  + "\r\n"
 				  + "\r\n Most of the images in the mod are temporary and will be substituted/improved on v1.0.";
 	}
