@@ -17,9 +17,6 @@ Handcuffs - Found original at https://game-icons.net/1x1/lorc/handcuffs.html - M
 Killian Engine Alpha - Found original at https://game-icons.net/1x1/lorc/triple-yin.html -
 Made by lorc, and shared through CC BY 3.0 - Version in game is modified by mod creator.
 
-Light backpack - Found original at https://game-icons.net/1x1/delapouite/light-backpack.html - Made by Delapouite,
-and shared through CC BY 3.0 - Version in game is modified by mod creator.
-
 Mixed Paint Bucket - - Found original at https://game-icons.net/1x1/delapouite/paint-bucket.html - Made by Delapouite,
 and shared through CC BY 3.0 - Version in game is modified by mod creator.
 
@@ -28,6 +25,9 @@ and shared through CC BY 3.0 - Version in game is modified by mod creator.
 
 Red Headband - Found original at https://game-icons.net/1x1/delapouite/headband-knot.html - Made by Delapouite,
  and shared through CC BY 3.0 - Version in game is modified by mod creator.
+
+School Backpack - Found original at https://game-icons.net/1x1/delapouite/light-backpack.html - Made by Delapouite,
+and shared through CC BY 3.0 - Version in game is modified by mod creator.
 
 Spiky Bracers - Made by hand by mod creator.
 
