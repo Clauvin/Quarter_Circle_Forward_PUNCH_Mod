@@ -57,10 +57,10 @@
   },
   
   "qcfpunch:Crimson_Sash": {
-    "NAME": "Crimson Sash",
-    "FLAVOR": "A grim reminder that no matter how skilled, no one beats their end forever.",
+    "NAME": "深红色腰带",
+    "FLAVOR": "一个残酷的提醒，无论多么熟练，没有人能永远打败他们。",
     "DESCRIPTIONS": [
-      "Gain 1 E. All healing is 50% less effective."
+      "获得[E] 。降低一半回复效果。"
     ]
   },
   
@@ -75,10 +75,10 @@
   },
   
   "qcfpunch:Dark_Gi": {
-    "NAME": "Dark Gi",
-    "FLAVOR": "The power of a master of the fist is hard to wield.",
+    "NAME": "黑色大兵。",
+    "FLAVOR": "拳法大师的力量不是一般人能拥有的。",
     "DESCRIPTIONS": [
-	  "Increase your hand size by 1. When you play a card, draw a card. Lose 30% of your Max HP. All healing is 50% less effective."
+	  "手牌数量上限加1。每当你打出一张牌，抽一张牌。失去30%最大生命。降低一半回复效果。"
     ]
   },
 
@@ -142,17 +142,17 @@
   },
   
   "qcfpunch:Killian_Engine_Alpha": {
-  	"NAME": "Killian Engine Alpha",
-  	"FLAVOR": "Here, a vast amount of fighting information rests.",
+  	"NAME": "风水引擎阿尔法",
+  	"FLAVOR": "包含了大量的战斗数据。",
   	"DESCRIPTIONS": [
-  	 "Upon pickup, obtain up to #b",
-  	 " from #b",
-  	 " random cards of other classes. Then, remove the same amount of cards from your deck.",
-  	 "Choose ",
-  	 " cards to add to your deck.",
-  	 "Choose ",
-  	 " cards to remove them of your deck.",
-  	 " card to remove of your deck."
+  	 "拾起时，至多获得其他角色的 #b",
+  	 " 张牌。（从 #b",
+  	 " 张牌中选择）同时移除你牌组中等量的牌。",
+  	 "选择 ",
+  	 " 张牌加入你的牌组。",
+  	 "选择 ",
+  	 " 张牌移除你的牌组。",
+  	 " 张牌移除你的牌组。"
 	]  	 
   },
   
@@ -315,10 +315,11 @@
     "NAME": "白靴",
     "FLAVOR": "非常非常破旧的鞋……受到的撞击跟走路一样多。",
     "DESCRIPTIONS": [
-	  "每当你抽到一张 #y攻击牌 ，对上一个被攻击的敌人造成 #yX+",
-	  " 点伤害。X为该牌的升级次数。 ",
-	  " 每抽到的 #b第三张攻击牌 变为造成 #y2X+",
-	  " 点伤害。"
+	    "Every #b",
+	    " #yAttacks drawn, deal #b",
+	    " damage to the last single enemy attacked.",
+	    " Every #yupgraded #yAttack drawn, deal #b",
+	    " damage to that enemy."
     ]
 
    }, 
