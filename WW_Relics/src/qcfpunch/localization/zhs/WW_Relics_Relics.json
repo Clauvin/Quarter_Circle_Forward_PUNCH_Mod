@@ -312,17 +312,17 @@
   },
 
   "qcfpunch:White_Boots": {
-    "NAME": "白靴",
+	"NAME": "白靴",
     "FLAVOR": "非常非常破旧的鞋……受到的撞击跟走路一样多。",
     "DESCRIPTIONS": [
-	    "Every #b",
-	    " #yAttacks drawn, deal #b",
-	    " damage to the last single enemy attacked.",
-	    " Every #yupgraded #yAttack drawn, deal #b",
-	    " damage to that enemy."
+      "每当你抽到 #b",
+      " 张 #y攻击牌 ，对上一个被攻击的敌人造成 #y",
+      " 点伤害。",
+      " 每抽到 1 张 #y已升级的攻击牌对那名敌人造成 #b",
+      " 点伤害。"
     ]
-
    }, 
+   
   "qcfpunch:Wild_Herbs_Ointment": {
     "NAME": "野药膏",
     "FLAVOR": "由西伯利亚气候中常见的草本植物制成。适用于深度切割和撕裂伤。",
