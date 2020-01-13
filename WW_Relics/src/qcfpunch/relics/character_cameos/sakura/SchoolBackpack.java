@@ -296,18 +296,31 @@ public class SchoolBackpack extends CustomRelic {
 					
 			}
 		}		
-
+		
 		switch (rarity)
 		{
-			case SPECIAL:  return rare_class_CardPool.getRandomCard(true);
-		    case RARE:     return rare_class_CardPool.getRandomCard(true);
-		    case UNCOMMON: return uncommon_class_CardPool.getRandomCard(true);
-		    case COMMON:   return common_class_CardPool.getRandomCard(true);
-		    case CURSE:    return common_class_CardPool.getRandomCard(true);
-		    case BASIC:    return common_class_CardPool.getRandomCard(true);
+			case SPECIAL:  return getRandomCardWithoutCrashes(rare_class_CardPool);
+		    case RARE:     return getRandomCardWithoutCrashes(rare_class_CardPool);
+		    case UNCOMMON: return getRandomCardWithoutCrashes(uncommon_class_CardPool);
+		    case COMMON:   return getRandomCardWithoutCrashes(common_class_CardPool);
+		    case CURSE:    return getRandomCardWithoutCrashes(common_class_CardPool);
+		    case BASIC:    return getRandomCardWithoutCrashes(common_class_CardPool);
 	    }
 	    logger.info("Paraphrasing the base code comment: No rarity on getCard in Abstract Dungeon");
 	    return null;
+	}
+	
+	public static AbstractCard getRandomCardWithoutCrashes(CardGroup group) {
+		int size = group.size();
+		int random_value = AbstractDungeon.cardRng.random(size - 1);
+		
+		while (random_value < 0 || random_value > size - 1) {
+			QCFP_Misc.fastLoggerLine("WORKED");
+			random_value = AbstractDungeon.cardRng.random(size - 1);
+		}
+		
+		return group.group.get(random_value);
+		
 	}
 	
 	public static CardColor getColorOfBaseGameClass(PlayerClass a_class) {
@@ -317,6 +330,7 @@ public class SchoolBackpack extends CustomRelic {
 		if (a_class == PlayerClass.DEFECT) 				class_color = CardColor.BLUE;
 		else if (a_class == PlayerClass.THE_SILENT) 	class_color = CardColor.GREEN;
 		else if (a_class == PlayerClass.IRONCLAD) 		class_color = CardColor.RED;
+		else if (a_class == PlayerClass.WATCHER)		class_color = CardColor.PURPLE;
 		
 		return class_color;
 	}
