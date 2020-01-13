@@ -105,7 +105,7 @@ public class RedGi extends CustomRelic {
 	}
 	
 	public void AttackCostLessThisTurn(AbstractCard drawnCard) {
-		drawnCard.modifyCostForTurn(INCREASE_ATTACK_COST_BY);
+		drawnCard.setCostForTurn(INCREASE_ATTACK_COST_BY);
 		draw_effect = false;
 	}
 	
