@@ -78,7 +78,7 @@
     "NAME": "Dark Gi",
     "FLAVOR": "A master of the fist's power is hard to wield.",
     "DESCRIPTIONS": [
-	  "When you spend [E] to play a card, draw a card. Lose #b35% of your Max HP."
+	  "Upon pickup, lose #b35% of your Max HP. When you spend [E] to play a card, draw a card."
     ]
   },
 
