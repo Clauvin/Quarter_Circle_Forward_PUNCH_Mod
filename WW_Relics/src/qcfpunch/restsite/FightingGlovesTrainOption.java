@@ -32,9 +32,7 @@ public class FightingGlovesTrainOption extends AbstractCampfireOption {
 			this.description = "";
 		}
 		
-        if (cards_that_can_be_upgraded > 0) {
-        	this.img = ImageMaster.CAMPFIRE_TRAIN_BUTTON;
-        } else this.img = ImageMaster.CAMPFIRE_TRAIN_DISABLE_BUTTON;
+		this.img = ImageMaster.CAMPFIRE_TRAIN_BUTTON;
        
 		this.usable = usable;
 	}
