@@ -2,7 +2,7 @@
 	"modid": "qcfpunch",
 	"name": "Quarter Circle Forward PUNCH!",
     "description": "A Slay The Spire mod, inspired mostly by SF2's main characters (also other fighting games). \r\n \r\nCurrently it adds 32 relics (two need The Artist Mod, one is Custom Mode only), 12 custom game modifiers, 1 event and 1 potion, all in English and simplified Chinese. \r\n \r\nv1.0 will have 34+ relics. \r\n \r\nMost of the images in this mod are temporary and will be substituted/improved on v1.0.",
-	"version": "0.17.9-UnstableGithub",
+	"version": "0.17.9-STEAM",
 	"sts_version": "01-14-2020",
 	"mts_version": "3.11.0",
 	"author_list": ["Levender"],
