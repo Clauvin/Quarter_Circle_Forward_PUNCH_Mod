@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 
+import basemod.BaseMod;
 import basemod.abstracts.CustomRelic;
 import qcfpunch.QCFP_Misc;
 import qcfpunch.actions.SetEtherealOfCardAtCombatAction;
@@ -41,6 +42,12 @@ public class SpecialOpsInsignia extends CustomRelic  {
 	@Override
 	public void onEquip() {
 		counter = 0;
+		BaseMod.MAX_HAND_SIZE++;
+	}
+	
+	@Override
+	public void onUnequip() {
+		BaseMod.MAX_HAND_SIZE--;
 	}
 	
 	@Override
