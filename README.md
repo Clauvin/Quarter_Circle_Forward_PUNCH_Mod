@@ -22,7 +22,7 @@ With Vex TheArtist Mod (https://steamcommunity.com/sharedfiles/filedetails/?id=1
 
 # Current State
 
-On hiatus thanks to rl stuff, finding out bugs involving StS v2.0.
+On hiatus thanks to rl stuff.
 
 # Link to Releases and Pre-Releases
 
@@ -52,10 +52,9 @@ Link too in the [wiki's page](https://github.com/Clauvin/World_Warriors_Relics/w
 
 6. Relics inspired by Cammy, Dhalsim, Blanka, Zangief and as a guest, Valerie from Fantasy Strike. - Done.
 7. Focus in Akuma's inspired relic. - Done.
-8. One boss relic for Boxer, Claw, Sagat and Dictator, respectively. (about the names chosen here, check ttps://en.wikipedia.org/wiki/Street_Fighter_II:_The_World_Warrior#Regional_differences)
-9. Starting support to Nexus Mods.
-10. Add Data tracking to know how the mods is being used
-11. ????????????????????
+9. Add Data tracking to know how the mods is being used
+10. One boss relic for Boxer, Claw, Sagat and Dictator, respectively. (about the names chosen here, check ttps://en.wikipedia.org/wiki/Street_Fighter_II:_The_World_Warrior#Regional_differences)
+11. Starting support to Nexus Mods.
 12. ?????????????????????
 13. Undefined extra content.
 14. (Maybe) Test of 1 Custom Modifier revolving around fighter's set relics to make the equivalent of mini-characters, as a test. (use Blademaster Perk system together with relic that triggers them)
@@ -65,27 +64,26 @@ Link too in the [wiki's page](https://github.com/Clauvin/World_Warriors_Relics/w
 
 (and here we reach v1.0)
 
-18. Translation of the mod to PT-BR. (all future milestones will launch with EN localization, PT-BR will come after a round of balancing)
+18. Translation of the mod to PT-BR.
 
 (mandatory 1 month break at this point for resting and recovering creative energies)
 
 19. Focus in T. Hawk relic (only in his relic because it will trigger events, and that's different from all the other relics so far)
 20. Relics inspired by Fei Long and Deejay. (number unknown)
 21. Synergy and adaptation with Infinite Spire. (Black cards? Black cards. o9)
-22. Boss inspired by Street Fighter 2 stuff.
-23. Synergy with Halation. (Simulated Spire? Yep.)
-24. Synergy and adaptation with other mods. (Googly Eyes included)
+22. Synergy with Halation. (Simulated Spire? Yep.)
+23. Synergy and adaptation with other mods. (Googly Eyes included)
 
 And MAYBE in the future, for a v2.0 (not making promises here)
 
-23. Elite monsters.
-24. Extra events.
-25. Cards inspired by moves of fighting games (and here I include Smash), that can be get through events or other mod's access to a hidden character.
-26. Special shop with stuff from this mod (cards above mentioned included) and removal with a good discount.
+24. Elite monsters.
+25. Extra events.
+26. Cards inspired by moves of fighting games (and here I include Smash), that can be get through events or other mod's access to a hidden character.
+27. Special shop with stuff from this mod (cards above mentioned included) and removal with a good discount.
 
 # Requirements
 
-Slay The Spire 1.1, Mod The Spire 3.11.0+, BaseMod 5.15.1+ and StSLib 1.17.1+ (when needed, the requirements will be updated to more recent versions of the game and libraries)
+Slay The Spire 2.0, Mod The Spire 3.11.0+, BaseMod 5.15.1+ and StSLib 1.17.1+ (when needed, the requirements will be updated to more recent versions of the game and libraries)
 
 # Optional Requirements
 
