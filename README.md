@@ -64,10 +64,9 @@ Link too in the [wiki's page](https://github.com/Clauvin/World_Warriors_Relics/w
 
 (and here we reach v1.0)
 
+(mandatory ?? months break at this point for resting, recovering creative energies and RL issues)
+
 18. Translation of the mod to PT-BR.
-
-(mandatory 1 month break at this point for resting and recovering creative energies)
-
 19. Focus in T. Hawk relic (only in his relic because it will trigger events, and that's different from all the other relics so far)
 20. Relics inspired by Fei Long and Deejay. (number unknown)
 21. Synergy and adaptation with Infinite Spire. (Black cards? Black cards. o9)
