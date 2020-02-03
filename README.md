@@ -22,7 +22,7 @@ With Vex TheArtist Mod (https://steamcommunity.com/sharedfiles/filedetails/?id=1
 
 # Current State
 
-On hiatus thanks to rl stuff.
+Refinding the fun on this project.
 
 # Link to Releases and Pre-Releases
 
