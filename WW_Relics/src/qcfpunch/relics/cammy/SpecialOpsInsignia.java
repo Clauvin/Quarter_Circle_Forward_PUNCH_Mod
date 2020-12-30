@@ -4,10 +4,12 @@ import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.colorless.Forethought;
 import com.megacrit.cardcrawl.cards.green.Setup;
+import com.megacrit.cardcrawl.characters.AbstractPlayer.PlayerClass;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 
+import basemod.BaseMod;
 import basemod.abstracts.CustomRelic;
 import qcfpunch.QCFP_Misc;
 import qcfpunch.actions.SetEtherealOfCardAtCombatAction;
@@ -28,8 +30,8 @@ public class SpecialOpsInsignia extends CustomRelic  {
 	public boolean effect_triggered_this_turn;
 	
 	public SpecialOpsInsignia() {
-		super(ID, GraphicResources.LoadRelicImage("White_Boots - steeltoe-boots - Lorc - CC BY 3.0.png"),
-				GraphicResources.LoadOutlineImage("White Boots Outline.png"),
+		super(ID, GraphicResources.LoadRelicImage("Temp Special Ops Insignia - steeltoe-boots - Lorc - CC BY 3.0.png"),
+				GraphicResources.LoadOutlineImage("Temp Special Ops Insignia Outline.png"),
 				RelicTier.RARE, LandingSound.FLAT);
 	}
 	
@@ -40,6 +42,12 @@ public class SpecialOpsInsignia extends CustomRelic  {
 	@Override
 	public void onEquip() {
 		counter = 0;
+		BaseMod.MAX_HAND_SIZE++;
+	}
+	
+	@Override
+	public void onUnequip() {
+		BaseMod.MAX_HAND_SIZE--;
 	}
 	
 	@Override
@@ -107,15 +115,21 @@ public class SpecialOpsInsignia extends CustomRelic  {
 		setCardAndVariableCounters(0);
 		effect_triggered_this_turn = false;
 	}
+	
+	public void setCardAndVariableCounters(int new_value) {
+		extra_cards_drawn_this_turn = new_value;
+		counter = new_value;
+	}
 
 	@Override
 	public AbstractRelic makeCopy() {
 		return new SpecialOpsInsignia();
 	}
 	
-	public void setCardAndVariableCounters(int new_value) {
-		extra_cards_drawn_this_turn = new_value;
-		counter = new_value;
+	@Override
+	public boolean canSpawn() {
+		// TODO Auto-generated method stub
+		return AbstractDungeon.player.chosenClass == PlayerClass.THE_SILENT;
 	}
 	
 }

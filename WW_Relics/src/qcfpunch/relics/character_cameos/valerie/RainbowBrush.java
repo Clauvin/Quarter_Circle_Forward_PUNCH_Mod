@@ -9,9 +9,9 @@ import org.apache.logging.log4j.Logger;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardRarity;
+import com.megacrit.cardcrawl.cards.AbstractCard.CardTags;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardType;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.CardGroup.CardGroupType;
@@ -30,7 +30,7 @@ import com.megacrit.cardcrawl.vfx.cardManip.ShowCardBrieflyEffect;
 import basemod.CustomEventRoom;
 import basemod.abstracts.CustomRelic;
 import qcfpunch.QCFP_Misc;
-import qcfpunch.actions.SetAlwaysRetainOfCardAtCombatAction;
+import qcfpunch.actions.RainbowBrushAddTempCardToHandAction;
 import qcfpunch.cards.ui.ErrorCard;
 import qcfpunch.resources.relic_graphics.GraphicResources;
 
@@ -88,7 +88,7 @@ public class RainbowBrush extends CustomRelic{
 	
 	public RainbowBrush() {
 		super(ID, GraphicResources.
-				LoadRelicImage("Temp School Backpack - steeltoe-boots - Lorc - CC BY 3.0.png"),
+				LoadRelicImage("Temp Rainbow Brush - steeltoe-boots - Lorc - CC BY 3.0.png"),
 				RelicTier.SPECIAL, LandingSound.MAGICAL);
 		
 		this.counter = 0;
@@ -184,6 +184,11 @@ public class RainbowBrush extends CustomRelic{
 				}
 			}
 			
+			if (card.hasTag(CardTags.HEALING)) {
+				logger.info(card.cardID.toString() + " not added, it was a healing card.");
+				continue;
+			}
+			
 			switch (card.rarity) {
 				case COMMON:
 					common_cards_ids.add(card.cardID);
@@ -250,20 +255,29 @@ public class RainbowBrush extends CustomRelic{
 		
 		card_to_be_given = generateCard(rarity);
 		
+		if (!card_to_be_given.isSeen) {
+			card_to_be_given.isSeen = true;
+		}
+		
 		maybeUpgradeCardIfNotStatusOrCurse(card_to_be_given);
 		
-		QCFP_Misc.reduceCardCostIfNotStatusOrCurseByOne(card_to_be_given); 
+		QCFP_Misc.reduceCardCostIfNotStatusOrCurseByOne(card_to_be_given);
 		
+		if (!QCFP_Misc.cardIsACurseOrStatus(card_to_be_given)) {
+			QCFP_Misc.setCardToHaveExhaustOrEtherealIfItsNotAlready(
+					card_to_be_given);
+		}
+		
+		if (card_to_be_given.cost == 0 && card_to_be_given.isEthereal) {
+			card_to_be_given.updateCost(1);
+		}
+
 		card_to_be_shown_with_thought_balloon = 
-				card_to_be_given.makeStatEquivalentCopy();
+				QCFP_Misc.
+				doCopyWithEtherealExhaustAndDescription(card_to_be_given);
 		card_to_be_shown_while_hovering_relic =
-				card_to_be_given.makeStatEquivalentCopy();
-	
-		QCFP_Misc.setCardToAlwaysRetain(
-				card_to_be_shown_with_thought_balloon, true);
-		
-		QCFP_Misc.setCardToAlwaysRetain(
-				card_to_be_shown_while_hovering_relic, true);
+				QCFP_Misc.
+				doCopyWithEtherealExhaustAndDescription(card_to_be_given);
 		
 		AbstractDungeon.effectList.add(
 				new ThoughtBubble(
@@ -276,7 +290,6 @@ public class RainbowBrush extends CustomRelic{
 						AbstractDungeon.player.dialogX + 
 						3 * card_to_be_shown_with_thought_balloon.hb.width,
 						AbstractDungeon.player.dialogY));
-			
 	}
 	
 	public CardRarity generateRarity() {
@@ -409,6 +422,7 @@ public class RainbowBrush extends CustomRelic{
 		}
 		
 	}
+
 	
 	@Override
 	public void onPlayCard(AbstractCard c, AbstractMonster m) {
@@ -420,16 +434,14 @@ public class RainbowBrush extends CustomRelic{
 			
 			counter = 0;
 			flash();
-			
+
 			AbstractDungeon.actionManager.addToBottom(
-					new MakeTempCardInHandAction(card_to_be_given, false, true));
-			
-			if (!QCFP_Misc.cardIsACurseOrStatus(card_to_be_given))
-				AbstractDungeon.actionManager.addToBottom(
-					new SetAlwaysRetainOfCardAtCombatAction(card_to_be_given.uuid,
-							true));
+					new RainbowBrushAddTempCardToHandAction(
+							card_to_be_given, false, true));
 							
 			changeProbabilities();
+			
+			//createCardToGiveLater();
 			
 		}
 		

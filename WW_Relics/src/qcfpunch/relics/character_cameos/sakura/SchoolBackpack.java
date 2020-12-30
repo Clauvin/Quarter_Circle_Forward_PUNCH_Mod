@@ -18,7 +18,6 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer.PlayerClass;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
-import com.megacrit.cardcrawl.helpers.ModHelper;
 import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.rewards.RewardItem;
 import com.megacrit.cardcrawl.rewards.RewardItem.RewardType;
@@ -52,7 +51,8 @@ public class SchoolBackpack extends CustomRelic {
 	public static final Logger logger = LogManager.getLogger(SchoolBackpack.class.getName());
 	
 	public SchoolBackpack() {
-		super(ID, GraphicResources.LoadRelicImage("Temp School Backpack - steeltoe-boots - Lorc - CC BY 3.0.png"), 
+		super(ID, GraphicResources.LoadRelicImage(
+				"School Backpack - light-backpack - Delapouite - CC BY 3.0.png"), 
 				RelicTier.UNCOMMON, LandingSound.HEAVY);
 		
 		counter = NUMBER_OF_EXTRA_CARDS;
@@ -186,7 +186,7 @@ public class SchoolBackpack extends CustomRelic {
 		ArrayList<AbstractCard> basic_array_of_cards = new ArrayList<AbstractCard>();
 	    
 	    int num_cards = 3;
-	    num_cards = circunstancesThatChangeCardNumber(num_cards);
+	    num_cards = QCFP_Misc.circunstancesThatChangeCardNumber(num_cards);
 	    
 	    AbstractCard.CardRarity rarity;
 	    for (int i = 0; i < num_cards; i++)
@@ -242,14 +242,6 @@ public class SchoolBackpack extends CustomRelic {
     			logger.info("Paraphrasing the base game code: WTF?");
     	}
 	}
-	
-	private int circunstancesThatChangeCardNumber(int num_cards) {
-		if (AbstractDungeon.player.hasRelic("Question Card")) 	num_cards++;
-		if (AbstractDungeon.player.hasRelic("Busted Crown")) 	num_cards -= 2;
-		if (ModHelper.isModEnabled("Binary")) 					num_cards--;
-	
-		return num_cards;
-	}
 
 	private static AbstractCard getCardAvoidingDuplicates(ArrayList<AbstractCard> array_of_cards_to_check, 
 			CardRarity rarity, PlayerClass a_class) {
@@ -286,7 +278,7 @@ public class SchoolBackpack extends CustomRelic {
 		for (Map.Entry<String, AbstractCard> a_card : CardLibrary.cards.entrySet()) {
 			AbstractCard one_more_card = a_card.getValue();
 			
-			if (cardIsOfChosenColor(one_more_card, class_color)) {
+			if (QCFP_Misc.cardIsOfChosenColor(one_more_card, class_color)) {
 				
 				CardRarity this_card_rarity = ((AbstractCard)one_more_card).rarity;			
 				
@@ -304,18 +296,31 @@ public class SchoolBackpack extends CustomRelic {
 					
 			}
 		}		
-
+		
 		switch (rarity)
 		{
-			case SPECIAL:  return rare_class_CardPool.getRandomCard(true);
-		    case RARE:     return rare_class_CardPool.getRandomCard(true);
-		    case UNCOMMON: return uncommon_class_CardPool.getRandomCard(true);
-		    case COMMON:   return common_class_CardPool.getRandomCard(true);
-		    case CURSE:    return common_class_CardPool.getRandomCard(true);
-		    case BASIC:    return common_class_CardPool.getRandomCard(true);
+			case SPECIAL:  return getRandomCardWithoutCrashes(rare_class_CardPool);
+		    case RARE:     return getRandomCardWithoutCrashes(rare_class_CardPool);
+		    case UNCOMMON: return getRandomCardWithoutCrashes(uncommon_class_CardPool);
+		    case COMMON:   return getRandomCardWithoutCrashes(common_class_CardPool);
+		    case CURSE:    return getRandomCardWithoutCrashes(common_class_CardPool);
+		    case BASIC:    return getRandomCardWithoutCrashes(common_class_CardPool);
 	    }
 	    logger.info("Paraphrasing the base code comment: No rarity on getCard in Abstract Dungeon");
 	    return null;
+	}
+	
+	public static AbstractCard getRandomCardWithoutCrashes(CardGroup group) {
+		int size = group.size();
+		int random_value = AbstractDungeon.cardRng.random(size - 1);
+		
+		while (random_value < 0 || random_value > size - 1) {
+			QCFP_Misc.fastLoggerLine("WORKED");
+			random_value = AbstractDungeon.cardRng.random(size - 1);
+		}
+		
+		return group.group.get(random_value);
+		
 	}
 	
 	public static CardColor getColorOfBaseGameClass(PlayerClass a_class) {
@@ -325,17 +330,9 @@ public class SchoolBackpack extends CustomRelic {
 		if (a_class == PlayerClass.DEFECT) 				class_color = CardColor.BLUE;
 		else if (a_class == PlayerClass.THE_SILENT) 	class_color = CardColor.GREEN;
 		else if (a_class == PlayerClass.IRONCLAD) 		class_color = CardColor.RED;
+		else if (a_class == PlayerClass.WATCHER)		class_color = CardColor.PURPLE;
 		
 		return class_color;
-	}
-	
-	public static boolean cardIsOfChosenColor(AbstractCard one_card, CardColor class_color) {
-		
-		AbstractCard card = (AbstractCard)one_card;
-		
-		return (card.color == class_color) && (card.type != AbstractCard.CardType.STATUS) &&
-				(card.type != AbstractCard.CardType.CURSE);
-		
 	}
 	
 	public void AddSavedReward() {

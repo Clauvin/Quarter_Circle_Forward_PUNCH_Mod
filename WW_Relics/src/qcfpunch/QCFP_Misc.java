@@ -15,6 +15,9 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.core.Settings.GameLanguage;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.GameDictionary;
+import com.megacrit.cardcrawl.helpers.ModHelper;
+import com.megacrit.cardcrawl.potions.AbstractPotion;
+import com.megacrit.cardcrawl.potions.PotionSlot;
 import com.megacrit.cardcrawl.random.Random;
 
 public class QCFP_Misc {
@@ -23,10 +26,16 @@ public class QCFP_Misc {
 			"infinitespire.InfiniteSpire";
 	public final static String replay_the_spire_class_code = 
 			"replayTheSpire.ReplayTheSpireMod";
+	public final static String conspire_class_code = 
+			"conspire.Conspire";
 	public final static String the_artist_class_code =
 			"theArtist.TheArtist";
 	public final static PlayerClass[] base_game_player_classes =
-			{PlayerClass.IRONCLAD, PlayerClass.THE_SILENT, PlayerClass.DEFECT};
+			{PlayerClass.IRONCLAD, PlayerClass.THE_SILENT, PlayerClass.DEFECT,
+					PlayerClass.WATCHER};
+	public final static CardColor[] base_game_player_classes_colors =
+		{CardColor.RED, CardColor.GREEN, CardColor.BLUE, CardColor.PURPLE,
+				CardColor.COLORLESS};
 	
 	public final static byte THIS_BYTE_DOES_NOT_MATTER = -1;
 	
@@ -43,11 +52,13 @@ public class QCFP_Misc {
 	}
 	
 	public static String returnDescription() {
-		return "v0.16.0-UnstableGithub" +
+		return "v0.17.9-STEAM" +
 				"\r\n"
-				  + "\r\n Adds thirty relics based mostly in SF2's main characters (also other fighting games), twelve game modifiers, one event and one potion, all in English and simplified Chinese."
+				  + "\r\n Adds thirty-two relics (two need The Artist mod, one is Custom Mode only for now)"
 				  + "\r\n"
-				  + "\r\n v1.0 will have 34+ relics."
+				  + "based mostly in SF2's main characters (also other fighting games), twelve game modifiers, one event and one potion, all in English and simplified Chinese."
+				  + "\r\n"
+				  + "\r\n v1.0 will have more relics."
 				  + "\r\n"
 				  + "\r\n Most of the images in the mod are temporary and will be substituted/improved on v1.0.";
 	}
@@ -138,9 +149,77 @@ public class QCFP_Misc {
 		
 	}
 	
+	public static void setCardToHaveExhaustOrEtherealIfItsNotAlready(
+			AbstractCard the_card) {
+		
+		boolean has_ethereal = false;
+		boolean has_exhaust = false;
+		
+		if (the_card.exhaust || the_card.exhaustOnFire ||
+				the_card.exhaustOnUseOnce) {
+			has_exhaust = true;
+		}
+		if (the_card.isEthereal) has_ethereal = true;
+		
+		if (has_ethereal || has_exhaust) return;
+		
+		int choose = headsOrTails(new Random());
+		
+		if (choose == 1) {
+			setCardToHaveEthereal(the_card);
+		} else {
+			setCardToHaveExhaust(the_card);
+		}
+
+	}
+	
+	public static void setCardToHaveEthereal(AbstractCard the_card) {
+		
+		the_card.isEthereal = true;
+		
+		String upper_cased_ethereal = GameDictionary.ETHEREAL.NAMES[0].
+				substring(0, 1).toUpperCase() + 
+				GameDictionary.ETHEREAL.NAMES[0].substring(1);
+		
+		if (Settings.language == GameLanguage.ZHS)
+			upper_cased_ethereal = "" + upper_cased_ethereal;
+		
+		the_card.rawDescription = upper_cased_ethereal + ". NL " +
+				the_card.rawDescription;
+		the_card.initializeDescription();
+		
+	}
+	
+	public static void setCardToHaveExhaust(AbstractCard the_card) {
+		
+		the_card.exhaust = true;
+		
+		String upper_cased_exhaust = GameDictionary.EXHAUST.NAMES[0].
+				substring(0, 1).toUpperCase() + 
+				GameDictionary.EXHAUST.NAMES[0].substring(1);
+		
+		QCFP_Misc.fastLoggerLine(upper_cased_exhaust);
+		
+		if (Settings.language == GameLanguage.ZHS)
+			upper_cased_exhaust = "" + upper_cased_exhaust;
+		
+		the_card.rawDescription += " NL " +
+				upper_cased_exhaust + ".";
+		
+		QCFP_Misc.fastLoggerLine(the_card.rawDescription);
+		
+		the_card.initializeDescription();
+		
+		
+	}
+	
 	public static boolean cardIsACurseOrStatus(AbstractCard card) {
 		return ((card.type == CardType.CURSE) || (card.type == CardType.STATUS)
 				|| (card.color == CardColor.CURSE));
+	}
+	
+	public static boolean cardIsACurse(AbstractCard card) {
+		return (card.type == CardType.CURSE) || (card.color == CardColor.CURSE);
 	}
 	
 	public static void reduceCardCostIfNotStatusOrCurseByOne(AbstractCard card) {
@@ -149,6 +228,53 @@ public class QCFP_Misc {
 			if (card.cost > 0) card.modifyCostForCombat(-1);
 		}
 		
+	}
+	
+	public static AbstractCard doCopyWithEtherealExhaustAndDescription(AbstractCard
+			original_card) {
+		
+		AbstractCard new_card = original_card.makeStatEquivalentCopy();
+		new_card.isEthereal = original_card.isEthereal;
+		new_card.exhaust = original_card.exhaust;
+		new_card.exhaustOnFire = original_card.exhaustOnFire;
+		new_card.exhaustOnUseOnce = original_card.exhaustOnUseOnce;
+		new_card.description = original_card.description;
+		new_card.rawDescription = original_card.rawDescription;
+		
+		if (new_card.isEthereal && original_card.cost == 0) {
+			new_card.modifyCostForCombat(1);
+		}
+		
+		return new_card;
+	}
+	
+	public static int circunstancesThatChangeCardNumber(int num_cards) {
+		if (AbstractDungeon.player.hasRelic("Question Card")) 	num_cards++;
+		if (AbstractDungeon.player.hasRelic("Busted Crown")) 	num_cards -= 2;
+		if (ModHelper.isModEnabled("Binary")) 					num_cards--;
+	
+		return num_cards;
+	}
+	
+	public static boolean cardIsOfChosenColor(AbstractCard one_card, CardColor class_color) {
+		
+		AbstractCard card = (AbstractCard)one_card;
+		
+		return (card.color == class_color) &&
+				(card.type != AbstractCard.CardType.STATUS) &&
+				(card.type != AbstractCard.CardType.CURSE);
+		
+	}
+	
+	public static boolean haveSpaceForANewPotion() {
+		int index = 0;
+	    for (AbstractPotion p : AbstractDungeon.player.potions) {
+	    	if (p instanceof PotionSlot) break;
+	    	index++;
+	    } 
+	    
+	    if (index < AbstractDungeon.player.potionSlots) return true;
+	    else return false;
 	}
 	
 	public static int headsOrTails(Random random) {
@@ -208,14 +334,18 @@ public class QCFP_Misc {
             logger.info(message);
         }
     }
-	
-    public static void fastLoggerLine(String message) {
-    	logger.info(message);
-    }
     
     public static void fastLoggerLine(Boolean message) {
     	String converted_message = message.toString();
     	fastLoggerLine(converted_message);
+    }
+    
+    public static void fastLoggerLine(int message) {
+    	fastLoggerLine("" + message);
+    }
+    
+    public static void fastLoggerLine(String message) {
+    	logger.info(message);
     }
     
 }

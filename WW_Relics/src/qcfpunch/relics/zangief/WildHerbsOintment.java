@@ -17,7 +17,7 @@ public class WildHerbsOintment extends CustomRelic  {
 
 	public static final String ID = QCFP_Misc.returnPrefix() + "Wild_Herbs_Ointment";
 	
-	public final int AMOUNT_OF_MAX_HP_GAINED = 3;
+	public final int AMOUNT_OF_MAX_HP_GAINED = 4;
 	public final float PERCENTAGE_OF_MAX_HP_TO_LOSE = 0.3f;
 	
 	public static boolean had_enough_hp_at_combat_start;
@@ -25,7 +25,7 @@ public class WildHerbsOintment extends CustomRelic  {
 	public static final Logger logger = LogManager.getLogger(WildHerbsOintment.class.getName());
 	
 	public WildHerbsOintment() {
-		super(ID, GraphicResources.LoadRelicImage("White_Boots - steeltoe-boots - Lorc - CC BY 3.0.png"),
+		super(ID, GraphicResources.LoadRelicImage("Temp Wild Herbs Ointment - steeltoe-boots - Lorc - CC BY 3.0.png"),
 				RelicTier.UNCOMMON, LandingSound.MAGICAL);
 	}
 	

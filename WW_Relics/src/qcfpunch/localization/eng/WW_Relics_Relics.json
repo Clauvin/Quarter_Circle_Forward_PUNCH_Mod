@@ -12,8 +12,8 @@
     "NAME": "Black Training Shirt",
     "FLAVOR": "Training is important, even in the Spire.",
     "DESCRIPTIONS": [
-      "At combat start, gain #b",
-      " #yStrength. Once per combat, when you use a Skill card lose #b",
+      "At the start of combat, gain #b",
+      " #yStrength. The first time each combat, when you use a Skill card lose #b",
       " #yStrength."
     ]
   },
@@ -23,7 +23,7 @@
     "FLAVOR": "Some things are very hard to forgive.",
     "DESCRIPTIONS": [
       "The first #rCurse or #rStatus drawn each turn gives one extra #b",
-      " damage hit for your Attacks that turn."
+      " damage hit to your Attacks that turn."
     ]
   },
   
@@ -33,7 +33,7 @@
     "FLAVOR": "It feels like it shouldn't be here, and that meaning becomes solid in your hands.",
     "DESCRIPTIONS": [
       "Upon pickup and after #b",
-      " rooms, gain #b1 Smoke Bomb."
+      " rooms, obtain #b1 Smoke Bomb."
     ]
   },
   
@@ -58,11 +58,27 @@
   
   "qcfpunch:Combat_Fatigues": {
     "NAME": "Combat Fatigues",
-    "FLAVOR": "\"War clothes. Pumps you to defend and then attack, but not for peace. Remember to take them off eventually, will ya?\" - Ranwid",
+    "FLAVOR": "\"Not made for peace. Remember to take them off eventually, will ya?\" - Ranwid",
     "DESCRIPTIONS": [
       "At the start of your turn, if you #rgained ",
       "#yBlock and #rdidn't #yplay Attacks last turn, gain #b",
       " #yTemporary #yStrength and your next Attack deals #ydouble #ydamage."
+    ]
+  },
+  
+  "qcfpunch:Crimson_Sash": {
+    "NAME": "Crimson Sash",
+    "FLAVOR": "A grim reminder that no matter how skilled, no one avoids their own end forever.",
+    "DESCRIPTIONS": [
+      "Gain [E] at the start of your turn. You recover #b50% #rless HP from healing."
+    ]
+  },
+
+  "qcfpunch:Dark_Gi": {
+    "NAME": "Dark Gi",
+    "FLAVOR": "A master of the fist's power is hard to wield.",
+    "DESCRIPTIONS": [
+	  "Upon pickup, lose #b35% of your Max HP. When you spend [E] to play a card, draw a card."
     ]
   },
 
@@ -96,7 +112,7 @@
     "#rStarts #rwith #r",
     " #rcharge",
     ".",
-    " At Rest Sites, you can use all charges to #yUpgrade #b1 chosen deck's card per charge, as a free choice (if chosen first). Each #b",
+    " At Rest Sites, you can use all charges to #yUpgrade #ba card per charge, as a free choice (if chosen first). Each #b",
     " rooms, gain #b1 charge.",
     "Choose ", 
     " card",
@@ -107,7 +123,7 @@
   
   "qcfpunch:Green_Leotard": {
     "NAME": "Green Leotard",
-    "FLAVOR": "Very unusual, but excellent to move around unhindered, since nothing can get on the way.",
+    "FLAVOR": "Very unusual, but excellent for moving around unhindered, since nothing can get on the way.",
     "DESCRIPTIONS": [
       "For each #ycard drawn from effects, gain #b",
       " #yBlock."
@@ -128,13 +144,28 @@
     ]
   },
   
+  "qcfpunch:Killian_Engine_Alpha": {
+  	"NAME": "Killian Engine Alpha",
+  	"FLAVOR": "Here, a vast amount of fighting information rests.",
+  	"DESCRIPTIONS": [
+  	 "Upon pickup, obtain up to #b",
+  	 " from #b",
+  	 " random cards of other classes. Then, remove the same amount of cards from your deck.",
+  	 "Choose ",
+  	 " cards to add to your deck.",
+  	 "Remove ",
+  	 " cards from your deck.",
+  	 " card from your deck."
+	]  	 
+  },
+  
   "qcfpunch:Lotus_Statue": {
     "NAME": "Lotus Statue",
     "FLAVOR": "\"Meditate now... Then the answers you seek will be revealed.\"",
  	"DESCRIPTIONS": [
  	  "[#2aecd7]Right [#2aecd7]click at a #bRest #bSite before picking an option to remove at most #y",
  	  " card per charge spent. Gain #y",
- 	  " charge when you remove a card without using this relic's effect. (Won't work with the Vampires event by now)",
+ 	  " charge when you remove a card without using this relic's effect.",
  	  "Choose ",
  	  " card to be removed."
     ]
@@ -152,7 +183,7 @@
     "NAME": "Necklace of Skulls",
     "FLAVOR": "\"Hatred begets weakness. Cultivate your heart.\" Who said that?",
  	"DESCRIPTIONS": [
- 	  "When you remove a card, #yUpgrade a card in your deck. (Won't work with the Vampires event by now)",
+ 	  "When you remove a card, #yUpgrade a card in your deck.",
  	  "Choose a card to upgrade."
     ]
   },
@@ -190,7 +221,7 @@
     "DESCRIPTIONS": [
       "Every #b",
       " cards played, add this turn's [#9400d3]r[#4b0082]a[#0000FF]n[#00FF00]d[#FFFF00]o[#FF7F00]m[#FF0000]i[#FF3333]z[#FF8888]e[#FFFFFF]d",
-      " card to your hand. It costs 1-less and has #yRetain, unless",
+      " card to your hand. It costs 1-less and has Ethereal (won't cost 0) or Exhaust, unless",
       " it's a #rStatus or #rCurse.",
       "Rainbow Brush",
       "If you wanna recheck which card Rainbow Brush's will give this turn, just place your mouse above the relic!"
@@ -218,9 +249,9 @@
     
   "qcfpunch:Red_Headband": {
     "NAME": "Red Headband",
-    "FLAVOR": "Placing it in your head gives some focus against distractions.",
+    "FLAVOR": "Wearing it gives some focus against distractions.",
     "DESCRIPTIONS": [
-      "Once per turn, the first #rStatus or #rCurse drawn is discarded, then randomly draw one card that is in the draw pile."
+      "The first time you draw a #rStatus or #rCurse each turn, discard it and draw a card."
     ]
   },
   
@@ -230,8 +261,8 @@
     "FLAVOR": "Made of good fabric that doesn't hinder movements and inspires to be offensive.",
     "DESCRIPTIONS": [
       "If you play #y",
-      " Attacks in a row this turn, draw #y",
-      " card. If it's an Attack, it costs #y",
+      " Attacks in a row this turn, draw #b",
+      " card. If it's an #yAttack, it costs #b",
       " less this turn."
     ]
   },
@@ -253,7 +284,7 @@
     "FLAVOR": "A solid set-up, a knack for improvisation and a decisive resolution are all part of the job.",
     "DESCRIPTIONS": [
       "Once each turn, if you draw #b",
-      " #ycards by effects in a turn, add both #bSetup and #bForethought to your hand, with #yEthereal and #yExhaust."
+      " #ycards by effects in a turn, add #bSetup and #bForethought with #yEthereal and #yExhaust to your hand. NL Your max hand size is increased by #b1."
     ]
   },
   
@@ -263,7 +294,7 @@
     "DESCRIPTIONS": [
 	  "Each combat, the first #b",
       " #ySkills played that cost #b2 or more cost #b",
-      " less at that combat.",
+      " less.",
       " Cards chosen in this battle are: ",
       "no card yet",	
       " and ",	
@@ -285,10 +316,11 @@
     "NAME": "White Boots",
     "FLAVOR": "Very, very worn shoes... as much from hitting as from walking.",
     "DESCRIPTIONS": [
-	  "#rAttack draws do #yX+",
-	  " damage to the last enemy attacked, X is how many upgrades the Attack has.",
-	  " #bThird #rAttack draws do #y2X+",
-	  " damage instead."
+    "Every #b",
+    " #yAttacks drawn, deal #b",
+    " damage to the last single enemy attacked.",
+    " Every #yupgraded #yAttack drawn, deal #b",
+    " damage to that enemy."
     ]
   },
   
@@ -305,9 +337,9 @@
   
    "qcfpunch:Wrestler's_Cloak": {
     "NAME": "Wrestler's Cloak",
-    "FLAVOR": "Never underestimate the power of a good presentation before a fight.",
+    "FLAVOR": "Never underestimate the power of a good entrance before a fight.",
     "DESCRIPTIONS": [
-	  "At Elite/Boss rooms, gain #b",
+	  "At the start of Elite and Boss fights, gain #b",
 	  " #yTemporary_HP. [#2aecd7]Right [#2aecd7]click [#2aecd7]during [#2aecd7]your [#2aecd7]turn [#2aecd7]to gain #b",
 	  " #yTemporary_HP and lose this relic."
     ]

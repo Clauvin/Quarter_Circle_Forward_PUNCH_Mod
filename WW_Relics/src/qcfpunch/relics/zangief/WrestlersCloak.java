@@ -25,7 +25,8 @@ public class WrestlersCloak extends CustomRelic implements ClickableRelic {
 	public boolean is_player_turn = false;
 	
 	public WrestlersCloak() {
-		super(ID, GraphicResources.LoadRelicImage("White_Boots - steeltoe-boots - Lorc - CC BY 3.0.png"),
+		super(ID, GraphicResources.
+				LoadRelicImage("Wrestler's Cloak - cape - Delapouite - CC BY 3.0.png"),
 				RelicTier.COMMON, LandingSound.FLAT);
 	}
 	

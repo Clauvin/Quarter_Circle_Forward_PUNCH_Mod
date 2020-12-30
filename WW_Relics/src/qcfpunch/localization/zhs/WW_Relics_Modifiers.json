@@ -1,37 +1,37 @@
 {
 	"qcfpunch:AsceticMonk": {
 		"NAME": "苦行僧",
-		"DESCRIPTION": "初始拥有断牙， 头骨项链 和 观音莲花苑。"
+		"DESCRIPTION": "初始拥有断牙， 头骨项链 和 观音莲花苑。 有时候，你必须去除多余的部分。"
 	},
 	
 	"qcfpunch:BlazingFist": {
 		"NAME": "炙热龙拳",
-		"DESCRIPTION": "初始拥有黑色训练衬衫，红色道服和不灭烈火"
+		"DESCRIPTION": "初始拥有黑色训练衬衫，红色道服和不灭烈火 。谁会需要格挡？"
 	},
 	
 	"qcfpunch:BlueJade": {
 		"NAME": "玉兰花",
-		"DESCRIPTION": "初始拥有护手刺，白靴和手铐。"
+		"DESCRIPTION": "初始拥有护手刺，白靴和手铐。如果不确定……你还有时间，孩子。"
 	},
 	
 	"qcfpunch:DeltaSpike": {
 		"NAME": "三角洲特种。",
-		"DESCRIPTION": "初始拥有红色贝雷帽，绿色紧身衣和特种作战徽章"
+		"DESCRIPTION": "初始拥有红色贝雷帽，绿色紧身衣和特种作战徽章。抽，抽，准备，行动！"
 	},
 	
 	"qcfpunch:FreshStart": {
 		"NAME": "清新开局",
-		"DESCRIPTION": "开局不带初始遗物。"
+		"DESCRIPTION": "开局不带初始遗物。谁会需要燃烧之血，我说的对吗？ :)"
 	},
 	
 	"qcfpunch:HalfHealthBar": {
 		"NAME": "半血",
-		"DESCRIPTION": "开局拥有 50% 的生命上限。"
+		"DESCRIPTION": "开局拥有 50% 的生命上限。 还有200%的勇气和200%的痛苦。"
 	},
 
 	"qcfpunch:IndestructibleFortress": {
 		"NAME": "不动要塞",
-		"DESCRIPTION": "初始拥有军靴，铭牌和迷彩服。"
+		"DESCRIPTION": "初始拥有军靴，铭牌和迷彩服。因为最好的防御……就是防御，伙计。"
 	},
 
 	"qcfpunch:LoweringTheHandicap": {
@@ -41,12 +41,12 @@
 	
 	"qcfpunch:QuarterHealthBar": {
 		"NAME": "红血",
-		"DESCRIPTION": "开局拥有 25% 的生命上限。"
+		"DESCRIPTION": "开局拥有 25% 的生命上限。如果你在开这个特效的时候没有加血上限碎心，那么值得庆贺！"
 	},
 	
 	"qcfpunch:RedCyclone": {
 		"NAME": "红色旋风",
-		"DESCRIPTION": "初始拥有 摔跤斗篷， 野药膏 和 红色旋风指南."
+		"DESCRIPTION": "初始拥有 摔跤斗篷， 野药膏 和 红色旋风指南 。疼痛使你变强，强大到能击晕所有的对手。"
 	},
 	
 	"qcfpunch:UnboundedCreativity": {
@@ -56,7 +56,7 @@
 	
 	"qcfpunch:WanderingWarrior": {
 		"NAME": "修行格斗家",
-		"DESCRIPTION": "初始拥有旅行袋，格斗手套和红色头带。"
+		"DESCRIPTION": "初始拥有旅行袋，格斗手套和红色头带。假舆马者，非利足也，而致千里。"
 	},
 
 	"WWWWWWWWWWWWWWWWW": {

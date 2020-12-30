@@ -15,6 +15,7 @@ import com.megacrit.cardcrawl.rooms.AbstractRoom;
 
 import basemod.abstracts.CustomRelic;
 import qcfpunch.QCFP_Misc;
+import qcfpunch.actions.CattailTacticalEspionageAction;
 import qcfpunch.resources.relic_graphics.GraphicResources;
 
 public class Cattail extends CustomRelic {
@@ -25,11 +26,12 @@ public class Cattail extends CustomRelic {
 	public static int HOW_MANY_ROOMS_TO_GIVE_SMOKE_BOMB = 7;
 	
 	private static int last_floor_where_relic_counter_was_changed = 0;
+	private static final int RELIC_HAVENT_SPAWNED_YET = 0;
 	
 	public static final Logger logger = LogManager.getLogger(Cattail.class.getName());
 	
 	public Cattail() {
-		super(ID, GraphicResources.LoadRelicImage("Temp Army Boots - steeltoe-boots - Lorc - CC BY 3.0.png"),
+		super(ID, GraphicResources.LoadRelicImage("Cattail - reed - Delapouite - CC BB 3.0.png"),
 				RelicTier.SHOP, LandingSound.MAGICAL);
 		
 		counter = HOW_MANY_ROOMS_TO_GIVE_SMOKE_BOMB;
@@ -65,6 +67,30 @@ public class Cattail extends CustomRelic {
 			flash();
 			AbstractDungeon.player.obtainPotion(new SmokeBomb());
 			counter = -2;
+			
+		}
+	}
+	
+	@Override
+	public void atTurnStart() {
+		if (counter <= 0) {
+			AbstractDungeon.actionManager.addToBottom(
+					new CattailTacticalEspionageAction(this));
+		} else {
+			youShouldFreeOnePotionSlot();	
+		}
+		
+		
+	}
+	
+	@Override
+	public void onVictory() {
+		youShouldFreeOnePotionSlot();
+	}
+	
+	private void youShouldFreeOnePotionSlot() {
+		if ((counter == 1) && (!QCFP_Misc.haveSpaceForANewPotion())) {
+			flash();
 		}
 	}
 	
@@ -119,7 +145,6 @@ public class Cattail extends CustomRelic {
             logger.info("Finished loading " + ID + " info");
             logger.info(QCFP_Misc.classAndSaveSlotText());
         }
-		
 		else
 		{
 			logger.info("There's no info, setting variables accordingly.");
@@ -155,7 +180,9 @@ public class Cattail extends CustomRelic {
 	}
 	
 	public boolean canSpawn() {
-		return (Settings.isEndless || AbstractDungeon.floorNum <= 48);
+		return (Settings.isEndless || AbstractDungeon.floorNum <= 48) && 
+				(last_floor_where_relic_counter_was_changed == 
+					RELIC_HAVENT_SPAWNED_YET);
 	}
 	
 	public AbstractRelic makeCopy() {

@@ -13,6 +13,11 @@
     	"NAME": "Finished",
     	"DESCRIPTION": "Enough choices were made by now."
   	},
+  	
+  	"qcfpunch:No_Card_Thanks_5": {
+    	"NAME": "No Card, Thanks",
+    	"DESCRIPTION": "Here to be picked in place of other card if you want less than 5 to be added."
+  	},
 
 	"qcfpunch:Strike_Weakest": {
     	"NAME": "Weakest Strike",

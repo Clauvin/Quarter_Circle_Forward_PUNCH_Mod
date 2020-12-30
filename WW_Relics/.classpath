@@ -10,5 +10,6 @@
 	<classpathentry kind="lib" path="C:/Program Files (x86)/Jogos/Steam/SteamApps/common/SlayTheSpire/mods/ReplayTheSpireMod.jar"/>
 	<classpathentry kind="lib" path="C:/Program Files (x86)/Jogos/Steam/SteamApps/common/SlayTheSpire/mods/InfiniteSpire.jar"/>
 	<classpathentry kind="lib" path="C:/Program Files (x86)/Jogos/Steam/SteamApps/common/SlayTheSpire/mods/TheArtist.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files (x86)/Jogos/Steam/SteamApps/common/SlayTheSpire/mods/Conspire.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

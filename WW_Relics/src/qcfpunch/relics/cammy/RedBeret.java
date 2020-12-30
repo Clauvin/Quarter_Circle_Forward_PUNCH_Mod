@@ -17,7 +17,7 @@ public class RedBeret extends CustomRelic {
 	public boolean gave_extra_draw = false;
 	
 	public RedBeret() {
-		super(ID, GraphicResources.LoadRelicImage("White_Boots - steeltoe-boots - Lorc - CC BY 3.0.png"),
+		super(ID, GraphicResources.LoadRelicImage("Temp Red Beret - steeltoe-boots - Lorc - CC BY 3.0.png"),
 				RelicTier.COMMON, LandingSound.FLAT);
 	}
 	

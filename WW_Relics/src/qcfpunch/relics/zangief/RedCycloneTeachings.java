@@ -22,7 +22,7 @@ public class RedCycloneTeachings extends CustomRelic  {
 	public static final int MAXIMUM_AMOUNT_OF_USES_PER_COMBAT = 2;
 	
 	public RedCycloneTeachings() {
-		super(ID, GraphicResources.LoadRelicImage("White_Boots - steeltoe-boots - Lorc - CC BY 3.0.png"),
+		super(ID, GraphicResources.LoadRelicImage("Temp Red Cyclone Teachings - steeltoe-boots - Lorc - CC BY 3.0.png"),
 				RelicTier.RARE, LandingSound.HEAVY);
 		
 		this.counter = MAXIMUM_AMOUNT_OF_USES_PER_COMBAT;

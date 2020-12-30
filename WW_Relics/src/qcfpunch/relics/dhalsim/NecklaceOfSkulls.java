@@ -42,7 +42,7 @@ public class NecklaceOfSkulls extends CustomRelic
 	
 	public NecklaceOfSkulls() {
 		super(ID, GraphicResources.
-				LoadRelicImage("White_Boots - steeltoe-boots - Lorc - CC BY 3.0.png"),
+				LoadRelicImage("Necklace of Skulls - death-skull - sbed - CC BY 3.0.png"),
 				RelicTier.UNCOMMON, LandingSound.CLINK);
 	}
 	
@@ -104,7 +104,13 @@ public class NecklaceOfSkulls extends CustomRelic
 		            	AbstractCard card_chosen = cards_chosen.get(i);
 						
 						AbstractDungeon.player.bottledCardUpgradeCheck(card_chosen);
-						card_chosen.upgrade();
+						
+						if (QCFP_Misc.silentlyCheckForMod(QCFP_Misc.conspire_class_code)) {
+							conspire.relics.InfiniteJournal.
+								upgradeCard(card_chosen);
+						} else {
+				    		card_chosen.upgrade();
+						}
 						
 						if (current_amount_of_upgrading == 1) {
 							showVFX(card_chosen, i, true);

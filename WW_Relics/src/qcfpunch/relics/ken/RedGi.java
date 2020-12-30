@@ -23,7 +23,7 @@ public class RedGi extends CustomRelic {
 	public static boolean draw_effect = false;
 	
 	public RedGi() {
-		super(ID, GraphicResources.LoadRelicImage("Temp Red Gi - steeltoe-boots - Lorc - CC BY 3.0.png"),
+		super(ID, GraphicResources.LoadRelicImage("Red Gi - kimono - Delapouite - CC BY 3.0.png"),
 				RelicTier.UNCOMMON, LandingSound.FLAT);
 		
 		setCounter(0);
@@ -105,7 +105,7 @@ public class RedGi extends CustomRelic {
 	}
 	
 	public void AttackCostLessThisTurn(AbstractCard drawnCard) {
-		drawnCard.modifyCostForTurn(INCREASE_ATTACK_COST_BY);
+		drawnCard.setCostForTurn(INCREASE_ATTACK_COST_BY);
 		draw_effect = false;
 	}
 	
