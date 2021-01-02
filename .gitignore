@@ -61,3 +61,11 @@ hs_err_pid*
 .recommenders/index/http___download_eclipse_org_recommenders_models_photon_/segments_8
 .recommenders/index/http___download_eclipse_org_recommenders_models_photon_/write.lock
 /.recommenders/
+.idea/workspace.xml
+WW_Relics/.idea/codeStyles/codeStyleConfig.xml
+WW_Relics/.idea/codeStyles/Project.xml
+WW_Relics/.idea/compiler.xml
+WW_Relics/.idea/misc.xml
+WW_Relics/.idea/modules.xml
+WW_Relics/.idea/vcs.xml
+WW_Relics/.idea/workspace.xml
