@@ -24,9 +24,9 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="C:/Program Files (x86)/Steam/steamapps/common/SlayTheSpire/for-modding-desktop-2.2.jar!/" />
-    <property name="project.structure.last.edited" value="Global Libraries" />
-    <property name="project.structure.proportion" value="0.0" />
+    <property name="last_opened_file_path" value="C:/Program Files (x86)/Steam/steamapps/common/SlayTheSpire/desktop-1.0.jar!/" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="SvnConfiguration">
@@ -43,22 +43,26 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
+    <state x="275" y="2" key="#Project_Structure" timestamp="1609616171893">
+      <screen x="0" y="0" width="1366" height="687" />
+    </state>
+    <state x="275" y="2" key="#Project_Structure/0.0.1366.687@0.0.1366.687" timestamp="1609616171893" />
     <state x="814" y="276" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1609614183782">
       <screen x="0" y="0" width="1288" height="768" />
     </state>
     <state x="814" y="276" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1288.768@0.0.1288.768" timestamp="1609614183782" />
-    <state x="463" y="53" key="FileChooserDialogImpl" timestamp="1609614915056">
+    <state x="463" y="53" key="FileChooserDialogImpl" timestamp="1609616134712">
       <screen x="0" y="0" width="1366" height="687" />
     </state>
-    <state x="463" y="53" key="FileChooserDialogImpl/0.0.1366.687@0.0.1366.687" timestamp="1609614915056" />
+    <state x="463" y="53" key="FileChooserDialogImpl/0.0.1366.687@0.0.1366.687" timestamp="1609616134712" />
     <state x="348" y="42" key="NewModule_or_Project.wizard" timestamp="1609614836478">
       <screen x="0" y="0" width="1366" height="687" />
     </state>
     <state x="348" y="42" key="NewModule_or_Project.wizard/0.0.1366.687@0.0.1366.687" timestamp="1609614836478" />
-    <state x="163" y="0" key="SettingsEditor" timestamp="1609614921834">
+    <state x="163" y="0" key="SettingsEditor" timestamp="1609616144512">
       <screen x="0" y="0" width="1366" height="687" />
     </state>
-    <state x="163" y="0" key="SettingsEditor/0.0.1366.687@0.0.1366.687" timestamp="1609614921834" />
+    <state x="163" y="0" key="SettingsEditor/0.0.1366.687@0.0.1366.687" timestamp="1609616144512" />
     <state x="379" y="167" key="com.intellij.ide.util.TipDialog" timestamp="1609610985358">
       <screen x="0" y="0" width="1366" height="687" />
     </state>
