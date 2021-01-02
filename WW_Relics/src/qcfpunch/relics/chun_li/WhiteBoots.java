@@ -23,7 +23,6 @@ import qcfpunch.resources.relic_graphics.GraphicResources;
 public class WhiteBoots extends CustomRelic {
 	public static final String ID = QCFP_Misc.returnPrefix() + "White_Boots";
 	private static final int CONSTANT_DAMAGE = 4;
-	private static final int DAMAGE_FOR_EACH_UPGRADE = 1;
 	private static final int CARDS_DREW_FOR_NORMAL_ATTACKS = 3;
 	
 	private static int number_of_attacks_drew;
@@ -52,10 +51,7 @@ public class WhiteBoots extends CustomRelic {
 	
 	@Override
 	public void onCardDraw(AbstractCard c) {
-		
-		if (isAnUpgradedAttackCard(c)){
-			doUpgradedAttackDamageToTarget(c, single_enemy_attacked);	
-		}
+
 		if (isAnAttackCard(c)) {
 			addOneToNumberOfAttacksDrew();
 			if (isTimeToDoAttackCardDamage()) {
@@ -69,20 +65,6 @@ public class WhiteBoots extends CustomRelic {
 
 	private boolean isAnUpgradedAttackCard(AbstractCard c) {
 		return isAnAttackCard(c) && c.upgraded;
-	}
-	
-	private void doUpgradedAttackDamageToTarget(AbstractCard card,
-			AbstractCreature creature) {
-		int total_damage = 0;
-		
-		total_damage += DAMAGE_FOR_EACH_UPGRADE;
-		
-		DamageInfo damage_info =
-				new DamageInfo(AbstractDungeon.player,
-						total_damage, DamageInfo.DamageType.HP_LOSS);
-		flash();
-		AbstractDungeon.actionManager.addToBottom(
-				new DamageAction(creature, damage_info));
 	}
 	
 	private boolean isAnAttackCard(AbstractCard c) {
@@ -104,13 +86,10 @@ public class WhiteBoots extends CustomRelic {
 		total_damage += CONSTANT_DAMAGE;
 		
 		for (int i = 0; i < total_damage; i++) {
-			
-			DamageInfo damage_info = new DamageInfo(
-					AbstractDungeon.player, 1, DamageInfo.DamageType.HP_LOSS);
 			flash();
 			AbstractDungeon.actionManager.addToBottom(
-					new PummelDamageAction(creature, damage_info));
-			
+					new DamageAllEnemiesAction(AbstractDungeon.player, 1, DamageType.HP_LOSS,
+							AbstractGameAction.AttackEffect.BLUNT_LIGHT));
 		}
 		
 		
