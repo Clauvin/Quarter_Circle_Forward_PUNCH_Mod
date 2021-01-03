@@ -2,6 +2,8 @@ package qcfpunch.relics.chun_li;
 
 import java.io.IOException;
 
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import org.apache.logging.log4j.*;
 
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
@@ -19,6 +21,8 @@ import com.megacrit.cardcrawl.relics.AbstractRelic;
 import basemod.abstracts.CustomRelic;
 import qcfpunch.QCFP_Misc;
 import qcfpunch.resources.relic_graphics.GraphicResources;
+
+import static com.megacrit.cardcrawl.actions.AbstractGameAction.*;
 
 public class WhiteBoots extends CustomRelic {
 	public static final String ID = QCFP_Misc.returnPrefix() + "White_Boots";
@@ -40,8 +44,7 @@ public class WhiteBoots extends CustomRelic {
 	public String getUpdatedDescription() {
 		return DESCRIPTIONS[0] + CARDS_DREW_FOR_NORMAL_ATTACKS +
 				DESCRIPTIONS[1] + CONSTANT_DAMAGE +
-				DESCRIPTIONS[2] + DESCRIPTIONS[3] +
-				DAMAGE_FOR_EACH_UPGRADE + DESCRIPTIONS[4];
+				DESCRIPTIONS[2];
 	}
 	
 	@Override
@@ -89,7 +92,7 @@ public class WhiteBoots extends CustomRelic {
 			flash();
 			AbstractDungeon.actionManager.addToBottom(
 					new DamageAllEnemiesAction(AbstractDungeon.player, 1, DamageType.HP_LOSS,
-							AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+							AttackEffect.BLUNT_LIGHT));
 		}
 		
 		
