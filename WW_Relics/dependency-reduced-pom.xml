@@ -4,7 +4,7 @@
   <groupId>qcfpunch</groupId>
   <artifactId>QuarterCircleForwardPUNCH</artifactId>
   <name>QuarterCircleForwardPUNCH!</name>
-  <version>0.17.9-STEAM</version>
+  <version>0.17.9.1</version>
   <description>Adds thirty-two relics (two need The Artist mod, one is Custom Mode only for now) based mostly in SF2's main characters (also other fighting games),
     			 \r\n twelve game modifiers, one event and one potion, most of them in English and simplified Chinese.
 		  		 \r\n 
@@ -12,6 +12,7 @@
 		  		 \r\n
 		  		 \r\n Most of the images in this mod are temporary and will be substituted/improved on v1.0.</description>
   <build>
+    <sourceDirectory>src</sourceDirectory>
     <finalName>QuarterCircleForwardPunch</finalName>
     <plugins>
       <plugin>
@@ -90,6 +91,34 @@
       <version>1.21.3</version>
       <scope>system</scope>
       <systemPath>C:/Program Files (x86)/Steam/steamapps/common/SlayTheSpire/mods/StSLib 1.21.3.jar</systemPath>
+    </dependency>
+    <dependency>
+      <groupId>theArtist</groupId>
+      <artifactId>theArtist</artifactId>
+      <version>0.1.3</version>
+      <scope>system</scope>
+      <systemPath>C:/Program Files (x86)/Steam/steamapps/common/SlayTheSpire/mods/TheArtist.jar</systemPath>
+    </dependency>
+    <dependency>
+      <groupId>InfiniteSpire</groupId>
+      <artifactId>InfiniteSpire</artifactId>
+      <version>0.23.0</version>
+      <scope>system</scope>
+      <systemPath>C:/Program Files (x86)/Steam/steamapps/common/SlayTheSpire/mods/InfiniteSpire.jar</systemPath>
+    </dependency>
+    <dependency>
+      <groupId>ReplayTheSpireMod</groupId>
+      <artifactId>ReplayTheSpireMod</artifactId>
+      <version>1.6.1</version>
+      <scope>system</scope>
+      <systemPath>C:/Program Files (x86)/Steam/steamapps/common/SlayTheSpire/mods/ReplayTheSpireMod.jar</systemPath>
+    </dependency>
+    <dependency>
+      <groupId>conspire</groupId>
+      <artifactId>Conspire</artifactId>
+      <version>1.7.0</version>
+      <scope>system</scope>
+      <systemPath>C:/Program Files (x86)/Steam/steamapps/common/SlayTheSpire/mods/Conspire.jar</systemPath>
     </dependency>
   </dependencies>
   <properties>

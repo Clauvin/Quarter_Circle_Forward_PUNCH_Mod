@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <project name="maven-antrun-" default="main"  >
 <target name="main">
-  <copy file="target/Quarter Circle Forward PUNCH!.jar" tofile="C:/Program Files (x86)/Jogos/Steam/steamapps/common/SlayTheSpire/mods/Quarter Circle Forward PUNCH!.jar"/>
+  <copy/>
 </target>
 </project>
