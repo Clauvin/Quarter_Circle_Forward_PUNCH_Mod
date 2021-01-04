@@ -88,6 +88,22 @@
         <!-- Change this to match your mods name -->
         <finalName>QuarterCircleForwardPunch</finalName>
         <sourceDirectory>src</sourceDirectory>
+        <resources>
+            <resource>
+                <directory>src/qcfpunch/resources/relic_graphics</directory>
+            </resource>
+            <resource>
+                <directory>src/qcfpunch/resources/relic_graphics/outlines</directory>
+            </resource>
+            <resource>
+                <directory>src/qcfpunch/resources</directory>
+                <filtering>true</filtering>
+                <includes>
+                    <include>ModTheSpire.json</include>
+                </includes>
+            </resource>
+        </resources>
+
         <plugins>
 
             <plugin>
@@ -100,6 +116,32 @@
             </plugin>
 
             <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>copy-resources</id>
+                        <!-- here the phase you need -->
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${basedir}/target/classes/qcfpunch/resources</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>src/qcfpunch/resources</directory>
+                                    <!-- This is broken, and HOW do I load the
+                                         modthespire.json AND the outlines... -->
+                                    <exclude>GraphicResources.java</exclude>
+                                    <filtering>true</filtering>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
 		        <groupId>org.apache.maven.plugins</groupId>
 		        <artifactId>maven-jar-plugin</artifactId>
 		        <version>3.1.1</version>
@@ -108,7 +150,6 @@
 		               <include>qcfpunch/*</include>
                         <include>qcfpunch/*/*</include>
                         <include>qcfpunch/*/*/*</include>
-                       <include>**/src/ModTheSpire.json</include>
 		            </includes>
 		        </configuration>
 	        </plugin>

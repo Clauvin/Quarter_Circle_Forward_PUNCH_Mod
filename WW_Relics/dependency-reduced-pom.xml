@@ -13,6 +13,21 @@
 		  		 \r\n Most of the images in this mod are temporary and will be substituted/improved on v1.0.</description>
   <build>
     <sourceDirectory>src</sourceDirectory>
+    <resources>
+      <resource>
+        <directory>src/qcfpunch/resources/relic_graphics</directory>
+      </resource>
+      <resource>
+        <directory>src/qcfpunch/resources/relic_graphics/outlines</directory>
+      </resource>
+      <resource>
+        <filtering>true</filtering>
+        <directory>src/qcfpunch/resources</directory>
+        <includes>
+          <include>ModTheSpire.json</include>
+        </includes>
+      </resource>
+    </resources>
     <finalName>QuarterCircleForwardPunch</finalName>
     <plugins>
       <plugin>
@@ -24,6 +39,49 @@
         </configuration>
       </plugin>
       <plugin>
+        <artifactId>maven-resources-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>copy-resources</id>
+            <phase>validate</phase>
+            <goals>
+              <goal>copy-resources</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>${basedir}/target/classes/qcfpunch/resources</outputDirectory>
+              <resources>
+                <resource>
+                  <directory>src/qcfpunch/resources</directory>
+                  <exclude>GraphicResources.java</exclude>
+                  <filtering>true</filtering>
+                </resource>
+              </resources>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <artifactId>maven-resources-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>copy-resources</id>
+            <phase>validate</phase>
+            <goals>
+              <goal>copy-resources</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>${basedir}/target/classes/qcfpunch/resources/relic_graphics/outlines</outputDirectory>
+              <resources>
+                <resource>
+                  <directory>src/qcfpunch/resources/relic_graphics/outlines</directory>
+                  <filtering>true</filtering>
+                </resource>
+              </resources>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
         <artifactId>maven-jar-plugin</artifactId>
         <version>3.1.1</version>
         <configuration>
@@ -31,7 +89,6 @@
             <include>qcfpunch/*</include>
             <include>qcfpunch/*/*</include>
             <include>qcfpunch/*/*/*</include>
-            <include>**/src/ModTheSpire.json</include>
           </includes>
         </configuration>
       </plugin>
