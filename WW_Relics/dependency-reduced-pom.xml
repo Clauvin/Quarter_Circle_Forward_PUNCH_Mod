@@ -15,12 +15,6 @@
     <sourceDirectory>src</sourceDirectory>
     <resources>
       <resource>
-        <directory>src/qcfpunch/resources/relic_graphics</directory>
-      </resource>
-      <resource>
-        <directory>src/qcfpunch/resources/relic_graphics/outlines</directory>
-      </resource>
-      <resource>
         <filtering>true</filtering>
         <directory>src/qcfpunch/resources</directory>
         <includes>
@@ -58,22 +52,66 @@
               </resources>
             </configuration>
           </execution>
-        </executions>
-      </plugin>
-      <plugin>
-        <artifactId>maven-resources-plugin</artifactId>
-        <executions>
           <execution>
-            <id>copy-resources</id>
+            <id>copy-images-cards</id>
             <phase>validate</phase>
             <goals>
               <goal>copy-resources</goal>
             </goals>
             <configuration>
-              <outputDirectory>${basedir}/target/classes/qcfpunch/resources/relic_graphics/outlines</outputDirectory>
+              <outputDirectory>${basedir}/target/classes/qcfpunch/images/cards</outputDirectory>
               <resources>
                 <resource>
-                  <directory>src/qcfpunch/resources/relic_graphics/outlines</directory>
+                  <directory>src/qcfpunch/images/cards</directory>
+                  <filtering>true</filtering>
+                </resource>
+              </resources>
+            </configuration>
+          </execution>
+          <execution>
+            <id>copy-ModTheSpireJson</id>
+            <phase>validate</phase>
+            <goals>
+              <goal>copy-resources</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>${basedir}/target/classes/</outputDirectory>
+              <resources>
+                <resource>
+                  <directory>src/</directory>
+                  <include>ModTheSpire.json</include>
+                  <filtering>true</filtering>
+                </resource>
+              </resources>
+            </configuration>
+          </execution>
+          <execution>
+            <id>copy-legal_rights</id>
+            <phase>validate</phase>
+            <goals>
+              <goal>copy-resources</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>${basedir}/target/classes/qcfpunch/legal_rights</outputDirectory>
+              <resources>
+                <resource>
+                  <directory>src/qcfpunch/legal_rights</directory>
+                  <filtering>true</filtering>
+                </resource>
+              </resources>
+            </configuration>
+          </execution>
+          <execution>
+            <id>copy-localization</id>
+            <phase>validate</phase>
+            <goals>
+              <goal>copy-resources</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>${basedir}/target/classes/qcfpunch/localization</outputDirectory>
+              <resources>
+                <resource>
+                  <directory>src/qcfpunch/localization</directory>
                   <filtering>true</filtering>
                 </resource>
               </resources>
@@ -86,9 +124,12 @@
         <version>3.1.1</version>
         <configuration>
           <includes>
+            <include>*</include>
             <include>qcfpunch/*</include>
+            <include>qcfpunch/localization/*/*</include>
             <include>qcfpunch/*/*</include>
             <include>qcfpunch/*/*/*</include>
+            <include>qcfpunch/*/*/*/*</include>
           </includes>
         </configuration>
       </plugin>

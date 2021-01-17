@@ -90,12 +90,6 @@
         <sourceDirectory>src</sourceDirectory>
         <resources>
             <resource>
-                <directory>src/qcfpunch/resources/relic_graphics</directory>
-            </resource>
-            <resource>
-                <directory>src/qcfpunch/resources/relic_graphics/outlines</directory>
-            </resource>
-            <resource>
                 <directory>src/qcfpunch/resources</directory>
                 <filtering>true</filtering>
                 <includes>
@@ -119,20 +113,87 @@
                 <artifactId>maven-resources-plugin</artifactId>
                 <executions>
                     <execution>
-                        <id>copy-resources</id>
+                    <id>copy-resources</id>
+                    <!-- here the phase you need -->
+                    <phase>validate</phase>
+                    <goals>
+                        <goal>copy-resources</goal>
+                    </goals>
+                    <configuration>
+                        <outputDirectory>${basedir}/target/classes/qcfpunch/resources</outputDirectory>
+                        <resources>
+                            <resource>
+                                <directory>src/qcfpunch/resources</directory>
+                                <exclude>GraphicResources.java</exclude>
+                                <filtering>true</filtering>
+                            </resource>
+                        </resources>
+                    </configuration>
+                </execution>
+                    <execution>
+                        <id>copy-images-cards</id>
                         <!-- here the phase you need -->
                         <phase>validate</phase>
                         <goals>
                             <goal>copy-resources</goal>
                         </goals>
                         <configuration>
-                            <outputDirectory>${basedir}/target/classes/qcfpunch/resources</outputDirectory>
+                            <outputDirectory>${basedir}/target/classes/qcfpunch/images/cards</outputDirectory>
                             <resources>
                                 <resource>
-                                    <directory>src/qcfpunch/resources</directory>
-                                    <!-- This is broken, and HOW do I load the
-                                         modthespire.json AND the outlines... -->
-                                    <exclude>GraphicResources.java</exclude>
+                                    <directory>src/qcfpunch/images/cards</directory>
+                                    <filtering>true</filtering>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>copy-ModTheSpireJson</id>
+                        <!-- here the phase you need -->
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${basedir}/target/classes/</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>src/</directory>
+                                    <include>ModTheSpire.json</include>
+                                    <filtering>true</filtering>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>copy-legal_rights</id>
+                        <!-- here the phase you need -->
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${basedir}/target/classes/qcfpunch/legal_rights</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>src/qcfpunch/legal_rights</directory>
+                                    <filtering>true</filtering>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>copy-localization</id>
+                        <!-- here the phase you need -->
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${basedir}/target/classes/qcfpunch/localization</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>src/qcfpunch/localization</directory>
                                     <filtering>true</filtering>
                                 </resource>
                             </resources>
@@ -147,9 +208,12 @@
 		        <version>3.1.1</version>
 		        <configuration>
 		            <includes>
+                        <include>*</include>
 		               <include>qcfpunch/*</include>
+                        <include>qcfpunch/localization/*/*</include>
                         <include>qcfpunch/*/*</include>
                         <include>qcfpunch/*/*/*</include>
+                        <include>qcfpunch/*/*/*/*</include>
 		            </includes>
 		        </configuration>
 	        </plugin>
