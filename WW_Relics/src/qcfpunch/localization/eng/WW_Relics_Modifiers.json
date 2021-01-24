@@ -41,7 +41,7 @@
 	
 	"qcfpunch:QuarterHealthBar": {
 		"NAME": "Quarter Health Bar",
-		"DESCRIPTION": "Start with 25% Max HP. Congrats if you beat the Heart without any Max HP increase and this modifier!"
+		"DESCRIPTION": "Start with 25% Max HP."
 	},
 	
 	"qcfpunch:RedCyclone": {
