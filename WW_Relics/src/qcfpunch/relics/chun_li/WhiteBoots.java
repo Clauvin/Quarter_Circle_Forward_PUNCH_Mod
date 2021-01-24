@@ -2,18 +2,14 @@ package qcfpunch.relics.chun_li;
 
 import java.io.IOException;
 
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import org.apache.logging.log4j.*;
 
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.PummelDamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardType;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.cards.DamageInfo.DamageType;
-import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
@@ -30,8 +26,6 @@ public class WhiteBoots extends CustomRelic {
 	private static final int CARDS_DREW_FOR_NORMAL_ATTACKS = 3;
 	
 	private static int number_of_attacks_drew;
-	
-	private static AbstractCreature single_enemy_attacked;
 	
 	public static final Logger logger = LogManager.getLogger(WhiteBoots.class.getName());
 	
@@ -58,18 +52,15 @@ public class WhiteBoots extends CustomRelic {
 		if (isAnAttackCard(c)) {
 			addOneToNumberOfAttacksDrew();
 			if (isTimeToDoAttackCardDamage()) {
-				doDamageToTarget(c, single_enemy_attacked);
+				doDamageToTargets(c);
 			}
 		}
 
 		setNumberOfAttacksDrew();
 		setCounter();
+		QCFP_Misc.fastLoggerLine(counter);
 	}
 
-	private boolean isAnUpgradedAttackCard(AbstractCard c) {
-		return isAnAttackCard(c) && c.upgraded;
-	}
-	
 	private boolean isAnAttackCard(AbstractCard c) {
 		return c.type == CardType.ATTACK;
 	}
@@ -79,11 +70,11 @@ public class WhiteBoots extends CustomRelic {
 	}	
 	
 	private boolean isTimeToDoAttackCardDamage() {
-		return (single_enemy_attacked != null) &&
+		return (AbstractDungeon.getCurrRoom().monsters.areMonstersDead() == false) &&
 				(number_of_attacks_drew >= CARDS_DREW_FOR_NORMAL_ATTACKS); 
 	}
 
-	private void doDamageToTarget(AbstractCard card, AbstractCreature creature) {
+	private void doDamageToTargets(AbstractCard card) {
 		int total_damage = 0;
 		
 		total_damage += CONSTANT_DAMAGE;
@@ -94,8 +85,6 @@ public class WhiteBoots extends CustomRelic {
 					new DamageAllEnemiesAction(AbstractDungeon.player, 1, DamageType.HP_LOSS,
 							AttackEffect.BLUNT_LIGHT));
 		}
-		
-		
 	}
 	
 	private void setNumberOfAttacksDrew() {
@@ -108,18 +97,7 @@ public class WhiteBoots extends CustomRelic {
 	
 	@Override
 	public void atBattleStartPreDraw() {
-		
-		single_enemy_attacked = null;
-		
-	}
-	
-	@Override
-	public void onAttack(DamageInfo info, int damageAmount, AbstractCreature target) {
-		
-		if (enemyAttackedCounts(info)) {
-			single_enemy_attacked = target;
-		}
-		
+
 	}
 	
 	private boolean enemyAttackedCounts(DamageInfo info) {
