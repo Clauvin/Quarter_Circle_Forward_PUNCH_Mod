@@ -43,6 +43,8 @@ public class FightingGloves extends CustomRelic implements ClickableRelic {
 	
 	private static boolean player_right_clicked_in_relic_in_this_room = false;
 	public static boolean player_havent_right_clicked_in_relic_here_before = true;
+
+	private static CardGroup cards_to_be_upgraded;
 	
 	public FightingGloves() {
 		super(ID, GraphicResources.LoadRelicImage("Fighting Gloves - mailed-gloves - Lorc - CC BY 3.0.png"),
@@ -176,7 +178,7 @@ public class FightingGloves extends CustomRelic implements ClickableRelic {
 		AbstractDungeon.gridSelectScreen.open(getValidCardGroup(),
 				number_of_cards_that_can_be_upgraded,
 				getCardGridDescription(), false, false, true, false);
-		
+
 		player_right_clicked_in_relic_in_this_room = true;
 		
 	}
@@ -193,6 +195,14 @@ public class FightingGloves extends CustomRelic implements ClickableRelic {
 		super.update();
 
 		if (player_right_clicked_in_relic_in_this_room) {
+			for (int i = 0; i < cards_to_be_upgraded.size(); i++)
+			{
+				if (cards_to_be_upgraded.getNCardFromTop(i).hb.hovered){
+					QCFP_Misc.fastLoggerLine(
+							cards_to_be_upgraded.getNCardFromTop(i).name);
+				}
+			}
+
 			if (isTimeToUpgradeTheChosenCards())
 		    {
 	            flash();
@@ -211,7 +221,9 @@ public class FightingGloves extends CustomRelic implements ClickableRelic {
 				
 				AbstractDungeon.overlayMenu.hideBlackScreen();
 				AbstractDungeon.isScreenUp = false;
-				
+
+				cards_to_be_upgraded = null;
+
 		    }
 		}
 		
