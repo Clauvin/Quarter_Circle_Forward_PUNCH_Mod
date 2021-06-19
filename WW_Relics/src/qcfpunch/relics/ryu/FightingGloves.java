@@ -197,14 +197,14 @@ public class FightingGloves extends CustomRelic implements ClickableRelic {
 		super.update();
 
 		if (player_right_clicked_in_relic_in_this_room) {
-			
+
 			if (cards_to_be_upgraded != null){
 
 				for (int i = 0; i < cards_to_be_upgraded.size(); i++)
 				{
 					if (cards_to_be_upgraded.getNCardFromTop(i).hb.hovered){
-						QCFP_Misc.fastLoggerLine(
-								cards_to_be_upgraded.getNCardFromTop(i).name);
+						showUpgradedVersionOfTheCard(
+								cards_to_be_upgraded.getNCardFromTop(i));
 					}
 				}
 			}
@@ -235,6 +235,27 @@ public class FightingGloves extends CustomRelic implements ClickableRelic {
 		}
 		
 		
+	}
+
+	private static void showUpgradedVersionOfTheCard(AbstractCard card){
+
+		float x = Settings.WIDTH;
+		float y = Settings.HEIGHT;
+		float defined_x = 0.10f;
+		float defined_y = 0.75f;
+		float initial_time = 2f;
+
+		AbstractCard upgraded_card = card.makeStatEquivalentCopy();
+		upgraded_card.upgrade();
+
+		ShowCardBrieflyEffect card_brief_effect = new ShowCardBrieflyEffect(
+				upgraded_card.makeStatEquivalentCopy(),
+				defined_x * x, defined_y * y);
+		card_brief_effect.duration = initial_time;
+		card_brief_effect.startingDuration = initial_time;
+
+		AbstractDungeon.effectList.add(card_brief_effect);
+
 	}
 	
 	private static boolean isTimeToUpgradeTheChosenCards() {
