@@ -174,8 +174,10 @@ public class FightingGloves extends CustomRelic implements ClickableRelic {
 		AbstractDungeon.getCurrRoom().phase = RoomPhase.INCOMPLETE;
 		
 		number_of_cards_that_can_be_upgraded = howManyCardsCanBeUpgraded();
-		
-		AbstractDungeon.gridSelectScreen.open(getValidCardGroup(),
+
+		cards_to_be_upgraded = getValidCardGroup();
+
+		AbstractDungeon.gridSelectScreen.open(cards_to_be_upgraded,
 				number_of_cards_that_can_be_upgraded,
 				getCardGridDescription(), false, false, true, false);
 
@@ -195,7 +197,9 @@ public class FightingGloves extends CustomRelic implements ClickableRelic {
 		super.update();
 
 		if (player_right_clicked_in_relic_in_this_room) {
+			
 			if (cards_to_be_upgraded != null){
+
 				for (int i = 0; i < cards_to_be_upgraded.size(); i++)
 				{
 					if (cards_to_be_upgraded.getNCardFromTop(i).hb.hovered){
