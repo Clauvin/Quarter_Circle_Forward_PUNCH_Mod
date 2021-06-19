@@ -195,13 +195,16 @@ public class FightingGloves extends CustomRelic implements ClickableRelic {
 		super.update();
 
 		if (player_right_clicked_in_relic_in_this_room) {
-			for (int i = 0; i < cards_to_be_upgraded.size(); i++)
-			{
-				if (cards_to_be_upgraded.getNCardFromTop(i).hb.hovered){
-					QCFP_Misc.fastLoggerLine(
-							cards_to_be_upgraded.getNCardFromTop(i).name);
+			if (cards_to_be_upgraded != null){
+				for (int i = 0; i < cards_to_be_upgraded.size(); i++)
+				{
+					if (cards_to_be_upgraded.getNCardFromTop(i).hb.hovered){
+						QCFP_Misc.fastLoggerLine(
+								cards_to_be_upgraded.getNCardFromTop(i).name);
+					}
 				}
 			}
+
 
 			if (isTimeToUpgradeTheChosenCards())
 		    {
