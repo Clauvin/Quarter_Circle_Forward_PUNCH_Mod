@@ -205,10 +205,6 @@ public class FightingGloves extends CustomRelic implements ClickableRelic {
 
 				for (int i = 0; i < cards_to_be_upgraded.size(); i++)
 				{
-					QCFP_Misc.fastLoggerLine("1");
-					QCFP_Misc.fastLoggerLine(cards_to_be_upgraded.
-							getNCardFromTop(i).hb.hovered);
-
 					if (cards_to_be_upgraded.getNCardFromTop(i).hb.hovered){
 						showUpgradedVersionOfTheCard(
 								cards_to_be_upgraded.getNCardFromTop(i));
@@ -246,7 +242,9 @@ public class FightingGloves extends CustomRelic implements ClickableRelic {
 		float x = Settings.WIDTH;
 		float y = Settings.HEIGHT;
 		float defined_x = 0.10f;
-		float defined_y = 0.75f;
+		float defined_y = 0.50f;
+		float duration = 4.0f;
+		float starting_duration = 10.0f;
 
 		QCFP_Misc.fastLoggerLine("2");
 		QCFP_Misc.fastLoggerLine(upgraded_card == null);
@@ -257,30 +255,34 @@ public class FightingGloves extends CustomRelic implements ClickableRelic {
 
 			if (show_card_briefly_effect == null){
 
-				show_card_briefly_effect = new ShowCardBrieflyEffect(upgraded_card,
-						defined_x, defined_y);
-				show_card_briefly_effect.duration = 2.0f;
-				show_card_briefly_effect.startingDuration = 10.0f;
+				QCFP_Misc.fastLoggerLine("3");
+				show_card_briefly_effect = new ShowCardBrieflyEffect(
+						upgraded_card.makeStatEquivalentCopy(),
+						defined_x * x, defined_y * y);
+				show_card_briefly_effect.duration = duration;
+				show_card_briefly_effect.startingDuration = starting_duration;
+
+				AbstractDungeon.effectList.add(show_card_briefly_effect);
 
 			} else {
-
-				show_card_briefly_effect.duration = 2.0f;
-
+				show_card_briefly_effect.duration = duration;
 			}
 		} else if (upgraded_card.originalName == card.name){
-			show_card_briefly_effect.duration = 2.0f;
-			show_card_briefly_effect.startingDuration = 10.0f;
+			show_card_briefly_effect.duration = duration;
 		} else {
 
-			show_card_briefly_effect = new ShowCardBrieflyEffect(upgraded_card,
-					defined_x, defined_y);
-			show_card_briefly_effect.duration = 2.0f;
-			show_card_briefly_effect.startingDuration = 10.0f;
+			upgraded_card = card.makeStatEquivalentCopy();
+			upgraded_card.upgrade();
+
+			show_card_briefly_effect = new ShowCardBrieflyEffect(
+					upgraded_card.makeStatEquivalentCopy(),
+					defined_x * x, defined_y * y);
+			show_card_briefly_effect.duration = duration;
+			show_card_briefly_effect.startingDuration = starting_duration;
+
+			AbstractDungeon.effectList.add(show_card_briefly_effect);
 
 		}
-
-
-
 
 	}
 
