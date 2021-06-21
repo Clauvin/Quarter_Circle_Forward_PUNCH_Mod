@@ -246,16 +246,15 @@ public class FightingGloves extends CustomRelic implements ClickableRelic {
 		float duration = 4.0f;
 		float starting_duration = 10.0f;
 
-		QCFP_Misc.fastLoggerLine("2");
-		QCFP_Misc.fastLoggerLine(upgraded_card == null);
-
 		if (upgraded_card == null){
 			upgraded_card = card.makeStatEquivalentCopy();
 			upgraded_card.upgrade();
 
 			if (show_card_briefly_effect == null){
+				QCFP_Misc.fastLoggerLine("1");
+				upgraded_card = card.makeStatEquivalentCopy();
+				upgraded_card.upgrade();
 
-				QCFP_Misc.fastLoggerLine("3");
 				show_card_briefly_effect = new ShowCardBrieflyEffect(
 						upgraded_card.makeStatEquivalentCopy(),
 						defined_x * x, defined_y * y);
@@ -265,11 +264,31 @@ public class FightingGloves extends CustomRelic implements ClickableRelic {
 				AbstractDungeon.effectList.add(show_card_briefly_effect);
 
 			} else {
+				QCFP_Misc.fastLoggerLine("2");
 				show_card_briefly_effect.duration = duration;
 			}
 		} else if (upgraded_card.originalName == card.name){
-			show_card_briefly_effect.duration = duration;
+			if (show_card_briefly_effect == null){
+				QCFP_Misc.fastLoggerLine("3");
+			} else if (show_card_briefly_effect.isDone){
+				QCFP_Misc.fastLoggerLine("4");
+
+				upgraded_card = card.makeStatEquivalentCopy();
+				upgraded_card.upgrade();
+
+				show_card_briefly_effect = new ShowCardBrieflyEffect(
+						upgraded_card.makeStatEquivalentCopy(),
+						defined_x * x, defined_y * y);
+				show_card_briefly_effect.duration = duration;
+				show_card_briefly_effect.startingDuration = starting_duration;
+
+				AbstractDungeon.effectList.add(show_card_briefly_effect);
+            } else {
+				QCFP_Misc.fastLoggerLine("5");
+				show_card_briefly_effect.duration = duration;
+			}
 		} else {
+			QCFP_Misc.fastLoggerLine("6");
 
 			upgraded_card = card.makeStatEquivalentCopy();
 			upgraded_card.upgrade();
