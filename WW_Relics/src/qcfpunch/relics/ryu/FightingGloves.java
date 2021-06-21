@@ -217,7 +217,17 @@ public class FightingGloves extends CustomRelic implements ClickableRelic {
 	            flash();
 				
 				ArrayList<AbstractCard> cards_chosen = getCardsToUpgrade();
-				
+
+				if (show_card_briefly_effect != null){
+					if (show_card_briefly_effect.duration != 0.0f)
+						show_card_briefly_effect.duration = 0.0f;
+					if (show_card_briefly_effect.isDone == false){
+						show_card_briefly_effect.isDone = true;
+					}
+					AbstractDungeon.effectList.remove(show_card_briefly_effect);
+					show_card_briefly_effect.dispose();
+				}
+
 				upgradeAndShowChosenCards(cards_chosen);
 				
 				spendChargesForUpgradedCards();
@@ -243,7 +253,7 @@ public class FightingGloves extends CustomRelic implements ClickableRelic {
 		float y = Settings.HEIGHT;
 		float defined_x = 0.10f;
 		float defined_y = 0.50f;
-		float duration = 4.0f;
+		float duration = 1.0f;
 		float starting_duration = 10.0f;
 
 		if (upgraded_card == null){
@@ -251,7 +261,7 @@ public class FightingGloves extends CustomRelic implements ClickableRelic {
 			upgraded_card.upgrade();
 
 			if (show_card_briefly_effect == null){
-				QCFP_Misc.fastLoggerLine("1");
+
 				upgraded_card = card.makeStatEquivalentCopy();
 				upgraded_card.upgrade();
 
@@ -264,14 +274,14 @@ public class FightingGloves extends CustomRelic implements ClickableRelic {
 				AbstractDungeon.effectList.add(show_card_briefly_effect);
 
 			} else {
-				QCFP_Misc.fastLoggerLine("2");
+
 				show_card_briefly_effect.duration = duration;
 			}
 		} else if (upgraded_card.originalName == card.name){
 			if (show_card_briefly_effect == null){
-				QCFP_Misc.fastLoggerLine("3");
+
 			} else if (show_card_briefly_effect.isDone){
-				QCFP_Misc.fastLoggerLine("4");
+
 
 				upgraded_card = card.makeStatEquivalentCopy();
 				upgraded_card.upgrade();
@@ -284,11 +294,11 @@ public class FightingGloves extends CustomRelic implements ClickableRelic {
 
 				AbstractDungeon.effectList.add(show_card_briefly_effect);
             } else {
-				QCFP_Misc.fastLoggerLine("5");
+
 				show_card_briefly_effect.duration = duration;
 			}
 		} else {
-			QCFP_Misc.fastLoggerLine("6");
+
 
 			upgraded_card = card.makeStatEquivalentCopy();
 			upgraded_card.upgrade();
