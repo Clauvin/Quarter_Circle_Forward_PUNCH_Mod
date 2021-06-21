@@ -470,7 +470,7 @@ public class RainbowBrush extends CustomRelic{
 			if (card_type == CardType.CURSE) curse_CHANCE = bad_card_initial_chance;
 			else status_CHANCE = bad_card_initial_chance;
 			
-			distributeCurseAndStatusExtraProbToCommonUncommonAndRare(extra_chance);
+			distributeCurseAndStatusExtraProbToUncommonAndRare(extra_chance);
 			
 			
 		} else if (cardRarityIsUncommonOrRare(card_rarity)) {
@@ -481,7 +481,6 @@ public class RainbowBrush extends CustomRelic{
 		
 		QCFP_Misc.debugOnlyLoggerLine(logger, uncommon_CHANCE + "");
 		QCFP_Misc.debugOnlyLoggerLine(logger, rare_CHANCE + "");
-		QCFP_Misc.debugOnlyLoggerLine(logger, common_CHANCE + "");
 		QCFP_Misc.debugOnlyLoggerLine(logger, black_CHANCE + "");
 		QCFP_Misc.debugOnlyLoggerLine(logger, curse_CHANCE + "");
 		QCFP_Misc.debugOnlyLoggerLine(logger, status_CHANCE + "");
@@ -496,7 +495,7 @@ public class RainbowBrush extends CustomRelic{
 				(card_rarity == CardRarity.RARE));
 	}
 	
-	private void distributeCurseAndStatusExtraProbToCommonUncommonAndRare(
+	private void distributeCurseAndStatusExtraProbToUncommonAndRare(
 			int extra_chance) {
 		
 		int extra_uncommon = extra_chance / 2;
