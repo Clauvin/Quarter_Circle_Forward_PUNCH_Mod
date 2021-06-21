@@ -50,8 +50,7 @@ public class RainbowBrush extends CustomRelic{
 	public static ArrayList<String> black_cards_ids;
 	public static CardGroup status_cards;
 	public static CardGroup curse_cards;
-	
-	public static int common_CHANCE = -1;
+
 	public static int uncommon_CHANCE = -1;
 	public static int rare_CHANCE = -1;
 	public static int black_CHANCE = -1;
@@ -439,7 +438,7 @@ public class RainbowBrush extends CustomRelic{
 							
 			changeProbabilities();
 			
-			//createCardToGiveLater();
+			createCardToGiveLater();
 			
 		}
 		
@@ -549,8 +548,8 @@ public class RainbowBrush extends CustomRelic{
 	@Override
 	public void onEquip() {
 		super.onEquip();
-		
-		initChance();
+
+		if (uncommon_CHANCE == -1) initChance();
 		
 	}
 	
