@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Map;
 
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -435,9 +436,19 @@ public class RainbowBrush extends CustomRelic{
 			counter = 0;
 			flash();
 
-			AbstractDungeon.actionManager.addToBottom(
-					new RainbowBrushAddTempCardToHandAction(
-							card_to_be_given, false, true));
+			if ((card_to_be_given.type == CardType.CURSE.CURSE) ||
+				(card_to_be_given.type == CardType.STATUS)){
+				AbstractDungeon.actionManager.addToBottom(
+						new MakeTempCardInDrawPileAction(
+								card_to_be_given, 1, true, false,
+								false));
+			} else {
+				AbstractDungeon.actionManager.addToBottom(
+						new RainbowBrushAddTempCardToHandAction(
+								card_to_be_given, false, true));
+			}
+
+
 							
 			changeProbabilities();
 			
