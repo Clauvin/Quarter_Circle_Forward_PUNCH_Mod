@@ -2,11 +2,14 @@ package qcfpunch.relics.seth;
 
 import java.util.ArrayList;
 
+import com.megacrit.cardcrawl.actions.utility.SFXAction;
+import com.megacrit.cardcrawl.audio.SoundMaster;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardColor;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardRarity;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardType;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
@@ -96,6 +99,8 @@ public class KillianEngineAlpha extends CustomRelic {
     	    	AbstractDungeon.gridSelectScreen.selectedCards.clear();
     	    	
     	    	amount_of_cards_added -= amount_of_no_card_thanks;
+
+				CardCrawlGame.sound.play("THUNDERCLAP");
     	    	
     	    	if (amount_of_cards_added == 0) {
     	    		is_done = true;
@@ -133,6 +138,8 @@ public class KillianEngineAlpha extends CustomRelic {
     	    	}
     	    	
     	    	AbstractDungeon.gridSelectScreen.selectedCards.clear();
+
+				CardCrawlGame.sound.play("THUNDERCLAP");
     	    	
     	    	is_done = true;
     	    }
