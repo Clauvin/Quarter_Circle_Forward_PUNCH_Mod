@@ -53,7 +53,7 @@ public class QCFP_Misc {
 	}
 	
 	public static String returnDescription() {
-		return "v0.17.9-STEAM" +
+		return "v0.17.12-STEAM" +
 				"\r\n"
 				  + "\r\n Adds thirty-two relics (two need The Artist mod, one is Custom Mode only for now)"
 				  + "\r\n"
