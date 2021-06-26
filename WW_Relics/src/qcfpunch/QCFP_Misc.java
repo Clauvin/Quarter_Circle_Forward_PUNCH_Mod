@@ -36,7 +36,8 @@ public class QCFP_Misc {
 	public final static CardColor[] base_game_player_classes_colors =
 		{CardColor.RED, CardColor.GREEN, CardColor.BLUE, CardColor.PURPLE,
 				CardColor.COLORLESS};
-	
+
+	//No, do not ask me why this is here.
 	public final static byte THIS_BYTE_DOES_NOT_MATTER = -1;
 	
 	public static int number_of_challenger_coin_potions_at_shop = 0;
