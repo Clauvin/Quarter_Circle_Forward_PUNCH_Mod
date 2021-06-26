@@ -162,15 +162,18 @@ public class QCFP_Misc {
 		if (the_card.isEthereal) has_ethereal = true;
 		
 		if (has_ethereal || has_exhaust) return;
-		
-		int choose = headsOrTails(new Random());
-		
-		if (choose == 1) {
-			setCardToHaveEthereal(the_card);
-		} else {
-			setCardToHaveExhaust(the_card);
-		}
 
+		if (the_card.selfRetain){
+			setCardToHaveExhaust(the_card);
+		} else {
+			int choose = headsOrTails(new Random());
+
+			if (choose == 1) {
+				setCardToHaveEthereal(the_card);
+			} else {
+				setCardToHaveExhaust(the_card);
+			}
+		}
 	}
 	
 	public static void setCardToHaveEthereal(AbstractCard the_card) {
