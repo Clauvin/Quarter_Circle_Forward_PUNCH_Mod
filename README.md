@@ -117,6 +117,8 @@ Discord's AvangionQ#9279 for testing older versions.
 
 Lots of people from the Slay The Spire Discord's modding channel and beyond for pointing stuff from this mod to improve/polish/buff/nerf, check the suggestion tags in the Issues to see most of the specifics.
 
+Whoever made the data analysis of https://fzeller1.gitlab.io/parcoursup-analysis/slaythespire_partone.html - this document gave some good tips about how to understand win rate data.
+
 STREET FIGHTER is a registered trademark of CAPCOM U.S.A., INC.
 
 # Special Thanks
