@@ -222,7 +222,7 @@
       "Every #b",
       " cards played, add this turn's [#9400d3]r[#4b0082]a[#0000FF]n[#00FF00]d[#FFFF00]o[#FF7F00]m[#FF0000]i[#FF3333]z[#FF8888]e[#FFFFFF]d",
       " card to your hand. It costs 1-less and has Ethereal (won't cost 0) or Exhaust, unless",
-      " it's a #rStatus or #rCurse.",
+      " it's a #rStatus or #rCurse. (those go to the draw pile)",
       "Rainbow Brush",
       "If you wanna recheck which card Rainbow Brush's will give this turn, just place your mouse above the relic!"
     ]
