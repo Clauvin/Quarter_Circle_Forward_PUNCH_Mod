@@ -108,7 +108,7 @@ public class ChallengerCoin extends OutOfCombatPotion implements IPostMapGenerat
 
 			if (AbstractDungeon.player.hasRelic("SacredBark")){
 
-				description += DESCRIPTIONS[];
+				description += DESCRIPTIONS[3];
 				description += DESCRIPTIONS[4];
 
 			} else {
