@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Map;
 
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -425,9 +426,8 @@ public class RainbowBrush extends CustomRelic{
 			if ((card_to_be_given.type == CardType.CURSE.CURSE) ||
 				(card_to_be_given.type == CardType.STATUS)){
 				AbstractDungeon.actionManager.addToBottom(
-						new MakeTempCardInDrawPileAction(
-								card_to_be_given, 1, true, false,
-								false));
+						new MakeTempCardInDiscardAction(
+								card_to_be_given, 1));
 			} else {
 				AbstractDungeon.actionManager.addToBottom(
 						new RainbowBrushAddTempCardToHandAction(
