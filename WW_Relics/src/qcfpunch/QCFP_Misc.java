@@ -229,7 +229,7 @@ public class QCFP_Misc {
 	public static void reduceCardCostIfNotStatusOrCurseByOne(AbstractCard card) {
 		
 		if (!cardIsACurseOrStatus(card)) {
-			if (card.cost > 0) card.modifyCostForCombat(-1);
+			if (card.cost > 0) card.modifyCostForCombat(-2);
 		}
 		
 	}
