@@ -2,6 +2,7 @@ package qcfpunch.relics.akuma;
 
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
@@ -33,6 +34,7 @@ public class DarkGi extends CustomRelic {
 				PERCENTAGE_OF_MAX_HP_TO_LOSE);
 		
 		AbstractDungeon.player.decreaseMaxHealth(max_hp_to_lose);
+		CardCrawlGame.sound.play("CARD_EXHAUST", -0.3f);
 	}
 	
 	@Override
