@@ -24,11 +24,19 @@ public class MonsterRoomEmeraldElite extends MonsterRoomElite {
 	    	if (AbstractDungeon.player.hasRelic("Black Star")) {
 	        addNoncampRelicToRewards(returnRandomRelicTier());
 	      }
-	      
-			addSapphireKey((RewardItem)AbstractDungeon.getCurrRoom().rewards.
-					get(AbstractDungeon.getCurrRoom().rewards.size() - 1));
+
+	    	addEmeraldKey();
 	    }
 	    
+	}
+
+	protected void addEmeraldKey(){
+		if (Settings.isFinalActAvailable &&
+				!Settings.hasEmeraldKey &&
+				!this.rewards.isEmpty() &&
+				AbstractDungeon.getCurrMapNode().hasEmeraldKey) {
+			this.rewards.add(new RewardItem((RewardItem)this.rewards.get(this.rewards.size() - 1), RewardItem.RewardType.EMERALD_KEY));
+		}
 	}
 	
 	private RelicTier returnRandomRelicTier() {
