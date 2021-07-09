@@ -33,9 +33,10 @@ public class MonsterRoomEmeraldElite extends MonsterRoomElite {
 	protected void addEmeraldKey(){
 		if (Settings.isFinalActAvailable &&
 				!Settings.hasEmeraldKey &&
-				!this.rewards.isEmpty() &&
-				AbstractDungeon.getCurrMapNode().hasEmeraldKey) {
-			this.rewards.add(new RewardItem((RewardItem)this.rewards.get(this.rewards.size() - 1), RewardItem.RewardType.EMERALD_KEY));
+				!this.rewards.isEmpty()) {
+			this.rewards.add(new RewardItem(
+					(RewardItem)this.rewards.get(this.rewards.size() - 1),
+					RewardItem.RewardType.EMERALD_KEY));
 		}
 	}
 	
