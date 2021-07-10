@@ -232,6 +232,7 @@ public class ChallengerCoin extends OutOfCombatPotion implements IPostMapGenerat
 					AbstractDungeon.player.hasRelic("SacredBark"))
 			{	
 				new_room = new MonsterRoomEmeraldElite();
+				room_to_change.hasEmeraldKey = true;
 				if (map_changes_arent_being_loaded) saved_map_room.add("EmeraldElite");
 			}
 			else {
@@ -254,12 +255,14 @@ public class ChallengerCoin extends OutOfCombatPotion implements IPostMapGenerat
 		
 		if (room_to_change.getRoom() instanceof TreasureRoom) {
 			if ((AbstractDungeon.player.hasRelic("SacredBark")) ||
-					((Settings.isFinalActAvailable) && (!Settings.hasSapphireKey))) {
+					((!Settings.hasEmeraldKey))) {
 
 				return true;
 			} else {
 				return false;
 			}
+		} else if (AbstractDungeon.player.hasRelic("SacredBark")){
+			return true;
 		} else return false;
 	}
 
