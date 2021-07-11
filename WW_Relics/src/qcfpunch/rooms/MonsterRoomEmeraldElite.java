@@ -19,6 +19,8 @@ import java.util.Iterator;
 
 public class MonsterRoomEmeraldElite extends MonsterRoomElite {
 
+	public boolean burning_buff_has_been_added = false;
+
 	@Override
 	public void dropReward() {
 
@@ -67,7 +69,7 @@ public class MonsterRoomEmeraldElite extends MonsterRoomElite {
 	    return AbstractRelic.RelicTier.UNCOMMON;
 	}
 
-	public void applyEmeraldEliteBuff(){
+	public void applyBurningEliteBuff(){
 		//Why the weird var1 iterator?
 		// Because I copied this from MonsterRoomElite when decompiled on Intelij,
 		// while trying to make this overriding function work :/
@@ -109,7 +111,21 @@ public class MonsterRoomEmeraldElite extends MonsterRoomElite {
 					AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, m, new RegenerateMonsterPower(m, 1 + AbstractDungeon.actNum * 2), 1 + AbstractDungeon.actNum * 2));
 				}
 		}
-		QCFP_Misc.fastLoggerLine(AbstractDungeon.actionManager.actions.size());
+		//QCFP_Misc.fastLoggerLine(AbstractDungeon.actionManager.actions.size());
+	}
+
+	@Override
+	public void update(){
+		super.update();
+		if (!burning_buff_has_been_added){
+			switch(this.phase) {
+				case COMBAT:
+					applyBurningEliteBuff();
+					burning_buff_has_been_added = true;
+					break;
+			}
+		}
+
 	}
 	
 }
