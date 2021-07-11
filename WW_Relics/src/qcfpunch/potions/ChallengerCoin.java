@@ -110,6 +110,7 @@ public class ChallengerCoin extends OutOfCombatPotion implements IPostMapGenerat
 
 				description += DESCRIPTIONS[3];
 				description += DESCRIPTIONS[4];
+				description += DESCRIPTIONS[5];
 
 			} else {
 
