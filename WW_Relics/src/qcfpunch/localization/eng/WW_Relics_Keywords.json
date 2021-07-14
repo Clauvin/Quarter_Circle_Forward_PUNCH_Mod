@@ -29,5 +29,13 @@
 	      "weakest"
 	    ],
 	    "DESCRIPTION": "Colorless cards that are weak, and have Exhaust and Ethereal."
+	},
+
+	{
+		"PROPER_NAME": "Palette Pick",
+		"NAMES": [
+			"Pallete Pick"
+		],
+		"DESCRIPTION": "Card that gives 1 of 7 beneficial effects to be applied."
 	}
 ]
