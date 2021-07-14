@@ -29,5 +29,13 @@
 	      "“最强流”"
 	    ],
 	    "DESCRIPTION": "“最强”且带有 #y消耗 和 #y虚无 的牌。"
+	},
+
+	{
+		"PROPER_NAME": "Pallete Pick",
+		"NAMES": [
+			"Pallete Pick"
+		],
+		"DESCRIPTION": "Card that gives 1 of 7 beneficial effects to be applied."
 	}
 ]
