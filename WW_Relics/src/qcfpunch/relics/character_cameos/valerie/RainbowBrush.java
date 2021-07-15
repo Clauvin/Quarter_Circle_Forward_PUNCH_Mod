@@ -182,7 +182,8 @@ public class RainbowBrush extends CustomRelic{
 			}
 			
 			if (card.hasTag(CardTags.HEALING)) {
-				logger.info(card.cardID.toString() + " not added, it was a healing card.");
+                QCFP_Misc.debugOnlyLoggerLine(logger, card.cardID.toString() +
+                        " not added, it was a healing card.");
 				continue;
 			}
 			
@@ -194,7 +195,8 @@ public class RainbowBrush extends CustomRelic{
 					rare_cards_ids.add(card.cardID);
 					break;
 				default:
-					logger.info(card.cardID.toString() + " not added.");
+                    QCFP_Misc.debugOnlyLoggerLine(logger, card.cardID.toString() +
+                            " not added.");
 					break;
 			}
 		}
