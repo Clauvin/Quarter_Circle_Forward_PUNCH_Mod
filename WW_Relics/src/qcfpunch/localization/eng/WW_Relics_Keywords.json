@@ -32,10 +32,10 @@
 	},
 
 	{
-		"PROPER_NAME": "PalletePick",
+		"PROPER_NAME": "Pallete Pick",
 		"NAMES": [
-			"palletepick"
+			"pallete pick"
 		],
-		"DESCRIPTION": "Card that gives 1 of 7 beneficial effects to be applied."
+		"DESCRIPTION": "Card that gives 1 of 9 beneficial effects to be applied."
 	}
 ]
