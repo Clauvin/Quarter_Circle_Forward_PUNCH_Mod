@@ -425,19 +425,23 @@ public class RainbowBrush extends CustomRelic{
 			counter = 0;
 			flash();
 
-			if ((card_to_be_given.type == CardType.CURSE.CURSE) ||
-				(card_to_be_given.type == CardType.STATUS)){
-				AbstractDungeon.actionManager.addToBottom(
-						new MakeTempCardInDiscardAction(
-								card_to_be_given, 1));
+			if (card_to_be_given == null){
+				QCFP_Misc.debugOnlyLoggerLine(logger,
+						"Null card found, talk with the mod creator" +
+								" about it.");
 			} else {
-				AbstractDungeon.actionManager.addToBottom(
-						new RainbowBrushAddTempCardToHandAction(
-								card_to_be_given, false, true));
+				if ((card_to_be_given.type == CardType.CURSE.CURSE) ||
+						(card_to_be_given.type == CardType.STATUS)){
+					AbstractDungeon.actionManager.addToBottom(
+							new MakeTempCardInDiscardAction(
+									card_to_be_given, 1));
+				} else {
+					AbstractDungeon.actionManager.addToBottom(
+							new RainbowBrushAddTempCardToHandAction(
+									card_to_be_given, false, true));
+				}
 			}
 
-
-							
 			changeProbabilities();
 			
 			//createCardToGiveLater();
