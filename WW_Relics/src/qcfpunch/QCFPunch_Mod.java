@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
 
+import com.megacrit.cardcrawl.rewards.RewardSave;
 import org.apache.logging.log4j.*;
 
 import com.badlogic.gdx.Gdx;
@@ -27,6 +28,7 @@ import qcfpunch.QCFP_Misc;
 import qcfpunch.events.act2.FightingNoisesEvent;
 import qcfpunch.modifiers.*;
 import qcfpunch.monsters.elites.TiredGremlinNob;
+import qcfpunch.patches.RewardItemTypeEnumPatch;
 import qcfpunch.potions.ChallengerCoin;
 
 import qcfpunch.relics.chun_li.*;
@@ -519,6 +521,11 @@ public class QCFPunch_Mod implements AddCustomModeModsSubscriber, EditStringsSub
 		//the mod panel has something to show
         //ModPanel settingsPanel = new ModPanel();
         BaseMod.registerModBadge(badgeTexture, MODNAME, AUTHOR, DESCRIPTION, null);
+
+		BaseMod.registerCustomReward(RewardItemTypeEnumPatch.DUFFELBAGPANACEACARDREWARD,
+				rewardSave -> new DuffelBagBandageCardReward(),
+				customReward -> new RewardSave(customReward.type.toString(),
+						null));
 	}
 	
 	public void addPotions() {
