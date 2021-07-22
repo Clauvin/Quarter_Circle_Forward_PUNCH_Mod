@@ -13,8 +13,8 @@ import java.util.ArrayList;
 
 public class DuffelBagPanaceaCardReward extends CustomReward {
 
-    public static final String[] TEXT = (CardCrawlGame.languagePack.
-            getUIString(QCFP_Misc.returnPrefix() + "Duffel_Bag")).TEXT;
+    public static final String[] TEXT = CardCrawlGame.languagePack.
+            getRelicStrings(QCFP_Misc.returnPrefix() + "Duffel_Bag").DESCRIPTIONS;
 
     public DuffelBagPanaceaCardReward() {
         super(GraphicResources.LoadRelicImage("Duffel_Bag - swap-bag - Lorc - CC BY 3.0.png"),
