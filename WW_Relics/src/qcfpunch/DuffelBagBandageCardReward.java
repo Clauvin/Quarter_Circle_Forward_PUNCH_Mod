@@ -16,7 +16,7 @@ public class DuffelBagBandageCardReward extends CustomReward {
             getRelicStrings(QCFP_Misc.returnPrefix() + "Duffel_Bag").DESCRIPTIONS;
 
     public DuffelBagBandageCardReward() {
-        super(GraphicResources.LoadRelicImage("Duffel_Bag - swap-bag - Lorc - CC BY 3.0.png"),
+        super(GraphicResources.LoadRewardImage("Duffel Bag Reward.png"),
                 "", RewardType.CARD);
         this.cards = new ArrayList<AbstractCard>();
         this.cards.add(new BandageUp());
