@@ -525,12 +525,12 @@ public class QCFPunch_Mod implements AddCustomModeModsSubscriber, EditStringsSub
 		BaseMod.registerCustomReward(RewardItemTypeEnumPatch.DUFFELBAGBANDAGECARDREWARD,
 				rewardSave -> new DuffelBagBandageCardReward(),
 				customReward -> new RewardSave(customReward.type.toString(),
-						null));
+						DuffelBagBandageCardReward.ID));
 
 		BaseMod.registerCustomReward(RewardItemTypeEnumPatch.DUFFELBAGPANACEACARDREWARD,
 				rewardSave -> new DuffelBagPanaceaCardReward(),
 				customReward -> new RewardSave(customReward.type.toString(),
-						null));
+						DuffelBagPanaceaCardReward.ID));
 	}
 	
 	public void addPotions() {

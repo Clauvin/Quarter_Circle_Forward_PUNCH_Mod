@@ -13,6 +13,8 @@ import java.util.ArrayList;
 
 public class DuffelBagPanaceaCardReward extends CustomReward {
 
+    public static final String ID = QCFP_Misc.returnPrefix() + "Duffel_Bag_Panacea_Card_Reward";
+
     public static final String[] TEXT = CardCrawlGame.languagePack.
             getRelicStrings(QCFP_Misc.returnPrefix() + "Duffel_Bag").DESCRIPTIONS;
 
