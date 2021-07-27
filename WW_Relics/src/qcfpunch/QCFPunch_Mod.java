@@ -520,7 +520,7 @@ public class QCFPunch_Mod implements AddCustomModeModsSubscriber, EditStringsSub
 		//uncomment line below and replaces settingsPanel to the null when
 		//the mod panel has something to show
         //ModPanel settingsPanel = new ModPanel();
-        BaseMod.registerModBadge(badgeTexture, MODNAME, AUTHOR, DESCRIPTION, null);
+        //BaseMod.registerModBadge(badgeTexture, MODNAME, AUTHOR, DESCRIPTION, null);
 
 		BaseMod.registerCustomReward(RewardItemTypeEnumPatch.DUFFELBAGBANDAGECARDREWARD,
 				(rewardSave) -> new DuffelBagBandageCardReward(),
