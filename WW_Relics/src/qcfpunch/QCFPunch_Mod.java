@@ -523,13 +523,13 @@ public class QCFPunch_Mod implements AddCustomModeModsSubscriber, EditStringsSub
         BaseMod.registerModBadge(badgeTexture, MODNAME, AUTHOR, DESCRIPTION, null);
 
 		BaseMod.registerCustomReward(RewardItemTypeEnumPatch.DUFFELBAGBANDAGECARDREWARD,
-				rewardSave -> new DuffelBagBandageCardReward(),
-				customReward -> new RewardSave(customReward.type.toString(),
+				(rewardSave) -> new DuffelBagBandageCardReward(),
+				(customReward) -> new RewardSave(customReward.type.toString(),
 						DuffelBagBandageCardReward.ID));
 
 		BaseMod.registerCustomReward(RewardItemTypeEnumPatch.DUFFELBAGPANACEACARDREWARD,
-				rewardSave -> new DuffelBagPanaceaCardReward(),
-				customReward -> new RewardSave(customReward.type.toString(),
+				(rewardSave) -> new DuffelBagPanaceaCardReward(),
+				(customReward) -> new RewardSave(customReward.type.toString(),
 						DuffelBagPanaceaCardReward.ID));
 	}
 	
