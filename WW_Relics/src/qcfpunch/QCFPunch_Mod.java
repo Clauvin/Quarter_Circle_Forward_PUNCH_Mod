@@ -24,7 +24,6 @@ import basemod.BaseMod;
 //import basemod.ModPanel;
 import basemod.helpers.RelicType;
 import basemod.interfaces.*;
-import qcfpunch.QCFP_Misc;
 import qcfpunch.events.act2.FightingNoisesEvent;
 import qcfpunch.modifiers.*;
 import qcfpunch.monsters.elites.TiredGremlinNob;
@@ -33,7 +32,7 @@ import qcfpunch.potions.ChallengerCoin;
 
 import qcfpunch.relics.chun_li.*;
 import qcfpunch.relics.dhalsim.BrokenTusk;
-import qcfpunch.relics.dhalsim.LotusStatue;
+import qcfpunch.relics.dhalsim.OldLotusStatue;
 import qcfpunch.relics.dhalsim.NecklaceOfSkulls;
 import qcfpunch.relics.gen.CrimsonSash;
 import qcfpunch.relics.guile.*;
@@ -300,7 +299,7 @@ public class QCFPunch_Mod implements AddCustomModeModsSubscriber, EditStringsSub
 	private void addDhalsimRelics() {
 		BaseMod.addRelic(new BrokenTusk(), RelicType.SHARED);
 		BaseMod.addRelic(new NecklaceOfSkulls(),  RelicType.SHARED);
-		BaseMod.addRelic(new LotusStatue(), RelicType.SHARED);
+		BaseMod.addRelic(new OldLotusStatue(), RelicType.SHARED);
 	}
 	
 	private void addCharacterCameoRelics() {
