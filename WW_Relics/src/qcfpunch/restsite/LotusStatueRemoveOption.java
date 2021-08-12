@@ -18,7 +18,7 @@ public class LotusStatueRemoveOption extends AbstractCampfireOption {
     public LotusStatueRemoveOption(boolean usable) {
         this.label = LotusStatueRemoveOption.TEXT[0];
 
-        int cards_that_can_be_removed = 0; 'OldLotusStatue.howManyCardsCanBeUpgraded();
+        int cards_that_can_be_removed = 0;
 
         if (cards_that_can_be_removed > 1) {
             this.description = LotusStatueRemoveOption.TEXT[1] +
@@ -38,7 +38,18 @@ public class LotusStatueRemoveOption extends AbstractCampfireOption {
     }
 
     public void useOption() {
-        AbstractDungeon.effectList.add(new FightingGlovesTrainEffect());
+        AbstractDungeon.effectList.add(new LotusStatueRemoveEffect());
+    }
+
+    @Override
+    public void update() {
+        super.update();
+        if ((LotusStatue.cards_have_been_removed_in_this_room) &&
+                (!called_campfire_reset_effect)) {
+            called_campfire_reset_effect = true;
+            AbstractDungeon.effectList.add(new CampfireBurnResetEffect(this));
+        }
+
     }
 
     static {
