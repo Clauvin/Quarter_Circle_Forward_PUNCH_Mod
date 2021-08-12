@@ -32,7 +32,7 @@ import qcfpunch.potions.ChallengerCoin;
 
 import qcfpunch.relics.chun_li.*;
 import qcfpunch.relics.dhalsim.BrokenTusk;
-import qcfpunch.relics.dhalsim.OldLotusStatue;
+import qcfpunch.relics.dhalsim.LotusStatue;
 import qcfpunch.relics.dhalsim.NecklaceOfSkulls;
 import qcfpunch.relics.gen.CrimsonSash;
 import qcfpunch.relics.guile.*;
@@ -299,7 +299,7 @@ public class QCFPunch_Mod implements AddCustomModeModsSubscriber, EditStringsSub
 	private void addDhalsimRelics() {
 		BaseMod.addRelic(new BrokenTusk(), RelicType.SHARED);
 		BaseMod.addRelic(new NecklaceOfSkulls(),  RelicType.SHARED);
-		BaseMod.addRelic(new OldLotusStatue(), RelicType.SHARED);
+		BaseMod.addRelic(new LotusStatue(), RelicType.SHARED);
 	}
 	
 	private void addCharacterCameoRelics() {
