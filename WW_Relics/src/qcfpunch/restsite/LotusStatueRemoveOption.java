@@ -21,13 +21,13 @@ public class LotusStatueRemoveOption extends AbstractCampfireOption {
         int cards_that_can_be_removed = 0;
 
         if (cards_that_can_be_removed > 1) {
-            this.description = LotusStatueRemoveOption.TEXT[1] +
-                    FightingGloves.howManyCardsCanBeUpgraded() +
-                    LotusStatueRemoveOption.TEXT[3];
+            this.description = LotusStatueRemoveOption.TEXT[1];// +
+            //        LotusStatue.howManyCardsCanBeRemoved() +
+            //        LotusStatueRemoveOption.TEXT[3];
         } else if (cards_that_can_be_removed == 1) {
-            this.description = LotusStatueRemoveOption.TEXT[1] +
-                    FightingGloves.howManyCardsCanBeUpgraded() +
-                    LotusStatueRemoveOption.TEXT[2];
+            this.description = LotusStatueRemoveOption.TEXT[1];// +
+            //        FightingGloves.howManyCardsCanBeUpgraded() +
+            //        LotusStatueRemoveOption.TEXT[2];
         } else {
             this.description = "";
         }
