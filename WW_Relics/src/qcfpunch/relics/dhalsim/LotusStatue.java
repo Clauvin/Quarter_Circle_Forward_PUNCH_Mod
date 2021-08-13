@@ -131,8 +131,6 @@ public class LotusStatue extends CustomRelic implements OnRemoveCardFromMasterDe
 
         removable_cards = CardGroup.getGroupWithoutBottledCards(removable_cards);
 
-        removable_cards.addToBottom(new Finished());
-
         max_amount_of_cards_to_remove = 1;
 
         AbstractDungeon.gridSelectScreen.open(removable_cards,
@@ -176,7 +174,7 @@ public class LotusStatue extends CustomRelic implements OnRemoveCardFromMasterDe
                         AbstractDungeon.gridSelectScreen.selectedCards.clear();
 
                         AbstractDungeon.overlayMenu.hideBlackScreen();
-                        AbstractDungeon.dynamicBanner.appear();
+                        //AbstractDungeon.dynamicBanner.appear();
                         AbstractDungeon.isScreenUp = false;
 
                         currently_choosing_removable_cards = false;
