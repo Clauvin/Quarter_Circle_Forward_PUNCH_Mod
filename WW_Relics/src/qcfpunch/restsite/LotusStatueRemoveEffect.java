@@ -19,13 +19,8 @@ public class LotusStatueRemoveEffect extends AbstractGameEffect {
 
         lotus_statue = null;
 
-        for (int i = 0; i < AbstractDungeon.player.relics.size(); i++) {
-            if (AbstractDungeon.player.hasRelic(LotusStatue.ID)) {
-                lotus_statue = (LotusStatue)
-                        AbstractDungeon.player.getRelic(LotusStatue.ID);
-                AbstractDungeon.player.relics.get(i);
-                break;
-            }
+        if (AbstractDungeon.player.hasRelic(LotusStatue.ID)) {
+            lotus_statue = (LotusStatue) AbstractDungeon.player.getRelic(LotusStatue.ID);
         }
 
         this.opened_screen = false;

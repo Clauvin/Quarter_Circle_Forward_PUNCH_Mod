@@ -176,6 +176,7 @@ public class LotusStatue extends CustomRelic implements OnRemoveCardFromMasterDe
                         AbstractDungeon.overlayMenu.hideBlackScreen();
                         //AbstractDungeon.dynamicBanner.appear();
                         AbstractDungeon.isScreenUp = false;
+                        CampfireUI.hidden = false;
 
                         currently_choosing_removable_cards = false;
                         behavior_line.lotusStatueFinished();
