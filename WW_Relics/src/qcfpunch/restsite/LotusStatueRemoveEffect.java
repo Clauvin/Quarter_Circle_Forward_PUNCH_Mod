@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Interpolation;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
+import qcfpunch.QCFP_Misc;
 import qcfpunch.relics.dhalsim.LotusStatue;
 import qcfpunch.relics.ryu.FightingGloves;
 
@@ -23,6 +24,8 @@ public class LotusStatueRemoveEffect extends AbstractGameEffect {
             lotus_statue = (LotusStatue) AbstractDungeon.player.getRelic(LotusStatue.ID);
         }
 
+        //QCFP_Misc.fastLoggerLine("AND HERE'S NOT THE PROBLEM");
+
         this.opened_screen = false;
         this.screen_color = AbstractDungeon.fadeColor.cpy();
     }
@@ -34,12 +37,14 @@ public class LotusStatueRemoveEffect extends AbstractGameEffect {
             updateBlackScreenColor();
         }
 
-        if (this.duration < 1.0F && !this.opened_screen) {
+        if (this.duration < 1.0F && !this.opened_screen && !this.isDone) {
+            //QCFP_Misc.fastLoggerLine("AND HERE'S NOT THE PROBLEM 2");
             this.opened_screen = true;
             LotusStatue.Set_right_click_in_relic_here_havent_happened(false);
             lotus_statue.removingCards();
         }
-        if (LotusStatue.cards_have_been_removed_in_this_room) {
+        if (LotusStatue.cards_have_been_removed_in_this_room && !this.isDone) {
+            QCFP_Misc.fastLoggerLine("AND HERE'S NOT THE PROBLEM 3");
             this.isDone = true;
             this.opened_screen = false;
         }
