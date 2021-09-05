@@ -71,7 +71,6 @@ public class LotusStatue extends CustomRelic implements OnRemoveCardFromMasterDe
             this.counter += 1;
             flash();
         }
-
     }
 
     public void onEnterRoom(AbstractRoom room) {
@@ -80,6 +79,7 @@ public class LotusStatue extends CustomRelic implements OnRemoveCardFromMasterDe
         currently_choosing_removable_cards = false;
         cards_to_remove_yet = false;
         max_amount_of_cards_to_remove = 0;
+
     }
 
     public boolean shouldTheRelicBeUsedNow() {
@@ -144,6 +144,12 @@ public class LotusStatue extends CustomRelic implements OnRemoveCardFromMasterDe
     @SuppressWarnings("static-access")
     public void update()
     {
+        /*QCFP_Misc.fastLoggerLine("------------");
+        QCFP_Misc.fastLoggerLine(CampfireUI.hidden);
+        RestRoom r = (RestRoom)AbstractDungeon.getCurrRoom();
+        QCFP_Misc.fastLoggerLine(r.campfireUI.somethingSelected);
+        QCFP_Misc.fastLoggerLine(AbstractDungeon.getCurrRoom().phase.toString());*/
+
         super.update();
         if (!behavior_line.time_of_lotus_statue) behavior_line.lotusStatueTick();
 
@@ -177,6 +183,7 @@ public class LotusStatue extends CustomRelic implements OnRemoveCardFromMasterDe
                         //AbstractDungeon.dynamicBanner.appear();
                         AbstractDungeon.isScreenUp = false;
                         CampfireUI.hidden = false;
+                        ((RestRoom)AbstractDungeon.getCurrRoom()).campfireUI.somethingSelected = false;
 
                         currently_choosing_removable_cards = false;
                         behavior_line.lotusStatueFinished();
