@@ -47,7 +47,7 @@ public class LotusStatueRemoveOption extends AbstractCampfireOption {
         if ((LotusStatue.cards_have_been_removed_in_this_room) &&
                 (!called_campfire_reset_effect)) {
             called_campfire_reset_effect = true;
-            AbstractDungeon.effectList.add(new CampfireBurnResetEffect(this));
+            //AbstractDungeon.effectList.add(new CampfireBurnResetEffect(this));
         }
 
     }
