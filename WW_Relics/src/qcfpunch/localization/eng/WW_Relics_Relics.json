@@ -163,7 +163,7 @@
     "NAME": "Lotus Statue",
     "FLAVOR": "\"Meditate now... Then the answers you seek will be revealed.\"",
  	"DESCRIPTIONS": [
- 	  "[#2aecd7]Right [#2aecd7]click at a #bRest #bSite before picking an option to remove at most #y",
+ 	  "At #bRest #bSites, you can spend charges to remove at most #y",
  	  " card per charge spent. Gain #y",
  	  " charge when you remove a card without using this relic's effect.",
  	  "Choose ",
