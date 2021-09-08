@@ -41,6 +41,7 @@ public class LotusStatueRemoveEffect extends AbstractGameEffect {
             //QCFP_Misc.fastLoggerLine("AND HERE'S NOT THE PROBLEM 2");
             this.opened_screen = true;
             LotusStatue.Set_right_click_in_relic_here_havent_happened(false);
+            LotusStatue.time_to_open_remove_screen = true;
             lotus_statue.removingCards();
         }
         if (LotusStatue.cards_have_been_removed_in_this_room && !this.isDone) {

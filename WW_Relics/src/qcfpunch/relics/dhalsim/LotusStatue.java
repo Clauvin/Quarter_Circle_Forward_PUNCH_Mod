@@ -36,6 +36,7 @@ public class LotusStatue extends CustomRelic implements OnRemoveCardFromMasterDe
     private static int max_amount_of_cards_to_remove;
     private static boolean cards_to_remove_yet = false;
     public static boolean cards_have_been_removed_in_this_room = false;
+    public static boolean time_to_open_remove_screen = false;
 
     private static final int CAN_SPAWN_BEFORE_FLOOR = 51;
 
@@ -157,8 +158,10 @@ public class LotusStatue extends CustomRelic implements OnRemoveCardFromMasterDe
             if ((cards_to_remove_yet) && (!currently_choosing_removable_cards))  {
                 if ((this.counter > 0) && (haveCardsToRemove())) {
                     if (restOptionsHaventBeenPickedUpYet()) {
-                        right_click_in_relic_here_havent_happened = false;
-                        removingCards();
+                        if (time_to_open_remove_screen) {
+                            right_click_in_relic_here_havent_happened = false;
+                            removingCards();
+                        }
                     }
                 }
             } else {
@@ -186,6 +189,7 @@ public class LotusStatue extends CustomRelic implements OnRemoveCardFromMasterDe
                         ((RestRoom)AbstractDungeon.getCurrRoom()).campfireUI.somethingSelected = false;
 
                         currently_choosing_removable_cards = false;
+                        time_to_open_remove_screen = false;
                         behavior_line.lotusStatueFinished();
 
                         if (!(card_chosen instanceof Finished) &&
