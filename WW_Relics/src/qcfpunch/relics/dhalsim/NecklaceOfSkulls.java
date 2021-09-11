@@ -122,7 +122,7 @@ public class NecklaceOfSkulls extends CustomRelic
 					AbstractDungeon.gridSelectScreen.selectedCards.clear();
 									
 					AbstractDungeon.overlayMenu.hideBlackScreen();
-					AbstractDungeon.dynamicBanner.appear();
+					AbstractDungeon.dynamicBanner.hide();
 					AbstractDungeon.isScreenUp = false;
 					
 					is_player_choosing_a_card = false;
