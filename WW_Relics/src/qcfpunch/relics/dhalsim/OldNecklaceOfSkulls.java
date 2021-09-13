@@ -26,7 +26,7 @@ public class OldNecklaceOfSkulls extends CustomRelic
 							  implements OnRemoveCardFromMasterDeckRelic {
 
 	public static final String ID = QCFP_Misc.returnPrefix() +
-			"Necklace_of_Skulls";
+			"Old_Necklace_of_Skulls";
 
 	private static int amount_of_upgrades = 0;
 	private static int current_amount_of_upgrading = 0;
