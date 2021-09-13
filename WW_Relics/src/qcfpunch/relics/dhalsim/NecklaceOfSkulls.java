@@ -127,7 +127,7 @@ public class NecklaceOfSkulls extends CustomRelic
     }
 
     public AbstractRelic makeCopy() {
-        return new OldNecklaceOfSkulls();
+        return new NecklaceOfSkulls();
     }
 
 
