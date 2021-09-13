@@ -23,6 +23,7 @@ public class NecklaceOfSkulls extends CustomRelic
             "Necklace_of_Skulls";
 
     private static int current_amount_of_upgrading = 0;
+    private static final int INITIAL_CHARGES = 0;
 
     public static boolean is_player_choosing_a_card = false;
     public static boolean try_to_upgrade_cards = false;
@@ -32,28 +33,13 @@ public class NecklaceOfSkulls extends CustomRelic
         super(ID, GraphicResources.
                         LoadRelicImage("Necklace of Skulls - death-skull - sbed - CC BY 3.0.png"),
                 RelicTier.UNCOMMON, LandingSound.CLINK);
+
+        counter = INITIAL_CHARGES;
     }
 
     @Override
     public void onRemoveCardFromMasterDeck(AbstractCard abstractCard) {
         this.counter += 1;
-    }
-
-    public void upgradingCards(CardGroup upgradeable_cards) {
-
-        AbstractDungeon.dynamicBanner.hide();
-        AbstractDungeon.overlayMenu.cancelButton.hide();
-        AbstractDungeon.previousScreen = AbstractDungeon.screen;
-
-        current_amount_of_upgrading = 1;
-
-        AbstractDungeon.gridSelectScreen.open(upgradeable_cards,
-                current_amount_of_upgrading,
-                getCardGridDescription(), false, false, false, false);
-
-        is_player_choosing_a_card = true;
-        try_to_upgrade_cards = false;
-
     }
 
     private boolean isTimeToUpgradeTheChosenCards() {
@@ -76,6 +62,23 @@ public class NecklaceOfSkulls extends CustomRelic
                 upgradingCards(upgradeable_cards);
 
         }
+
+    }
+
+    public void upgradingCards(CardGroup upgradeable_cards) {
+
+        AbstractDungeon.dynamicBanner.hide();
+        AbstractDungeon.overlayMenu.cancelButton.hide();
+        AbstractDungeon.previousScreen = AbstractDungeon.screen;
+
+        current_amount_of_upgrading = 1;
+
+        AbstractDungeon.gridSelectScreen.open(upgradeable_cards,
+                current_amount_of_upgrading,
+                getCardGridDescription(), false, false, false, false);
+
+        is_player_choosing_a_card = true;
+        try_to_upgrade_cards = false;
 
     }
 
@@ -111,7 +114,48 @@ public class NecklaceOfSkulls extends CustomRelic
     @Override
     public void onRightClick() {
         this.counter += 1;
-        QCFP_Misc.fastLoggerLine("Ok, skeleton structure working.");
+        ifThereAreUpgradesToDoTryToDoThem();
+
+    }
+
+    public void update(){
+
+        super.update();
+
+        if (is_player_choosing_a_card) {
+            if (isTimeToUpgradeTheChosenCards()) {
+                flash();
+
+                ArrayList<AbstractCard> cards_chosen = getCardsToUpgrade();
+
+                for (int i = 0; i < current_amount_of_upgrading; i++) {
+                    AbstractCard card_chosen = cards_chosen.get(i);
+
+                    AbstractDungeon.player.bottledCardUpgradeCheck(card_chosen);
+
+                    if (QCFP_Misc.silentlyCheckForMod(QCFP_Misc.conspire_class_code)) {
+                        conspire.relics.InfiniteJournal.
+                                upgradeCard(card_chosen);
+                    } else {
+                        card_chosen.upgrade();
+                    }
+
+                    if (current_amount_of_upgrading == 1) {
+                        showVFX(card_chosen, i, true);
+                    } else {
+                        showVFX(card_chosen, i, false);
+                    }
+                }
+
+                AbstractDungeon.gridSelectScreen.selectedCards.clear();
+
+                AbstractDungeon.overlayMenu.hideBlackScreen();
+                AbstractDungeon.dynamicBanner.hide();
+                AbstractDungeon.isScreenUp = false;
+
+                is_player_choosing_a_card = false;
+            }
+        }
     }
 
     public String getUpdatedDescription() {
