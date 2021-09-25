@@ -159,11 +159,11 @@ public class NecklaceOfSkulls extends CustomRelic
     }
 
     public String getUpdatedDescription() {
-        return DESCRIPTIONS[0];
+        return DESCRIPTIONS[0] + DESCRIPTIONS[1];
     }
 
     private String getCardGridDescription() {
-        return DESCRIPTIONS[1];
+        return DESCRIPTIONS[2];
     }
 
     public boolean canSpawn() {
