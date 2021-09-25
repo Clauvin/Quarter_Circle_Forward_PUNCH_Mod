@@ -183,7 +183,7 @@
     "NAME": "Necklace of Skulls",
     "FLAVOR": "\"Hatred begets weakness. Cultivate your heart.\" Who said that?",
  	"DESCRIPTIONS": [
- 	  "At #bShops and #bRest #bSites, right click this relic to spend a charge and #yUpgrade a card in your deck.",
+ 	  "At #bRest #bSites, right click this relic to spend a charge and #yUpgrade a card in your deck.",
       " Gain one charge when you remove a card.",
  	  "Choose a card to upgrade."
     ]
