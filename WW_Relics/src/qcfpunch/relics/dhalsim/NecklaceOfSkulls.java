@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.vfx.UpgradeShineEffect;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardBrieflyEffect;
 import qcfpunch.QCFP_Misc;
@@ -50,9 +51,6 @@ public class NecklaceOfSkulls extends CustomRelic
     @SuppressWarnings("static-access")
     private void ifThereAreUpgradesToDoTryToDoThem() {
 
-        this.counter -= current_amount_of_upgrading;
-        current_amount_of_upgrading = 0;
-
         if (this.counter > 0) {
 
             CardGroup upgradeable_cards =
@@ -75,7 +73,7 @@ public class NecklaceOfSkulls extends CustomRelic
 
         AbstractDungeon.gridSelectScreen.open(upgradeable_cards,
                 current_amount_of_upgrading,
-                getCardGridDescription(), false, false, false, false);
+                getCardGridDescription(), false, false, true, false);
 
         is_player_choosing_a_card = true;
         try_to_upgrade_cards = false;
@@ -113,8 +111,10 @@ public class NecklaceOfSkulls extends CustomRelic
 
     @Override
     public void onRightClick() {
-        this.counter += 1;
-        ifThereAreUpgradesToDoTryToDoThem();
+        AbstractRoom curr_room = AbstractDungeon.getCurrRoom();
+
+        if (curr_room.getMapSymbol() == "R")
+            ifThereAreUpgradesToDoTryToDoThem();
 
     }
 
@@ -154,6 +154,8 @@ public class NecklaceOfSkulls extends CustomRelic
                 AbstractDungeon.isScreenUp = false;
 
                 is_player_choosing_a_card = false;
+
+                this.counter -= 1;
             }
         }
     }
