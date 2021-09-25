@@ -51,7 +51,7 @@ public class NecklaceOfSkulls extends CustomRelic
     @SuppressWarnings("static-access")
     private void ifThereAreUpgradesToDoTryToDoThem() {
 
-        if (this.counter > 0) {
+        if ((this.counter > 0) && (!AbstractDungeon.gridSelectScreen.confirmScreenUp)){
 
             CardGroup upgradeable_cards =
                     AbstractDungeon.player.masterDeck.getUpgradableCards();
