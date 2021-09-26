@@ -27,6 +27,10 @@ public class NecklaceOfSkulls extends CustomRelic
     private static int current_amount_of_upgrading = 0;
     private static final int INITIAL_CHARGES = 0;
 
+    private static CardGroup cards_to_be_upgraded;
+    private static AbstractCard upgraded_card;
+    private static ShowCardBrieflyEffect show_card_briefly_effect;
+
     public static boolean is_player_choosing_a_card = false;
     public static boolean try_to_upgrade_cards = false;
     public static boolean waiting_to_upgrade = false;
@@ -71,6 +75,8 @@ public class NecklaceOfSkulls extends CustomRelic
         AbstractDungeon.previousScreen = AbstractDungeon.screen;
 
         current_amount_of_upgrading = 1;
+
+        cards_to_be_upgraded = upgradeable_cards;
 
         AbstractDungeon.gridSelectScreen.open(upgradeable_cards,
                 current_amount_of_upgrading,
@@ -158,7 +164,86 @@ public class NecklaceOfSkulls extends CustomRelic
 
                 this.counter -= 1;
             }
+
+            if (cards_to_be_upgraded != null){
+
+                for (int i = 0; i < cards_to_be_upgraded.size(); i++)
+                {
+                    if (cards_to_be_upgraded.getNCardFromTop(i).hb.hovered){
+                        showUpgradedVersionOfTheCard(
+                                cards_to_be_upgraded.getNCardFromTop(i));
+                    }
+                }
+            }
         }
+    }
+
+    private static void showUpgradedVersionOfTheCard(AbstractCard card){
+
+        float x = Settings.WIDTH;
+        float y = Settings.HEIGHT;
+        float defined_x = 0.10f;
+        float defined_y = 0.50f;
+        float duration = 1.0f;
+        float starting_duration = 10.0f;
+
+        if (upgraded_card == null){
+            upgraded_card = card.makeStatEquivalentCopy();
+            upgraded_card.upgrade();
+
+            if (show_card_briefly_effect == null){
+
+                upgraded_card = card.makeStatEquivalentCopy();
+                upgraded_card.upgrade();
+
+                show_card_briefly_effect = new ShowCardBrieflyEffect(
+                        upgraded_card.makeStatEquivalentCopy(),
+                        defined_x * x, defined_y * y);
+                show_card_briefly_effect.duration = duration;
+                show_card_briefly_effect.startingDuration = starting_duration;
+
+                AbstractDungeon.effectList.add(show_card_briefly_effect);
+
+            } else {
+
+                show_card_briefly_effect.duration = duration;
+            }
+        } else if (upgraded_card.originalName == card.name){
+            if (show_card_briefly_effect == null){
+
+            } else if (show_card_briefly_effect.isDone){
+
+
+                upgraded_card = card.makeStatEquivalentCopy();
+                upgraded_card.upgrade();
+
+                show_card_briefly_effect = new ShowCardBrieflyEffect(
+                        upgraded_card.makeStatEquivalentCopy(),
+                        defined_x * x, defined_y * y);
+                show_card_briefly_effect.duration = duration;
+                show_card_briefly_effect.startingDuration = starting_duration;
+
+                AbstractDungeon.effectList.add(show_card_briefly_effect);
+            } else {
+
+                show_card_briefly_effect.duration = duration;
+            }
+        } else {
+
+
+            upgraded_card = card.makeStatEquivalentCopy();
+            upgraded_card.upgrade();
+
+            show_card_briefly_effect = new ShowCardBrieflyEffect(
+                    upgraded_card.makeStatEquivalentCopy(),
+                    defined_x * x, defined_y * y);
+            show_card_briefly_effect.duration = duration;
+            show_card_briefly_effect.startingDuration = starting_duration;
+
+            AbstractDungeon.effectList.add(show_card_briefly_effect);
+
+        }
+
     }
 
     public String getUpdatedDescription() {
