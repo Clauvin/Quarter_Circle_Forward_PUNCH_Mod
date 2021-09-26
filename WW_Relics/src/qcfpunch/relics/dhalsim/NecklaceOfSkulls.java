@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.dungeons.TheEnding;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.vfx.UpgradeShineEffect;
@@ -51,7 +52,7 @@ public class NecklaceOfSkulls extends CustomRelic
     @SuppressWarnings("static-access")
     private void ifThereAreUpgradesToDoTryToDoThem() {
 
-        if ((this.counter > 0) && (!AbstractDungeon.gridSelectScreen.confirmScreenUp)){
+        if ((this.counter > 0) && (!AbstractDungeon.isScreenUp)){
 
             CardGroup upgradeable_cards =
                     AbstractDungeon.player.masterDeck.getUpgradableCards();
