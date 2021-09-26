@@ -40,7 +40,7 @@ public class UnsteadyAction extends AbstractGameAction {
 	}
 	
 	public void AdjustToBlockSmallerThanDamage(float blockAmount) {
-		if (blockAmount < amount) {
+		if (blockAmount < damage_to_apply.base) {
 			
 			damage_to_apply.base = (int)blockAmount;
 			damage_to_apply.output = (int)blockAmount;
