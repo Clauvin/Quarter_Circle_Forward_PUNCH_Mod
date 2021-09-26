@@ -50,6 +50,8 @@ public class Handcuffs extends CustomRelic {
 	public void atPreBattle() {
 		number_of_uses_left_in_this_fight = NUMBER_OF_USES_PER_FIGHT;
 	}
+
+	public void atBattleStart() { flash(); }
 	
 	@SuppressWarnings("unused")
 	@Override
