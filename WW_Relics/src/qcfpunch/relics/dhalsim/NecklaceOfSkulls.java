@@ -170,7 +170,11 @@ public class NecklaceOfSkulls extends CustomRelic
     }
 
     public boolean canSpawn() {
-        return true;
+        if (AbstractDungeon.id == TheEnding.ID) return false;
+        else if ((AbstractDungeon.actNum % 3 == 0) &&
+                (AbstractDungeon.currMapNode.y > 3 * AbstractDungeon.map.size() / 4))
+            return false;
+        else return true;
     }
 
     public AbstractRelic makeCopy() {
