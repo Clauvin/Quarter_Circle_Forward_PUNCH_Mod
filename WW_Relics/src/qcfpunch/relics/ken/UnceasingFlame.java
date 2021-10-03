@@ -2,6 +2,7 @@ package qcfpunch.relics.ken;
 
 import java.io.IOException;
 
+import com.megacrit.cardcrawl.core.Settings;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -21,10 +22,12 @@ import basemod.abstracts.CustomRelic;
 import qcfpunch.QCFP_Misc;
 import qcfpunch.powers.FlamingPower;
 import qcfpunch.resources.relic_graphics.GraphicResources;
+import com.megacrit.cardcrawl.audio.Sfx;
 
 public class UnceasingFlame extends CustomRelic implements ClickableRelic {
 
 	public static final String ID = QCFP_Misc.returnPrefix() + "Unceasing_Flame";
+	public static final String on_equip_sound_file_name = "Unceasing - SFIV_Ken_Shoryuken_Sound_Effect.mp3";
 	public static final int NUMBER_OF_ATTACKS_TO_TRIGGER_CHARGE_UP = 3;
 	public static final int HOW_MUCH_CHARGE_INCREASES_PER_TRIGGER = 1;
 	public static final int MAX_NUMBER_OF_CHARGES = 6;
@@ -49,7 +52,13 @@ public class UnceasingFlame extends CustomRelic implements ClickableRelic {
 	
 	@Override
 	public void onEquip() {
-		CardCrawlGame.sound.play("ATTACK_FIRE");
+		if (Math.random() < 0.25){
+			Sfx shoryuken_sound = new Sfx("qcfpunch/resources/sounds/" + on_equip_sound_file_name, false);
+			shoryuken_sound.play(Settings.MASTER_VOLUME * Settings.SOUND_VOLUME);
+		} else {
+			CardCrawlGame.sound.play("ATTACK_FIRE");
+		}
+
 		super.onEquip();
 	}
 	
