@@ -27,13 +27,15 @@ import com.megacrit.cardcrawl.audio.Sfx;
 public class UnceasingFlame extends CustomRelic implements ClickableRelic {
 
 	public static final String ID = QCFP_Misc.returnPrefix() + "Unceasing_Flame";
-	public static final String on_equip_sound_file_name = "Unceasing - SFIV_Ken_Shoryuken_Sound_Effect.mp3";
+	public static final String on_equip_sound_file_name = "Unceasing - SFIV_Ken_Shoryuken_Sound_Effect.wav";
+	public static Sfx shoryuken_sound;
 	public static final int NUMBER_OF_ATTACKS_TO_TRIGGER_CHARGE_UP = 3;
 	public static final int HOW_MUCH_CHARGE_INCREASES_PER_TRIGGER = 1;
 	public static final int MAX_NUMBER_OF_CHARGES = 6;
 	public static final int MINIMUM_DAMAGE_FROM_FLAMING = 2; 
 	public static int charges = 0;
 	public static int charges_at_battle_start;
+
 	
 	public static boolean is_player_turn = false;
 	
@@ -42,6 +44,7 @@ public class UnceasingFlame extends CustomRelic implements ClickableRelic {
 	public UnceasingFlame() {
 		super(ID, GraphicResources.LoadRelicImage("Temp Unceasing Flame - steeltoe-boots - Lorc - CC BY 3.0.png"),
 				RelicTier.RARE, LandingSound.MAGICAL);
+		shoryuken_sound = new Sfx("qcfpunch/resources/sounds/" + on_equip_sound_file_name, false);
 	}
 	
 	public String getUpdatedDescription() {
@@ -53,8 +56,7 @@ public class UnceasingFlame extends CustomRelic implements ClickableRelic {
 	@Override
 	public void onEquip() {
 		if (Math.random() < 0.25){
-			Sfx shoryuken_sound = new Sfx("qcfpunch/resources/sounds/" + on_equip_sound_file_name, false);
-			shoryuken_sound.play(Settings.MASTER_VOLUME * Settings.SOUND_VOLUME);
+			shoryuken_sound.play(Settings.MASTER_VOLUME * Settings.SOUND_VOLUME, 1, 0);
 		} else {
 			CardCrawlGame.sound.play("ATTACK_FIRE");
 		}
