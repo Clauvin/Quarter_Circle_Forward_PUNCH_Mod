@@ -6,7 +6,6 @@
       " 点），并失去该效果。"
     ]
   },
-
   "qcfpunch:Power_Fury": {
     "NAME": "愤怒",
     "DESCRIPTIONS": [
@@ -14,7 +13,6 @@
       " 点伤害。"
     ]
   },
-
   "qcfpunch:Power_Potential": {
     "NAME": "怒气槽",
     "DESCRIPTIONS": [
@@ -23,7 +21,6 @@
       " 怒气槽。积攒满一行能当能量使用。"
     ]
   },
-
   "qcfpunch:Power_Risky_Offensive": {
     "NAME": "冒险进攻",
     "DESCRIPTIONS": [
@@ -31,7 +28,6 @@
       " 点 #y力量 。"
     ]
   },
-
   "qcfpunch:Power_Unsteady": {
     "NAME": "乱动",
     "DESCRIPTIONS": [
@@ -39,14 +35,12 @@
       " 点。"
     ]
   },
-
   "qcfpunch:Power_Weakest_Fighting_Style": {
     "NAME": "“最强流”",
     "DESCRIPTIONS": [
       "每回合开始时，将一张 #y“最强流” 牌加入你的手牌。"
     ]
   },
-
   "qcfpunch:Power_Wild_Herbs_Ointment": {
     "NAME": "野药膏",
     "DESCRIPTIONS": [
@@ -55,3 +49,4 @@
       " #y最大生命。"
     ]
   }
+}
