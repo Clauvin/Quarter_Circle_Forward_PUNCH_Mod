@@ -17,6 +17,7 @@ public class BlackTrainingShirt extends CustomRelic {
 	
 	public BlackTrainingShirt() {
 		super(ID, GraphicResources.LoadRelicImage("Black Training Shirt - Oni - Rights Reserved.png"),
+				GraphicResources.LoadOutlineImage("Black Training Shirt Outline.png"),
 				RelicTier.COMMON, LandingSound.FLAT);
 	}
 	

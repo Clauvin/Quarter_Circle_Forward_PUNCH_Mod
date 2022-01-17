@@ -16,6 +16,7 @@ public class ChainWithNametags extends CustomRelic {
 	
 	public ChainWithNametags() {
 		super(ID, GraphicResources.LoadRelicImage("Chain With Nametags - Oni - Rights Reserved.png"),
+				GraphicResources.LoadOutlineImage("Chain With Nametags Outline.png"),
 				RelicTier.UNCOMMON, LandingSound.CLINK);
 	}
 	
