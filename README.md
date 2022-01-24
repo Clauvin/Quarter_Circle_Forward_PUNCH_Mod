@@ -52,12 +52,9 @@ Link too in the [wiki's page](https://github.com/Clauvin/World_Warriors_Relics/w
 
 6. Relics inspired by Cammy, Dhalsim, Blanka, Zangief and as a guest, Valerie from Fantasy Strike. - Blanka won't enter.
 7. Focus in Akuma's inspired relic. - Done in 6.
-8. Bug fixing and polish.
-9. Final version of relic's graphics.
+8. Bug fixing and polish. - Done. :)
+9. Final version of relic's graphics. - In progress.
 10. v1.0 release :)
-11. Rest to recover creative juice
-12. One of the ideas at # Ideas That Probably Won't Enter Because Of Feature Creep and Fatigue
-
 
 # Requirements
 
