@@ -65,7 +65,7 @@ public class ChallengerCoin extends OutOfCombatPotion implements IPostMapGenerat
 	public static ArrayList<Integer> saved_post_map_gen_use_priority;
 	
 	//YES. I know this is a Mcguyverism and this part of the code (and stuff related) seriously needs
-	// improvement. I will do that, one day.
+	// improvement. I will do that, one day. Maybe. Fingers crossed.
 	//Also, if you are looking to this code thinking to use it as a base for your own changes in map,
 	// this is NOT A GOOD CODE TO USE AS AN EXAMPLE. It works, but it could be better.
 	// Thanks for your understanding.
@@ -95,17 +95,36 @@ public class ChallengerCoin extends OutOfCombatPotion implements IPostMapGenerat
 	}
 	
 	private String makeDescription() {
-		
-		String description = DESCRIPTIONS[0];
-		
-		if (QCFP_Misc.silentlyCheckForMod(QCFP_Misc.replay_the_spire_class_code)) {
-			description += DESCRIPTIONS[1];
+
+		if (AbstractDungeon.player != null){
+
+			String description = DESCRIPTIONS[0];
+
+			if (QCFP_Misc.silentlyCheckForMod(QCFP_Misc.replay_the_spire_class_code)) {
+				description += DESCRIPTIONS[1];
+			}
+
+			description += DESCRIPTIONS[2];
+
+			if (AbstractDungeon.player.hasRelic("SacredBark")){
+
+				description += DESCRIPTIONS[3];
+				description += DESCRIPTIONS[4];
+				description += DESCRIPTIONS[5];
+
+			} else {
+
+
+
+				description += DESCRIPTIONS[4];
+			}
+
+			return description;
+
 		}
-		
-		description += DESCRIPTIONS[2];
-		
-		return description;
-		
+
+		return "This is a bug.";
+
 	}
 	
 	@Override
@@ -210,9 +229,11 @@ public class ChallengerCoin extends OutOfCombatPotion implements IPostMapGenerat
 			
 			
 			if (((which_room == null) && (checkIfNewRoomNeedsToBeEmeraldElite(room_to_change))) ||
-					(which_room == "EmeraldElite")) 
+					(which_room == "EmeraldElite") ||
+					AbstractDungeon.player.hasRelic("SacredBark"))
 			{	
 				new_room = new MonsterRoomEmeraldElite();
+				room_to_change.hasEmeraldKey = true;
 				if (map_changes_arent_being_loaded) saved_map_room.add("EmeraldElite");
 			}
 			else {
@@ -233,15 +254,17 @@ public class ChallengerCoin extends OutOfCombatPotion implements IPostMapGenerat
 	
 	public static boolean checkIfNewRoomNeedsToBeEmeraldElite(MapRoomNode room_to_change) {
 		
-		if (room_to_change.getRoom() instanceof TreasureRoom
-			&& (Settings.isFinalActAvailable)
-			&& (!Settings.hasSapphireKey)) {
-			
+		if (room_to_change.getRoom() instanceof TreasureRoom) {
+			if ((AbstractDungeon.player.hasRelic("SacredBark")) ||
+					((!Settings.hasEmeraldKey))) {
+
+				return true;
+			} else {
+				return false;
+			}
+		} else if (AbstractDungeon.player.hasRelic("SacredBark")){
 			return true;
-		} else {
-			return false;
-		}
-		
+		} else return false;
 	}
 
 	@Override

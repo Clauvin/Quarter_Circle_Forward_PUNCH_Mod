@@ -43,6 +43,11 @@ public class FightingGloves extends CustomRelic implements ClickableRelic {
 	
 	private static boolean player_right_clicked_in_relic_in_this_room = false;
 	public static boolean player_havent_right_clicked_in_relic_here_before = true;
+
+	private static CardGroup cards_to_be_upgraded;
+
+	private static ShowCardBrieflyEffect show_card_briefly_effect;
+	private static AbstractCard upgraded_card;
 	
 	public FightingGloves() {
 		super(ID, GraphicResources.LoadRelicImage("Fighting Gloves - mailed-gloves - Lorc - CC BY 3.0.png"),
@@ -172,11 +177,13 @@ public class FightingGloves extends CustomRelic implements ClickableRelic {
 		AbstractDungeon.getCurrRoom().phase = RoomPhase.INCOMPLETE;
 		
 		number_of_cards_that_can_be_upgraded = howManyCardsCanBeUpgraded();
-		
-		AbstractDungeon.gridSelectScreen.open(getValidCardGroup(),
+
+		cards_to_be_upgraded = getValidCardGroup();
+
+		AbstractDungeon.gridSelectScreen.open(cards_to_be_upgraded,
 				number_of_cards_that_can_be_upgraded,
 				getCardGridDescription(), false, false, true, false);
-		
+
 		player_right_clicked_in_relic_in_this_room = true;
 		
 	}
@@ -193,12 +200,34 @@ public class FightingGloves extends CustomRelic implements ClickableRelic {
 		super.update();
 
 		if (player_right_clicked_in_relic_in_this_room) {
+
+			if (cards_to_be_upgraded != null){
+
+				for (int i = 0; i < cards_to_be_upgraded.size(); i++)
+				{
+					if (cards_to_be_upgraded.getNCardFromTop(i).hb.hovered){
+						showUpgradedVersionOfTheCard(
+								cards_to_be_upgraded.getNCardFromTop(i));
+					}
+				}
+			}
+
 			if (isTimeToUpgradeTheChosenCards())
 		    {
 	            flash();
 				
 				ArrayList<AbstractCard> cards_chosen = getCardsToUpgrade();
-				
+
+				if (show_card_briefly_effect != null){
+					if (show_card_briefly_effect.duration != 0.0f)
+						show_card_briefly_effect.duration = 0.0f;
+					if (show_card_briefly_effect.isDone == false){
+						show_card_briefly_effect.isDone = true;
+					}
+					AbstractDungeon.effectList.remove(show_card_briefly_effect);
+					show_card_briefly_effect.dispose();
+				}
+
 				upgradeAndShowChosenCards(cards_chosen);
 				
 				spendChargesForUpgradedCards();
@@ -211,13 +240,81 @@ public class FightingGloves extends CustomRelic implements ClickableRelic {
 				
 				AbstractDungeon.overlayMenu.hideBlackScreen();
 				AbstractDungeon.isScreenUp = false;
-				
+
+				cards_to_be_upgraded = null;
+
 		    }
 		}
-		
-		
 	}
-	
+
+	private static void showUpgradedVersionOfTheCard(AbstractCard card){
+
+		float x = Settings.WIDTH;
+		float y = Settings.HEIGHT;
+		float defined_x = 0.10f;
+		float defined_y = 0.50f;
+		float duration = 1.0f;
+		float starting_duration = 10.0f;
+
+		if (upgraded_card == null){
+			upgraded_card = card.makeStatEquivalentCopy();
+			upgraded_card.upgrade();
+
+			if (show_card_briefly_effect == null){
+
+				upgraded_card = card.makeStatEquivalentCopy();
+				upgraded_card.upgrade();
+
+				show_card_briefly_effect = new ShowCardBrieflyEffect(
+						upgraded_card.makeStatEquivalentCopy(),
+						defined_x * x, defined_y * y);
+				show_card_briefly_effect.duration = duration;
+				show_card_briefly_effect.startingDuration = starting_duration;
+
+				AbstractDungeon.effectList.add(show_card_briefly_effect);
+
+			} else {
+
+				show_card_briefly_effect.duration = duration;
+			}
+		} else if (upgraded_card.originalName == card.name){
+			if (show_card_briefly_effect == null){
+
+			} else if (show_card_briefly_effect.isDone){
+
+
+				upgraded_card = card.makeStatEquivalentCopy();
+				upgraded_card.upgrade();
+
+				show_card_briefly_effect = new ShowCardBrieflyEffect(
+						upgraded_card.makeStatEquivalentCopy(),
+						defined_x * x, defined_y * y);
+				show_card_briefly_effect.duration = duration;
+				show_card_briefly_effect.startingDuration = starting_duration;
+
+				AbstractDungeon.effectList.add(show_card_briefly_effect);
+            } else {
+
+				show_card_briefly_effect.duration = duration;
+			}
+		} else {
+
+
+			upgraded_card = card.makeStatEquivalentCopy();
+			upgraded_card.upgrade();
+
+			show_card_briefly_effect = new ShowCardBrieflyEffect(
+					upgraded_card.makeStatEquivalentCopy(),
+					defined_x * x, defined_y * y);
+			show_card_briefly_effect.duration = duration;
+			show_card_briefly_effect.startingDuration = starting_duration;
+
+			AbstractDungeon.effectList.add(show_card_briefly_effect);
+
+		}
+
+	}
+
 	private static boolean isTimeToUpgradeTheChosenCards() {
 		
 		boolean relic_did_not_upgrade_cards_here = !cards_have_been_upgraded_in_this_room;
@@ -289,7 +386,7 @@ public class FightingGloves extends CustomRelic implements ClickableRelic {
 		}
 		
 	}
-	
+
 	public static void save(final SpireConfig config) {
 
         if (AbstractDungeon.player != null && AbstractDungeon.player.hasRelic(ID)) {

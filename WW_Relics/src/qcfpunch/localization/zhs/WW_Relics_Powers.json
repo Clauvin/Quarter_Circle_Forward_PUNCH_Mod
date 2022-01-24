@@ -1,20 +1,18 @@
 {
   "qcfpunch:Power_Flaming": {
-    "NAME": "燃烧",
+    "NAME": "点燃",
     "DESCRIPTIONS": [
-      "你攻击的单个目标失去三倍伤害的血量的血量（最 #b",
-      " ），并使其失去缓冲。"
+      "拥有 #y点燃 的敌人额外失去你造成的攻击伤害的生命。（最少 #b",
+      " 点），并失去该效果。"
     ]
   },
-  
-    "qcfpunch:Power_Fury": {
+  "qcfpunch:Power_Fury": {
     "NAME": "愤怒",
     "DESCRIPTIONS": [
       "你本回合的攻击额外造成 #b",
       " 点伤害。"
     ]
   },
-
   "qcfpunch:Power_Potential": {
     "NAME": "怒气槽",
     "DESCRIPTIONS": [
@@ -23,15 +21,13 @@
       " 怒气槽。积攒满一行能当能量使用。"
     ]
   },
-
   "qcfpunch:Power_Risky_Offensive": {
     "NAME": "冒险进攻",
     "DESCRIPTIONS": [
       "这个效果会在你打出一张技能牌时失效，你失去 #b",
-      " 点力量。"
+      " 点 #y力量 。"
     ]
   },
-  
   "qcfpunch:Power_Unsteady": {
     "NAME": "乱动",
     "DESCRIPTIONS": [
@@ -39,20 +35,18 @@
       " 点。"
     ]
   },
-  
   "qcfpunch:Power_Weakest_Fighting_Style": {
     "NAME": "“最强流”",
     "DESCRIPTIONS": [
       "每回合开始时，将一张 #y“最强流” 牌加入你的手牌。"
     ]
   },
-  
-    "qcfpunch:Power_Wild_Herbs_Ointment": {
+  "qcfpunch:Power_Wild_Herbs_Ointment": {
     "NAME": "野药膏",
     "DESCRIPTIONS": [
-      "如果你在战斗结束时最多拥有 #b",
-      " #y生命 ，获得 #b",
+      "如果你在战斗结束时不多于 #b",
+      " 点 #y生命 ，获得 #b",
       " #y最大生命。"
-  	]
+    ]
   }
 }

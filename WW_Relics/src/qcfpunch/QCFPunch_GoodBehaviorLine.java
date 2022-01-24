@@ -19,6 +19,11 @@ public class QCFPunch_GoodBehaviorLine {
 	public static int waiting_time_for_lotus_statue = 0;
 
 	public static boolean canLotusStatueWork() {
+		//QCFP_Misc.fastLoggerLine("--------------------");
+		//QCFP_Misc.fastLoggerLine("- " + !time_of_necklace_of_skulls + " - " + (waiting_time_for_lotus_statue == 0));
+		//QCFP_Misc.fastLoggerLine(!time_of_necklace_of_skulls &&
+		//		waiting_time_for_lotus_statue == 0);
+		//QCFP_Misc.fastLoggerLine("--------------------");
 		return !time_of_necklace_of_skulls &&
 				waiting_time_for_lotus_statue == 0;
 	}

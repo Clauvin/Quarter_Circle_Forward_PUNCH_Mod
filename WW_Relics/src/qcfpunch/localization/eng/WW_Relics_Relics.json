@@ -163,7 +163,7 @@
     "NAME": "Lotus Statue",
     "FLAVOR": "\"Meditate now... Then the answers you seek will be revealed.\"",
  	"DESCRIPTIONS": [
- 	  "[#2aecd7]Right [#2aecd7]click at a #bRest #bSite before picking an option to remove at most #y",
+ 	  "At #bRest #bSites, you can spend charges to remove at most #y",
  	  " card per charge spent. Gain #y",
  	  " charge when you remove a card without using this relic's effect.",
  	  "Choose ",
@@ -175,7 +175,7 @@
     "NAME": "Mixed Paint Bucket",
     "FLAVOR": "Rainbows can't be painted with only one color.",
  	"DESCRIPTIONS": [
- 	  "At combat start, for each card color in your hand, add one #bPallete #bPick to your hand, with Retain and Exhaust."
+ 	  "At combat start, for each card color in your hand, add one #yqcfpunch:Pallete Pick to your hand, with Retain and Exhaust."
     ]
   },
   
@@ -183,7 +183,8 @@
     "NAME": "Necklace of Skulls",
     "FLAVOR": "\"Hatred begets weakness. Cultivate your heart.\" Who said that?",
  	"DESCRIPTIONS": [
- 	  "When you remove a card, #yUpgrade a card in your deck.",
+ 	  "At #bRest #bSites, right click this relic to spend a charge and #yUpgrade a card in your deck.",
+      " Gain one charge when you remove a card.",
  	  "Choose a card to upgrade."
     ]
   },
@@ -221,8 +222,8 @@
     "DESCRIPTIONS": [
       "Every #b",
       " cards played, add this turn's [#9400d3]r[#4b0082]a[#0000FF]n[#00FF00]d[#FFFF00]o[#FF7F00]m[#FF0000]i[#FF3333]z[#FF8888]e[#FFFFFF]d",
-      " card to your hand. It costs 1-less and has Ethereal (won't cost 0) or Exhaust, unless",
-      " it's a #rStatus or #rCurse.",
+      " card to your hand. It costs 2-less and has Ethereal (won't cost 0) or Exhaust, unless",
+      " it's a #rStatus or #rCurse. ",
       "Rainbow Brush",
       "If you wanna recheck which card Rainbow Brush's will give this turn, just place your mouse above the relic!"
     ]

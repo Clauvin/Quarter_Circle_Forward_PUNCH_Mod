@@ -16,7 +16,8 @@ public class BlackTrainingShirt extends CustomRelic {
 	public static final int EXTRA_STRENGTH = 2;
 	
 	public BlackTrainingShirt() {
-		super(ID, GraphicResources.LoadRelicImage("Temp Black Training Shirt - steeltoe-boots - Lorc - CC BY 3.0.png"),
+		super(ID, GraphicResources.LoadRelicImage("Black Training Shirt - Oni - Rights Reserved.png"),
+				GraphicResources.LoadOutlineImage("Black Training Shirt Outline.png"),
 				RelicTier.COMMON, LandingSound.FLAT);
 	}
 	

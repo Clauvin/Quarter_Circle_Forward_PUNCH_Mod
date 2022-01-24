@@ -1,51 +1,51 @@
 {
-  	"qcfpunch:Defend_Weakest": {
-    	"NAME": "“最强流”防御",
-    	"DESCRIPTION": "虚无 。 NL 获得 !B! 点 格挡 。 NL 消耗。"
-  	},
+	"qcfpunch:Defend_Weakest": {
+		"NAME": "“最强流”防御",
+		"DESCRIPTION": "虚无 。 NL 获得 !B! 点 格挡 。 NL 消耗 。"
+	},
 
-  	"qcfpunch:ErrorCard": {
-    	"NAME": "错误！",
-    	"DESCRIPTION": "可能有什么其他玩意炸了这个遗物。你能把相关信息发给下前拳mod的作者吗？谢谢！"
-  	},
-  	
-  	"qcfpunch:Finished": {
-    	"NAME": "终结",
-    	"DESCRIPTION": "到现在为止已经做出了足够的选择。"
-  	},
-  	
-  	"qcfpunch:No_Card_Thanks_5": {
-    	"NAME": "不用了，谢谢",
-    	"DESCRIPTION": "如果你想增加少于5张，这个可以代替其他牌。"
-   	},
+	"qcfpunch:ErrorCard": {
+		"NAME": "错误！",
+		"DESCRIPTION": "可能有什么其他玩意炸了这个遗物。你能把相关信息发给下前拳mod的作者吗？谢谢！"
+	},
+
+	"qcfpunch:Finished": {
+		"NAME": "结束",
+		"DESCRIPTION": "到现在为止已经做出了足够的选择。"
+	},
+
+	"qcfpunch:No_Card_Thanks_5": {
+		"NAME": "不用了，谢谢",
+		"DESCRIPTION": "如果你想新增最多7张牌，可以选这个。"
+	},
 
 	"qcfpunch:Strike_Weakest": {
-    	"NAME": "“最强流”打击",
-    	"DESCRIPTION": "虚无 。 NL 造成 !D! 点 伤害 。 NL 消耗。"
-  	},
-  	
-	"qcfpunch:WeakestEnergyBlast": {
-    	"NAME": "“最强流”波动",
-    	"DESCRIPTION": "虚无 。 NL 造成 !D! 点 伤害 。 NL 获得 1/3  qcfpunch:怒气槽 。  NL 消耗。"
+		"NAME": "“最强流”打击",
+		"DESCRIPTION": "虚无 。 NL 造成 !D! 点 伤害 。 NL 消耗 。"
 	},
-	
+
+	"qcfpunch:WeakestEnergyBlast": {
+		"NAME": "“最强流”波动",
+		"DESCRIPTION": "虚无 。 NL 造成 !D! 点 伤害 。 NL 获得 1/3  qcfpunch:怒气槽 。  NL 消耗 。"
+	},
+
 	"qcfpunch:WeakestFlyingKick": {
-    	"NAME": "“最强流”断空腿",
-    	"DESCRIPTION": "虚无 。 NL 造成 !D! 点 伤害 。 NL 消耗。"
+		"NAME": "“最强流”断空腿",
+		"DESCRIPTION": "虚无 。 NL 造成 !D! 点 伤害 。 NL 消耗 。"
 	},
 
 	"qcfpunch:WeakestProvocation": {
-    	"NAME": "“最强流”挑衅",
-    	"DESCRIPTION": "虚无 。 NL 给予 1 层 易伤 。 NL 获得 1/3 qcfpunch:怒气槽 。 NL 消耗。"
+		"NAME": "“最强流”挑衅",
+		"DESCRIPTION": "虚无 。 NL 给予 1 层 易伤 。 NL 获得 1/3 qcfpunch:怒气槽 。 NL 消耗 。"
 	},
-	
+
 	"qcfpunch:WeakestTaunt": {
-    	"NAME": "“最强流”嘲讽",
-    	"DESCRIPTION": "虚无 。 NL 给予 1 层 虚弱 。 NL 获得 1/3 qcfpunch:怒气槽 。 NL 消耗。"
+		"NAME": "“最强流”嘲讽",
+		"DESCRIPTION": "虚无 。 NL 给予 1 层 虚弱 。 NL 获得 1/3 qcfpunch:怒气槽 。 NL 消耗 。"
 	},
 
 	"WWWWWWWWWWWW": {
-    	"NAME": "WWWWWWWWWWWWWW",
-    	"DESCRIPTION": "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW"
+		"NAME": "WWWWWWWWWWWWWW",
+		"DESCRIPTION": "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW"
 	}
 }

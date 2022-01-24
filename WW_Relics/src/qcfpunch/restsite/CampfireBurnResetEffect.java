@@ -53,7 +53,9 @@ public class CampfireBurnResetEffect extends AbstractGameEffect
                 final RestRoom r = (RestRoom)AbstractDungeon.getCurrRoom();
                 if (this.caller != null) {
                 	@SuppressWarnings("rawtypes")
-					final ArrayList<AbstractCampfireOption> campfireButtons = (ArrayList<AbstractCampfireOption>)ReflectionHacks.getPrivate((Object)(r.campfireUI), (Class)CampfireUI.class, "buttons");
+					final ArrayList<AbstractCampfireOption> campfireButtons =
+                            (ArrayList<AbstractCampfireOption>)ReflectionHacks.getPrivate((Object)(r.campfireUI),
+                                    (Class)CampfireUI.class, "buttons");
                     campfireButtons.remove(this.caller);
                 }
                 r.campfireUI.reopen();

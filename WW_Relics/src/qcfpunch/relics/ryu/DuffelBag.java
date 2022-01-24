@@ -17,6 +17,8 @@ import com.megacrit.cardcrawl.rewards.RewardItem;
 import com.megacrit.cardcrawl.rooms.*;
 
 import basemod.abstracts.CustomRelic;
+import qcfpunch.DuffelBagBandageCardReward;
+import qcfpunch.DuffelBagPanaceaCardReward;
 import qcfpunch.QCFP_Misc;
 import qcfpunch.resources.relic_graphics.GraphicResources;
 
@@ -30,9 +32,7 @@ public class DuffelBag extends CustomRelic {
 
 	private static final int PRETENDED_NUMBER_OF_EXTRA_REWARDS = NUMBER_OF_STATIC_CARDS +
 			NUMBER_OF_RANDOM_COMMON_RELICS;
-	
-	private ArrayList<AbstractCard> reward_cards;
-	
+
 	private static int last_floor_where_relic_was_used = 0;
 	
 	public static final Logger logger = LogManager.getLogger(DuffelBag.class.getName());
@@ -40,11 +40,7 @@ public class DuffelBag extends CustomRelic {
 	public DuffelBag() {
 		super(ID, GraphicResources.LoadRelicImage("Duffel_Bag - swap-bag - Lorc - CC BY 3.0.png"),
 				RelicTier.RARE, LandingSound.FLAT);
-		reward_cards = new ArrayList<AbstractCard>();
-		
-		reward_cards.add(new Panacea());
-		reward_cards.add(new BandageUp());
-		
+
 		SetNumberofRewards(PRETENDED_NUMBER_OF_EXTRA_REWARDS);
 		
 		last_floor_where_relic_was_used = 0;
@@ -140,7 +136,7 @@ public class DuffelBag extends CustomRelic {
 	
 	private void AddReward() {
 		
-		if (this.counter - reward_cards.size() > 0) {
+		if (this.counter - NUMBER_OF_STATIC_CARDS > 0) {
 			
 			AddCard();
 			
@@ -154,17 +150,14 @@ public class DuffelBag extends CustomRelic {
 	
 	private void AddCard() {
 		
-		int card_position = this.counter - reward_cards.size();
-		logger.info(this.counter);
-		logger.info(reward_cards.size());
-		logger.info(card_position);
-		
-		RewardItem card_reward = new RewardItem();
-		card_reward.cards.clear();
-		card_reward.cards.add(reward_cards.get(card_position - 1));
-		card_reward.text = createMessageFoundStuffInside(
-				reward_cards.get(card_position-1).name);
-		AbstractDungeon.getCurrRoom().addCardReward(card_reward);
+		int card_position = this.counter - NUMBER_OF_STATIC_CARDS;
+
+		if (card_position == 2){
+			AbstractDungeon.getCurrRoom().addCardReward(new DuffelBagBandageCardReward());
+		} else if (card_position == 1){
+			AbstractDungeon.getCurrRoom().addCardReward(new DuffelBagPanaceaCardReward());
+		}
+
 		flash();
 	}
 	

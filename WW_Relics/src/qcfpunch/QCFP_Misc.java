@@ -36,7 +36,8 @@ public class QCFP_Misc {
 	public final static CardColor[] base_game_player_classes_colors =
 		{CardColor.RED, CardColor.GREEN, CardColor.BLUE, CardColor.PURPLE,
 				CardColor.COLORLESS};
-	
+
+	//No, do not ask me why this is here.
 	public final static byte THIS_BYTE_DOES_NOT_MATTER = -1;
 	
 	public static int number_of_challenger_coin_potions_at_shop = 0;
@@ -52,7 +53,7 @@ public class QCFP_Misc {
 	}
 	
 	public static String returnDescription() {
-		return "v0.17.9-STEAM" +
+		return "v0.17.12-STEAM" +
 				"\r\n"
 				  + "\r\n Adds thirty-two relics (two need The Artist mod, one is Custom Mode only for now)"
 				  + "\r\n"
@@ -162,15 +163,18 @@ public class QCFP_Misc {
 		if (the_card.isEthereal) has_ethereal = true;
 		
 		if (has_ethereal || has_exhaust) return;
-		
-		int choose = headsOrTails(new Random());
-		
-		if (choose == 1) {
-			setCardToHaveEthereal(the_card);
-		} else {
-			setCardToHaveExhaust(the_card);
-		}
 
+		if (the_card.selfRetain){
+			setCardToHaveExhaust(the_card);
+		} else {
+			int choose = headsOrTails(new Random());
+
+			if (choose == 1) {
+				setCardToHaveEthereal(the_card);
+			} else {
+				setCardToHaveExhaust(the_card);
+			}
+		}
 	}
 	
 	public static void setCardToHaveEthereal(AbstractCard the_card) {
@@ -225,7 +229,7 @@ public class QCFP_Misc {
 	public static void reduceCardCostIfNotStatusOrCurseByOne(AbstractCard card) {
 		
 		if (!cardIsACurseOrStatus(card)) {
-			if (card.cost > 0) card.modifyCostForCombat(-1);
+			if (card.cost > 0) card.modifyCostForCombat(-2);
 		}
 		
 	}

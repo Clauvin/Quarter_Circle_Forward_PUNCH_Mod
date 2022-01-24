@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Map;
 
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -43,31 +45,28 @@ public class RainbowBrush extends CustomRelic{
 	
 	public static final String ID = QCFP_Misc.returnPrefix() +
 			"Rainbow_Brush";
-	
-	public static ArrayList<String> common_cards_ids;
+
 	public static ArrayList<String> uncommon_cards_ids;
 	public static ArrayList<String> rare_cards_ids;
 	public static ArrayList<String> black_cards_ids;
 	public static CardGroup status_cards;
 	public static CardGroup curse_cards;
-	
-	public static int common_CHANCE = -1;
+
 	public static int uncommon_CHANCE = -1;
 	public static int rare_CHANCE = -1;
 	public static int black_CHANCE = -1;
 	public static int curse_CHANCE = -1;
 	public static int status_CHANCE = -1;
-	
-	public static final int COMMON_INITIAL_CHANCE = 12;
-	public static final int UNCOMMON_INITIAL_CHANCE = 50;
+
+	public static final int UNCOMMON_INITIAL_CHANCE = 62;
 	public static final int RARE_INITIAL_CHANCE = 25;
 	public static final int BLACK_INITIAL_CHANCE = 1;
 	public static final int CURSE_INITIAL_CHANCE = 6;
 	public static final int STATUS_INITIAL_CHANCE = 6;
 	
 	public static final int NUMBER_OF_CARDS_PLAYED_TO_ACTIVATE = 5;
-	public static final int PERCENTAGE_TO_REMOVE_OF_COMMON_UNCOMMON_RARE_CARDS = 6;
-	
+	public static final int PERCENTAGE_TO_REMOVE_OF_UNCOMMON_RARE_CARDS = 6;
+
 	public static boolean will_spawn_a_status_card = false;
 	public static boolean will_spawn_a_black_card = false;
 	
@@ -89,7 +88,7 @@ public class RainbowBrush extends CustomRelic{
 	public RainbowBrush() {
 		super(ID, GraphicResources.
 				LoadRelicImage("Temp Rainbow Brush - steeltoe-boots - Lorc - CC BY 3.0.png"),
-				RelicTier.SPECIAL, LandingSound.MAGICAL);
+				RelicTier.BOSS, LandingSound.MAGICAL);
 		
 		this.counter = 0;
 		
@@ -97,7 +96,6 @@ public class RainbowBrush extends CustomRelic{
 		
 		status_cards = new CardGroup(CardGroupType.UNSPECIFIED);
 		curse_cards = new CardGroup(CardGroupType.UNSPECIFIED);
-		common_cards_ids = new ArrayList<String>();
 		uncommon_cards_ids = new ArrayList<String>();
 		rare_cards_ids = new ArrayList<String>();
 		if (do_black_cards_exist) {
@@ -115,8 +113,7 @@ public class RainbowBrush extends CustomRelic{
 	}
 	
 	public void initChance() {
-		
-		common_CHANCE = COMMON_INITIAL_CHANCE;
+
 		uncommon_CHANCE = UNCOMMON_INITIAL_CHANCE;
 		
 		if (do_black_cards_exist) {
@@ -185,14 +182,12 @@ public class RainbowBrush extends CustomRelic{
 			}
 			
 			if (card.hasTag(CardTags.HEALING)) {
-				logger.info(card.cardID.toString() + " not added, it was a healing card.");
+                QCFP_Misc.debugOnlyLoggerLine(logger, card.cardID.toString() +
+                        " not added, it was a healing card.");
 				continue;
 			}
 			
 			switch (card.rarity) {
-				case COMMON:
-					common_cards_ids.add(card.cardID);
-					break;
 				case UNCOMMON:
 					uncommon_cards_ids.add(card.cardID);
 					break;
@@ -200,7 +195,8 @@ public class RainbowBrush extends CustomRelic{
 					rare_cards_ids.add(card.cardID);
 					break;
 				default:
-					logger.info(card.cardID.toString() + " not added.");
+                    QCFP_Misc.debugOnlyLoggerLine(logger, card.cardID.toString() +
+                            " not added.");
 					break;
 			}
 		}
@@ -305,9 +301,6 @@ public class RainbowBrush extends CustomRelic{
 		comparing_rarity += rare_CHANCE;
 		if (which_rarity <= comparing_rarity) return CardRarity.RARE;
 		
-		comparing_rarity += common_CHANCE;
-		if (which_rarity <= comparing_rarity) return CardRarity.COMMON;
-		
 		if (black_CHANCE != 0) {
 			comparing_rarity += black_CHANCE;
 			if (which_rarity <= comparing_rarity) {
@@ -370,9 +363,6 @@ public class RainbowBrush extends CustomRelic{
 		int random_number;
 		String card_id;
 		switch (rarity) {
-			case COMMON:
-				list_of_cards_ids = common_cards_ids;
-				break;
 			case UNCOMMON:
 				list_of_cards_ids = uncommon_cards_ids;
 				break;
@@ -435,10 +425,23 @@ public class RainbowBrush extends CustomRelic{
 			counter = 0;
 			flash();
 
-			AbstractDungeon.actionManager.addToBottom(
-					new RainbowBrushAddTempCardToHandAction(
-							card_to_be_given, false, true));
-							
+			if (card_to_be_given == null){
+				QCFP_Misc.debugOnlyLoggerLine(logger,
+						"Null card found, talk with the mod creator" +
+								" about it.");
+			} else {
+				if ((card_to_be_given.type == CardType.CURSE.CURSE) ||
+						(card_to_be_given.type == CardType.STATUS)){
+					AbstractDungeon.actionManager.addToBottom(
+							new MakeTempCardInDiscardAction(
+									card_to_be_given, 1));
+				} else {
+					AbstractDungeon.actionManager.addToBottom(
+							new RainbowBrushAddTempCardToHandAction(
+									card_to_be_given, false, true));
+				}
+			}
+
 			changeProbabilities();
 			
 			//createCardToGiveLater();
@@ -472,18 +475,17 @@ public class RainbowBrush extends CustomRelic{
 			if (card_type == CardType.CURSE) curse_CHANCE = bad_card_initial_chance;
 			else status_CHANCE = bad_card_initial_chance;
 			
-			distributeCurseAndStatusExtraProbToCommonUncommonAndRare(extra_chance);
+			distributeCurseAndStatusExtraProbToUncommonAndRare(extra_chance);
 			
 			
-		} else if (cardRarityIsCommonUncommonOrRare(card_rarity)) {
+		} else if (cardRarityIsUncommonOrRare(card_rarity)) {
 			
-			changeProbIfCardGivenWasCommonUncommonOrRare(card_rarity);
+			changeProbIfCardGivenWasUncommonOrRare(card_rarity);
 			
 		}
 		
 		QCFP_Misc.debugOnlyLoggerLine(logger, uncommon_CHANCE + "");
 		QCFP_Misc.debugOnlyLoggerLine(logger, rare_CHANCE + "");
-		QCFP_Misc.debugOnlyLoggerLine(logger, common_CHANCE + "");
 		QCFP_Misc.debugOnlyLoggerLine(logger, black_CHANCE + "");
 		QCFP_Misc.debugOnlyLoggerLine(logger, curse_CHANCE + "");
 		QCFP_Misc.debugOnlyLoggerLine(logger, status_CHANCE + "");
@@ -493,22 +495,20 @@ public class RainbowBrush extends CustomRelic{
 		return ((type == CardType.CURSE) || (type == CardType.STATUS));
 	}
 	
-	private boolean cardRarityIsCommonUncommonOrRare(CardRarity card_rarity) {
+	private boolean cardRarityIsUncommonOrRare(CardRarity card_rarity) {
 		return ((card_rarity == CardRarity.UNCOMMON) ||
-				(card_rarity == CardRarity.RARE) ||
-				(card_rarity == CardRarity.COMMON));
+				(card_rarity == CardRarity.RARE));
 	}
 	
-	private void distributeCurseAndStatusExtraProbToCommonUncommonAndRare(
+	private void distributeCurseAndStatusExtraProbToUncommonAndRare(
 			int extra_chance) {
 		
 		int extra_uncommon = extra_chance / 2;
 		int extra_rare = extra_chance / 3;
-		int extra_common = extra_chance / 6;
 		
-		if (extra_uncommon + extra_rare + extra_common < extra_chance) {
+		if (extra_uncommon + extra_rare < extra_chance) {
 			int distributed_chance = extra_chance - 
-					(extra_uncommon + extra_rare + extra_common);
+					(extra_uncommon + extra_rare);
 			
 			for (int i = 1; i <= distributed_chance; i++) {
 				if (i < 4) extra_uncommon += 1;
@@ -518,15 +518,14 @@ public class RainbowBrush extends CustomRelic{
 		
 		uncommon_CHANCE += extra_uncommon;
 		rare_CHANCE += extra_rare;
-		common_CHANCE += extra_common;
 		
 	}
 	
-	private void changeProbIfCardGivenWasCommonUncommonOrRare(CardRarity card_rarity) {
+	private void changeProbIfCardGivenWasUncommonOrRare(CardRarity card_rarity) {
 		
 		int pass_by = 0;
 		final int PERCENTAGE_TO_REMOVE =
-				PERCENTAGE_TO_REMOVE_OF_COMMON_UNCOMMON_RARE_CARDS;
+				PERCENTAGE_TO_REMOVE_OF_UNCOMMON_RARE_CARDS;
 		int amount;
 		
 		if (card_rarity == CardRarity.UNCOMMON) {
@@ -538,11 +537,6 @@ public class RainbowBrush extends CustomRelic{
 			
 			amount = QCFP_Misc.min(PERCENTAGE_TO_REMOVE, rare_CHANCE);
 			rare_CHANCE -= amount; pass_by += amount;
-			
-		} else if (card_rarity == CardRarity.COMMON) {
-			
-			amount = QCFP_Misc.min(PERCENTAGE_TO_REMOVE, common_CHANCE);
-			common_CHANCE -= amount; pass_by += amount;
 			
 		}
 		
@@ -560,8 +554,8 @@ public class RainbowBrush extends CustomRelic{
 	@Override
 	public void onEquip() {
 		super.onEquip();
-		
-		if (common_CHANCE == -1) initChance();
+
+		if (uncommon_CHANCE == -1) initChance();
 		
 	}
 	
@@ -610,9 +604,6 @@ public class RainbowBrush extends CustomRelic{
     			String start_of_save_variable = "rainbow_brush_class_" + class_name +
         				"_save_slot_" + CardCrawlGame.saveSlot;
     			String start_of_helper_tip_variables = "rainbow_brush_save_slot_";
-    			
-        		config.setInt(start_of_save_variable +
-        				"_COMMON_CHANCE", common_CHANCE);
 
                 config.setInt(start_of_save_variable +
         				"_UNCOMMON_CHANCE", uncommon_CHANCE);
@@ -667,10 +658,7 @@ public class RainbowBrush extends CustomRelic{
 		
 		if (AbstractDungeon.player.hasRelic(ID) && 
 				config.has(start_of_save_variable +
-						"_COMMON_CHANCE")) {
-			
-    		common_CHANCE = config.getInt(start_of_save_variable +
-    				"_COMMON_CHANCE");
+						"_UNCOMMON_CHANCE")) {
 
     		uncommon_CHANCE = config.getInt(start_of_save_variable +
     				"_UNCOMMON_CHANCE");
@@ -719,8 +707,6 @@ public class RainbowBrush extends CustomRelic{
         String class_name = AbstractDungeon.player.getClass().getName();
         String start_of_save_variable = "rainbow_brush_class_" + class_name +
 				"_save_slot_" + CardCrawlGame.saveSlot;
-        
-        config.remove(start_of_save_variable + "_COMMON_CHANCE");
         
         config.remove(start_of_save_variable + "_UNCOMMON_CHANCE");
         

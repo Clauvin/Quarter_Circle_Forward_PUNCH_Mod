@@ -23,7 +23,7 @@ public class Cattail extends CustomRelic {
 	public static final String ID = QCFP_Misc.returnPrefix() +
 			"Cattail";
 	
-	public static int HOW_MANY_ROOMS_TO_GIVE_SMOKE_BOMB = 7;
+	public static int HOW_MANY_ROOMS_TO_GIVE_SMOKE_BOMB = 6;
 	
 	private static int last_floor_where_relic_counter_was_changed = 0;
 	private static final int RELIC_HAVENT_SPAWNED_YET = 0;

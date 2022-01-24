@@ -12,7 +12,7 @@ import qcfpunch.relics.cammy.SpecialOpsInsignia;
 import qcfpunch.relics.character_cameos.valerie.RainbowBrush;
 import qcfpunch.relics.chun_li.*;
 import qcfpunch.relics.dhalsim.BrokenTusk;
-import qcfpunch.relics.dhalsim.LotusStatue;
+import qcfpunch.relics.dhalsim.OldLotusStatue;
 import qcfpunch.relics.dhalsim.NecklaceOfSkulls;
 import qcfpunch.relics.guile.*;
 import qcfpunch.relics.ken.BlackTrainingShirt;
@@ -106,7 +106,7 @@ public class RelicSetModifiers {
 	public static void addAsceticMonkToCustomRun(ArrayList<String> relics) {
 		addRelicToCustomRunRelicList(BrokenTusk.ID, relics);
 		addRelicToCustomRunRelicList(NecklaceOfSkulls.ID, relics);
-		addRelicToCustomRunRelicList(LotusStatue.ID, relics);
+		addRelicToCustomRunRelicList(OldLotusStatue.ID, relics);
 	}
 	
 	public static void addDeltaSpikeToCustomRun(ArrayList<String> relics) {

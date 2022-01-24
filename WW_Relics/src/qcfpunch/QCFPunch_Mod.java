@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
 
+import com.megacrit.cardcrawl.rewards.RewardSave;
 import org.apache.logging.log4j.*;
 
 import com.badlogic.gdx.Gdx;
@@ -23,10 +24,10 @@ import basemod.BaseMod;
 //import basemod.ModPanel;
 import basemod.helpers.RelicType;
 import basemod.interfaces.*;
-import qcfpunch.QCFP_Misc;
 import qcfpunch.events.act2.FightingNoisesEvent;
 import qcfpunch.modifiers.*;
 import qcfpunch.monsters.elites.TiredGremlinNob;
+import qcfpunch.patches.RewardItemTypeEnumPatch;
 import qcfpunch.potions.ChallengerCoin;
 
 import qcfpunch.relics.chun_li.*;
@@ -518,7 +519,17 @@ public class QCFPunch_Mod implements AddCustomModeModsSubscriber, EditStringsSub
 		//uncomment line below and replaces settingsPanel to the null when
 		//the mod panel has something to show
         //ModPanel settingsPanel = new ModPanel();
-        BaseMod.registerModBadge(badgeTexture, MODNAME, AUTHOR, DESCRIPTION, null);
+        //BaseMod.registerModBadge(badgeTexture, MODNAME, AUTHOR, DESCRIPTION, null);
+
+		BaseMod.registerCustomReward(RewardItemTypeEnumPatch.DUFFELBAGBANDAGECARDREWARD,
+				(rewardSave) -> new DuffelBagBandageCardReward(),
+				(customReward) -> new RewardSave(customReward.type.toString(),
+						DuffelBagBandageCardReward.ID));
+
+		BaseMod.registerCustomReward(RewardItemTypeEnumPatch.DUFFELBAGPANACEACARDREWARD,
+				(rewardSave) -> new DuffelBagPanaceaCardReward(),
+				(customReward) -> new RewardSave(customReward.type.toString(),
+						DuffelBagPanaceaCardReward.ID));
 	}
 	
 	public void addPotions() {

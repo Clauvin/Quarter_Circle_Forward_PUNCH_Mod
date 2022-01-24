@@ -193,10 +193,10 @@ public class FightingNoisesEvent extends AbstractImageEvent {
     private void SetEventVictoriousAftermath() {
     	last_event_page_visited = ELITE_VICTORIOUS_AFTERMATH;
         this.imageEventText.setDialogOption(OPTIONS[WHERE_OPTION_TEXT_STARTS +
-                                                    GAINED_BLOOD_RELIC_OPTION],
+                                                    GAINED_BLOOD_RELIC_OPTION], false,
         									new NeverendingBlood());
         this.imageEventText.setDialogOption(OPTIONS[WHERE_OPTION_TEXT_STARTS +
-                                                    GAINED_SKELETON_RELIC_OPTION],
+                                                    GAINED_SKELETON_RELIC_OPTION], false,
         									new ExtraSkeleton());
         this.imageEventText.setDialogOption(OPTIONS[WHERE_OPTION_TEXT_STARTS +
                                                     GAINED_CHALLENGER_COINS_OPTION],
@@ -268,6 +268,12 @@ public class FightingNoisesEvent extends AbstractImageEvent {
     	this.imageEventText.setDialogOption(OPTIONS[dialog_position]);
 		this.imageEventText.updateBodyText(DESCRIPTIONS[body_text_position]);
     }
+
+	private void setDialogAndBodyTextWithRelic(int dialog_position, int body_text_position,
+											   AbstractRelic relic) {
+		this.imageEventText.setDialogOption(OPTIONS[dialog_position], true, relic);
+		this.imageEventText.updateBodyText(DESCRIPTIONS[body_text_position]);
+	}
     
     @Override
     public void reopen() {

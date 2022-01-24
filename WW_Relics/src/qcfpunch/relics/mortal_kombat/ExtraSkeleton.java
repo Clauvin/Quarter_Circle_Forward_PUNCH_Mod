@@ -15,7 +15,7 @@ public class ExtraSkeleton extends CustomRelic {
 	
 	public static final int COUNTER_INITIAL_VALUE = 0;
 	public static final int COUNTER_INCREASE_VALUE = 1;
-	public static final int COUNTER_MAX_VALUE = 5;
+	public static final int COUNTER_MAX_VALUE = 6;
 	
 	public static final int BUFFER_POWER_AMOUNT_ADDED = 1;
 	
