@@ -156,14 +156,6 @@ White Boots and many other relics with boots as images, Neverending Blood, - Fou
  
 Wrestler's Cloak - Found original at https://game-icons.net/1x1/delapouite/cape.html - Made by Delapouite, and shared through CC BY 3.0 - Version in game is modified by mod creator.
 
-# Notes For Contributors
-
-(...ok, I really have to add something here later.)
-
-# See Also
-
-(...and here, too...)
-
 # Ideas That Probably Won't Enter Because Of Feature Creep and Fatigue
 
 8. Starting support to Nexus Mods.
