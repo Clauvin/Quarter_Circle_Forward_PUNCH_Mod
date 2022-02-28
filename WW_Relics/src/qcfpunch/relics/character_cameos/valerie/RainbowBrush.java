@@ -87,7 +87,8 @@ public class RainbowBrush extends CustomRelic{
 	
 	public RainbowBrush() {
 		super(ID, GraphicResources.
-				LoadRelicImage("Temp Rainbow Brush - steeltoe-boots - Lorc - CC BY 3.0.png"),
+				LoadRelicImage("Rainbow Brush - Oni - Rights Reserved.png"),
+				GraphicResources.LoadOutlineImage("Rainbow Brush Outline.png"),
 				RelicTier.BOSS, LandingSound.MAGICAL);
 		
 		this.counter = 0;
