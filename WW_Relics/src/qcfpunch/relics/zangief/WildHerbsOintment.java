@@ -25,7 +25,7 @@ public class WildHerbsOintment extends CustomRelic  {
 	public static final Logger logger = LogManager.getLogger(WildHerbsOintment.class.getName());
 	
 	public WildHerbsOintment() {
-		super(ID, GraphicResources.LoadRelicImage("Temp Wild Herbs Ointment - steeltoe-boots - Lorc - CC BY 3.0.png"),
+		super(ID, GraphicResources.LoadRelicImage("Wild Herbs Ointment - Oni - Rights Reserved.png"),
 				RelicTier.UNCOMMON, LandingSound.MAGICAL);
 	}
 	
