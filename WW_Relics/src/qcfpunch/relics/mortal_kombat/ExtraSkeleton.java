@@ -20,7 +20,7 @@ public class ExtraSkeleton extends CustomRelic {
 	public static final int BUFFER_POWER_AMOUNT_ADDED = 1;
 	
 	public ExtraSkeleton() {
-		super(ID, GraphicResources.LoadRelicImage("Temp Extra Skeleton - steeltoe-boots - Lorc - CC BY 3.0.png"),
+		super(ID, GraphicResources.LoadRelicImage("Extra Skeleton - Oni - Rights Reserved.png"),
 				RelicTier.SPECIAL, LandingSound.MAGICAL);
 		
 		this.counter = COUNTER_INITIAL_VALUE;
