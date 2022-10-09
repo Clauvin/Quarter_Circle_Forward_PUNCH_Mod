@@ -21,7 +21,8 @@ public class NotStrongestFightingStyleGuidebook extends CustomRelic {
 	public static Sfx strongest_sound;
 	
 	public NotStrongestFightingStyleGuidebook() {
-		super(ID, GraphicResources.LoadRelicImage("Temp Strongest Style Manual - steeltoe-boots - Lorc - CC BY 3.0.png"),
+		super(ID, GraphicResources.LoadRelicImage("Strongest Style Manual - Based on Oni - Rights Reserved.png"),
+				GraphicResources.LoadOutlineImage("Strongest Style Manual Outline.png"),
 				RelicTier.COMMON, LandingSound.FLAT);
 		strongest_sound = new Sfx("qcfpunch/resources/sounds/" + on_equip_sound_file_name, false);
 	}
