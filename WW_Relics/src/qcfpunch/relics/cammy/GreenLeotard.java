@@ -21,7 +21,8 @@ public class GreenLeotard extends CustomRelic {
 	public int actual_hand_per_turn_start;
 	
 	public GreenLeotard() {
-		super(ID, GraphicResources.LoadRelicImage("Temp Green Leotard - steeltoe-boots - Lorc - CC BY 3.0.png"),
+		super(ID, GraphicResources.LoadRelicImage("Green Leotard - Oni - Rights Reserved.png"),
+				GraphicResources.LoadOutlineImage("Green Leotard Outline - Oni - Rights Reserved"),
 				RelicTier.UNCOMMON, LandingSound.FLAT);
 	}
 	
