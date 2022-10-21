@@ -22,7 +22,7 @@ public class GreenLeotard extends CustomRelic {
 	
 	public GreenLeotard() {
 		super(ID, GraphicResources.LoadRelicImage("Green Leotard - Oni - Rights Reserved.png"),
-				GraphicResources.LoadOutlineImage("Green Leotard Outline - Oni - Rights Reserved"),
+				GraphicResources.LoadOutlineImage("Green Leotard Outline - Oni - Rights Reserved.png"),
 				RelicTier.UNCOMMON, LandingSound.FLAT);
 	}
 	
