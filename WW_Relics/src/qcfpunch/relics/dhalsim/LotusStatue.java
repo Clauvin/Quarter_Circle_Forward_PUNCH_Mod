@@ -44,7 +44,7 @@ public class LotusStatue extends CustomRelic implements OnRemoveCardFromMasterDe
 
     public LotusStatue() {
         super(ID, GraphicResources.LoadRelicImage(
-                "Temp Lotus Statue - steeltoe-boots - Lorc - CC BY 3.0.png"),
+                "Lotus Statue - Oni - Rights Reserved.png"),
                 RelicTier.RARE, LandingSound.MAGICAL);
 
         this.counter = INITIAL_AMOUNT_OF_CHARGES;

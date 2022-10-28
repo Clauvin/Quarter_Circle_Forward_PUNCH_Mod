@@ -45,7 +45,7 @@ public class PrimaryBrush extends CustomRelic  {
 	
 	public PrimaryBrush() {
 		super(ID, GraphicResources.LoadRelicImage(
-				"Temp School Backpack - steeltoe-boots - Lorc - CC BY 3.0.png"),
+				"Primary Brush - Oni - Rights Reserved.png"),
 				RelicTier.RARE, LandingSound.CLINK);
 	}
 	
