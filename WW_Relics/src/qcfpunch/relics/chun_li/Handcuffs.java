@@ -57,7 +57,7 @@ public class Handcuffs extends CustomRelic {
 	@Override
 	public void onAttack(DamageInfo info, int damageAmount, AbstractCreature target) {
 		
-		if (canBeUsed(info, damageAmount)) {
+		if (canBeUsed(info, damageAmount, target)) {
 			
 			if (NUMBER_OF_STR_DOWN_DEBUFFS > 0) {
 				AbstractDungeon.actionManager.addToTop(
@@ -84,17 +84,19 @@ public class Handcuffs extends CustomRelic {
 		
 	}
 	
-	public boolean canBeUsed(DamageInfo info, int damageAmount) {
+	public boolean canBeUsed(DamageInfo info, int damageAmount, AbstractCreature target) {
 		
 		boolean owner_not_null = info.owner != null;
 		boolean normal_damage_type = info.type == DamageType.NORMAL;
 		boolean suffered_damage = damageAmount > 0;
 		boolean can_be_used_in_this_fight = number_of_uses_left_in_this_fight > 0;
+		boolean target_is_not_the_player = info.owner != target;
 		
 		return ((owner_not_null) &&
 				(normal_damage_type) &&
 				(suffered_damage) &&
-				(can_be_used_in_this_fight));
+				(can_be_used_in_this_fight) &&
+				(target_is_not_the_player));
 	}
 	
 	public boolean canSpawn()
