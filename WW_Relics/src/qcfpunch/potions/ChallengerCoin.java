@@ -51,7 +51,7 @@ public class ChallengerCoin extends OutOfCombatPotion implements IPostMapGenerat
 	//Size apparently creates the recipient of the potion.
 	//Since this potion is a coin, I will have to make my own files for that in the future.
 	public static final PotionSize SIZE = PotionSize.SPHERE;
-	public static final PotionColor COLOR = PotionColor.ATTACK;
+	public static final PotionColor COLOR = PotionColor.ANCIENT;
 	
 	public static final String INFINITE_SPIRE_NIGHTMARE_ELITE_ROOM_SYMBOL = "NM";
 	public static final String REPLAY_THE_SPIRE_TELEPORT_ROOM_SYMBOL = "PTL";
