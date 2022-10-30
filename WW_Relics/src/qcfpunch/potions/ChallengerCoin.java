@@ -113,9 +113,6 @@ public class ChallengerCoin extends OutOfCombatPotion implements IPostMapGenerat
 				description += DESCRIPTIONS[5];
 
 			} else {
-
-
-
 				description += DESCRIPTIONS[4];
 			}
 
@@ -123,7 +120,18 @@ public class ChallengerCoin extends OutOfCombatPotion implements IPostMapGenerat
 
 		}
 
-		return "This is a bug.";
+		else {
+			String description = DESCRIPTIONS[0];
+
+			if (QCFP_Misc.silentlyCheckForMod(QCFP_Misc.replay_the_spire_class_code)) {
+				description += DESCRIPTIONS[1];
+			}
+
+			description += DESCRIPTIONS[2];
+			description += DESCRIPTIONS[4];
+
+			return description;
+		}
 
 	}
 	
