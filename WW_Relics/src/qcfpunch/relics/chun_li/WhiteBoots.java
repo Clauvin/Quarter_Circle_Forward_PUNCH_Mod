@@ -82,8 +82,8 @@ public class WhiteBoots extends CustomRelic {
 		for (int i = 0; i < total_damage; i++) {
 			flash();
 			AbstractDungeon.actionManager.addToBottom(
-					new DamageAllEnemiesAction(AbstractDungeon.player, 1, DamageType.HP_LOSS,
-							AttackEffect.BLUNT_LIGHT));
+					new DamageAllEnemiesAction(AbstractDungeon.player, DamageInfo.createDamageMatrix(1, true),
+							DamageType.HP_LOSS, AttackEffect.BLUNT_LIGHT));
 		}
 	}
 	
