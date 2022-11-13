@@ -4,7 +4,7 @@
 	    "NAMES": [
 	      "potential"
 	    ],
-	    "DESCRIPTION": "Buff that is converted on a rate of #b3 stacks to #b1 Energy."
+	    "DESCRIPTION": "When you have #b3 Potential, lose them and gain #b1 Energy."
 	},
 
 	{
