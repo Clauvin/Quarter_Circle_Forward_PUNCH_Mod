@@ -18,8 +18,8 @@
   "qcfpunch:Power_Potential": {
     "NAME": "Potential",
     "DESCRIPTIONS": [
-      "You have ",
-      "/",
+      "You have #b",
+      "/#b",
       " Potential. When you have #b3 or more, lose #b3 to gain #b1 Energy."
     ]
   },
