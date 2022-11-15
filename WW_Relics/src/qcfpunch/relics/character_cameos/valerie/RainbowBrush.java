@@ -588,8 +588,6 @@ public class RainbowBrush extends CustomRelic{
 				AbstractDungeon.getCurrRoom() instanceof CustomEventRoom;
 	}
 	
-	//Don't forget to add something to avoid cases where a card mod
-	// is removed mid-game 
 	public static void save(final SpireConfig config) {
 
         if (AbstractDungeon.player != null && AbstractDungeon.player.hasRelic(ID)) {
