@@ -128,7 +128,7 @@ To game-icons.net, because without it the mod probably would not have proper tem
 
 To Robert C. Martin because of his book [Clean Code](https://www.oreilly.com/library/view/clean-code/9780136083238/), since without it, oh boy this mod's code would be way harder to read...
 
-# Art Assets
+# Art Assets (have to update this)
 
 Cattail - Found original at https://game-icons.net/1x1/delapouite/reed.html - Made by Delapouite, and shared through CC BY 3.0 - Version in game is modified by mod creator.
 
