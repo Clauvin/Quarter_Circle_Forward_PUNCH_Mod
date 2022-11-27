@@ -40,22 +40,6 @@ Link in the [wiki's page](https://github.com/Clauvin/World_Warriors_Relics/wiki/
 
 Link too in the [wiki's page](https://github.com/Clauvin/World_Warriors_Relics/wiki/Game-Modifiers).
 
-# Ever Changing Current Roadmap (yes, this can change depending of circunstances)
-
-1. Create a relic based in Ryu, for basic testing and getting the hang of modding relics for Slay The Spire. Focus in mechanics and avoiding bugs, not graphics. - Done in v0.1.
-2. Relics inspired by Ryu, Ken, Chun Li and Guile. - Done in v0.11.
-3. Add Custom Modifiers (and other small stuff) related with the major theme. - Done in v0.11.
-4. Small improvement in FX and relic images, polishing of content in general. - Done.
-5. Mod release! Release at Github and Steam. (all future milestones, when finished, shall have proper releases) - Done.
-
-- (thanks to rl issues, a pause will be made in this mod's development but 16 relics will be done already when finishing the fourth milestone)
-
-6. Relics inspired by Cammy, Dhalsim, Blanka, Zangief and as a guest, Valerie from Fantasy Strike. - Blanka won't enter.
-7. Focus in Akuma's inspired relic. - Done in 6.
-8. Bug fixing and polish. - Done. :)
-9. Final version of relic's graphics. - In progress.
-10. v1.0 release :)
-
 # Requirements
 
 Slay The Spire 2.0, Mod The Spire 3.11.0+, BaseMod 5.15.1+ and StSLib 1.17.1+ (when needed, the requirements will be updated to more recent versions of the game and libraries)
@@ -124,6 +108,8 @@ To MegaCrit, the makes from SlayTheSpire, because the game is awesome and they a
 
 The whole modding channel from the Discord's Slay The Spire server and all people who goes there to support and banter and laugh about modding the game and #anime-discussion and #add-any-subject-here. You rock, fellows.
 
+[oninego](instagram.com/oninego) for a good chunk of the relic arts :D
+
 To game-icons.net, because without it the mod probably would not have proper temporary icons for its relics.
 
 To Robert C. Martin because of his book [Clean Code](https://www.oreilly.com/library/view/clean-code/9780136083238/), since without it, oh boy this mod's code would be way harder to read...
@@ -156,7 +142,7 @@ White Boots and many other relics with boots as images, Neverending Blood, - Fou
  
 Wrestler's Cloak - Found original at https://game-icons.net/1x1/delapouite/cape.html - Made by Delapouite, and shared through CC BY 3.0 - Version in game is modified by mod creator.
 
-# Ideas That Probably Won't Enter Because Of Feature Creep and Fatigue
+# Ideas That  Won't Enter Because Of Feature Creep and Fatigue
 
 8. Starting support to Nexus Mods.
 9. Add system to gather anonimized player data for better understanding of how the mod is used.
@@ -170,18 +156,12 @@ Wrestler's Cloak - Found original at https://game-icons.net/1x1/delapouite/cape.
 17. Reworking of other Custom Modifiers to have more mini-characters, IF I'm fine with the results above
 18. Update of beta art and sound assets to v1.0
 19. Polishing, refactoring, balancing - mostly reducing the Issues list size.
-
-(and here we reach v1.0)
-
 20. Translation of the mod to PT-BR. (all future milestones will launch with EN localization, PT-BR will come after a round of balancing)
 21. Focus in T. Hawk relic (only in his relic because it will trigger events, and that's different from all the other relics so far)
 22. Relics inspired by Fei Long and Deejay. (number unknown)
 23. Synergy and adaptation with Infinite Spire. (Black cards? Black cards. o9)
 24. Synergy with Halation. (Simulated Spire? Yep.)
 25. Synergy and adaptation with other mods. (Googly Eyes included)
-
-And MAYBE in the future, for a v2.0 (not making promises here)
-
 26. Elite monsters.
 27. Extra events.
 28. Cards inspired by moves of fighting games (and here I include Smash), that can be get through events or other mod's access to a hidden character.
