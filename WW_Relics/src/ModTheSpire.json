@@ -2,7 +2,7 @@
 	"modid": "qcfpunch",
 	"name": "Quarter Circle Forward PUNCH!",
     "description": "A STS mod, inspired by SF2's main characters (also other fighting games). \r\n \r\nIt adds 32 relics (two need The Artist Mod), 12 custom game modifiers, 1 event and 1 potion, all in English and simplified Chinese. \r\n \r\n",
-	"version": "1.0-beta-1",
+	"version": "1.0",
 	"sts_version": "01-14-2020",
 	"mts_version": "3.11.0",
 	"author_list": ["Levender"],
