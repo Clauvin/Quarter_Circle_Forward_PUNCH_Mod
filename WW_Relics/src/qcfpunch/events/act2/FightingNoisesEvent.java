@@ -201,9 +201,11 @@ public class FightingNoisesEvent extends AbstractImageEvent {
         this.imageEventText.setDialogOption(OPTIONS[WHERE_OPTION_TEXT_STARTS +
                                                     GAINED_CHALLENGER_COINS_OPTION],
         									new ChallengerCoinText());
+		GoodInstincts goodInstinctsCard = new GoodInstincts();
+		goodInstinctsCard.upgrade();
         this.imageEventText.setDialogOption(OPTIONS[WHERE_OPTION_TEXT_STARTS +
                                                     GAINED_NOPE_NOPE_CANTALOPE_2_GOOD_INSTINCTS_PLUS_OPTION],
-        									new GoodInstincts());
+											goodInstinctsCard);
 		this.imageEventText.updateBodyText(DESCRIPTIONS[WHERE_EVENT_TEXT_STARTS +
 		                                                ELITE_VICTORIOUS_AFTERMATH]);
 		CardCrawlGame.music.fadeAll();
