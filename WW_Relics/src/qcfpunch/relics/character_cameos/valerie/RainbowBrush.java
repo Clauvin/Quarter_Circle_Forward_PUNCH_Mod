@@ -275,6 +275,9 @@ public class RainbowBrush extends CustomRelic{
 		card_to_be_shown_while_hovering_relic =
 				QCFP_Misc.
 				doCopyWithEtherealExhaustAndDescription(card_to_be_given);
+		if (card_to_be_shown_while_hovering_relic == null){
+			QCFP_Misc.fastLoggerLine("Rainbow Brush hover card did not show up, tell the modded about it.");
+		}
 		
 		AbstractDungeon.effectList.add(
 				new ThoughtBubble(
