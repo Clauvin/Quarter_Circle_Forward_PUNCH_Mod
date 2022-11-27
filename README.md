@@ -22,7 +22,7 @@ With Vex TheArtist Mod (https://steamcommunity.com/sharedfiles/filedetails/?id=1
 
 # Current State
 
-Working to finish v0.18 to then finish v1.0.
+v1.0. :D v1.0.x expected as fixes are needed, v1.1... is a huge unknown.
 
 # Link to Releases and Pre-Releases
 
