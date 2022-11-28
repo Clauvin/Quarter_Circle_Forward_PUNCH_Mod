@@ -116,7 +116,7 @@ To Robert C. Martin because of his book [Clean Code](https://www.oreilly.com/lib
 
 # Art Assets 
 
-oninego (instagram.com/oninego) - Responsible for original graphics of Black Training Shirt, Broken Tusk, Chain With Nametags, Combat Fatigues, Crimson Sash, Extra Skeleton, Green Leotard, Handcuffs, Lotus Statue, Primary Brush, Rainbow Brush, Red Beret, Red Cyclone Teachings, Special Ops Insignia, Unceasing Flame and Wild Herbs Ointment. Also Red Cyclone Teachings was used as a base by the mod creator for the Strongest Style Manual relic graphic.
+[oninego](instagram.com/oninego)(instagram.com/oninego) - Responsible for original graphics of Black Training Shirt, Broken Tusk, Chain With Nametags, Combat Fatigues, Crimson Sash, Extra Skeleton, Green Leotard, Handcuffs, Lotus Statue, Primary Brush, Rainbow Brush, Red Beret, Red Cyclone Teachings, Special Ops Insignia, Unceasing Flame and Wild Herbs Ointment. Also Red Cyclone Teachings was used as a base by the mod creator for the Strongest Style Manual relic graphic.
 
 Cattail - Found original at https://game-icons.net/1x1/delapouite/reed.html - Made by Delapouite, and shared through CC BY 3.0 - Version in game is modified by mod creator.
 
