@@ -114,7 +114,9 @@ To game-icons.net, because without it the mod probably would not have proper tem
 
 To Robert C. Martin because of his book [Clean Code](https://www.oreilly.com/library/view/clean-code/9780136083238/), since without it, oh boy this mod's code would be way harder to read...
 
-# Art Assets (have to update this)
+# Art Assets 
+
+oninego (instagram.com/oninego) - Responsible for original graphics of Black Training Shirt, Broken Tusk, Chain With Nametags, Combat Fatigues, Crimson Sash, Extra Skeleton, Green Leotard, Handcuffs, Lotus Statue, Primary Brush, Rainbow Brush, Red Beret, Red Cyclone Teachings, Special Ops Insignia, Unceasing Flame and Wild Herbs Ointment. Also Red Cyclone Teachings was used as a base by the mod creator for the Strongest Style Manual relic graphic.
 
 Cattail - Found original at https://game-icons.net/1x1/delapouite/reed.html - Made by Delapouite, and shared through CC BY 3.0 - Version in game is modified by mod creator.
 
@@ -128,7 +130,7 @@ Handcuffs - Found original at https://game-icons.net/1x1/lorc/handcuffs.html - M
 
 Killian Engine Alpha - Found original at https://game-icons.net/1x1/lorc/triple-yin.html - Made by lorc, and shared through CC BY 3.0 - Version in game is modified by mod creator.
 
-Light backpack - Found original at https://game-icons.net/1x1/delapouite/light-backpack.html - Made by Delapouite, and shared through CC BY 3.0 - Version in game is modified by mod creator.
+Light Backpack - Found original at https://game-icons.net/1x1/delapouite/light-backpack.html - Made by Delapouite, and shared through CC BY 3.0 - Version in game is modified by mod creator.
 
 Mixed Paint Bucket - - Found original at https://game-icons.net/1x1/delapouite/paint-bucket.html - Made by Delapouite, and shared through CC BY 3.0 - Version in game is modified by mod creator.
 
@@ -138,7 +140,7 @@ Red Headband - Found original at https://game-icons.net/1x1/delapouite/headband-
 
 Spiky Bracers - Made by hand by mod creator.
 
-White Boots and many other relics with boots as images, Neverending Blood, - Found original at https://game-icons.net/1x1/lorc/steeltoe-boots.html - Made by Lorc, and shared through CC BY 3.0 - Version in game is modified by mod creator.
+White Boots, Neverending Blood, - Found original at https://game-icons.net/1x1/lorc/steeltoe-boots.html - Made by Lorc, and shared through CC BY 3.0 - Version in game is modified by mod creator.
  
 Wrestler's Cloak - Found original at https://game-icons.net/1x1/delapouite/cape.html - Made by Delapouite, and shared through CC BY 3.0 - Version in game is modified by mod creator.
 
